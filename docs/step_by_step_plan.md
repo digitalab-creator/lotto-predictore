@@ -24,7 +24,7 @@ Arrr matey, here be the course we'll chart to build this mighty system, praisin'
 - Generate 8 optimal combinations.
 - Select top strong number(s).
 - Store generated combinations in `generated_combinations` table.
-- Version and log every algorithm change.
+- Version algorithms by duplicating and updating algorithm classes; compare performance in simulation (no need to log every change).
 
 ## Step 4: Simulation Engine
 - Implement simulation logic for a given algorithm version and date range.
