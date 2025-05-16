@@ -9,7 +9,7 @@ from sqlalchemy.exc import IntegrityError
 logging.basicConfig(level=logging.INFO, format='%(asctime)s | %(levelname)s | %(message)s')
 
 PAISAPI_URL = "https://paisapi.azurewebsites.net/lotto/byDates/{to_date}/{from_date}"
-START_DATE = date(1960, 1, 1)
+START_DATE = date(2007, 1, 1)
 END_DATE = date(2024, 10, 1)  # exclusive upper bound for part 1
 
 
