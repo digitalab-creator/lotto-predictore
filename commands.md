@@ -1,5 +1,6 @@
 # Useful Commands for Lotto Predictore ⚓️
-
+start
+./up_with_cron.sh   
 ## Import Draws
 
 To import draws from the paisapi, run this command:
