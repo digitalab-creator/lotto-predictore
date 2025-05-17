@@ -10,6 +10,17 @@ import json
 from datetime import date
 from sqlalchemy.orm import Session
 from services.logger import dh_log
+import random
+import numpy as np
+from algorithms.strong_number import STRONG_NUMBER_REGISTRY
+from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND
+from db import SessionLocal
+import itertools
+from services.simulation_engine import calculate_roi_with_tax
+import hashlib
+import pickle
+
+dh_log("Arrr! sequence_classifier.py imported!", level="INFO")
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model.pt')
 META_PATH = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_meta.json')
@@ -123,12 +134,12 @@ def finetune_lotto_lstm(draws: List[Draw], seq_len=10, epochs=10, lr=0.0005, bat
     return model
 
 # --- Inference Function ---
-def predict_next_numbers(draws: List[Draw], seq_len=10, threshold=0.5, model_path=MODEL_PATH) -> List[int]:
+def predict_next_numbers(draws: List[Draw], seq_len=10, threshold=0.5, model_path=MODEL_PATH, hidden_size=64, num_layers=2) -> List[int]:
     num_numbers = 37
     if len(draws) < seq_len:
         dh_log("Arrr! Not enough draws for sequence prediction!", level="ERROR", context={"draws_len": len(draws), "seq_len": seq_len})
         raise ValueError("Not enough draws for sequence prediction")
-    model = LottoLSTM(num_numbers=num_numbers, seq_len=seq_len)
+    model = LottoLSTM(num_numbers=num_numbers, seq_len=seq_len, hidden_size=hidden_size, num_layers=num_layers)
     if not os.path.exists(model_path):
         dh_log(f"Arrr! Model file not found: {model_path}", level="ERROR", context={"model_path": model_path})
         raise FileNotFoundError(f"Model file not found: {model_path}")
@@ -343,6 +354,271 @@ class SequenceClassificationLSTM_SEQ20_Algorithm(Algorithm):
         except Exception as e:
             dh_log(f"Arrr! LSTM SEQ20 run method failed: {e}", level="ERROR")
             return []
+
+@register_algorithm
+class SequenceClassificationLSTM_H128_L2_E20_Algorithm(Algorithm):
+    version = "sequence_lstm_classifier_h128_l2_e20"
+    description = "LSTM: hidden_size=128, num_layers=2, seq_len=10, lr=0.001, batch_size=8, epochs=20. Inference-only, returns combos for a single test draw. Praisin' the FSM!"
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = 8, db: Session = None) -> List[Dict[str, Any]]:
+        try:
+            # Set random seeds for reproducibility
+            random.seed(42)
+            np.random.seed(42)
+            torch.manual_seed(42)
+            dh_log("Arrr! LSTM H128_L2_E20 (inference-only, single test draw) run method called!", level="INFO")
+            seq_len = 10
+            hidden_size = 128
+            num_layers = 2
+            threshold = 0.2
+            model_path = os.path.join(os.path.dirname(__file__), '../scripts/sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt')
+            combos = []
+            for _ in range(num_to_recommend or 8):
+                try:
+                    numbers = predict_next_numbers(
+                        draws,
+                        seq_len=seq_len,
+                        threshold=threshold,
+                        model_path=model_path,
+                        hidden_size=hidden_size,
+                        num_layers=num_layers
+                    )
+                except Exception as e:
+                    dh_log(f"Arrr! [FSM DEBUG] Prediction failed: {e}", level="ERROR")
+                    numbers = []
+                strong_counter = Counter(draw.strong_number for draw in draws)
+                top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
+                combos.append({"numbers": numbers, "strong": top_strong})
+            return combos
+        except Exception as e:
+            dh_log(f"Arrr! LSTM H128_L2_E20 (inference-only, single test draw) run method failed: {e}", level="ERROR")
+            return []
+
+@register_algorithm
+class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
+    version = "sequence_lstm_classifier_gridsearch"
+    description = "Grid search over LSTM hyperparameters, returns best results. Praisin' the FSM!"
+
+    _best_params_cache = {}
+
+    def _get_cache_key(self, draws):
+        # Use a hash of the draw dates as a cache key
+        key = ','.join(str(d.date) for d in draws)
+        return hashlib.md5(key.encode()).hexdigest()
+
+    def _load_best_params_from_disk(self, cache_key):
+        cache_path = os.path.join(os.path.dirname(__file__), f"gridsearch_best_{cache_key}.pkl")
+        if os.path.exists(cache_path):
+            with open(cache_path, 'rb') as f:
+                return pickle.load(f)
+        return None
+
+    def _save_best_params_to_disk(self, cache_key, best_params):
+        cache_path = os.path.join(os.path.dirname(__file__), f"gridsearch_best_{cache_key}.pkl")
+        with open(cache_path, 'wb') as f:
+            pickle.dump(best_params, f)
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None) -> List[Dict[str, Any]]:
+        dh_log("Arrr! LSTM Grid Search run method called! Praisin' the FSM!", level="INFO")
+        hyperparams_grid = {
+            'hidden_size': [64, 128, 256],
+            'num_layers': [1, 2, 3],
+            'seq_len': [10, 20],
+            'lr': [0.001, 0.0005, 0.0003],
+            'batch_size': [8, 16],
+            'epochs': [20],
+        }
+        test_count = 12
+        if len(draws) < max(hyperparams_grid['seq_len']) + test_count:
+            dh_log(f"Arrr! [FSM GRID] Not enough draws for grid search evaluation!", level="ERROR")
+            return []
+        train_draws = draws[:-test_count]
+        test_draws = draws[-test_count:]
+        cache_key = self._get_cache_key(train_draws)
+        best_params = self._best_params_cache.get(cache_key) or self._load_best_params_from_disk(cache_key)
+        if not best_params:
+            dh_log(f"Arrr! [FSM GRID] No cached best params, runnin' grid search! Praisin' the FSM!", level="INFO")
+            results = []
+            param_names = list(hyperparams_grid.keys())
+            best_result = None
+            best_roi = float('-inf')
+            for values in itertools.product(*hyperparams_grid.values()):
+                params = dict(zip(param_names, values))
+                model_path = os.path.join(os.path.dirname(__file__), f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
+                dh_log(f"Arrr! [FSM GRID] Trainin' with params: {params}", level="INFO")
+                model = LottoLSTM(num_numbers=37, seq_len=params['seq_len'], hidden_size=params['hidden_size'], num_layers=params['num_layers'])
+                need_train = True
+                if os.path.exists(model_path):
+                    try:
+                        state_dict = torch.load(model_path)
+                        model.load_state_dict(state_dict)
+                        dummy_input = torch.zeros((1, params['seq_len'], 37))
+                        model.eval()
+                        with torch.no_grad():
+                            _ = model(dummy_input)
+                        dh_log(f"Arrr! [FSM GRID] Loaded existing model for {params}", level="INFO")
+                        need_train = False
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM GRID] Model file mismatch or unusable, will retrain: {e}", level="WARNING")
+                        try:
+                            os.remove(model_path)
+                            dh_log(f"Arrr! [FSM GRID] Deleted mismatched model file: {model_path}", level="INFO")
+                        except Exception as del_e:
+                            dh_log(f"Arrr! [FSM GRID] Failed to delete model file: {model_path}, error: {del_e}", level="ERROR")
+                        if os.path.exists(model_path):
+                            dh_log(f"Arrr! [FSM GRID] Model file still exists after delete attempt: {model_path}", level="ERROR")
+                        need_train = True
+                if need_train:
+                    X, y = draws_to_sequences(train_draws, seq_len=params['seq_len'], num_numbers=37)
+                    criterion = torch.nn.BCELoss()
+                    optimizer = torch.optim.Adam(model.parameters(), lr=params['lr'])
+                    for epoch in range(params['epochs']):
+                        model.train()
+                        permutation = torch.randperm(X.size(0))
+                        for i in range(0, X.size(0), params['batch_size']):
+                            indices = permutation[i:i+params['batch_size']]
+                            batch_x, batch_y = X[indices], y[indices]
+                            optimizer.zero_grad()
+                            outputs = model(batch_x)
+                            loss = criterion(outputs, batch_y)
+                            loss.backward()
+                            optimizer.step()
+                    torch.save(model.state_dict(), model_path)
+                def predict_next_numbers_patched(draws, seq_len=10, threshold=0.5, model_path=None):
+                    model = LottoLSTM(
+                        num_numbers=37,
+                        seq_len=seq_len,
+                        hidden_size=params['hidden_size'],
+                        num_layers=params['num_layers']
+                    )
+                    if not os.path.exists(model_path):
+                        raise FileNotFoundError(f"Model file not found: {model_path}")
+                    model.load_state_dict(torch.load(model_path))
+                    model.eval()
+                    seq = draws[-seq_len:]
+                    x_seq = []
+                    for d in seq:
+                        onehot = [0]*37
+                        for n in d.numbers:
+                            onehot[n-1] = 1
+                        x_seq.append(onehot)
+                    x_tensor = torch.tensor([x_seq], dtype=torch.float32)
+                    with torch.no_grad():
+                        output = model(x_tensor)[0]
+                    pred = (output > threshold).nonzero(as_tuple=True)[0].tolist()
+                    numbers = [i+1 for i in pred]
+                    if len(numbers) > 6:
+                        top6 = output.topk(6).indices.tolist()
+                        numbers = [i+1 for i in top6]
+                    elif len(numbers) < 6:
+                        all_numbers = [n for d in draws for n in d.numbers]
+                        from collections import Counter
+                        freq = Counter(all_numbers)
+                        for n, _ in freq.most_common():
+                            if n not in numbers:
+                                numbers.append(n)
+                            if len(numbers) == 6:
+                                break
+                    return sorted(numbers)
+                for strong_name, strong_cls in STRONG_NUMBER_REGISTRY.items():
+                    if len(train_draws) < params['seq_len'] + 1:
+                        dh_log(f"Arrr! [FSM GRID] Not enough draws for evaluation!", level="ERROR")
+                        continue
+                    strong_algo = strong_cls()
+                    all_prizes = 0
+                    total_tickets = 0
+                    NUM_TABLES_PER_DRAW = 8
+                    prizes_list = []
+                    for i, test_draw in enumerate(test_draws):
+                        available_draws = train_draws + test_draws[:i]
+                        combos = []
+                        for j in range(NUM_TABLES_PER_DRAW):
+                            torch.manual_seed(j)
+                            np.random.seed(j)
+                            random.seed(j)
+                            numbers = predict_next_numbers_patched(available_draws, seq_len=params['seq_len'], threshold=0.2, model_path=model_path)
+                            strong = strong_algo.predict(available_draws, numbers=numbers)
+                            combos.append({"numbers": numbers, "strong": strong})
+                        for combo in combos:
+                            hits = sum([n in test_draw.numbers for n in combo["numbers"]])
+                            strong_hit = (combo["strong"] == test_draw.strong_number)
+                            prize = PRIZE_TABLE.get((hits, strong_hit), 0)
+                            all_prizes += prize
+                            total_tickets += 1
+                            prizes_list.append(prize)
+                    total_cost = total_tickets * TICKET_COST_PER_TABLE
+                    roi = calculate_roi_with_tax(prizes_list, total_cost)
+                    result = {
+                        'params': params,
+                        'model_path': model_path,
+                        'strong_algo': strong_name,
+                        'roi': roi,
+                        'total_prize': all_prizes,
+                        'total_cost': total_cost,
+                        'test_count': test_count
+                    }
+                    results.append(result)
+                    dh_log(f"Arrr! [FSM GRID] Model result: {result}", level="INFO")
+                    if result['roi'] > best_roi:
+                        best_roi = result['roi']
+                        best_result = result
+            top3 = sorted(results, key=lambda x: x['roi'], reverse=True)[:3]
+            if not top3:
+                return []
+            best = top3[0]
+            best_params = best
+            self._best_params_cache[cache_key] = best_params
+            self._save_best_params_to_disk(cache_key, best_params)
+        else:
+            dh_log(f"Arrr! [FSM GRID] Using cached best params! Praisin' the FSM!", level="INFO")
+        params = best_params['params']
+        model_path = best_params['model_path']
+        strong_cls = STRONG_NUMBER_REGISTRY[best_params['strong_algo']]
+        model = LottoLSTM(num_numbers=37, seq_len=params['seq_len'], hidden_size=params['hidden_size'], num_layers=params['num_layers'])
+        model.load_state_dict(torch.load(model_path))
+        model.eval()
+        # Get model output probabilities for the next draw
+        seq = draws[-params['seq_len']:]
+        x_seq = []
+        for d in seq:
+            onehot = [0]*37
+            for n in d.numbers:
+                onehot[n-1] = 1
+            x_seq.append(onehot)
+        x_tensor = torch.tensor([x_seq], dtype=torch.float32)
+        with torch.no_grad():
+            output = model(x_tensor)[0].cpu().numpy()
+        # Get the top 12 numbers by probability
+        top_n_numbers = output.argsort()[-12:][::-1]
+        # Generate all 6-number combinations from the top 12
+        from itertools import combinations
+        combo_candidates = list(combinations(top_n_numbers, 6))
+        # Score each combo by the sum of probabilities
+        scored_combos = []
+        for combo in combo_candidates:
+            score = sum(output[i] for i in combo)
+            scored_combos.append((score, combo))
+        # Sort combos by score, descending
+        scored_combos.sort(reverse=True, key=lambda x: x[0])
+        # Take the top 8 unique combos
+        unique_combos = []
+        seen = set()
+        for score, combo in scored_combos:
+            sorted_combo = tuple(sorted(combo))
+            if sorted_combo not in seen:
+                seen.add(sorted_combo)
+                unique_combos.append(sorted_combo)
+            if len(unique_combos) == (num_to_recommend or NUM_COMBINATIONS_TO_RECOMMEND):
+                break
+        # Convert combos to the required format
+        combos = []
+        strong_algo = strong_cls()
+        for combo in unique_combos:
+            numbers = [i+1 for i in combo]
+            strong = strong_algo.predict(draws, numbers=numbers)
+            combos.append({"numbers": numbers, "strong": strong})
+        dh_log(f"Arrr! [FSM GRID] Final combos returned: {combos}", level="INFO")
+        return combos
 
 # Arrr! More grid search variants can be added here. Praise the FSM!
 

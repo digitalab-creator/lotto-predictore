@@ -418,7 +418,10 @@ def dh_log(
             }
 
         # Log using logger
-        logger.handle(record)
+        if logger is not None:
+            logger.handle(record)
+        else:
+            print(f"[EARLY LOG] {level}: {message}")
 
     except Exception as e:
         # Fallback logging in case of errors

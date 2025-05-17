@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from typing import Any
-from models import Draw
+from models import Draw, Model, ModelType, Prediction, GeneratedCombination
 from algorithms.base import ALGORITHM_REGISTRY
 from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 import time
@@ -9,6 +9,27 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from functools import lru_cache
 from services.logger import dh_log
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
+from sqlalchemy.exc import NoResultFound
+
+def calculate_roi_with_tax(prizes, total_cost):
+    """
+    Calculate ROI with tax applied to prizes over 30,000.
+    Args:
+        prizes (list of float): List of individual prize amounts.
+        total_cost (float): Total cost spent.
+    Returns:
+        float: ROI value.
+    """
+    taxed_prizes = []
+    for prize in prizes:
+        if prize > 30000:
+            taxed_prizes.append(prize * 0.65)  # 35% tax
+        else:
+            taxed_prizes.append(prize)
+    all_prizes = sum(taxed_prizes)
+    if total_cost == 0:
+        return 0
+    return (all_prizes - total_cost) / total_cost
 
 class SimulationEngine:
     def __init__(self, db: Session):
@@ -51,6 +72,15 @@ class SimulationEngine:
             (k, v) for k, v in STRONG_NUMBER_REGISTRY.items() if k in strong_algo_names
         ]
 
+        def get_or_create_model(session, name, version, type_, params, model_path=None):
+            try:
+                return session.query(Model).filter_by(name=name, version=version, type=type_).one()
+            except NoResultFound:
+                model = Model(name=name, version=version, type=type_, params=params, model_path=model_path)
+                session.add(model)
+                session.commit()
+                return model
+
         def run_algo_pair(main_version, algo_cls, strong_version, strong_cls):
             dh_log(f"[FSM DEBUG] Running algorithm: {main_version} + strong: {strong_version}", level="INFO")
             t_algo = time.time()
@@ -73,12 +103,12 @@ class SimulationEngine:
                 )
                 # Inject strong number using the selected model, avoiding duplicates
                 for combo in combos:
-                    combo["strong"] = strong_algo.predict(available_draws, numbers=combo["numbers"])
+                    combo["strong_number"] = strong_algo.predict(available_draws, numbers=combo["numbers"])
                 dh_log(f"[FSM DEBUG]   Algorithm run() for main='{main_version}', strong='{strong_version}' took {time.time() - t_run:.2f}s and returned {len(combos)} combos", level="INFO")
                 combo_results = []
                 for combo in combos:
                     hits = sum([n in test_draw.numbers for n in combo["numbers"]])
-                    strong_hit = (combo["strong"] == test_draw.strong_number)
+                    strong_hit = (combo["strong_number"] == test_draw.strong_number)
                     prize = self._calculate_prize(hits, strong_hit)
                     combo_results.append({
                         "combo": combo,
@@ -102,8 +132,36 @@ class SimulationEngine:
                 total_tickets += len(combos)
                 dh_log(f"[FSM DEBUG]   Test draw {i+1} for main='{main_version}', strong='{strong_version}' processed in {time.time() - t_draw:.2f}s", level="INFO")
             total_cost = total_tickets * TICKET_COST_PER_TABLE
-            roi = (all_prizes - total_cost) / total_cost if total_cost else 0
+            roi = calculate_roi_with_tax([total_prize], total_cost)
             dh_log(f"[FSM DEBUG] Algorithm {main_version} + strong {strong_version} finished in {time.time() - t_algo:.2f}s. Total prize: {all_prizes}, Total cost: {total_cost}, ROI: {roi}", level="INFO")
+            # --- Prediction logging ---
+            prediction = Prediction(
+                model_id=get_or_create_model(self.db, main_version, getattr(algo, 'version', 'v1'), ModelType.main, getattr(algo, 'params', {})).id,
+                strong_model_id=get_or_create_model(self.db, strong_version, getattr(strong_algo, 'version', 'v1'), ModelType.strong, getattr(strong_algo, 'params', {})).id,
+                roi=roi,
+                total_prize=all_prizes,
+                total_cost=total_cost,
+                test_count=len(test_draws),
+                notes=f"Sim run for {main_version} + {strong_version}",
+                train_start_date=train_start,
+                train_end_date=train_end,
+                num_test_draws=test_count,
+                top_n_per_position=top_n
+            )
+            self.db.add(prediction)
+            self.db.commit()
+            # --- GeneratedCombination logging ---
+            for d in date_summaries:
+                for idx, combo_result in enumerate(d["combos"]):
+                    combo = combo_result["combo"]
+                    gen_combo = GeneratedCombination(
+                        prediction_id=prediction.id,
+                        numbers=combo["numbers"],
+                        strong_number=combo["strong_number"],
+                        position=idx + 1  # 1-based index for position
+                    )
+                    self.db.add(gen_combo)
+            self.db.commit()
             return (main_version, strong_version), {
                 "dates": date_summaries,
                 "total_prize": all_prizes,

@@ -11,12 +11,12 @@ class StrongNumberAlgorithm:
     @staticmethod
     def pick_not_in(numbers: List[int], candidates: List[int]) -> int:
         """
-        Pick a strong number from candidates that is not in numbers. If all are in, pick random 1-37 not in numbers, else fallback to 1.
+        Pick a strong number from candidates that is not in numbers. If all are in, pick random 1-7 not in numbers, else fallback to 1.
         """
         options = [s for s in candidates if s not in numbers]
         if options:
             return random.choice(options)
-        all_options = [s for s in range(1, 38) if s not in numbers]
+        all_options = [s for s in range(1, 8) if s not in numbers]
         if all_options:
             return random.choice(all_options)
         return 1

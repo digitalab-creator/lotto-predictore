@@ -1,14 +1,15 @@
-from sqlalchemy import Column, Integer, String, DateTime, ARRAY, Boolean
-from db import Base
+from sqlalchemy import Column, Integer, DateTime, ForeignKey, ARRAY
+from sqlalchemy.orm import relationship
 import datetime
+from db.base import Base
 
 class GeneratedCombination(Base):
     __tablename__ = "generated_combinations"
 
     id = Column(Integer, primary_key=True, index=True)
-    algorithm_id = Column(String, nullable=True)  # can be version string or FK to strategies
-    generated_at = Column(DateTime, default=datetime.datetime.utcnow, nullable=False)
+    prediction_id = Column(Integer, ForeignKey('predictions.id'), nullable=False)
     numbers = Column(ARRAY(Integer), nullable=False)  # 6 numbers
-    strong = Column(Integer, nullable=False)
-    version = Column(String, nullable=False)
-    used_in_real_draw = Column(Boolean, default=False) 
+    strong_number = Column(Integer, nullable=False)
+    position = Column(Integer, nullable=False)  # 1 = highest prob, 2 = next, etc.
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    prediction = relationship("Prediction", back_populates="combinations") 

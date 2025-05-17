@@ -1,3 +1,5 @@
+import algorithms
+import algorithms.dl.sequence_classifier
 from fastapi import FastAPI, Depends, Query
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
@@ -16,6 +18,8 @@ app = FastAPI()
 
 logger = setup_logger(service_name=os.getenv('SERVICE_NAME', 'api'))
 dh_log("Arrr! FastAPI backend be startin' up, praisin' the FSM!", level="INFO", context={"service": os.getenv('SERVICE_NAME', 'api')})
+
+dh_log(f"Arrr! Registered algorithms at startup: {list(ALGORITHM_REGISTRY.keys())}", level='INFO')
 
 def get_db():
     db = SessionLocal()

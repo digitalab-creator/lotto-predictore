@@ -9,6 +9,7 @@ from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND
 from datetime import date
 import json
+from services.simulation_engine import calculate_roi_with_tax
 
 setup_logger()
 
@@ -44,6 +45,7 @@ def evaluate_model(draws, model_path, seq_len, strong_algo_cls):
     all_prizes = 0
     total_tickets = 0
     NUM_TABLES_PER_DRAW = 8
+    prizes_list = []
 
     for i, test_draw in enumerate(test_draws):
         available_draws = train_draws + test_draws[:i]
@@ -62,8 +64,9 @@ def evaluate_model(draws, model_path, seq_len, strong_algo_cls):
             prize = calculate_prize(hits, strong_hit)
             all_prizes += prize
             total_tickets += 1
+            prizes_list.append(prize)
     total_cost = total_tickets * TICKET_COST_PER_TABLE
-    roi = (all_prizes - total_cost) / total_cost if total_cost else 0
+    roi = calculate_roi_with_tax(prizes_list, total_cost)
     return {
         "roi": roi,
         "total_prize": all_prizes,
