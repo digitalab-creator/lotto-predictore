@@ -7,7 +7,7 @@ from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 
 @register_algorithm
 class RandomFromTopPoolAlgorithm(Algorithm):
-    version = "v7"
+    version = "random_from_top15_pool"
     description = "Pick 6 numbers randomly from top 15 frequent numbers."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -20,18 +20,15 @@ class RandomFromTopPoolAlgorithm(Algorithm):
         pool = [n for n, _ in Counter(all_numbers).most_common(15)]
         if len(pool) < 6:
             return []
-        # Most common strong number
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers, "strong": top_strong})
+            combos.append({"numbers": combo_numbers})
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class RandomFromTop10PoolAlgorithm(Algorithm):
-    version = "v7-10"
+    version = "random_from_top10_pool"
     description = "Pick 6 numbers randomly from top 10 frequent numbers."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -43,17 +40,15 @@ class RandomFromTop10PoolAlgorithm(Algorithm):
         pool = [n for n, _ in Counter(all_numbers).most_common(10)]
         if len(pool) < 6:
             return []
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers, "strong": top_strong})
+            combos.append({"numbers": combo_numbers})
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class RandomFromTop20PoolAlgorithm(Algorithm):
-    version = "v7-20"
+    version = "random_from_top20_pool"
     description = "Pick 6 numbers randomly from top 20 frequent numbers."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -65,10 +60,8 @@ class RandomFromTop20PoolAlgorithm(Algorithm):
         pool = [n for n, _ in Counter(all_numbers).most_common(20)]
         if len(pool) < 6:
             return []
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers, "strong": top_strong})
+            combos.append({"numbers": combo_numbers})
         return combos[:num_to_recommend] if combos else [] 

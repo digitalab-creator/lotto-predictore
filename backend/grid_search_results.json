@@ -1,0 +1,1730 @@
+[
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 3.0922619047619055,
+    "total_prize": 1100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8883928571428571,
+    "total_prize": 30,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5535714285714285,
+    "total_prize": 120,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 4.319940476190477,
+    "total_prize": 1430,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": 2.720238095238096,
+    "total_prize": 1000,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.9627976190476191,
+    "total_prize": 10,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l1_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5535714285714285,
+    "total_prize": 120,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5535714285714285,
+    "total_prize": 120,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.40476190476190466,
+    "total_prize": 160,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.44196428571428564,
+    "total_prize": 150,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6279761904761905,
+    "total_prize": 100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6651785714285714,
+    "total_prize": 90,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l2_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6279761904761905,
+    "total_prize": 100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5535714285714285,
+    "total_prize": 120,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5535714285714285,
+    "total_prize": 120,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.4791666666666666,
+    "total_prize": 140,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.44196428571428564,
+    "total_prize": 150,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.4791666666666666,
+    "total_prize": 140,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.44196428571428564,
+    "total_prize": 150,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h64_l3_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5163690476190476,
+    "total_prize": 130,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.40476190476190466,
+    "total_prize": 160,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8883928571428571,
+    "total_prize": 30,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8883928571428571,
+    "total_prize": 30,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6279761904761905,
+    "total_prize": 100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.03273809523809507,
+    "total_prize": 260,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.9255952380952381,
+    "total_prize": 20,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8511904761904762,
+    "total_prize": 40,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l1_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 7450.562500000001,
+    "total_prize": 2002980,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": 7.779761904761905,
+    "total_prize": 2360,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6651785714285714,
+    "total_prize": 90,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5163690476190476,
+    "total_prize": 130,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6279761904761905,
+    "total_prize": 100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5163690476190476,
+    "total_prize": 130,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.3675595238095237,
+    "total_prize": 170,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l2_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.44196428571428564,
+    "total_prize": 150,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8883928571428571,
+    "total_prize": 30,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8139880952380952,
+    "total_prize": 50,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6279761904761905,
+    "total_prize": 100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.2931547619047618,
+    "total_prize": 190,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 128,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h128_l3_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 248.03273809523813,
+    "total_prize": 66940,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8511904761904762,
+    "total_prize": 40,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8511904761904762,
+    "total_prize": 40,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 4.394345238095239,
+    "total_prize": 1450,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": 5.770833333333335,
+    "total_prize": 1820,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.9255952380952381,
+    "total_prize": 20,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.9255952380952381,
+    "total_prize": 20,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8883928571428571,
+    "total_prize": 30,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l1_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 465.108630952381,
+    "total_prize": 125290,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": 9.416666666666668,
+    "total_prize": 2800,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 49.446428571428584,
+    "total_prize": 13560,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.4791666666666666,
+    "total_prize": 140,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5163690476190476,
+    "total_prize": 130,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 67.86160714285715,
+    "total_prize": 18510,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": 1.2693452380952386,
+    "total_prize": 610,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7395833333333333,
+    "total_prize": 70,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.21874999999999986,
+    "total_prize": 210,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 2,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l2_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.4791666666666666,
+    "total_prize": 140,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s10_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.2559523809523808,
+    "total_prize": 200,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s10_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.6279761904761905,
+    "total_prize": 100,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s10_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7767857142857143,
+    "total_prize": 60,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s10_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8511904761904762,
+    "total_prize": 40,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s10_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5163690476190476,
+    "total_prize": 130,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 10,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s10_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.33035714285714274,
+    "total_prize": 180,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s20_lr0.001_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.44196428571428564,
+    "total_prize": 150,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.001,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s20_lr0.001_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s20_lr0.0005_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5907738095238094,
+    "total_prize": 110,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0005,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s20_lr0.0005_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.5163690476190476,
+    "total_prize": 130,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 8,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s20_lr0.0003_b8.pt",
+    "strong_algo": "most_common",
+    "roi": -0.8511904761904762,
+    "total_prize": 40,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  },
+  {
+    "params": {
+      "hidden_size": 256,
+      "num_layers": 3,
+      "seq_len": 20,
+      "lr": 0.0003,
+      "batch_size": 16,
+      "epochs": 20
+    },
+    "model_path": "sequence_classifier_grid_h256_l3_s20_lr0.0003_b16.pt",
+    "strong_algo": "most_common",
+    "roi": -0.7023809523809523,
+    "total_prize": 80,
+    "total_cost": 268.79999999999995,
+    "test_count": 12
+  }
+]

@@ -1,14 +1,13 @@
 from typing import List, Dict, Any
 from models import Draw
 from .base import Algorithm, register_algorithm
-from collections import Counter
 import random
 from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 
 @register_algorithm
-class RepeatedPatternMatchingAlgorithm(Algorithm):
-    version = "v5"
-    description = "Find historical lines with 4+ hits and reuse/alter them."
+class RepeatedPatternMatchingV1Algorithm(Algorithm):
+    version = "repeated_pattern_matching_v1"
+    description = "Find historical lines with 4+ hits and reuse/alter them. (v1)"
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
         if num_for_analysis is None:
@@ -44,7 +43,37 @@ class RepeatedPatternMatchingAlgorithm(Algorithm):
             nums = sorted(set(nums))
             if len(nums) == 6:
                 combos.append(nums)
-        # Pick the most common strong number
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-        return [{"numbers": combo, "strong": top_strong} for combo in combos[:num_to_recommend]] if combos else [] 
+        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else []
+
+@register_algorithm
+class RepeatedPatternMatchingV2Algorithm(Algorithm):
+    version = "repeated_pattern_matching_v2"
+    description = "Find historical lines with 3+ hits and always swap two numbers for alteration. (v2)"
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
+        if num_for_analysis is None:
+            num_for_analysis = NUM_COMBINATIONS_FOR_ANALYSIS
+        if num_to_recommend is None:
+            num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
+        # Find all historical lines that matched 3+ numbers in any draw
+        candidate_lines = set()
+        for i, draw1 in enumerate(draws):
+            for j, draw2 in enumerate(draws):
+                if i == j:
+                    continue
+                hits = len(set(draw1.numbers) & set(draw2.numbers))
+                if hits >= 3:
+                    candidate_lines.add(tuple(sorted(draw1.numbers)))
+        candidate_lines = list(candidate_lines)
+        if len(candidate_lines) < num_for_analysis:
+            candidate_lines += [tuple(sorted(d.numbers)) for d in draws[-num_for_analysis:]]
+        combos = []
+        for line in candidate_lines[:num_for_analysis]:
+            nums = list(line)
+            # Always swap two numbers
+            a, b = random.sample(range(6), 2)
+            nums[a], nums[b] = nums[b], nums[a]
+            nums = sorted(set(nums))
+            if len(nums) == 6:
+                combos.append(nums)
+        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else [] 

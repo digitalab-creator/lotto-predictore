@@ -1,0 +1,1262 @@
+2025-05-17 11:56:32 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-05-17 11:56:33 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:33 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:33 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 3.0922619047619055, 'total_prize': 1100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:33 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:33 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:34 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8883928571428571, 'total_prize': 30, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:34 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:34 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:34 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:34 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:34 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:35 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:35 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:35 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:35 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:35 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:35 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:36 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5535714285714285, 'total_prize': 120, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:36 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:36 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:36 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 4.319940476190477, 'total_prize': 1430, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:36 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:36 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:37 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': 2.720238095238096, 'total_prize': 1000, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:37 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:37 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:37 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.9627976190476191, 'total_prize': 10, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:37 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:37 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:38 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:38 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:38 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:38 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:38 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:38 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:39 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l1_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:39 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:39 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:39 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:39 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:39 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:40 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:40 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:40 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:41 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5535714285714285, 'total_prize': 120, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:41 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:41 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:41 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5535714285714285, 'total_prize': 120, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:41 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:41 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:42 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:42 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:42 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:43 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.40476190476190466, 'total_prize': 160, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:43 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:43 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:43 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:43 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:43 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:44 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:44 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:44 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:44 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.44196428571428564, 'total_prize': 150, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:44 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:45 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:45 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.6279761904761905, 'total_prize': 100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:45 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:45 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:46 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.6651785714285714, 'total_prize': 90, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:46 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:46 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:47 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l2_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.6279761904761905, 'total_prize': 100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:47 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:47 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:47 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:47 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:47 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:48 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5535714285714285, 'total_prize': 120, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:48 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:48 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:49 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5535714285714285, 'total_prize': 120, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:49 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:49 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:49 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:49 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:50 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:50 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:50 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:50 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:51 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.4791666666666666, 'total_prize': 140, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:51 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:51 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:52 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.44196428571428564, 'total_prize': 150, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:52 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:56:52 [INFO] Arrr! [FSM GRID] Loaded existing model for {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 135
+
+2025-05-17 11:56:52 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:56:52 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:58:17 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.4791666666666666, 'total_prize': 140, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:58:17 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 11:59:13 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 11:59:13 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:00:26 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.44196428571428564, 'total_prize': 150, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:00:26 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:01:19 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 64, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h64_l3_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5163690476190476, 'total_prize': 130, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:01:19 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:01:59 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.40476190476190466, 'total_prize': 160, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:01:59 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:02:26 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:02:26 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:03:07 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:03:07 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:03:34 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8883928571428571, 'total_prize': 30, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:03:34 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:04:15 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8883928571428571, 'total_prize': 30, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:04:15 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:04:53 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.6279761904761905, 'total_prize': 100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:04:53 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:05:58 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.03273809523809507, 'total_prize': 260, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:05:58 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:06:39 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.9255952380952381, 'total_prize': 20, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:06:39 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:07:34 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8511904761904762, 'total_prize': 40, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:07:34 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:08:13 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:08:13 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:09:12 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:09:12 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:09:51 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l1_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:09:51 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:11:07 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 7450.562500000001, 'total_prize': 2002980, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:11:07 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:11:56 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': 7.779761904761905, 'total_prize': 2360, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:11:56 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:13:08 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.6651785714285714, 'total_prize': 90, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:13:08 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:13:58 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5163690476190476, 'total_prize': 130, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:13:58 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:15:19 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:15:19 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:16:16 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:16:16 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:17:57 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.6279761904761905, 'total_prize': 100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:17:57 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:19:18 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:19:18 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:20:59 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5163690476190476, 'total_prize': 130, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:20:59 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:22:15 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:22:15 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:23:55 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.3675595238095237, 'total_prize': 170, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:23:55 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:25:12 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.44196428571428564, 'total_prize': 150, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:25:12 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:26:55 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:26:55 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:28:06 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:28:06 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:29:56 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8883928571428571, 'total_prize': 30, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:29:56 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:31:10 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8139880952380952, 'total_prize': 50, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:31:10 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:32:51 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:32:51 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:34:03 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:34:03 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:36:30 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.6279761904761905, 'total_prize': 100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:36:30 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:38:25 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:38:25 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:41:01 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:41:01 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:42:51 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.2931547619047618, 'total_prize': 190, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:42:51 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:45:16 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:45:16 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:47:08 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 128, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l3_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:47:08 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:48:43 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 248.03273809523813, 'total_prize': 66940, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:48:43 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:49:48 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8511904761904762, 'total_prize': 40, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:49:48 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:51:27 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:51:27 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:52:29 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8511904761904762, 'total_prize': 40, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:52:29 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:53:58 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:53:58 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:55:00 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:55:00 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:57:09 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 4.394345238095239, 'total_prize': 1450, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:57:09 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 12:58:57 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': 5.770833333333335, 'total_prize': 1820, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 12:58:57 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:01:13 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.9255952380952381, 'total_prize': 20, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:01:13 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:03:04 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.9255952380952381, 'total_prize': 20, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:03:04 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:05:12 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8883928571428571, 'total_prize': 30, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:05:12 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:06:46 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 1, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l1_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:06:46 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:10:20 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 465.108630952381, 'total_prize': 125290, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:10:20 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:12:39 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': 9.416666666666668, 'total_prize': 2800, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:12:39 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:16:05 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': 49.446428571428584, 'total_prize': 13560, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:16:05 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:18:23 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.4791666666666666, 'total_prize': 140, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:18:23 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:21:48 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:21:48 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:24:06 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5163690476190476, 'total_prize': 130, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:24:06 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:29:05 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 67.86160714285715, 'total_prize': 18510, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:29:05 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:32:55 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:32:55 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:37:36 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': 1.2693452380952386, 'total_prize': 610, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:37:36 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:41:35 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7395833333333333, 'total_prize': 70, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:41:35 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:46:18 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.21874999999999986, 'total_prize': 210, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:46:18 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:50:22 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 2, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l2_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.4791666666666666, 'total_prize': 140, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:50:22 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:55:24 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.2559523809523808, 'total_prize': 200, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:55:24 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 13:58:56 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s10_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.6279761904761905, 'total_prize': 100, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 13:58:56 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:04:01 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s10_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.7767857142857143, 'total_prize': 60, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:04:01 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:07:30 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s10_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.8511904761904762, 'total_prize': 40, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:07:30 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:12:29 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s10_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5163690476190476, 'total_prize': 130, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:12:29 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:15:57 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 10, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s10_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.33035714285714274, 'total_prize': 180, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:15:57 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:23:57 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s20_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': -0.44196428571428564, 'total_prize': 150, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:23:57 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:30:11 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.001, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s20_lr0.001_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:30:11 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:37:26 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s20_lr0.0005_b8.pt', 'strong_algo': 'most_common', 'roi': -0.5907738095238094, 'total_prize': 110, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:37:26 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:43:33 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0005, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s20_lr0.0005_b16.pt', 'strong_algo': 'most_common', 'roi': -0.5163690476190476, 'total_prize': 130, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:43:33 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:50:50 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s20_lr0.0003_b8.pt', 'strong_algo': 'most_common', 'roi': -0.8511904761904762, 'total_prize': 40, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:50:50 [INFO] Arrr! [FSM GRID] Trainin' with params: {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 83
+
+2025-05-17 14:56:57 [INFO] Arrr! [FSM GRID] Model result: {'params': {'hidden_size': 256, 'num_layers': 3, 'seq_len': 20, 'lr': 0.0003, 'batch_size': 16, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h256_l3_s20_lr0.0003_b16.pt', 'strong_algo': 'most_common', 'roi': -0.7023809523809523, 'total_prize': 80, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 176
+
+2025-05-17 14:56:57 [INFO] Arrr! [FSM GRID] Best model: {'params': {'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, 'model_path': 'sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt', 'strong_algo': 'most_common', 'roi': 7450.562500000001, 'total_prize': 2002980, 'total_cost': 268.79999999999995, 'test_count': 12}
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 184
+
+2025-05-17 14:56:57 [INFO] Arrr! [FSM GRID] Top 1 ROI model: ROI=7450.562500000001, params={'hidden_size': 128, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, strong_algo=most_common, total_prize=2002980, total_cost=268.79999999999995
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 191
+
+2025-05-17 14:56:57 [INFO] Arrr! [FSM GRID] Top 2 ROI model: ROI=465.108630952381, params={'hidden_size': 256, 'num_layers': 2, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, strong_algo=most_common, total_prize=125290, total_cost=268.79999999999995
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 191
+
+2025-05-17 14:56:57 [INFO] Arrr! [FSM GRID] Top 3 ROI model: ROI=248.03273809523813, params={'hidden_size': 256, 'num_layers': 1, 'seq_len': 10, 'lr': 0.001, 'batch_size': 8, 'epochs': 20}, strong_algo=most_common, total_prize=66940, total_cost=268.79999999999995
+	file: /app/scripts/grid_search_lstm.py
+	function: main
+	line: 191
+

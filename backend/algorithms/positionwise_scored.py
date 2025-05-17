@@ -6,9 +6,9 @@ import itertools
 from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 
 @register_algorithm
-class PositionwiseScoredAlgorithm(Algorithm):
-    version = "v3"
-    description = "Top-N per position, score combos by frequency sum, pick top combos."
+class PositionwiseScoredV1Algorithm(Algorithm):
+    version = "positionwise_scored_v1"
+    description = "Top-N per position, score combos by frequency sum, pick top combos. (v1)"
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
         if num_for_analysis is None:
@@ -17,11 +17,9 @@ class PositionwiseScoredAlgorithm(Algorithm):
             num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
         # Frequency by position
         position_counters = [Counter() for _ in range(6)]
-        strong_counter = Counter()
         for draw in draws:
             for i, num in enumerate(draw.numbers):
                 position_counters[i][num] += 1
-            strong_counter[draw.strong_number] += 1
         # Top N per position
         top_numbers_per_pos = [
             [num for num, _ in counter.most_common(top_n)]
@@ -33,6 +31,30 @@ class PositionwiseScoredAlgorithm(Algorithm):
         def score(combo):
             return sum(position_counters[i][num] for i, num in enumerate(combo))
         scored = sorted(combos, key=score, reverse=True)[:num_for_analysis]
-        # Most common strong
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-        return [{"numbers": list(combo), "strong": top_strong} for combo in scored[:num_to_recommend]] if scored else [] 
+        return [{"numbers": list(combo)} for combo in scored[:num_to_recommend]] if scored else []
+
+@register_algorithm
+class PositionwiseScoredV2Algorithm(Algorithm):
+    version = "positionwise_scored_v2"
+    description = "Top-N per position, score combos by weighted frequency (double for first/last position), pick top combos. (v2)"
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
+        if num_for_analysis is None:
+            num_for_analysis = NUM_COMBINATIONS_FOR_ANALYSIS
+        if num_to_recommend is None:
+            num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
+        position_counters = [Counter() for _ in range(6)]
+        for draw in draws:
+            for i, num in enumerate(draw.numbers):
+                position_counters[i][num] += 1
+        top_numbers_per_pos = [
+            [num for num, _ in counter.most_common(top_n)]
+            for counter in position_counters
+        ]
+        combos = list(itertools.product(*top_numbers_per_pos))
+        # Weighted score: double for first and last position
+        def weighted_score(combo):
+            weights = [2, 1, 1, 1, 1, 2]
+            return sum(weights[i] * position_counters[i][num] for i, num in enumerate(combo))
+        scored = sorted(combos, key=weighted_score, reverse=True)[:num_for_analysis]
+        return [{"numbers": list(combo)} for combo in scored[:num_to_recommend]] if scored else [] 

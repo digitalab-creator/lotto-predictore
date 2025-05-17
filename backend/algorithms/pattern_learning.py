@@ -6,9 +6,9 @@ import random
 from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 
 @register_algorithm
-class PatternLearningFromWinnersAlgorithm(Algorithm):
-    version = "v9"
-    description = "Analyze winning lines with 4+ hits and extract common structural patterns."
+class PatternLearningFromWinnersV1Algorithm(Algorithm):
+    version = "pattern_learning_from_winners_v1"
+    description = "Analyze winning lines with 4+ hits and extract common structural patterns. (v1)"
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
         if num_for_analysis is None:
@@ -59,7 +59,47 @@ class PatternLearningFromWinnersAlgorithm(Algorithm):
         # Fallback: just use the most recent lines
         if not combos:
             combos = [sorted(d.numbers) for d in draws[-num_for_analysis:]]
-        # Most common strong number
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-        return [{"numbers": combo, "strong": top_strong} for combo in combos[:num_to_recommend]] if combos else [] 
+        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else []
+
+@register_algorithm
+class PatternLearningFromWinnersV2Algorithm(Algorithm):
+    version = "pattern_learning_from_winners_v2"
+    description = "Analyze winning lines with 3+ hits and extract only delta patterns. (v2)"
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
+        if num_for_analysis is None:
+            num_for_analysis = NUM_COMBINATIONS_FOR_ANALYSIS
+        if num_to_recommend is None:
+            num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
+        # Step 1: Find all pairs of draws with 3+ hits
+        winner_lines = []
+        for i, draw1 in enumerate(draws):
+            for j, draw2 in enumerate(draws):
+                if i == j:
+                    continue
+                hits = len(set(draw1.numbers) & set(draw2.numbers))
+                if hits >= 3:
+                    winner_lines.append(sorted(draw1.numbers))
+        if not winner_lines:
+            winner_lines = [sorted(d.numbers) for d in draws[-num_for_analysis:]]
+        # Step 2: Extract only delta patterns
+        delta_patterns = []
+        for line in winner_lines:
+            deltas = [line[i+1] - line[i] for i in range(5)]
+            delta_patterns.append(tuple(deltas))
+        # Most common delta pattern
+        common_delta = Counter(delta_patterns).most_common(1)[0][0]
+        # Step 3: Generate combos that match this pattern
+        combos = []
+        attempts = 0
+        while len(combos) < num_for_analysis and attempts < 1000:
+            base = random.randint(1, 10)
+            nums = [base]
+            for d in common_delta:
+                nums.append(nums[-1] + d)
+            if len(nums) == 6 and all(1 <= n <= 37 for n in nums) and len(set(nums)) == 6:
+                combos.append(nums)
+            attempts += 1
+        if not combos:
+            combos = [sorted(d.numbers) for d in draws[-num_for_analysis:]]
+        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else [] 

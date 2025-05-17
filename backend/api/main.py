@@ -7,8 +7,15 @@ from fastapi.responses import PlainTextResponse, JSONResponse
 from sqlalchemy import desc
 from models import Draw
 from config import NUM_COMBINATIONS_TO_RECOMMEND
+from services.logger import setup_logger, dh_log
+import os
+from algorithms.base import ALGORITHM_REGISTRY
+from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 
 app = FastAPI()
+
+logger = setup_logger(service_name=os.getenv('SERVICE_NAME', 'api'))
+dh_log("Arrr! FastAPI backend be startin' up, praisin' the FSM!", level="INFO", context={"service": os.getenv('SERVICE_NAME', 'api')})
 
 def get_db():
     db = SessionLocal()
@@ -27,11 +34,15 @@ def simulate(
     train_end: date = Query(..., description="End date for training data (YYYY-MM-DD)"),
     test_count: int = Query(4, description="How many draws to test after train_end"),
     top_n: int = Query(3, description="Top N frequent numbers per position"),
+    algorithms: str = Query(None, description="Comma-separated list of algorithm names to run (default: all)"),
+    strong_algorithms: str = Query(None, description="Comma-separated list of strong number algorithm names to run (default: all)"),
     db: Session = Depends(get_db)
 ):
     engine = SimulationEngine(db)
-    results = engine.run_comparison(train_start, train_end, test_count, top_n)
-    return results 
+    algo_names = [a.strip() for a in algorithms.split(",")] if algorithms else None
+    strong_algo_names = [a.strip() for a in strong_algorithms.split(",")] if strong_algorithms else None
+    results = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=algo_names, strong_algo_names=strong_algo_names)
+    return results
 
 @app.get("/simulate/table", response_class=PlainTextResponse)
 def simulate_table(
@@ -39,10 +50,14 @@ def simulate_table(
     train_end: date = Query(..., description="End date for training data (YYYY-MM-DD)"),
     test_count: int = Query(4, description="How many draws to test after train_end"),
     top_n: int = Query(3, description="Top N frequent numbers per position"),
+    algorithms: str = Query(None, description="Comma-separated list of algorithm names to run (default: all)"),
+    strong_algorithms: str = Query(None, description="Comma-separated list of strong number algorithm names to run (default: all)"),
     db: Session = Depends(get_db)
 ):
     engine = SimulationEngine(db)
-    results = engine.run_comparison(train_start, train_end, test_count, top_n)
+    algo_names = [a.strip() for a in algorithms.split(",")] if algorithms else None
+    strong_algo_names = [a.strip() for a in strong_algorithms.split(",")] if strong_algorithms else None
+    results = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=algo_names, strong_algo_names=strong_algo_names)
     # Generate markdown table
     try:
         from tabulate import tabulate
@@ -50,8 +65,8 @@ def simulate_table(
     except ImportError:
         use_tabulate = False
     output = []
-    for version, res in results.items():
-        output.append(f"\nAlgorithm: {version}")
+    for (main_version, strong_version), res in results.items():
+        output.append(f"\nAlgorithm: {main_version} | Strong: {strong_version}")
         headers = ["Date", "Actual Numbers", "Actual Strong", "Max Hits", "Any Strong Hit", "Total Prize", "Total"]
         table = []
         for d in res["dates"]:
@@ -76,17 +91,17 @@ def simulate_table(
         output.append(f"Total Prize: {res['total_prize']}, Total Cost: {res['total_cost']}, ROI: {res['roi']}")
     # Add combo index insights
     output.append("\n=== Combo Index Insights (Average Hits per Combo Index) ===")
-    for algo_version, res in results.items():
+    for (main_version, strong_version), res in results.items():
         combo_hit_stats = [[] for _ in range(8)]
         for date in res["dates"]:
             for idx, combo_result in enumerate(date["combos"]):
                 if idx < 8:
                     combo_hit_stats[idx].append(combo_result["hits"])
-        output.append(f"Algorithm: {algo_version}")
+        output.append(f"Algorithm: {main_version} | Strong: {strong_version}")
         for idx, hits in enumerate(combo_hit_stats):
             avg_hits = sum(hits) / len(hits) if hits else 0
             output.append(f"  Combo #{idx+1}: Avg Hits = {avg_hits:.2f} (n={len(hits)})")
-    return "\n".join(output) 
+    return "\n".join(output)
 
 @app.get("/recommend", response_class=JSONResponse)
 def recommend(db: Session = Depends(get_db)):
@@ -103,18 +118,22 @@ def recommend(db: Session = Depends(get_db)):
     top_n = 3
     engine = SimulationEngine(db)
     results = engine.run_comparison(train_start, train_end, test_count, top_n)
-    # Find the algorithm with the highest ROI
-    best_algo = None
+    # Find the (main, strong) pair with the highest ROI
+    best_pair = None
     best_roi = float('-inf')
-    for algo, res in results.items():
+    for (main_algo, strong_algo), res in results.items():
         if res["roi"] > best_roi:
-            best_algo = algo
+            best_pair = (main_algo, strong_algo)
             best_roi = res["roi"]
-    if not best_algo:
+    if not best_pair:
         return JSONResponse(content={"error": "No algorithm produced results."}, status_code=400)
-    # Re-run the best algorithm on all data to get the 8 combos for the next draw
-    from algorithms import ALGORITHM_REGISTRY
-    algo_cls = ALGORITHM_REGISTRY[best_algo]
+    # Re-run the best main algorithm and best strong number model on all data to get the 8 combos for the next draw
+    main_algo_cls = ALGORITHM_REGISTRY[best_pair[0]]
+    strong_algo_cls = STRONG_NUMBER_REGISTRY[best_pair[1]]
     all_draws = draws
-    combos = algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
-    return {"algorithm": best_algo, "roi": best_roi, "recommendations": combos} 
+    combos = main_algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
+    # Attach strong number using the best strong number model
+    strong_algo = strong_algo_cls()
+    for combo in combos:
+        combo["strong"] = strong_algo.predict(all_draws, numbers=combo["numbers"])
+    return {"algorithm": best_pair[0], "strong_algorithm": best_pair[1], "roi": best_roi, "recommendations": combos} 

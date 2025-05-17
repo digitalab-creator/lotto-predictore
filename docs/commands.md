@@ -1,6 +1,7 @@
 # Useful Commands for Lotto Predictore ⚓️
 start
 ./scripts/up_with_cron.sh   
+./scripts/cleanup.sh   
 
 docker-compose logs backend | tail -30
 ## Import Draws
@@ -21,6 +22,15 @@ curl -G 'http://localhost:8000/simulate/table' \
   --data-urlencode 'top_n=3'
 
 curl http://localhost:8000/recommend
+
+curl -G 'http://localhost:8000/simulate/table' \
+  --data-urlencode 'train_start=1980-01-01' \
+  --data-urlencode 'train_end=2025-04-01' \
+  --data-urlencode 'test_count=12' \
+  --data-urlencode 'top_n=3' \
+  --data-urlencode 'algorithms=sequence_lstm_classifier_h128_l2'
+
+docker-compose -f ~/lotto-predictore/docker-compose.yml run --rm backend bash -c "cd /app && python3 -m scripts.grid_search_lstm"
 
 docker-compose exec db psql -U lotto_user -d lotto_db -c "\dt"
 docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT * FROM draws ORDER BY id DESC LIMIT 100;"

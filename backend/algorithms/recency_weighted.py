@@ -8,7 +8,7 @@ from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 
 @register_algorithm
 class RecencyWeightedFrequencyAlgorithm(Algorithm):
-    version = "v6"
+    version = "recency_weighted_linear"
     description = "Weigh recent draws more heavily in frequency calculation (linear)."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -27,18 +27,16 @@ class RecencyWeightedFrequencyAlgorithm(Algorithm):
         top6 = [num for num, _ in counter.most_common(6)]
         if len(top6) < 6:
             return []
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers, "strong": top_strong})
+            combos.append({"numbers": combo_numbers})
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class RecencyWeightedExpAlgorithm(Algorithm):
-    version = "v6-exp"
+    version = "recency_weighted_exponential"
     description = "Weigh recent draws more heavily using exponential decay."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -59,18 +57,16 @@ class RecencyWeightedExpAlgorithm(Algorithm):
         top6 = [num for num, _ in counter.most_common(6)]
         if len(top6) < 6:
             return []
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers, "strong": top_strong})
+            combos.append({"numbers": combo_numbers})
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class RecencyWeightedWindowAlgorithm(Algorithm):
-    version = "v6-window"
+    version = "recency_weighted_window"
     description = "Only use draws from the last 1 year."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -88,11 +84,9 @@ class RecencyWeightedWindowAlgorithm(Algorithm):
         top6 = [num for num, _ in counter.most_common(6)]
         if len(top6) < 6:
             return []
-        strong_counter = Counter(draw.strong_number for draw in recent_draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers, "strong": top_strong})
+            combos.append({"numbers": combo_numbers})
         return combos[:num_to_recommend] if combos else [] 

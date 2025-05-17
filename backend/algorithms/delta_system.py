@@ -7,7 +7,7 @@ from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 
 @register_algorithm
 class DeltaSystemDataDrivenAlgorithm(Algorithm):
-    version = "v4-data"
+    version = "delta_system_data_driven"
     description = "Delta system: use most common delta (gap) patterns from historical draws."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -33,13 +33,11 @@ class DeltaSystemDataDrivenAlgorithm(Algorithm):
             numbers = [n for n in numbers if 1 <= n <= 37]
             if len(numbers) == 6 and len(set(numbers)) == 6:
                 combos.append(numbers)
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-        return [{"numbers": combo, "strong": top_strong} for combo in combos[:num_to_recommend]] if combos else []
+        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else []
 
 @register_algorithm
 class DeltaSystemFixedAlgorithm(Algorithm):
-    version = "v4-fixed"
+    version = "delta_system_fixed"
     description = "Delta system: use classic fixed delta (gap) patterns."
 
     def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
@@ -67,6 +65,4 @@ class DeltaSystemFixedAlgorithm(Algorithm):
             numbers = [n for n in numbers if 1 <= n <= 37]
             if len(numbers) == 6 and len(set(numbers)) == 6:
                 combos.append(numbers)
-        strong_counter = Counter(draw.strong_number for draw in draws)
-        top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-        return [{"numbers": combo, "strong": top_strong} for combo in combos[:num_to_recommend]] if combos else [] 
+        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else [] 
