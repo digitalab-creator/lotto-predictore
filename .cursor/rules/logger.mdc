@@ -1,0 +1,65 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+### **Always Use `dh_log` for Logging**
+
+**Rule:**  
+All logging in this codebase must use the `dh_log` function from `services/logger.py`. Never use `print`, `logging.info`, or other direct logging calls.
+
+### **How to Use `dh_log`**
+
+**Basic Usage:**
+```python
+dh_log("Arrr! Message to log", level="INFO")
+```
+
+**With Context (Best Practice):**
+- Always pass a `context` dictionary with relevant info (parameters, algorithm names, results, errors, etc).
+- The context should be inline with the log call, not as a separate line.
+
+**Example:**
+```python
+dh_log(
+    "Arrr! Running algorithm",
+    level="DEBUG",
+    context={
+        "main_version": main_version,
+        "strong_version": strong_version,
+        "run_kwargs": run_kwargs
+    }
+)
+```
+
+**For Errors:**
+```python
+dh_log(
+    "Arrr! Something went wrong!",
+    level="ERROR",
+    context={
+        "error": str(e),
+        "params": run_kwargs
+    }
+)
+```
+
+**For Results:**
+```python
+dh_log(
+    "Arrr! Algorithm finished",
+    level="INFO",
+    context={
+        "result": result,
+        "roi": result.get('roi')
+    }
+)
+```
+
+### **Summary of the Rule**
+- **Always** use `dh_log` for all logs.
+- **Always** provide a `context` dict with key info (parameters, versions, results, errors, etc).
+- **Never** use `print` or direct `logging` calls.
+- **Keep context inline** with the log call for clarity and maintainability.
+

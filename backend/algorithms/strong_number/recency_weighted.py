@@ -17,8 +17,9 @@ class RecencyWeightedStrongNumber(StrongNumberAlgorithm):
             weight = 1 / (days_ago + 1)
             counter[draw.strong_number] += weight
         if not counter:
-            return 1
-        candidates = [num for num, _ in counter.most_common()]
-        if numbers is not None:
-            return self.pick_not_in(numbers, candidates)
-        return candidates[0] 
+            strong_number = 1
+        else:
+            candidates = [num for num, _ in counter.most_common()]
+            strong_number = candidates[0]
+        self._validate_strong_number(strong_number)
+        return strong_number 

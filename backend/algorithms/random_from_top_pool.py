@@ -23,7 +23,14 @@ class RandomFromTopPoolAlgorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -43,7 +50,14 @@ class RandomFromTop10PoolAlgorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -63,5 +77,12 @@ class RandomFromTop20PoolAlgorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend
+                }
+            })
         return combos[:num_to_recommend] if combos else [] 

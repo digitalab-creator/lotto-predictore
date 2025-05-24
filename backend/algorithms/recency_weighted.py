@@ -31,7 +31,15 @@ class RecencyWeightedFrequencyAlgorithm(Algorithm):
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "weighting": "linear"
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -61,7 +69,16 @@ class RecencyWeightedExpAlgorithm(Algorithm):
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "weighting": "exponential",
+                    "decay_lambda": decay_lambda
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -85,8 +102,18 @@ class RecencyWeightedWindowAlgorithm(Algorithm):
         if len(top6) < 6:
             return []
         combos = []
+        window_days = 365
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "weighting": "window",
+                    "window_days": window_days
+                }
+            })
         return combos[:num_to_recommend] if combos else [] 

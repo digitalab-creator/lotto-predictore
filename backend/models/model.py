@@ -13,7 +13,6 @@ class Model(Base):
     name = Column(String, nullable=False)
     version = Column(String, nullable=False)
     type = Column(Enum(ModelType), nullable=False)
-    params = Column(JSON, nullable=False)
     model_path = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     __table_args__ = (UniqueConstraint('name', 'version', 'type', name='_model_version_uc'),) 

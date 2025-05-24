@@ -95,6 +95,20 @@ def train_lotto_lstm(draws: List[Draw], seq_len=10, epochs=30, lr=0.001, batch_s
                 optimizer.step()
             dh_log(f"Arrr! [FSM DEBUG] Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}", level="DEBUG", context={"epoch": epoch+1, "loss": float(loss.item())})
         torch.save(model.state_dict(), model_path)
+        # File sync to ensure data is written to disk
+        try:
+            with open(model_path, 'rb+') as f:
+                f.flush()
+                os.fsync(f.fileno())
+            dh_log(f"Arrr! [FSM DEBUG] File sync completed for {model_path}", level="DEBUG", context={"model_path": model_path})
+        except Exception as e:
+            dh_log(f"Arrr! [FSM DEBUG] File sync failed for {model_path}: {e}", level="WARNING", context={"model_path": model_path, "error": str(e)})
+        # Integrity check: try to load the state_dict back
+        try:
+            _ = torch.load(model_path)
+            dh_log(f"Arrr! [FSM DEBUG] Model integrity check passed for {model_path}", level="DEBUG", context={"model_path": model_path})
+        except Exception as e:
+            dh_log(f"Arrr! [FSM DEBUG] Model integrity check failed for {model_path}: {e}", level="ERROR", context={"model_path": model_path, "error": str(e)})
         # Save latest date
         latest_date = str(draws[-1].date)
         save_meta(latest_date, meta_path)
@@ -127,6 +141,20 @@ def finetune_lotto_lstm(draws: List[Draw], seq_len=10, epochs=10, lr=0.0005, bat
             optimizer.step()
         dh_log(f"Arrr! [FSM DEBUG] Fine-tune Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}", level="DEBUG", context={"epoch": epoch+1, "loss": float(loss.item())})
     torch.save(model.state_dict(), model_path)
+    # File sync to ensure data is written to disk
+    try:
+        with open(model_path, 'rb+') as f:
+            f.flush()
+            os.fsync(f.fileno())
+        dh_log(f"Arrr! [FSM DEBUG] File sync completed for {model_path}", level="DEBUG", context={"model_path": model_path})
+    except Exception as e:
+        dh_log(f"Arrr! [FSM DEBUG] File sync failed for {model_path}: {e}", level="WARNING", context={"model_path": model_path, "error": str(e)})
+    # Integrity check: try to load the state_dict back
+    try:
+        _ = torch.load(model_path)
+        dh_log(f"Arrr! [FSM DEBUG] Model integrity check passed for {model_path}", level="DEBUG", context={"model_path": model_path})
+    except Exception as e:
+        dh_log(f"Arrr! [FSM DEBUG] Model integrity check failed for {model_path}: {e}", level="ERROR", context={"model_path": model_path, "error": str(e)})
     # Save latest date
     latest_date = str(draws[-1].date)
     save_meta(latest_date, meta_path)
@@ -228,7 +256,14 @@ class SequenceClassificationLSTMAlgorithm(Algorithm):
                 return []
             strong_counter = Counter(draw.strong_number for draw in draws)
             top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            combos = [{"numbers": numbers, "strong": top_strong}]
+            params = {
+                "seq_len": seq_len,
+                "model_version": self.version,
+                "top_n": top_n,
+                "num_for_analysis": num_for_analysis,
+                "num_to_recommend": num_to_recommend
+            }
+            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
             if num_to_recommend is None:
                 num_to_recommend = 8
             dh_log(f"Arrr! LSTM combos generated: {combos}", level="DEBUG", context={"combos": combos})
@@ -269,7 +304,14 @@ class SequenceClassificationLSTM_H32_L1_Algorithm(Algorithm):
             numbers = predict_next_numbers(draws, seq_len=seq_len, model_path=model_path)
             strong_counter = Counter(draw.strong_number for draw in draws)
             top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            combos = [{"numbers": numbers, "strong": top_strong}]
+            params = {
+                "seq_len": seq_len,
+                "model_version": self.version,
+                "top_n": top_n,
+                "num_for_analysis": num_for_analysis,
+                "num_to_recommend": num_to_recommend
+            }
+            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
             if num_to_recommend is None:
                 num_to_recommend = 8
             return combos * num_to_recommend if combos else []
@@ -308,7 +350,14 @@ class SequenceClassificationLSTM_H128_L2_Algorithm(Algorithm):
             numbers = predict_next_numbers(draws, seq_len=seq_len, model_path=model_path)
             strong_counter = Counter(draw.strong_number for draw in draws)
             top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            combos = [{"numbers": numbers, "strong": top_strong}]
+            params = {
+                "seq_len": seq_len,
+                "model_version": self.version,
+                "top_n": top_n,
+                "num_for_analysis": num_for_analysis,
+                "num_to_recommend": num_to_recommend
+            }
+            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
             if num_to_recommend is None:
                 num_to_recommend = 8
             return combos * num_to_recommend if combos else []
@@ -347,7 +396,14 @@ class SequenceClassificationLSTM_SEQ20_Algorithm(Algorithm):
             numbers = predict_next_numbers(draws, seq_len=seq_len, model_path=model_path)
             strong_counter = Counter(draw.strong_number for draw in draws)
             top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            combos = [{"numbers": numbers, "strong": top_strong}]
+            params = {
+                "seq_len": seq_len,
+                "model_version": self.version,
+                "top_n": top_n,
+                "num_for_analysis": num_for_analysis,
+                "num_to_recommend": num_to_recommend
+            }
+            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
             if num_to_recommend is None:
                 num_to_recommend = 8
             return combos * num_to_recommend if combos else []
@@ -370,9 +426,21 @@ class SequenceClassificationLSTM_H128_L2_E20_Algorithm(Algorithm):
             seq_len = 10
             hidden_size = 128
             num_layers = 2
+            lr = 0.001
+            batch_size = 8
+            epochs = 20
             threshold = 0.2
             model_path = os.path.join(os.path.dirname(__file__), '../scripts/sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt')
             combos = []
+            static_params = {
+                "hidden_size": hidden_size,
+                "num_layers": num_layers,
+                "seq_len": seq_len,
+                "lr": lr,
+                "batch_size": batch_size,
+                "epochs": epochs,
+                "threshold": threshold
+            }
             for _ in range(num_to_recommend or 8):
                 try:
                     numbers = predict_next_numbers(
@@ -388,7 +456,7 @@ class SequenceClassificationLSTM_H128_L2_E20_Algorithm(Algorithm):
                     numbers = []
                 strong_counter = Counter(draw.strong_number for draw in draws)
                 top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-                combos.append({"numbers": numbers, "strong": top_strong})
+                combos.append({"numbers": numbers, "strong": top_strong, "params": static_params.copy()})
             return combos
         except Exception as e:
             dh_log(f"Arrr! LSTM H128_L2_E20 (inference-only, single test draw) run method failed: {e}", level="ERROR")
@@ -418,7 +486,7 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
         with open(cache_path, 'wb') as f:
             pickle.dump(best_params, f)
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None) -> List[Dict[str, Any]]:
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None, use_cache: bool = True) -> List[Dict[str, Any]]:
         dh_log("Arrr! LSTM Grid Search run method called! Praisin' the FSM!", level="INFO")
         hyperparams_grid = {
             'hidden_size': [64, 128, 256],
@@ -435,7 +503,9 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
         train_draws = draws[:-test_count]
         test_draws = draws[-test_count:]
         cache_key = self._get_cache_key(train_draws)
-        best_params = self._best_params_cache.get(cache_key) or self._load_best_params_from_disk(cache_key)
+        best_params = None
+        if use_cache:
+            best_params = self._best_params_cache.get(cache_key) or self._load_best_params_from_disk(cache_key)
         if not best_params:
             dh_log(f"Arrr! [FSM GRID] No cached best params, runnin' grid search! Praisin' the FSM!", level="INFO")
             results = []
@@ -484,6 +554,20 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                             loss.backward()
                             optimizer.step()
                     torch.save(model.state_dict(), model_path)
+                    # File sync to ensure data is written to disk
+                    try:
+                        with open(model_path, 'rb+') as f:
+                            f.flush()
+                            os.fsync(f.fileno())
+                        dh_log(f"Arrr! [FSM DEBUG] File sync completed for {model_path}", level="DEBUG", context={"model_path": model_path})
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM DEBUG] File sync failed for {model_path}: {e}", level="WARNING", context={"model_path": model_path, "error": str(e)})
+                    # Integrity check: try to load the state_dict back
+                    try:
+                        _ = torch.load(model_path)
+                        dh_log(f"Arrr! [FSM DEBUG] Model integrity check passed for {model_path}", level="DEBUG", context={"model_path": model_path})
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM DEBUG] Model integrity check failed for {model_path}: {e}", level="ERROR", context={"model_path": model_path, "error": str(e)})
                 def predict_next_numbers_patched(draws, seq_len=10, threshold=0.5, model_path=None):
                     model = LottoLSTM(
                         num_numbers=37,
@@ -562,63 +646,94 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                     if result['roi'] > best_roi:
                         best_roi = result['roi']
                         best_result = result
-            top3 = sorted(results, key=lambda x: x['roi'], reverse=True)[:3]
-            if not top3:
-                return []
-            best = top3[0]
-            best_params = best
-            self._best_params_cache[cache_key] = best_params
-            self._save_best_params_to_disk(cache_key, best_params)
+            # Instead of returning only the best/top3, return all results for saving
+            if use_cache:
+                # Save best params to cache
+                self._best_params_cache[cache_key] = best_result
+                self._save_best_params_to_disk(cache_key, best_result)
+            return results
         else:
-            dh_log(f"Arrr! [FSM GRID] Using cached best params! Praisin' the FSM!", level="INFO")
-        params = best_params['params']
-        model_path = best_params['model_path']
-        strong_cls = STRONG_NUMBER_REGISTRY[best_params['strong_algo']]
-        model = LottoLSTM(num_numbers=37, seq_len=params['seq_len'], hidden_size=params['hidden_size'], num_layers=params['num_layers'])
-        model.load_state_dict(torch.load(model_path))
-        model.eval()
-        # Get model output probabilities for the next draw
-        seq = draws[-params['seq_len']:]
-        x_seq = []
-        for d in seq:
-            onehot = [0]*37
-            for n in d.numbers:
-                onehot[n-1] = 1
-            x_seq.append(onehot)
-        x_tensor = torch.tensor([x_seq], dtype=torch.float32)
-        with torch.no_grad():
-            output = model(x_tensor)[0].cpu().numpy()
-        # Get the top 12 numbers by probability
-        top_n_numbers = output.argsort()[-12:][::-1]
-        # Generate all 6-number combinations from the top 12
-        from itertools import combinations
-        combo_candidates = list(combinations(top_n_numbers, 6))
-        # Score each combo by the sum of probabilities
-        scored_combos = []
-        for combo in combo_candidates:
-            score = sum(output[i] for i in combo)
-            scored_combos.append((score, combo))
-        # Sort combos by score, descending
-        scored_combos.sort(reverse=True, key=lambda x: x[0])
-        # Take the top 8 unique combos
-        unique_combos = []
-        seen = set()
-        for score, combo in scored_combos:
-            sorted_combo = tuple(sorted(combo))
-            if sorted_combo not in seen:
-                seen.add(sorted_combo)
-                unique_combos.append(sorted_combo)
-            if len(unique_combos) == (num_to_recommend or NUM_COMBINATIONS_TO_RECOMMEND):
-                break
-        # Convert combos to the required format
-        combos = []
-        strong_algo = strong_cls()
-        for combo in unique_combos:
-            numbers = [i+1 for i in combo]
-            strong = strong_algo.predict(draws, numbers=numbers)
-            combos.append({"numbers": numbers, "strong": strong})
-        dh_log(f"Arrr! [FSM GRID] Final combos returned: {combos}", level="INFO")
-        return combos
+            dh_log(f"Arrr! [FSM GRID] Using cached best params! Praisin' the FSM! Params: {best_params}", level="DEBUG", context={"params": best_params})
+            model_path = best_params['model_path']
+            strong_cls = STRONG_NUMBER_REGISTRY[best_params['strong_algo']]
+            model = LottoLSTM(num_numbers=37, seq_len=best_params['params']['seq_len'], hidden_size=best_params['params']['hidden_size'], num_layers=best_params['params']['num_layers'])
+            model.load_state_dict(torch.load(model_path))
+            model.eval()
+            # Get model output probabilities for the next draw
+            seq = draws[-best_params['params']['seq_len']:]
+            x_seq = []
+            for d in seq:
+                onehot = [0]*37
+                for n in d.numbers:
+                    try:
+                        onehot[int(n)-1] = 1  # ensure n is int
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM GRID] Error converting number to int: {n}, error: {e}", level="ERROR")
+                        raise
+                x_seq.append(onehot)
+            x_tensor = torch.tensor([x_seq], dtype=torch.float32)
+            with torch.no_grad():
+                output = model(x_tensor)[0].cpu().numpy()
+            dh_log(f"Arrr! [FSM GRID] Model output shape: {output.shape}, dtype: {output.dtype}", level="DEBUG")
+            # Get the top 12 numbers by probability
+            top_n_numbers = output.argsort()[-12:][::-1]
+            dh_log(f"Arrr! [FSM GRID] Top 12 numbers: {top_n_numbers}", level="DEBUG")
+            # Generate all 6-number combinations from the top 12
+            from itertools import combinations
+            combo_candidates = list(combinations(top_n_numbers, 6))
+            dh_log(f"Arrr! [FSM GRID] Generated {len(combo_candidates)} combo candidates", level="DEBUG")
+            # Score each combo by the sum of probabilities
+            scored_combos = []
+            for combo in combo_candidates:
+                score = sum(output[i] for i in combo)
+                scored_combos.append((score, combo))
+            # Sort combos by score, descending
+            scored_combos.sort(reverse=True, key=lambda x: x[0])
+            # Take the top 8 unique combos
+            unique_combos = []
+            seen = set()
+            for score, combo in scored_combos:
+                sorted_combo = tuple(sorted(combo))
+                if sorted_combo not in seen:
+                    seen.add(sorted_combo)
+                    unique_combos.append(sorted_combo)
+                if len(unique_combos) == (num_to_recommend or NUM_COMBINATIONS_TO_RECOMMEND):
+                    break
+            dh_log(f"Arrr! [FSM GRID] Unique combos count: {len(unique_combos)}", level="DEBUG")
+            # Convert combos to the required format, ensure native ints and always include params
+            combos = []
+            strong_algo = strong_cls()
+            for combo in unique_combos:
+                try:
+                    numbers = [int(i)+1 for i in combo]  # ensure native int
+                    strong = strong_algo.predict(draws, numbers=numbers)
+                    params = {
+                        "seq_len": best_params['params']['seq_len'],
+                        "model_version": self.version,
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend
+                    }
+                    combos.append({
+                        "numbers": [int(n) for n in numbers],
+                        "strong": int(strong) if hasattr(strong, '__int__') else strong,
+                        "params": params
+                    })
+                except Exception as e:
+                    dh_log(f"Arrr! [FSM GRID] Error generating combo: {combo}, error: {e}", level="ERROR")
+            if not combos:
+                dh_log(f"[FSM DEBUG] No combos generated, fallback to last test draws! Praisin' the FSM!", level="WARNING")
+                try:
+                    combos = [{
+                        "numbers": [int(n) for n in sorted(test_draws[-1].numbers)],
+                        "strong": int(getattr(test_draws[-1], 'strong_number', 1)),
+                        "params": best_params['params'].copy()
+                    }]
+                except Exception as e:
+                    dh_log(f"Arrr! [FSM GRID] Fallback combo generation failed: {e}", level="ERROR")
+                    combos = []
+            dh_log(f"Arrr! [FSM GRID] Final combos returned: {combos}", level="INFO")
+            return combos
 
 # Arrr! More grid search variants can be added here. Praise the FSM!
 

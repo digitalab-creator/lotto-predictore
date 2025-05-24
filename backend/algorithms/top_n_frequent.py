@@ -31,7 +31,14 @@ class TopNFrequentPerPositionV1Algorithm(Algorithm):
         combos = combos[:num_for_analysis]
         result = []
         for combo in combos[:num_to_recommend]:
-            result.append({"numbers": list(combo)})
+            result.append({
+                "numbers": list(combo),
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend
+                }
+            })
         return result if result else []
 
 @register_algorithm
@@ -56,5 +63,12 @@ class TopNFrequentPerPositionV2Algorithm(Algorithm):
         combos = combos[:num_for_analysis]
         result = []
         for combo in combos[:num_to_recommend]:
-            result.append({"numbers": list(combo)})
+            result.append({
+                "numbers": list(combo),
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend
+                }
+            })
         return result if result else [] 

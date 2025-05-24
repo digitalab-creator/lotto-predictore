@@ -29,7 +29,15 @@ class SkipDistanceFrequencyV1Algorithm(Algorithm):
         for _ in range(num_for_analysis):
             combo_numbers = due_numbers[:]
             random.shuffle(combo_numbers)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "skip_type": "oldest"
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -54,6 +62,14 @@ class SkipDistanceFrequencyV2Algorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = random.sample(due_pool, 6)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "skip_type": "top12"
+                }
+            })
         return combos[:num_to_recommend] if combos else []
  

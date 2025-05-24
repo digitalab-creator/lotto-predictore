@@ -31,7 +31,18 @@ class PositionwiseScoredV1Algorithm(Algorithm):
         def score(combo):
             return sum(position_counters[i][num] for i, num in enumerate(combo))
         scored = sorted(combos, key=score, reverse=True)[:num_for_analysis]
-        return [{"numbers": list(combo)} for combo in scored[:num_to_recommend]] if scored else []
+        combos = []
+        for combo in scored:
+            combos.append({
+                "numbers": list(combo),
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "scoring": "sum"
+                }
+            })
+        return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class PositionwiseScoredV2Algorithm(Algorithm):
@@ -57,4 +68,16 @@ class PositionwiseScoredV2Algorithm(Algorithm):
             weights = [2, 1, 1, 1, 1, 2]
             return sum(weights[i] * position_counters[i][num] for i, num in enumerate(combo))
         scored = sorted(combos, key=weighted_score, reverse=True)[:num_for_analysis]
-        return [{"numbers": list(combo)} for combo in scored[:num_to_recommend]] if scored else [] 
+        combos = []
+        for combo in scored:
+            combos.append({
+                "numbers": list(combo),
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "scoring": "weighted",
+                    "weights": [2,1,1,1,1,2]
+                }
+            })
+        return combos[:num_to_recommend] if combos else [] 

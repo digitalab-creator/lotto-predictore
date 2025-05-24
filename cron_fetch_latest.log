@@ -1,1 +1,26 @@
 the input device is not a TTY
+the input device is not a TTY
+the input device is not a TTY
+the input device is not a TTY
+python: can't open file '/app/fetch_latest_draw.py': [Errno 2] No such file or directory
+the input device is not a TTY
+the input device is not a TTY
+[EARLY LOG] INFO: Arrr! Script started, praisin' the FSM!
+[EARLY LOG] INFO: Fetching latest draw from Magayo API
+2025-05-22 20:02:47,224 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+2025-05-22 20:02:47,224 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-05-22 20:02:47,226 INFO sqlalchemy.engine.Engine select current_schema()
+2025-05-22 20:02:47,226 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-05-22 20:02:47,227 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2025-05-22 20:02:47,227 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-05-22 20:02:47,229 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-05-22 20:02:47,250 INFO sqlalchemy.engine.Engine SELECT draws.id, draws.date, draws.numbers, draws.strong_number 
+FROM draws 
+WHERE draws.date = %(date_1)s
+2025-05-22 20:02:47,250 INFO sqlalchemy.engine.Engine [generated in 0.00031s] {'date_1': datetime.date(2025, 5, 20)}
+2025-05-22 20:02:47,256 INFO sqlalchemy.engine.Engine INSERT INTO draws (date, numbers, strong_number) VALUES (%(date)s, %(numbers)s::INTEGER[], %(strong_number)s) RETURNING draws.id
+2025-05-22 20:02:47,257 INFO sqlalchemy.engine.Engine [generated in 0.00032s] {'date': datetime.date(2025, 5, 20), 'numbers': [1, 10, 16, 18, 28, 35], 'strong_number': 7}
+2025-05-22 20:02:47,260 INFO sqlalchemy.engine.Engine COMMIT
+[EARLY LOG] INFO: Added draw 2025-05-20: [1, 10, 16, 18, 28, 35] + 7
+the input device is not a TTY
+the input device is not a TTY

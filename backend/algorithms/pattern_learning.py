@@ -54,12 +54,36 @@ class PatternLearningFromWinnersV1Algorithm(Algorithm):
             if len(nums) == 6 and all(1 <= n <= 37 for n in nums):
                 if tuple(n % 2 for n in nums) == common_parity and tuple(n // 10 for n in nums) == common_digit_group:
                     if len(set(nums)) == 6:
-                        combos.append(nums)
+                        combos.append({
+                            "numbers": nums,
+                            "params": {
+                                "top_n": top_n,
+                                "num_for_analysis": num_for_analysis,
+                                "num_to_recommend": num_to_recommend,
+                                "min_hits": 4,
+                                "pattern_type": "full"
+                            }
+                        })
             attempts += 1
         # Fallback: just use the most recent lines
         if not combos:
-            combos = [sorted(d.numbers) for d in draws[-num_for_analysis:]]
-        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else []
+            # Try to use params from the last generated combo if available, else build from current values
+            fallback_params = None
+            if len(combos) > 0 and isinstance(combos[-1], dict) and "params" in combos[-1]:
+                fallback_params = combos[-1]["params"].copy()
+            else:
+                fallback_params = {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "min_hits": 4,
+                    "pattern_type": "fallback"
+                }
+            combos = [{
+                "numbers": sorted(d.numbers),
+                "params": fallback_params
+            } for d in draws[-num_for_analysis:]]
+        return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class PatternLearningFromWinnersV2Algorithm(Algorithm):
@@ -98,8 +122,31 @@ class PatternLearningFromWinnersV2Algorithm(Algorithm):
             for d in common_delta:
                 nums.append(nums[-1] + d)
             if len(nums) == 6 and all(1 <= n <= 37 for n in nums) and len(set(nums)) == 6:
-                combos.append(nums)
+                combos.append({
+                    "numbers": nums,
+                    "params": {
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend,
+                        "min_hits": 3,
+                        "pattern_type": "delta"
+                    }
+                })
             attempts += 1
         if not combos:
-            combos = [sorted(d.numbers) for d in draws[-num_for_analysis:]]
-        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else [] 
+            fallback_params = None
+            if len(combos) > 0 and isinstance(combos[-1], dict) and "params" in combos[-1]:
+                fallback_params = combos[-1]["params"].copy()
+            else:
+                fallback_params = {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "min_hits": 3,
+                    "pattern_type": "fallback"
+                }
+            combos = [{
+                "numbers": sorted(d.numbers),
+                "params": fallback_params
+            } for d in draws[-num_for_analysis:]]
+        return combos[:num_to_recommend] if combos else [] 

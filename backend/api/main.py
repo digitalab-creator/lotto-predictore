@@ -1,5 +1,6 @@
 import algorithms
 import algorithms.dl.sequence_classifier
+import algorithms.strong_number  # Arrr! Ensure all strong number algorithms be registered, praisin' the FSM!
 from fastapi import FastAPI, Depends, Query
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
@@ -37,7 +38,7 @@ def simulate(
     train_start: date = Query(..., description="Start date for training data (YYYY-MM-DD)"),
     train_end: date = Query(..., description="End date for training data (YYYY-MM-DD)"),
     test_count: int = Query(4, description="How many draws to test after train_end"),
-    top_n: int = Query(3, description="Top N frequent numbers per position"),
+    top_n: int = Query(3, description="Top N frequent numbers per position (for position-based algorithms). For 'top_6_overall_frequent_v2', top_n must be at least 6 (recommended 10)."),
     algorithms: str = Query(None, description="Comma-separated list of algorithm names to run (default: all)"),
     strong_algorithms: str = Query(None, description="Comma-separated list of strong number algorithm names to run (default: all)"),
     db: Session = Depends(get_db)
@@ -50,18 +51,52 @@ def simulate(
 
 @app.get("/simulate/table", response_class=PlainTextResponse)
 def simulate_table(
-    train_start: date = Query(..., description="Start date for training data (YYYY-MM-DD)"),
-    train_end: date = Query(..., description="End date for training data (YYYY-MM-DD)"),
+    train_start: date = Query(None, description="Start date for training data (YYYY-MM-DD), optional - will be determined automatically if not provided"),
+    train_end: date = Query(None, description="End date for training data (YYYY-MM-DD), optional - will be determined automatically if not provided"),
     test_count: int = Query(4, description="How many draws to test after train_end"),
-    top_n: int = Query(3, description="Top N frequent numbers per position"),
+    top_n: int = Query(3, description="Top N frequent numbers per position (for position-based algorithms). For 'top_6_overall_frequent_v2', top_n must be at least 6 (recommended 10)."),
     algorithms: str = Query(None, description="Comma-separated list of algorithm names to run (default: all)"),
     strong_algorithms: str = Query(None, description="Comma-separated list of strong number algorithm names to run (default: all)"),
+    use_cache: bool = Query(True, description="Whether to use cached results (default: true)"),
     db: Session = Depends(get_db)
 ):
+    # Arrr! If train_start or train_end be None, calculate 'em from draws and test_count, praisin' the FSM!
+    draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
+    filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
+    dh_log(
+        "Arrr! Filtered out draws with strong_number == 8, praisin' the FSM!",
+        level="INFO",
+        context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
+    )
+    if train_start is None or train_end is None:
+        if len(draws) <= test_count:
+            dh_log(
+                "Arrr! Not enough draws to split into train and test! Praisin' the FSM for catchin' this!",
+                level="ERROR",
+                context={"draw_count": len(draws), "test_count": test_count}
+            )
+            return PlainTextResponse(
+                f"Arrr! Not enough draws to split into train and test! draw_count={len(draws)}, test_count={test_count}",
+                status_code=400
+            )
+        train_start_calc = draws[0].date
+        train_end_calc = draws[-test_count-1].date
+        dh_log(
+            "Arrr! Calculated train_start and train_end from draws and test_count, praisin' the FSM!",
+            level="INFO",
+            context={
+                "train_start": str(train_start_calc),
+                "train_end": str(train_end_calc),
+                "test_count": test_count,
+                "draw_count": len(draws)
+            }
+        )
+        train_start = train_start or train_start_calc
+        train_end = train_end or train_end_calc
     engine = SimulationEngine(db)
     algo_names = [a.strip() for a in algorithms.split(",")] if algorithms else None
     strong_algo_names = [a.strip() for a in strong_algorithms.split(",")] if strong_algorithms else None
-    results = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=algo_names, strong_algo_names=strong_algo_names)
+    results = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=algo_names, strong_algo_names=strong_algo_names, use_cache=use_cache)
     # Generate markdown table
     try:
         from tabulate import tabulate
@@ -109,8 +144,14 @@ def simulate_table(
 
 @app.get("/recommend", response_class=JSONResponse)
 def recommend(db: Session = Depends(get_db)):
-    # Get all draws, sorted by date
-    draws = db.query(Draw).order_by(Draw.date).all()
+    # Get all draws, sorted by date, and filter out strong_number == 8
+    draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
+    filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
+    dh_log(
+        "Arrr! Filtered out draws with strong_number == 8 for recommendation, praisin' the FSM!",
+        level="INFO",
+        context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
+    )
     if len(draws) < 20:
         return JSONResponse(content={"error": "Not enough draws in database for recommendation."}, status_code=400)
     # Split into train and test
@@ -139,5 +180,5 @@ def recommend(db: Session = Depends(get_db)):
     # Attach strong number using the best strong number model
     strong_algo = strong_algo_cls()
     for combo in combos:
-        combo["strong"] = strong_algo.predict(all_draws, numbers=combo["numbers"])
+        combo["strong"] = strong_algo.predict(all_draws)
     return {"algorithm": best_pair[0], "strong_algorithm": best_pair[1], "roi": best_roi, "recommendations": combos} 

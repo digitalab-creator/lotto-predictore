@@ -21,7 +21,15 @@ class BalancedSpreadAlgorithm(Algorithm):
             for r in ranges:
                 pool.extend(random.sample(list(r), 2))
             combo_numbers = random.sample(pool, 6)
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "spread_type": "fixed_ranges"
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -39,7 +47,15 @@ class BalancedSpreadEqualAlgorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = [random.choice(list(r)) for r in ranges]
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "spread_type": "equal_ranges"
+                }
+            })
         return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
@@ -58,5 +74,13 @@ class BalancedSpreadRandomAlgorithm(Algorithm):
             random.shuffle(all_numbers)
             ranges = [all_numbers[i*6:(i+1)*6] for i in range(6)]
             combo_numbers = [random.choice(r) for r in ranges if r]
-            combos.append({"numbers": combo_numbers})
+            combos.append({
+                "numbers": combo_numbers,
+                "params": {
+                    "top_n": top_n,
+                    "num_for_analysis": num_for_analysis,
+                    "num_to_recommend": num_to_recommend,
+                    "spread_type": "random_ranges"
+                }
+            })
         return combos[:num_to_recommend] if combos else [] 

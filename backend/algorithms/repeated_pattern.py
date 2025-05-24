@@ -42,8 +42,15 @@ class RepeatedPatternMatchingV1Algorithm(Algorithm):
             # Ensure unique and sorted
             nums = sorted(set(nums))
             if len(nums) == 6:
-                combos.append(nums)
-        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else []
+                combos.append({
+                    "numbers": nums,
+                    "params": {
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend
+                    }
+                })
+        return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class RepeatedPatternMatchingV2Algorithm(Algorithm):
@@ -75,5 +82,12 @@ class RepeatedPatternMatchingV2Algorithm(Algorithm):
             nums[a], nums[b] = nums[b], nums[a]
             nums = sorted(set(nums))
             if len(nums) == 6:
-                combos.append(nums)
-        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else [] 
+                combos.append({
+                    "numbers": nums,
+                    "params": {
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend
+                    }
+                })
+        return combos[:num_to_recommend] if combos else [] 

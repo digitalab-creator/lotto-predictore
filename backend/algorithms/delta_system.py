@@ -32,8 +32,17 @@ class DeltaSystemDataDrivenAlgorithm(Algorithm):
                 numbers.append(numbers[-1] + d)
             numbers = [n for n in numbers if 1 <= n <= 37]
             if len(numbers) == 6 and len(set(numbers)) == 6:
-                combos.append(numbers)
-        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else []
+                combos.append({
+                    "numbers": numbers,
+                    "params": {
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend,
+                        "pattern_source": "data_driven",
+                        "deltas": deltas
+                    }
+                })
+        return combos[:num_to_recommend] if combos else []
 
 @register_algorithm
 class DeltaSystemFixedAlgorithm(Algorithm):
@@ -64,5 +73,14 @@ class DeltaSystemFixedAlgorithm(Algorithm):
                 numbers.append(numbers[-1] + d)
             numbers = [n for n in numbers if 1 <= n <= 37]
             if len(numbers) == 6 and len(set(numbers)) == 6:
-                combos.append(numbers)
-        return [{"numbers": combo} for combo in combos[:num_to_recommend]] if combos else [] 
+                combos.append({
+                    "numbers": numbers,
+                    "params": {
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend,
+                        "pattern_source": "fixed",
+                        "deltas": deltas
+                    }
+                })
+        return combos[:num_to_recommend] if combos else [] 
