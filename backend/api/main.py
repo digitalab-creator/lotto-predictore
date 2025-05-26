@@ -4,7 +4,7 @@ import algorithms.strong_number  # Arrr! Ensure all strong number algorithms be 
 from fastapi import FastAPI, Depends, Query
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
-from datetime import date
+from datetime import date, datetime
 from services.simulation_engine import SimulationEngine
 from fastapi.responses import PlainTextResponse, JSONResponse
 from sqlalchemy import desc
@@ -14,6 +14,12 @@ from services.logger import setup_logger, dh_log
 import os
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
+from models.prediction import Prediction
+from models.model import Model
+import math
+from collections import defaultdict
+import json
+from models.generated_combination import GeneratedCombination
 
 app = FastAPI()
 
@@ -144,41 +150,162 @@ def simulate_table(
 
 @app.get("/recommend", response_class=JSONResponse)
 def recommend(db: Session = Depends(get_db)):
-    # Get all draws, sorted by date, and filter out strong_number == 8
+    MIN_TEST_DRAWS = 20  # Threshold for statistical significance
+    ALPHA = 0.5  # Weight for prize/cost ratio in score
+
+    # Get all predictions, most recent first
+    predictions = db.query(Prediction).order_by(Prediction.run_time.desc()).all()
+    if not predictions:
+        dh_log("Arrr! No predictions found in DB, praisin' the FSM!", level="ERROR")
+        return JSONResponse(content={"error": "No predictions found in DB."}, status_code=400)
+
+    # Group predictions by (main_model_id, strong_model_id, main_model_params, strong_model_params)
+    groups = defaultdict(list)
+    for p in predictions:
+        main_params = json.dumps(p.main_model_params, sort_keys=True) if p.main_model_params else '{}'
+        strong_params = json.dumps(p.strong_model_params, sort_keys=True) if p.strong_model_params else '{}'
+        key = (p.model_id, p.strong_model_id, main_params, strong_params)
+        groups[key].append(p)
+
+    # Aggregate stats for each group
+    aggregated = []
+    for key, preds in groups.items():
+        agg_total_prize = sum(p.total_prize for p in preds)
+        agg_total_cost = sum(p.total_cost for p in preds)
+        agg_num_test_draws = sum(p.num_test_draws for p in preds)
+        if agg_total_cost == 0 or agg_num_test_draws == 0:
+            continue
+        prize_per_draw = agg_total_prize / agg_num_test_draws
+        cost_per_draw = agg_total_cost / agg_num_test_draws
+        roi_per_draw = (prize_per_draw - cost_per_draw) / cost_per_draw if cost_per_draw else 0
+        prize_cost_ratio = agg_total_prize / agg_total_cost if agg_total_cost else 0
+        score = roi_per_draw * math.log(agg_num_test_draws + 1) + ALPHA * prize_cost_ratio
+        most_recent = max(preds, key=lambda p: p.run_time)
+        aggregated.append({
+            "key": key,
+            "model_id": key[0],
+            "strong_model_id": key[1],
+            "main_model_params": most_recent.main_model_params,
+            "strong_model_params": most_recent.strong_model_params,
+            "score": score,
+            "roi_per_draw": roi_per_draw,
+            "prize_per_draw": prize_per_draw,
+            "cost_per_draw": cost_per_draw,
+            "agg_total_prize": agg_total_prize,
+            "agg_total_cost": agg_total_cost,
+            "agg_num_test_draws": agg_num_test_draws,
+            "most_recent": most_recent
+        })
+
+    # Filter for statistical significance
+    significant = [a for a in aggregated if a["agg_num_test_draws"] >= MIN_TEST_DRAWS]
+    if significant:
+        best = max(significant, key=lambda a: a["score"])
+        reason = f"Selected by score (statistically significant, N>={MIN_TEST_DRAWS})"
+    else:
+        best = max(aggregated, key=lambda a: a["roi_per_draw"])
+        reason = "Fallback: selected by highest ROI (no significant model group)"
+
+    main_model = db.query(Model).filter(Model.id == best["model_id"]).first()
+    strong_model = db.query(Model).filter(Model.id == best["strong_model_id"]).first()
+    main_algo_name = main_model.name if main_model else None
+    strong_algo_name = strong_model.name if strong_model else None
+    main_algo_cls = ALGORITHM_REGISTRY.get(main_algo_name)
+    strong_algo_cls = STRONG_NUMBER_REGISTRY.get(strong_algo_name)
+    if not main_algo_cls or not strong_algo_cls:
+        dh_log(
+            "Arrr! Could not find algorithm class for best model group! Praisin' the FSM!",
+            level="ERROR",
+            context={"main_algo": main_algo_name, "strong_algo": strong_algo_name}
+        )
+        return JSONResponse(content={"error": "Could not find algorithm class for best model group."}, status_code=400)
+    # Use all draws for recommendation
     draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
-    filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
-    dh_log(
-        "Arrr! Filtered out draws with strong_number == 8 for recommendation, praisin' the FSM!",
-        level="INFO",
-        context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
-    )
-    if len(draws) < 20:
-        return JSONResponse(content={"error": "Not enough draws in database for recommendation."}, status_code=400)
-    # Split into train and test
-    train_draws = draws[:-12]
-    test_draws = draws[-12:]
-    train_start = train_draws[0].date
-    train_end = train_draws[-1].date
-    test_count = 12
-    top_n = 3
-    engine = SimulationEngine(db)
-    results = engine.run_comparison(train_start, train_end, test_count, top_n)
-    # Find the (main, strong) pair with the highest ROI
-    best_pair = None
-    best_roi = float('-inf')
-    for (main_algo, strong_algo), res in results.items():
-        if res["roi"] > best_roi:
-            best_pair = (main_algo, strong_algo)
-            best_roi = res["roi"]
-    if not best_pair:
-        return JSONResponse(content={"error": "No algorithm produced results."}, status_code=400)
-    # Re-run the best main algorithm and best strong number model on all data to get the 8 combos for the next draw
-    main_algo_cls = ALGORITHM_REGISTRY[best_pair[0]]
-    strong_algo_cls = STRONG_NUMBER_REGISTRY[best_pair[1]]
-    all_draws = draws
-    combos = main_algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
-    # Attach strong number using the best strong number model
+    top_n = best["main_model_params"].get("top_n", 3) if best["main_model_params"] else 3
+    num_to_recommend = best["main_model_params"].get("num_to_recommend", NUM_COMBINATIONS_TO_RECOMMEND) if best["main_model_params"] else NUM_COMBINATIONS_TO_RECOMMEND
+    combos = main_algo_cls().run(draws, top_n=top_n, num_to_recommend=num_to_recommend)
     strong_algo = strong_algo_cls()
     for combo in combos:
-        combo["strong"] = strong_algo.predict(all_draws)
-    return {"algorithm": best_pair[0], "strong_algorithm": best_pair[1], "roi": best_roi, "recommendations": combos} 
+        combo["strong"] = strong_algo.predict(draws, numbers=combo["numbers"]) if "numbers" in combo else strong_algo.predict(draws)
+
+    # Create a new Prediction row for this recommendation event
+    now = datetime.utcnow()
+    new_prediction = Prediction(
+        model_id=main_model.id,
+        strong_model_id=strong_model.id,
+        run_time=now,
+        roi=best["roi_per_draw"],
+        total_prize=best["agg_total_prize"],
+        total_cost=best["agg_total_cost"],
+        test_count=0,  # Not a simulation, so 0
+        notes=f"Recommendation event at {now.isoformat()} | {reason}",
+        train_start_date=draws[0].date if draws else now.date(),
+        train_end_date=draws[-1].date if draws else now.date(),
+        num_test_draws=0,
+        main_model_params=best["main_model_params"],
+        strong_model_params=best["strong_model_params"]
+    )
+    db.add(new_prediction)
+    db.flush()  # Get the new prediction.id
+
+    # Save each recommended combo to generated_combinations
+    for idx, combo in enumerate(combos):
+        if "numbers" not in combo:
+            dh_log(
+                f"Arrr! Combo at index {idx} be missin' the 'numbers' key! Praisin' the FSM! Throwin' error!",
+                level="ERROR",
+                context={
+                    "combo": combo,
+                    "index": idx,
+                    "recommendation_prediction_id": new_prediction.id
+                }
+            )
+            raise ValueError(f"Combo at index {idx} be missin' the 'numbers' key! Combo: {combo}")
+        generated = GeneratedCombination(
+            prediction_id=new_prediction.id,
+            numbers=combo["numbers"],
+            strong_number=combo["strong"],
+            position=idx+1,
+            created_at=now
+        )
+        db.add(generated)
+        dh_log(
+            f"Arrr! Stored recommended combo {idx+1}: {combo['numbers']} + {combo['strong']}",
+            level="INFO",
+            context={
+                "prediction_id": new_prediction.id,
+                "numbers": combo["numbers"],
+                "strong_number": combo["strong"],
+                "position": idx+1
+            }
+        )
+    db.commit()
+
+    dh_log(
+        f"Arrr! Recommendation selected: {main_algo_name} + {strong_algo_name} | Reason: {reason}",
+        level="INFO",
+        context={
+            "main_algo": main_algo_name,
+            "strong_algo": strong_algo_name,
+            "score": best["score"],
+            "roi_per_draw": best["roi_per_draw"],
+            "prize_per_draw": best["prize_per_draw"],
+            "cost_per_draw": best["cost_per_draw"],
+            "agg_total_prize": best["agg_total_prize"],
+            "agg_total_cost": best["agg_total_cost"],
+            "agg_num_test_draws": best["agg_num_test_draws"],
+            "reason": reason,
+            "recommendation_prediction_id": new_prediction.id
+        }
+    )
+    return {
+        "algorithm": main_algo_name,
+        "strong_algorithm": strong_algo_name,
+        "roi": best["roi_per_draw"],
+        "total_prize": best["agg_total_prize"],
+        "total_cost": best["agg_total_cost"],
+        "num_test_draws": best["agg_num_test_draws"],
+        "recommendations": combos,
+        "recommendation_prediction_id": new_prediction.id,
+        "reason": reason
+    } 

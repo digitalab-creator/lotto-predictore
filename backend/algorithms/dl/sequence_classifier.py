@@ -20,10 +20,10 @@ from services.simulation_engine import calculate_roi_with_tax
 import hashlib
 import pickle
 
-dh_log("Arrr! sequence_classifier.py imported!", level="INFO")
+dh_log("Arrr! sequence_classifier.py using new subdirectory structure for models, meta, and gridsearch! Praisin' the FSM!", level="INFO")
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model.pt')
-META_PATH = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_meta.json')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'models', 'sequence_classifier_model.pt')
+META_PATH = os.path.join(os.path.dirname(__file__), 'meta', 'sequence_classifier_model_meta.json')
 
 # --- Model Definition ---
 class LottoLSTM(nn.Module):
@@ -286,8 +286,8 @@ class SequenceClassificationLSTM_H32_L1_Algorithm(Algorithm):
             num_layers = 1
             lr = 0.001
             batch_size = 16
-            model_path = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_h32_l1.pt')
-            meta_path = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_h32_l1_meta.json')
+            model_path = os.path.join(os.path.dirname(__file__), 'models', 'sequence_classifier_model_h32_l1.pt')
+            meta_path = os.path.join(os.path.dirname(__file__), 'meta', 'sequence_classifier_model_h32_l1_meta.json')
             latest_db_date = None
             if db is not None:
                 latest_db_date = get_latest_draw_date(db)
@@ -332,8 +332,8 @@ class SequenceClassificationLSTM_H128_L2_Algorithm(Algorithm):
             num_layers = 2
             lr = 0.0005
             batch_size = 8
-            model_path = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_h128_l2.pt')
-            meta_path = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_h128_l2_meta.json')
+            model_path = os.path.join(os.path.dirname(__file__), 'models', 'sequence_classifier_model_h128_l2.pt')
+            meta_path = os.path.join(os.path.dirname(__file__), 'meta', 'sequence_classifier_model_h128_l2_meta.json')
             latest_db_date = None
             if db is not None:
                 latest_db_date = get_latest_draw_date(db)
@@ -378,8 +378,8 @@ class SequenceClassificationLSTM_SEQ20_Algorithm(Algorithm):
             num_layers = 2
             lr = 0.001
             batch_size = 16
-            model_path = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_seq20.pt')
-            meta_path = os.path.join(os.path.dirname(__file__), 'sequence_classifier_model_seq20_meta.json')
+            model_path = os.path.join(os.path.dirname(__file__), 'models', 'sequence_classifier_model_seq20.pt')
+            meta_path = os.path.join(os.path.dirname(__file__), 'meta', 'sequence_classifier_model_seq20_meta.json')
             latest_db_date = None
             if db is not None:
                 latest_db_date = get_latest_draw_date(db)
@@ -430,7 +430,9 @@ class SequenceClassificationLSTM_H128_L2_E20_Algorithm(Algorithm):
             batch_size = 8
             epochs = 20
             threshold = 0.2
-            model_path = os.path.join(os.path.dirname(__file__), '../scripts/sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt')
+            # Use the new models/ subdirectory for the model path
+            model_path = os.path.join(os.path.dirname(__file__), 'models', 'sequence_classifier_grid_h128_l2_s10_lr0.001_b8.pt')
+            dh_log("Arrr! H128_L2_E20 model_path updated to new models/ subdirectory! Praisin' the FSM!", level="DEBUG", context={"model_path": model_path})
             combos = []
             static_params = {
                 "hidden_size": hidden_size,
@@ -475,14 +477,14 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
         return hashlib.md5(key.encode()).hexdigest()
 
     def _load_best_params_from_disk(self, cache_key):
-        cache_path = os.path.join(os.path.dirname(__file__), f"gridsearch_best_{cache_key}.pkl")
+        cache_path = os.path.join(os.path.dirname(__file__), 'gridsearch', f"gridsearch_best_{cache_key}.pkl")
         if os.path.exists(cache_path):
             with open(cache_path, 'rb') as f:
                 return pickle.load(f)
         return None
 
     def _save_best_params_to_disk(self, cache_key, best_params):
-        cache_path = os.path.join(os.path.dirname(__file__), f"gridsearch_best_{cache_key}.pkl")
+        cache_path = os.path.join(os.path.dirname(__file__), 'gridsearch', f"gridsearch_best_{cache_key}.pkl")
         with open(cache_path, 'wb') as f:
             pickle.dump(best_params, f)
 
@@ -514,7 +516,7 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
             best_roi = float('-inf')
             for values in itertools.product(*hyperparams_grid.values()):
                 params = dict(zip(param_names, values))
-                model_path = os.path.join(os.path.dirname(__file__), f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
+                model_path = os.path.join(os.path.dirname(__file__), 'models', f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
                 dh_log(f"Arrr! [FSM GRID] Trainin' with params: {params}", level="INFO")
                 model = LottoLSTM(num_numbers=37, seq_len=params['seq_len'], hidden_size=params['hidden_size'], num_layers=params['num_layers'])
                 need_train = True
@@ -707,13 +709,14 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                 try:
                     numbers = [int(i)+1 for i in combo]  # ensure native int
                     strong = strong_algo.predict(draws, numbers=numbers)
-                    params = {
-                        "seq_len": best_params['params']['seq_len'],
+                    # Merge real best hyperparams with generic call params
+                    params = dict(best_params['params'])
+                    params.update({
                         "model_version": self.version,
                         "top_n": top_n,
                         "num_for_analysis": num_for_analysis,
                         "num_to_recommend": num_to_recommend
-                    }
+                    })
                     combos.append({
                         "numbers": [int(n) for n in numbers],
                         "strong": int(strong) if hasattr(strong, '__int__') else strong,
@@ -724,10 +727,17 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
             if not combos:
                 dh_log(f"[FSM DEBUG] No combos generated, fallback to last test draws! Praisin' the FSM!", level="WARNING")
                 try:
+                    params = dict(best_params['params'])
+                    params.update({
+                        "model_version": self.version,
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend
+                    })
                     combos = [{
                         "numbers": [int(n) for n in sorted(test_draws[-1].numbers)],
                         "strong": int(getattr(test_draws[-1], 'strong_number', 1)),
-                        "params": best_params['params'].copy()
+                        "params": params
                     }]
                 except Exception as e:
                     dh_log(f"Arrr! [FSM GRID] Fallback combo generation failed: {e}", level="ERROR")
@@ -736,5 +746,442 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
             return combos
 
 # Arrr! More grid search variants can be added here. Praise the FSM!
+
+# --- Position-based Model Definition ---
+class LottoLSTMPosition(nn.Module):
+    def __init__(self, num_numbers=37, seq_len=10, hidden_size=64, num_layers=2, num_positions=6):
+        super().__init__()
+        self.num_numbers = num_numbers
+        self.seq_len = seq_len
+        self.num_positions = num_positions
+        self.lstm = nn.LSTM(input_size=num_numbers, hidden_size=hidden_size, num_layers=num_layers, batch_first=True)
+        self.fc = nn.Linear(hidden_size, num_positions * num_numbers)
+        self.softmax = nn.Softmax(dim=2)
+
+    def forward(self, x):
+        out, _ = self.lstm(x)
+        out = out[:, -1, :]  # Take last output
+        out = self.fc(out)
+        out = out.view(-1, self.num_positions, self.num_numbers)
+        out = self.softmax(out)
+        return out
+
+# --- Position-based Data Preparation ---
+def draws_to_sequences_position(draws: List[Draw], seq_len=10, num_numbers=37, num_positions=6):
+    X, y = [], []
+    for i in range(len(draws) - seq_len):
+        seq = draws[i:i+seq_len]
+        target = draws[i+seq_len]
+        x_seq = []
+        for d in seq:
+            onehot = [0]*num_numbers
+            for n in d.numbers:
+                onehot[n-1] = 1
+            x_seq.append(onehot)
+        # y: 6 positions, each as one-hot
+        y_seq = []
+        for pos in range(num_positions):
+            onehot = [0]*num_numbers
+            n = target.numbers[pos]  # position matters
+            onehot[n-1] = 1
+            y_seq.append(onehot)
+        X.append(x_seq)
+        y.append(y_seq)
+    return torch.tensor(X, dtype=torch.float32), torch.tensor(y, dtype=torch.float32)
+
+# --- Position-based Training Function ---
+def train_lotto_lstm_position(draws: List[Draw], seq_len=10, epochs=30, lr=0.001, batch_size=16, model_path=None, meta_path=None, num_positions=6, hidden_size=64, num_layers=2):
+    num_numbers = 37
+    X, y = draws_to_sequences_position(draws, seq_len, num_numbers, num_positions)
+    model = LottoLSTMPosition(num_numbers=num_numbers, seq_len=seq_len, hidden_size=hidden_size, num_layers=num_layers, num_positions=num_positions)
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=lr)
+    try:
+        for epoch in range(epochs):
+            model.train()
+            permutation = torch.randperm(X.size(0))
+            for i in range(0, X.size(0), batch_size):
+                indices = permutation[i:i+batch_size]
+                batch_x, batch_y = X[indices], y[indices]
+                optimizer.zero_grad()
+                outputs = model(batch_x)  # (batch, 6, 37)
+                # CrossEntropyLoss expects (N, C) and (N), so flatten
+                loss = 0
+                for pos in range(num_positions):
+                    loss += criterion(outputs[:, pos, :], batch_y[:, pos, :].argmax(dim=1))
+                loss = loss / num_positions
+                loss.backward()
+                optimizer.step()
+            dh_log(f"Arrr! [FSM DEBUG] Position Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}", level="DEBUG", context={"epoch": epoch+1, "loss": float(loss.item())})
+        torch.save(model.state_dict(), model_path)
+        try:
+            with open(model_path, 'rb+') as f:
+                f.flush()
+                os.fsync(f.fileno())
+            dh_log(f"Arrr! [FSM DEBUG] File sync completed for {model_path}", level="DEBUG", context={"model_path": model_path})
+        except Exception as e:
+            dh_log(f"Arrr! [FSM DEBUG] File sync failed for {model_path}: {e}", level="WARNING", context={"model_path": model_path, "error": str(e)})
+        try:
+            _ = torch.load(model_path)
+            dh_log(f"Arrr! [FSM DEBUG] Model integrity check passed for {model_path}", level="DEBUG", context={"model_path": model_path})
+        except Exception as e:
+            dh_log(f"Arrr! [FSM DEBUG] Model integrity check failed for {model_path}: {e}", level="ERROR", context={"model_path": model_path, "error": str(e)})
+        latest_date = str(draws[-1].date)
+        save_meta(latest_date, meta_path)
+        dh_log(f"Arrr! [FSM DEBUG] Position model saved to {model_path} with latest_date {latest_date}", level="INFO", context={"model_path": model_path, "latest_date": latest_date})
+        return model
+    except Exception as e:
+        dh_log(f"Arrr! LSTM position training failed: {e}", level="ERROR")
+        return None
+
+# --- Position-based Inference Function ---
+def predict_next_numbers_position(draws: List[Draw], seq_len=10, model_path=None, hidden_size=64, num_layers=2, num_positions=6) -> List[int]:
+    num_numbers = 37
+    if len(draws) < seq_len:
+        dh_log("Arrr! Not enough draws for position sequence prediction!", level="ERROR", context={"draws_len": len(draws), "seq_len": seq_len})
+        raise ValueError("Not enough draws for sequence prediction")
+    model = LottoLSTMPosition(num_numbers=num_numbers, seq_len=seq_len, hidden_size=hidden_size, num_layers=num_layers, num_positions=num_positions)
+    if not os.path.exists(model_path):
+        dh_log(f"Arrr! Position model file not found: {model_path}", level="ERROR", context={"model_path": model_path})
+        raise FileNotFoundError(f"Model file not found: {model_path}")
+    model.load_state_dict(torch.load(model_path))
+    model.eval()
+    seq = draws[-seq_len:]
+    x_seq = []
+    for d in seq:
+        onehot = [0]*num_numbers
+        for n in d.numbers:
+            onehot[n-1] = 1
+        x_seq.append(onehot)
+    x_tensor = torch.tensor([x_seq], dtype=torch.float32)
+    with torch.no_grad():
+        output = model(x_tensor)[0]  # (6, 37)
+    numbers = []
+    for pos in range(num_positions):
+        n = int(torch.argmax(output[pos]).item()) + 1
+        numbers.append(n)
+    # Ensure uniqueness (if duplicate, fill with most common from history)
+    if len(set(numbers)) < num_positions:
+        all_numbers = [n for d in draws for n in d.numbers]
+        freq = Counter(all_numbers)
+        for n, _ in freq.most_common():
+            if n not in numbers:
+                for i in range(num_positions):
+                    if numbers.count(numbers[i]) > 1:
+                        numbers[i] = n
+                        break
+            if len(set(numbers)) == num_positions:
+                break
+        dh_log(f"Arrr! [FSM DEBUG] Position-based prediction had duplicates, padded: {numbers}", level="DEBUG", context={"numbers": numbers})
+    dh_log(f"Arrr! [FSM DEBUG] Position-based model inference complete! Predicted numbers: {numbers}", level="DEBUG", context={"numbers": numbers})
+    return numbers
+
+# --- Position-based Grid Search Algorithm ---
+@register_algorithm
+class SequenceClassificationLSTMPosition_GridSearch_Algorithm(Algorithm):
+    version = "sequence_lstm_classifier_position_gridsearch"
+    description = "Grid search over LSTM hyperparameters (position-based), returns best results. Praisin' the FSM!"
+
+    _best_params_cache = {}
+
+    def _get_cache_key(self, draws):
+        key = ','.join(str(d.date) for d in draws)
+        return hashlib.md5(key.encode()).hexdigest()
+
+    def _load_best_params_from_disk(self, cache_key):
+        cache_path = os.path.join(os.path.dirname(__file__), 'gridsearch', f"gridsearch_position_best_{cache_key}.pkl")
+        if os.path.exists(cache_path):
+            with open(cache_path, 'rb') as f:
+                return pickle.load(f)
+        return None
+
+    def _save_best_params_to_disk(self, cache_key, best_params):
+        cache_path = os.path.join(os.path.dirname(__file__), 'gridsearch', f"gridsearch_position_best_{cache_key}.pkl")
+        with open(cache_path, 'wb') as f:
+            pickle.dump(best_params, f)
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None, use_cache: bool = True) -> List[Dict[str, Any]]:
+        dh_log("Arrr! LSTM Position Grid Search run method called! Praisin' the FSM!", level="INFO")
+        hyperparams_grid = {
+            'hidden_size': [64, 128],
+            'num_layers': [1, 2],
+            'seq_len': [10, 20],
+            'lr': [0.001, 0.0005],
+            'batch_size': [8, 16],
+            'epochs': [20],
+        }
+        test_count = 12
+        num_positions = 6
+        if len(draws) < max(hyperparams_grid['seq_len']) + test_count:
+            dh_log(f"Arrr! [FSM GRID POS] Not enough draws for grid search evaluation!", level="ERROR")
+            return []
+        train_draws = draws[:-test_count]
+        test_draws = draws[-test_count:]
+        cache_key = self._get_cache_key(train_draws)
+        best_params = None
+        if use_cache:
+            best_params = self._best_params_cache.get(cache_key) or self._load_best_params_from_disk(cache_key)
+        if not best_params:
+            dh_log(f"Arrr! [FSM GRID POS] No cached best params, runnin' grid search! Praisin' the FSM!", level="INFO")
+            results = []
+            param_names = list(hyperparams_grid.keys())
+            best_result = None
+            best_roi = float('-inf')
+            for values in itertools.product(*hyperparams_grid.values()):
+                params = dict(zip(param_names, values))
+                model_path = os.path.join(os.path.dirname(__file__), 'models', f"sequence_classifier_position_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
+                dh_log(f"Arrr! [FSM GRID POS] Trainin' with params: {params}", level="INFO")
+                model = LottoLSTMPosition(num_numbers=37, seq_len=params['seq_len'], hidden_size=params['hidden_size'], num_layers=params['num_layers'], num_positions=num_positions)
+                need_train = True
+                if os.path.exists(model_path):
+                    try:
+                        state_dict = torch.load(model_path)
+                        model.load_state_dict(state_dict)
+                        dummy_input = torch.zeros((1, params['seq_len'], 37))
+                        model.eval()
+                        with torch.no_grad():
+                            _ = model(dummy_input)
+                        dh_log(f"Arrr! [FSM GRID POS] Loaded existing model for {params}", level="INFO")
+                        need_train = False
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM GRID POS] Model file mismatch or unusable, will retrain: {e}", level="WARNING")
+                        try:
+                            os.remove(model_path)
+                            dh_log(f"Arrr! [FSM GRID POS] Deleted mismatched model file: {model_path}", level="INFO")
+                        except Exception as del_e:
+                            dh_log(f"Arrr! [FSM GRID POS] Failed to delete model file: {model_path}, error: {del_e}", level="ERROR")
+                        if os.path.exists(model_path):
+                            dh_log(f"Arrr! [FSM GRID POS] Model file still exists after delete attempt: {model_path}", level="ERROR")
+                        need_train = True
+                if need_train:
+                    X, y = draws_to_sequences_position(train_draws, seq_len=params['seq_len'], num_numbers=37, num_positions=num_positions)
+                    criterion = nn.CrossEntropyLoss()
+                    optimizer = torch.optim.Adam(model.parameters(), lr=params['lr'])
+                    for epoch in range(params['epochs']):
+                        model.train()
+                        permutation = torch.randperm(X.size(0))
+                        for i in range(0, X.size(0), params['batch_size']):
+                            indices = permutation[i:i+params['batch_size']]
+                            batch_x, batch_y = X[indices], y[indices]
+                            loss = 0
+                            optimizer.zero_grad()
+                            outputs = model(batch_x)
+                            for pos in range(num_positions):
+                                loss += criterion(outputs[:, pos, :], batch_y[:, pos, :].argmax(dim=1))
+                            loss = loss / num_positions
+                            loss.backward()
+                            optimizer.step()
+                    torch.save(model.state_dict(), model_path)
+                    try:
+                        with open(model_path, 'rb+') as f:
+                            f.flush()
+                            os.fsync(f.fileno())
+                        dh_log(f"Arrr! [FSM DEBUG] File sync completed for {model_path}", level="DEBUG", context={"model_path": model_path})
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM DEBUG] File sync failed for {model_path}: {e}", level="WARNING", context={"model_path": model_path, "error": str(e)})
+                    try:
+                        _ = torch.load(model_path)
+                        dh_log(f"Arrr! [FSM DEBUG] Model integrity check passed for {model_path}", level="DEBUG", context={"model_path": model_path})
+                    except Exception as e:
+                        dh_log(f"Arrr! [FSM DEBUG] Model integrity check failed for {model_path}: {e}", level="ERROR", context={"model_path": model_path, "error": str(e)})
+                def predict_next_numbers_position_patched(draws, seq_len=10, model_path=None):
+                    model = LottoLSTMPosition(
+                        num_numbers=37,
+                        seq_len=seq_len,
+                        hidden_size=params['hidden_size'],
+                        num_layers=params['num_layers'],
+                        num_positions=num_positions
+                    )
+                    if not os.path.exists(model_path):
+                        raise FileNotFoundError(f"Model file not found: {model_path}")
+                    model.load_state_dict(torch.load(model_path))
+                    model.eval()
+                    seq = draws[-seq_len:]
+                    x_seq = []
+                    for d in seq:
+                        onehot = [0]*37
+                        for n in d.numbers:
+                            onehot[n-1] = 1
+                        x_seq.append(onehot)
+                    x_tensor = torch.tensor([x_seq], dtype=torch.float32)
+                    with torch.no_grad():
+                        output = model(x_tensor)[0]  # (6, 37)
+                    numbers = []
+                    for pos in range(num_positions):
+                        n = int(torch.argmax(output[pos]).item()) + 1
+                        numbers.append(n)
+                    # Ensure uniqueness
+                    if len(set(numbers)) < num_positions:
+                        all_numbers = [n for d in draws for n in d.numbers]
+                        freq = Counter(all_numbers)
+                        for n, _ in freq.most_common():
+                            if n not in numbers:
+                                for i in range(num_positions):
+                                    if numbers.count(numbers[i]) > 1:
+                                        numbers[i] = n
+                                        break
+                            if len(set(numbers)) == num_positions:
+                                break
+                    return numbers
+                for strong_name, strong_cls in STRONG_NUMBER_REGISTRY.items():
+                    if len(train_draws) < params['seq_len'] + 1:
+                        dh_log(f"Arrr! [FSM GRID POS] Not enough draws for evaluation!", level="ERROR")
+                        continue
+                    strong_algo = strong_cls()
+                    all_prizes = 0
+                    total_tickets = 0
+                    NUM_TABLES_PER_DRAW = 8
+                    prizes_list = []
+                    for i, test_draw in enumerate(test_draws):
+                        available_draws = train_draws + test_draws[:i]
+                        combos = []
+                        for j in range(NUM_TABLES_PER_DRAW):
+                            torch.manual_seed(j)
+                            np.random.seed(j)
+                            random.seed(j)
+                            numbers = predict_next_numbers_position_patched(available_draws, seq_len=params['seq_len'], model_path=model_path)
+                            strong = strong_algo.predict(available_draws, numbers=numbers)
+                            combos.append({"numbers": numbers, "strong": strong})
+                        for combo in combos:
+                            hits = sum([n in test_draw.numbers for n in combo["numbers"]])
+                            strong_hit = (combo["strong"] == test_draw.strong_number)
+                            prize = PRIZE_TABLE.get((hits, strong_hit), 0)
+                            all_prizes += prize
+                            total_tickets += 1
+                            prizes_list.append(prize)
+                    total_cost = total_tickets * TICKET_COST_PER_TABLE
+                    roi = calculate_roi_with_tax(prizes_list, total_cost)
+                    result = {
+                        'params': params,
+                        'model_path': model_path,
+                        'strong_algo': strong_name,
+                        'roi': roi,
+                        'total_prize': all_prizes,
+                        'total_cost': total_cost,
+                        'test_count': test_count
+                    }
+                    results.append(result)
+                    dh_log(f"Arrr! [FSM GRID POS] Model result: {result}", level="INFO")
+                    if result['roi'] > best_roi:
+                        best_roi = result['roi']
+                        best_result = result
+            if use_cache:
+                self._best_params_cache[cache_key] = best_result
+                self._save_best_params_to_disk(cache_key, best_result)
+            return results
+        else:
+            dh_log(f"Arrr! [FSM GRID POS] Using cached best params! Praisin' the FSM! Params: {best_params}", level="DEBUG", context={"params": best_params})
+            model_path = best_params['model_path']
+            strong_cls = STRONG_NUMBER_REGISTRY[best_params['strong_algo']]
+            model = LottoLSTMPosition(num_numbers=37, seq_len=best_params['params']['seq_len'], hidden_size=best_params['params']['hidden_size'], num_layers=best_params['params']['num_layers'], num_positions=num_positions)
+            model.load_state_dict(torch.load(model_path))
+            model.eval()
+            seq = draws[-best_params['params']['seq_len']:]
+            x_seq = []
+            for d in seq:
+                onehot = [0]*37
+                for n in d.numbers:
+                    onehot[int(n)-1] = 1
+                x_seq.append(onehot)
+            x_tensor = torch.tensor([x_seq], dtype=torch.float32)
+            with torch.no_grad():
+                output = model(x_tensor)[0]  # (6, 37)
+            numbers = []
+            for pos in range(num_positions):
+                n = int(torch.argmax(output[pos]).item()) + 1
+                numbers.append(n)
+            if len(set(numbers)) < num_positions:
+                all_numbers = [n for d in draws for n in d.numbers]
+                freq = Counter(all_numbers)
+                for n, _ in freq.most_common():
+                    if n not in numbers:
+                        for i in range(num_positions):
+                            if numbers.count(numbers[i]) > 1:
+                                numbers[i] = n
+                                break
+                    if len(set(numbers)) == num_positions:
+                        break
+            combos = []
+            strong_algo = strong_cls()
+            for _ in range(num_to_recommend or NUM_COMBINATIONS_TO_RECOMMEND):
+                try:
+                    strong = strong_algo.predict(draws, numbers=numbers)
+                    params = dict(best_params['params'])
+                    params.update({
+                        "model_version": self.version,
+                        "top_n": top_n,
+                        "num_for_analysis": num_for_analysis,
+                        "num_to_recommend": num_to_recommend
+                    })
+                    combos.append({
+                        "numbers": [int(n) for n in numbers],
+                        "strong": int(strong) if hasattr(strong, '__int__') else strong,
+                        "params": params
+                    })
+                except Exception as e:
+                    dh_log(f"Arrr! [FSM GRID POS] Error generating combo: {numbers}, error: {e}", level="ERROR")
+            dh_log(f"Arrr! [FSM GRID POS] Final combos returned: {combos}", level="INFO")
+            return combos
+
+# Arrr! More grid search variants can be added here. Praise the FSM!
+
+# --- Position-based LSTM Algorithm ---
+@register_algorithm
+class SequenceClassificationLSTMPositionAlgorithm(Algorithm):
+    version = "sequence_lstm_classifier_position"
+    description = "Position-based LSTM model. Predicts the most likely number for each position. Praisin' the FSM!"
+
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None) -> List[Dict[str, Any]]:
+        try:
+            dh_log("Arrr! LSTM Position run method called! Praisin' the FSM!", level="INFO")
+            seq_len = 10
+            num_positions = 6
+            hidden_size = 64
+            num_layers = 2
+            lr = 0.001
+            batch_size = 16
+            model_path = os.path.join(os.path.dirname(__file__), 'models', 'sequence_classifier_model_position.pt')
+            meta_path = os.path.join(os.path.dirname(__file__), 'meta', 'sequence_classifier_model_position_meta.json')
+            latest_db_date = None
+            if db is not None:
+                latest_db_date = get_latest_draw_date(db)
+            meta = load_meta(meta_path)
+            meta_date = meta["latest_date"] if meta else None
+            if not os.path.exists(model_path) or not meta_date:
+                dh_log("Arrr! [FSM DEBUG] No position model or meta found, trainin' from scratch! Praisin' the FSM!", level="INFO")
+                model = train_lotto_lstm_position(draws, seq_len=seq_len, epochs=30, lr=lr, batch_size=batch_size, model_path=model_path, meta_path=meta_path, num_positions=num_positions, hidden_size=hidden_size, num_layers=num_layers)
+                if model is None or not os.path.exists(model_path):
+                    dh_log("Arrr! LSTM position training returned None!", level="ERROR")
+                    return []
+            elif latest_db_date and latest_db_date > meta_date:
+                dh_log(f"Arrr! [FSM DEBUG] DB newer than position model, retrainin'! Praisin' the FSM!", level="INFO", context={"latest_db_date": latest_db_date, "meta_date": meta_date})
+                model = train_lotto_lstm_position(draws, seq_len=seq_len, epochs=10, lr=lr/2, batch_size=batch_size//2, model_path=model_path, meta_path=meta_path, num_positions=num_positions, hidden_size=hidden_size, num_layers=num_layers)
+                if model is None:
+                    dh_log("Arrr! LSTM position retraining returned None!", level="ERROR")
+                    return []
+            else:
+                dh_log(f"Arrr! [FSM DEBUG] Position model up-to-date, runnin' inference! Praisin' the FSM!", level="INFO", context={"latest_db_date": latest_db_date, "meta_date": meta_date})
+            try:
+                numbers = predict_next_numbers_position(draws, seq_len=seq_len, model_path=model_path, hidden_size=hidden_size, num_layers=num_layers, num_positions=num_positions)
+            except Exception as e:
+                dh_log(f"Arrr! LSTM position prediction failed: {e}", level="ERROR")
+                return []
+            strong_counter = Counter(draw.strong_number for draw in draws)
+            top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
+            params = {
+                "seq_len": seq_len,
+                "model_version": self.version,
+                "top_n": top_n,
+                "num_for_analysis": num_for_analysis,
+                "num_to_recommend": num_to_recommend
+            }
+            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
+            if num_to_recommend is None:
+                num_to_recommend = 8
+            dh_log(f"Arrr! LSTM position combos generated: {combos}", level="DEBUG", context={"combos": combos})
+            return combos * num_to_recommend if combos else []
+        except Exception as e:
+            dh_log(f"Arrr! LSTM position run method failed: {e}", level="ERROR")
+            return []
 
 # Praise the FSM for deep learning magic! 

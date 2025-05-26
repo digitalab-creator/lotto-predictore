@@ -1,0 +1,7 @@
+# Ignore all model, meta, and gridsearch files except .gitignore
+models/*
+!models/.gitignore
+meta/*
+!meta/.gitignore
+gridsearch/*
+!gridsearch/.gitignore 

@@ -24,3 +24,7 @@ WHERE draws.date = %(date_1)s
 [EARLY LOG] INFO: Added draw 2025-05-20: [1, 10, 16, 18, 28, 35] + 7
 the input device is not a TTY
 the input device is not a TTY
+the input device is not a TTY
+the input device is not a TTY
+the input device is not a TTY
+the input device is not a TTY

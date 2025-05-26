@@ -25,16 +25,11 @@ curl -G 'http://localhost:8000/simulate/table' \
 curl http://localhost:8000/recommend
 
 curl -G 'http://localhost:8000/simulate/table' \
-  --data-urlencode 'train_start=1980-01-01' \
-  --data-urlencode 'train_end=2025-04-01' \
   --data-urlencode 'test_count=12' \
-  --data-urlencode 'top_n=3' \
-  --data-urlencode 'algorithms=sequence_lstm_classifier_gridsearch' \
-  --data-urlencode 'use_cache=false'
+  --data-urlencode 'top_n=6' \
+  --data-urlencode 'algorithms=sequence_lstm_classifier_position_gridsearch'
 
   curl -G 'http://localhost:8000/simulate/table' \
-  --data-urlencode 'train_start=1980-01-01' \
-  --data-urlencode 'train_end=2025-04-01' \
   --data-urlencode 'test_count=12' \
   --data-urlencode 'top_n=3' \
   --data-urlencode 'algorithms=random_from_top15_pool'
@@ -68,5 +63,10 @@ docker-compose exec backend alembic upgrade head
 regex search for roi
 positive:
 roi:\s*(?:[2-9]\d*(?:\.\d+)?|1\.\d+)
+'roi':\s*(?:[2-9]\d*(?:\.\d+)?|1\.\d+)
 negative:
 roi:\s*[-]?0+(?:\.0+)?|roi:\s*-\d+(?:\.\d+)?
+
+
+
+docker-compose run --rm backend python scripts/stock_gridsearch_poc.py
