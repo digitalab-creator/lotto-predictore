@@ -43,3 +43,16 @@ scripts/git_manager.py
 2025-06-13 21:39:38,573 - git_manager - INFO - Executing: Set git author name
 2025-06-13 21:39:38,580 - git_manager - INFO - Executing: Set git author email
 2025-06-13 21:39:38,585 - git_manager - INFO - Executing: Stage all files
+2025-06-13 21:39:38,597 - git_manager - INFO - Executing: Check for staged changes
+2025-06-13 21:39:38,603 - git_manager - INFO - Command stdout: logs/git_manager.log
+scripts/git_manager.py
+2025-06-13 21:39:38,604 - git_manager - INFO - Executing: Commit files
+2025-06-13 21:39:38,619 - git_manager - INFO - Command stdout: [dev f649c46] recovery after db deletion
+ 2 files changed, 66 insertions(+), 106 deletions(-)
+2025-06-13 21:39:38,619 - git_manager - INFO - Executing: Unset credential helper
+2025-06-13 21:39:38,629 - git_manager - INFO - Executing: Add remote origin with token
+2025-06-13 21:39:38,635 - git_manager - INFO - Executing: Set branch to dev
+2025-06-13 21:39:38,643 - git_manager - INFO - Executing: Test repository access
+2025-06-13 21:40:06,772 - git_manager - ERROR - Failed to execute git command: Test repository access | Context: {'error': "remote: Invalid username or password.\nfatal: Authentication failed for 'https://github.com/digitalab-creator/lotto-predictore.git/'\n", 'command': 'git ls-remote origin', 'timestamp': '2025-06-13T21:40:06.772412'}
+2025-06-13 21:40:06,773 - git_manager - ERROR - Failed to access repository - check your token and repo URL | Context: {'repo_url': 'https://github.com/digitalab-creator/lotto-predictore.git', 'timestamp': '2025-06-13T21:40:06.773085'}
+2025-06-13 21:40:06,773 - git_manager - ERROR - Failed to commit and push: Command 'git ls-remote origin' returned non-zero exit status 128. | Context: {'error': "Command 'git ls-remote origin' returned non-zero exit status 128.", 'repo': 'https://github.com/digitalab-creator/lotto-predictore.git', 'branch': 'dev', 'timestamp': '2025-06-13T21:40:06.773628'}
