@@ -1,0 +1,19 @@
+2025-06-13 21:35:22,222 - git_manager - INFO - Arrr! Changed working directory to git root: /home/orshv/lotto-predictore | Context: {'git_root': '/home/orshv/lotto-predictore', 'timestamp': '2025-06-13T21:35:22.221200'}
+2025-06-13 21:35:22,222 - git_manager - INFO - Arrr! Changed working directory to git root: /home/orshv/lotto-predictore | Context: {'git_root': '/home/orshv/lotto-predictore', 'timestamp': '2025-06-13T21:35:22.222670'}
+2025-06-13 21:35:22,224 - git_manager - INFO - Executing: Check if git repo exists
+2025-06-13 21:35:22,229 - git_manager - INFO - Command stdout: true
+2025-06-13 21:35:22,229 - git_manager - INFO - Executing: Check for changes
+2025-06-13 21:35:22,237 - git_manager - INFO - Command stdout: ?? .env.development
+?? logs/git_manager.log
+?? scripts/git_manager.py
+2025-06-13 21:35:27,989 - git_manager - INFO - Arrr! Changed working directory to git root: /home/orshv/lotto-predictore | Context: {'git_root': '/home/orshv/lotto-predictore', 'timestamp': '2025-06-13T21:35:27.989529'}
+2025-06-13 21:35:27,990 - git_manager - INFO - Arrr! Changed working directory to git root: /home/orshv/lotto-predictore | Context: {'git_root': '/home/orshv/lotto-predictore', 'timestamp': '2025-06-13T21:35:27.990061'}
+2025-06-13 21:35:27,991 - git_manager - INFO - Executing: Check if git repo exists
+2025-06-13 21:35:27,995 - git_manager - INFO - Command stdout: true
+2025-06-13 21:35:27,996 - git_manager - INFO - Executing: Check for changes
+2025-06-13 21:35:28,004 - git_manager - INFO - Command stdout: ?? .env.development
+?? logs/git_manager.log
+?? scripts/git_manager.py
+2025-06-13 21:35:46,131 - git_manager - INFO - Executing: Set git author name
+2025-06-13 21:35:46,135 - git_manager - INFO - Executing: Set git author email
+2025-06-13 21:35:46,139 - git_manager - INFO - Executing: Stage all files
