@@ -4,3 +4,4 @@ from .generated_combination import GeneratedCombination
 # from .result import Result
 from .model import Model, ModelType
 from .prediction import Prediction, PredictionDetail
+from .weekly_winning_combination import WeeklyWinningCombination

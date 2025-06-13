@@ -1,27 +1,37 @@
 from sqlalchemy.exc import NoResultFound, IntegrityError
-from models import Model
+from sqlalchemy.orm import Session
+from models import Model, ModelType
+from typing import Dict, Any
 from services.logger import dh_log
 
-def get_or_create_model(session, name, version, type_, params, model_path=None):
-    try:
-        return session.query(Model).filter_by(name=name, version=version, type=type_).one()
-    except NoResultFound:
-        model = Model(name=name, version=version, type=type_, model_path=model_path)
+def get_or_create_model(session: Session, version: str, algo_version: str, model_type: ModelType, params: Dict[str, Any]) -> Model:
+    """
+    Get or create a model in the database.
+    
+    Args:
+        session (Session): Database session
+        version (str): Model version
+        algo_version (str): Algorithm version
+        model_type (ModelType): Type of model
+        params (Dict[str, Any]): Model parameters
+        
+    Returns:
+        Model: Database model instance
+    """
+    model = session.query(Model).filter(
+        Model.version == version,
+        Model.algo_version == algo_version,
+        Model.model_type == model_type
+    ).first()
+    
+    if not model:
+        model = Model(
+            version=version,
+            algo_version=algo_version,
+            model_type=model_type,
+            params=params
+        )
         session.add(model)
-        try:
-            session.commit()
-            return model
-        except IntegrityError as e:
-            session.rollback()
-            dh_log(
-                "Arrr! IntegrityError in get_or_create_model, likely due to race condition. Praisin' the FSM!",
-                level="WARNING",
-                context={
-                    "name": name,
-                    "version": version,
-                    "type": str(type_),
-                    "error": str(e)
-                }
-            )
-            # Try to fetch again after rollback
-            return session.query(Model).filter_by(name=name, version=version, type=type_).one() 
+        session.flush()
+        
+    return model 

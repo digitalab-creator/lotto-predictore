@@ -9,6 +9,9 @@ from dotenv import load_dotenv
 from sqlalchemy import select, desc
 import json
 
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load environment variables from .env in project root
 load_dotenv()  # This loads .env from the current working directory, which is /app
 
@@ -53,8 +56,14 @@ def main():
     db = SessionLocal()
     try:
         added, skipped = 0, 0
-        # Load draw dates from JSON
-        with open('israel_lotto_draw_dates.json', 'r', encoding='utf-8') as f:
+        # Load draw dates from JSON using the correct path in /app
+        json_path = os.path.join('/app', 'israel_lotto_draw_dates.json')
+        logging.info(f"Loading draw dates from: {json_path}")
+        if not os.path.exists(json_path):
+            logging.error(f"JSON file not found at {json_path}")
+            logging.error(f"Current directory contents: {os.listdir('/app')}")
+            raise FileNotFoundError(f"Could not find israel_lotto_draw_dates.json at {json_path}")
+        with open(json_path, 'r', encoding='utf-8') as f:
             all_draw_dates = [date.fromisoformat(d) for d in json.load(f)]
         latest_date = get_latest_draw_date(db)
         if latest_date:

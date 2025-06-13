@@ -1,0 +1,3 @@
+"""
+Email service tests package.
+""" 

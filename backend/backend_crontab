@@ -1,4 +1,0 @@
-# m h dom mon dow  command
-0 3 * * 0 python /app/scripts/generate_weekly_combinations.py >> /app/logs/weekly_combinations.log 2>&1
-0 3 * * * python -m services.fetch_latest_draw >> /app/logs/cron_fetch_latest.log 2>&1
-# Add more cron jobs below as needed 

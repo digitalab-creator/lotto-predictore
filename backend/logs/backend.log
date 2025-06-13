@@ -1,156 +1,1204 @@
-2025-05-26 21:35:53 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-06 20:17:58 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:35:53 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-06 20:17:58 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:17:58 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:18:05 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:18:05 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:18:05 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:19:55 [INFO] Arrr! Fetching weekly winning combinations! Praisin' the FSM!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 319
+
+2025-06-06 20:20:03 [INFO] Arrr! Fetching weekly winning combinations! Praisin' the FSM!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 319
+
+2025-06-06 20:20:33 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:20:33 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:20:33 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:20:37 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:20:37 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:20:37 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:21:06 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:21:07 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:21:07 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:21:12 [INFO] Arrr! Fetching weekly winning combinations! Praisin' the FSM!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 319
+
+2025-06-06 20:21:21 [INFO] Arrr! Fetching weekly winning combinations! Praisin' the FSM!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 319
+
+2025-06-06 20:21:56 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:21:56 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:21:56 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:22:06 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:22:07 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:22:07 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:22:07 [INFO] Arrr! Fetching weekly winning combinations! Praisin' the FSM!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 319
+
+2025-06-06 20:22:07 [WARNING] Arrr! No winning combinations found for current week!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 332
+	week_end: 2025-06-08
+	week_start: 2025-06-02
+
+2025-06-06 20:24:57 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:24:57 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:24:57 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:25:32 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:25:32 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:25:32 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:27:31 [INFO] Arrr! Fetching weekly winning combinations! Praisin' the FSM!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 319
+
+2025-06-06 20:27:31 [INFO] Arrr! Found 5 winning combinations!
+	file: /app/api/main.py
+	function: get_weekly_winning_combinations
+	line: 359
+	num_combinations: 5
+	week_end: 2025-06-08
+	week_start: 2025-06-02
+
+2025-06-06 20:30:14 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:30:14 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:30:14 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:30:17 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:30:17 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:30:17 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:30:27 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:30:27 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:30:27 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:30:31 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:30:31 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:30:31 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:30:34 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:30:34 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:30:34 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:33:30 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:33:30 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:33:30 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:39:56 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:39:56 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:39:56 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:40:10 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:40:10 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:40:10 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:40:13 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:40:13 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:40:13 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:40:21 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:40:21 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:40:21 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:40:30 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:40:30 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:40:30 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:40:51 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:40:51 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:40:51 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:41:33 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:41:33 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:41:33 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:41:37 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:41:37 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:41:37 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:41:44 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:41:44 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:41:44 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:41:48 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:41:48 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:41:48 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:42:07 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:42:07 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:42:07 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:42:14 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:42:14 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:42:14 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:53:22 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:53:22 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:53:22 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:53:38 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:53:38 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:53:38 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:53:50 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:53:50 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:53:50 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:54:38 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:54:38 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:54:38 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:55:29 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:55:29 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:55:29 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:55:33 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:55:33 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:55:33 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:56:12 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:56:12 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:56:12 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:56:59 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:56:59 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:56:59 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:57:13 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:57:13 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:57:13 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:57:23 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:57:23 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:57:23 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:57:38 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:57:38 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:57:38 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:57:41 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:57:41 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:57:41 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:57:49 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:57:49 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:57:49 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:58:18 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:58:18 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:58:18 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 20:58:52 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 20:58:52 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 20:58:52 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:02:42 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:02:42 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:02:43 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:04:19 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:04:19 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:04:19 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:04:37 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:04:37 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:04:37 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:05:33 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:05:33 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:05:33 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:05:37 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:05:37 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:05:37 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:05:41 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:05:41 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:05:41 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:05:47 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:05:47 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:05:47 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:05:51 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:05:51 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:05:51 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:05:55 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:05:55 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:05:55 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:10:38 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:10:38 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:10:38 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:11:29 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:11:29 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:11:29 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:11:41 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:11:41 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:11:41 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:11:52 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:11:52 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:11:52 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:12:35 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:12:35 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:12:35 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:13:13 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:13:13 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:13:13 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-06 21:13:16 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-06 21:13:16 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-06 21:13:16 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 14:07:03 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 14:07:03 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
 	line: 27
 	service: backend
 
-2025-05-26 21:35:53 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 14:07:03 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
 	line: 29
 
-2025-05-26 21:40:49 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 14:09:58 [INFO] Arrr! Filtered out draws with strong_number == 8, praisin' the FSM!
+	file: /app/api/main.py
+	filtered_count: 0
+	function: simulate_table
+	line: 72
+	total_after_filter: 0
 
-2025-05-26 21:40:49 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 14:09:58 [ERROR] Arrr! Not enough draws to split into train and test! Praisin' the FSM for catchin' this!
+	call_stack: []
+	draw_count: 0
+	file: /app/api/main.py
+	function: simulate_table
+	line: 79
+	test_count: 12
+
+2025-06-13 14:23:10 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 14:23:10 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
 	line: 27
 	service: backend
 
-2025-05-26 21:40:49 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 14:23:10 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
 	line: 29
 
-2025-05-26 21:56:19 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 14:23:15 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:56:19 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 14:23:15 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
 	line: 27
 	service: backend
 
-2025-05-26 21:56:19 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 14:23:15 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
 	line: 29
 
-2025-05-26 21:56:40 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 14:27:56 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:56:40 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 14:27:56 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
 	line: 27
 	service: backend
 
-2025-05-26 21:56:40 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 14:27:56 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
 	line: 29
 
-2025-05-26 21:57:38 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 14:29:30 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:57:38 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 14:29:30 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
 	line: 27
 	service: backend
 
-2025-05-26 21:57:38 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 14:29:30 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
 	line: 29
 
-2025-05-26 21:57:43 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 14:29:36 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:57:43 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 14:29:36 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
 	line: 27
 	service: backend
 
-2025-05-26 21:57:43 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 14:29:36 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
 	line: 29
 
-2025-05-26 21:57:57 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 17:03:14 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:57:58 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 17:03:14 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
-	line: 27
+	line: 28
 	service: backend
 
-2025-05-26 21:57:58 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 17:03:14 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
-	line: 29
+	line: 30
 
-2025-05-26 21:59:45 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 17:09:21 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:59:45 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 17:09:21 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
-	line: 27
+	line: 28
 	service: backend
 
-2025-05-26 21:59:45 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 17:09:21 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
-	line: 29
+	line: 30
 
-2025-05-26 21:59:49 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 17:10:46 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:59:49 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 17:10:46 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
-	line: 27
+	line: 28
 	service: backend
 
-2025-05-26 21:59:50 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 17:10:46 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
-	line: 29
+	line: 30
 
-2025-05-26 21:59:54 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 17:14:18 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 21:59:54 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 17:14:18 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
-	line: 27
+	line: 28
 	service: backend
 
-2025-05-26 21:59:54 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 17:14:18 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
-	line: 29
+	line: 30
 
-2025-05-26 22:03:19 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 17:14:24 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 22:03:19 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 17:14:24 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
-	line: 27
+	line: 28
 	service: backend
 
-2025-05-26 22:03:19 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 17:14:24 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
-	line: 29
+	line: 30
 
-2025-05-26 22:03:23 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+2025-06-13 17:15:58 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
 
-2025-05-26 22:03:23 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+2025-06-13 17:15:58 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
 	file: /app/api/main.py
 	function: <module>
-	line: 27
+	line: 28
 	service: backend
 
-2025-05-26 22:03:23 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+2025-06-13 17:15:58 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
 	file: /app/api/main.py
 	function: <module>
-	line: 29
+	line: 30
+
+2025-06-13 17:16:20 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:16:20 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:16:20 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:16:52 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:16:52 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:16:52 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:16:57 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:16:57 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:16:57 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:17:54 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:17:54 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:17:54 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:18:30 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:18:31 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:18:31 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:18:41 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:18:41 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:18:41 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:19:12 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:19:12 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:19:12 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:21:13 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:21:13 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:21:13 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 17:21:16 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 17:21:16 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 28
+	service: backend
+
+2025-06-13 17:21:16 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+
+2025-06-13 18:09:55 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 18:09:56 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 18:09:56 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 19:20:28 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 19:20:28 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 19:20:28 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 19:21:39 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 19:21:39 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 19:21:39 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 19:22:25 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 19:22:25 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 19:22:25 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 19:22:41 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 19:22:41 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 19:22:41 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 19:22:49 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 19:22:49 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 19:22:49 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 20:52:17 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 20:52:17 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 20:52:17 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 20:53:47 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 20:53:47 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 20:53:47 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
+
+2025-06-13 20:58:06 [INFO] Arrr! Test log entry for the FSM, file logging should work! (setup_logger)
+
+2025-06-13 20:58:06 [INFO] Arrr! FastAPI backend be startin' up, praisin' the FSM!
+	file: /app/api/main.py
+	function: <module>
+	line: 30
+	service: backend
+
+2025-06-13 20:58:06 [INFO] Arrr! Registered algorithms at startup: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch', 'sequence_lstm_classifier_position_gridsearch', 'sequence_lstm_classifier_position']
+	file: /app/api/main.py
+	function: <module>
+	line: 32
 

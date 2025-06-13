@@ -1,0 +1,182 @@
+import datetime
+import os
+import sys
+import requests
+from pathlib import Path
+
+# Add backend directory to Python path
+backend_dir = str(Path(__file__).parent.parent)
+if backend_dir not in sys.path:
+    sys.path.append(backend_dir)
+
+from sqlalchemy import text
+from db import SessionLocal, get_db
+from models.weekly_winning_combination import WeeklyWinningCombination
+from services.logger import dh_log
+from services.simulation_engine import SimulationEngine
+from algorithms.base import ALGORITHM_REGISTRY, STRONG_NUMBER_REGISTRY
+from models import Draw, Model
+from utils import dh_log
+from simulation_prize import calculate_prize
+from simulation_print import print_weekly_tables
+from config import SMTP_SERVER, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, RECIPIENT_EMAIL, NUM_COMBINATIONS_TO_RECOMMEND
+
+def generate_tables():
+    """
+    Generates lottery tables using the best performing model and parameters.
+    Sends them via email.
+    """
+    dh_log("Arrr! Starting weekly table generation! Praisin' the FSM!", level="INFO")
+    
+    try:
+        with SessionLocal() as db:
+            # Get the best performing combination
+            best_combo = db.query(WeeklyWinningCombination).order_by(
+                WeeklyWinningCombination.total_roi.desc()
+            ).first()
+            
+            if not best_combo:
+                dh_log("Arrr! No winning combinations found in database!", level="ERROR")
+                return
+            
+            dh_log(
+                "Arrr! Found best performing combination",
+                level="INFO",
+                context={
+                    "model_id": best_combo.model_id,
+                    "strong_model_id": best_combo.strong_model_id,
+                    "total_roi": best_combo.total_roi
+                }
+            )
+            
+            # Get all draws for the model to use
+            draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date.desc()).all()
+            
+            # Parse model parameters
+            main_params = json.loads(best_combo.main_model_params)
+            strong_params = json.loads(best_combo.strong_model_params)
+            
+            # Get training parameters
+            training_params = main_params.get('training_params', {})
+            train_start = datetime.datetime.fromisoformat(training_params.get('train_start_date')).date() if training_params.get('train_start_date') else draws[-12].date
+            train_end = datetime.datetime.fromisoformat(training_params.get('train_end_date')).date() if training_params.get('train_end_date') else draws[-1].date
+            test_count = training_params.get('test_count', 1)
+            
+            dh_log(
+                "Arrr! Using training parameters",
+                level="INFO",
+                context={
+                    "train_start": train_start.isoformat(),
+                    "train_end": train_end.isoformat(),
+                    "test_count": test_count
+                }
+            )
+            
+            # Get the model classes
+            main_model_name = main_params.get('model_version', 'sequence_lstm_classifier')
+            strong_model_name = strong_params.get('strong_algo', 'random')
+            
+            main_model_cls = ALGORITHM_REGISTRY.get(main_model_name)
+            strong_model_cls = STRONG_NUMBER_REGISTRY.get(strong_model_name)
+            
+            if not main_model_cls or not strong_model_cls:
+                dh_log(
+                    "Arrr! Could not find model classes!",
+                    level="ERROR",
+                    context={
+                        "main_model": main_model_name,
+                        "strong_model": strong_model_name
+                    }
+                )
+                return
+            
+            # Use SimulationEngine to generate tables
+            engine = SimulationEngine(db)
+            
+            # Run simulation with the best model
+            results = engine.run_comparison(
+                train_start=train_start,
+                train_end=train_end,
+                test_count=test_count,
+                top_n=main_params.get('top_n', 3),
+                algo_names=[main_model_name],
+                strong_algo_names=[strong_model_name],
+                use_cache=True
+            )
+            
+            # Get the best result
+            best_result = results.get((main_model_name, strong_model_name))
+            if not best_result:
+                dh_log("Arrr! No results returned from simulation!", level="ERROR")
+                return
+            
+            # Get the combinations
+            tables = []
+            for combo in best_result.get('combos', []):
+                table = {
+                    "numbers": combo["numbers"],
+                    "strong": combo.get("strong")
+                }
+                tables.append(table)
+                
+                if len(tables) >= NUM_COMBINATIONS_TO_RECOMMEND:
+                    break
+            
+            # Send email
+            send_tables_email(tables, best_combo)
+            
+            dh_log("Arrr! Weekly table generation completed successfully!", level="INFO")
+            
+    except Exception as e:
+        dh_log(
+            "Arrr! Weekly table generation failed!",
+            level="ERROR",
+            context={"error": str(e)}
+        )
+        raise
+
+def send_tables_email(tables, best_combo):
+    """
+    Sends an email with the generated tables using the email microservice.
+    """
+    try:
+        # Prepare data for email service
+        email_data = {
+            "date": datetime.date.today().isoformat(),
+            "tables": [
+                {
+                    "numbers": table['numbers'],
+                    "strong": table['strong']
+                }
+                for table in tables
+            ],
+            "model_info": {
+                "model_id": best_combo.model_id,
+                "strong_model_id": best_combo.strong_model_id,
+                "total_roi": f"{best_combo.total_roi:.2%}",
+                "num_tickets": best_combo.num_tickets,
+                "total_prize": f"₪{best_combo.total_prize:,.2f}"
+            }
+        }
+        
+        # Send request to email service
+        response = requests.post(
+            "http://email-service:8000/send-weekly-tables",
+            json=email_data
+        )
+        
+        if response.status_code != 200:
+            raise Exception(f"Email service returned status code {response.status_code}: {response.text}")
+            
+        dh_log("Arrr! Email sent successfully!", level="INFO")
+        
+    except Exception as e:
+        dh_log(
+            "Arrr! Failed to send email!",
+            level="ERROR",
+            context={"error": str(e)}
+        )
+        raise
+
+if __name__ == "__main__":
+    generate_tables() 

@@ -13,8 +13,8 @@ To import draws from the paisapi, run this command:
 
 ```sh
 docker-compose exec backend python import_draws_paisapi.py
-docker-compose run --rm backend python import_draws_magayo.py
-docker-compose run --rm backend python scrape_israel_lotto_draw_dates.py
+docker-compose run --rm backend python services/scrape_israel_lotto_draw_dates.py
+docker-compose run --rm backend python -m services.import_draws_magayo
 docker exec -it lotto-predictore_backend_1 python3 /app/scripts/generate_weekly_combinations.py
 curl -G 'http://localhost:8000/simulate' --data-urlencode 'train_start=2024-01-01' --data-urlencode 'train_end=2024-05-01' --data-urlencode 'test_count=4' --data-urlencode 'top_n=3' | jq .
 ```
@@ -57,6 +57,7 @@ May the FSM bless yer draws and yer noodles never be soggy!
 
 
 docker-compose exec backend alembic downgrade 2b81cd7d248b
+docker-compose build backend
 docker-compose exec backend alembic upgrade head
 
 
@@ -70,3 +71,52 @@ roi:\s*[-]?0+(?:\.0+)?|roi:\s*-\d+(?:\.\d+)?
 
 
 docker-compose run --rm backend python scripts/stock_gridsearch_poc.py
+
+
+
+-- ⚓ ROI by model, main_model_params, and strong_model_params (ticket-level data, cost = ₪3.10)
+SELECT
+  p.model_id,
+  p.main_model_params::text AS main_model_params_text,
+  p.strong_model_params::text AS strong_model_params_text,
+  ROUND(SUM(d.prize)::numeric / NULLIF(COUNT(d.id) * 3.10, 0)::numeric - 1, 4) AS total_roi,
+  COUNT(DISTINCT p.id) AS num_prediction_runs,
+  COUNT(d.id) AS num_tickets,
+  ROUND((COUNT(d.id) * 3.10)::numeric, 2) AS total_cost,
+  ROUND(SUM(d.prize)::numeric, 2) AS total_prize
+FROM
+  prediction_details d
+JOIN
+  predictions p ON p.id = d.prediction_id
+GROUP BY
+  p.model_id, p.main_model_params::text, p.strong_model_params::text
+ORDER BY
+  total_roi DESC;
+
+
+
+
+SELECT *
+FROM predictions
+WHERE main_model_params::text = '{"seq_len": 10, "model_version": "sequence_lstm_classifier_gridsearch", "top_n": 6, "num_for_analysis": 8, "num_to_recommend": 8}'
+  AND strong_model_params::text = '{"strong_algo": "random"}';
+
+  docker-compose exec backend python scripts/update_weekly_winning_combinations.py
+
+
+docker-compose exec backend python scripts/generate_weekly_tables.py
+
+
+
+curl -X POST http://localhost:8001/send-email \
+  -H "Content-Type: application/json" \
+  -d '{
+    "subject": "Test Email from Lotto Predictor",
+    "template_name": "error_notification.html",
+    "template_data": {
+      "error_message": "This is a test email, matey!",
+      "service": "email-service",
+      "script": "test_script.py",
+      "traceback": "No errors, just a test!"
+    }
+  }'

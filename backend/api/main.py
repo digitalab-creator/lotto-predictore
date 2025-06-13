@@ -1,10 +1,10 @@
 import algorithms
 import algorithms.dl.sequence_classifier
 import algorithms.strong_number  # Arrr! Ensure all strong number algorithms be registered, praisin' the FSM!
-from fastapi import FastAPI, Depends, Query
+from fastapi import FastAPI, Depends, Query, APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from services.simulation_engine import SimulationEngine
 from fastapi.responses import PlainTextResponse, JSONResponse
 from sqlalchemy import desc
@@ -20,6 +20,9 @@ import math
 from collections import defaultdict
 import json
 from models.generated_combination import GeneratedCombination
+from models.weekly_winning_combination import WeeklyWinningCombination
+import sys
+from pathlib import Path
 
 app = FastAPI()
 
@@ -27,6 +30,12 @@ logger = setup_logger(service_name=os.getenv('SERVICE_NAME', 'api'))
 dh_log("Arrr! FastAPI backend be startin' up, praisin' the FSM!", level="INFO", context={"service": os.getenv('SERVICE_NAME', 'api')})
 
 dh_log(f"Arrr! Registered algorithms at startup: {list(ALGORITHM_REGISTRY.keys())}", level='INFO')
+
+# Add scripts directory to Python path
+scripts_dir = Path(__file__).parent.parent / 'scripts'
+sys.path.append(str(scripts_dir))
+
+router = APIRouter()
 
 def get_db():
     db = SessionLocal()
@@ -308,4 +317,90 @@ def recommend(db: Session = Depends(get_db)):
         "recommendations": combos,
         "recommendation_prediction_id": new_prediction.id,
         "reason": reason
-    } 
+    }
+
+@app.get("/weekly-winning-combinations", response_class=JSONResponse)
+def get_weekly_winning_combinations(db: Session = Depends(get_db)):
+    """
+    Get the top 5 winning combinations for the current week.
+    """
+    dh_log("Arrr! Fetching weekly winning combinations! Praisin' the FSM!", level="INFO")
+    
+    # Calculate current week's date range
+    today = date.today()
+    week_start = today - timedelta(days=today.weekday())
+    week_end = week_start + timedelta(days=6)
+    
+    combinations = db.query(WeeklyWinningCombination).filter(
+        WeeklyWinningCombination.week_start_date == week_start,
+        WeeklyWinningCombination.week_end_date == week_end
+    ).order_by(WeeklyWinningCombination.total_roi.desc()).all()
+    
+    if not combinations:
+        dh_log(
+            "Arrr! No winning combinations found for current week!",
+            level="WARNING",
+            context={"week_start": week_start, "week_end": week_end}
+        )
+        return JSONResponse(
+            content={"error": "No winning combinations found for current week"},
+            status_code=404
+        )
+    
+    result = []
+    for combo in combinations:
+        result.append({
+            "model_id": combo.model_id,
+            "strong_model_id": combo.strong_model_id,
+            "main_model_params": combo.main_model_params,
+            "strong_model_params": combo.strong_model_params,
+            "total_roi": combo.total_roi,
+            "num_prediction_runs": combo.num_prediction_runs,
+            "num_tickets": combo.num_tickets,
+            "total_cost": combo.total_cost,
+            "total_prize": combo.total_prize,
+            "week_start_date": combo.week_start_date.isoformat(),
+            "week_end_date": combo.week_end_date.isoformat(),
+            "created_at": combo.created_at.isoformat()
+        })
+    
+    dh_log(
+        f"Arrr! Found {len(result)} winning combinations!",
+        level="INFO",
+        context={"week_start": week_start, "week_end": week_end, "num_combinations": len(result)}
+    )
+    
+    return JSONResponse(content={"combinations": result})
+
+@router.post("/cron/generate-weekly-combinations")
+async def generate_weekly_combinations():
+    """Generate weekly combinations - called by cron service"""
+    try:
+        # Import and run the script
+        from scripts.generate_weekly_combinations import main as generate_combinations
+        generate_combinations()
+        return {"status": "success", "message": "Weekly combinations generated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/cron/fetch-latest-draw")
+async def fetch_latest_draw():
+    """Fetch latest draw - called by cron service"""
+    try:
+        # Import and run the script
+        from services.fetch_latest_draw import main as fetch_draw
+        fetch_draw()
+        return {"status": "success", "message": "Latest draw fetched successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/cron/generate-weekly-tables")
+async def generate_weekly_tables():
+    """Generate weekly tables - called by cron service"""
+    try:
+        # Import and run the script
+        from scripts.generate_weekly_tables import main as generate_tables
+        generate_tables()
+        return {"status": "success", "message": "Weekly tables generated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e)) 

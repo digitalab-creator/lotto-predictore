@@ -11,22 +11,68 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /mnt/postgres-data/pgdata:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lotto_user -d lotto_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   backend:
-    build: ./backend
-    command: /bin/sh -c "alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload"
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile
+    command: /bin/sh -c "cd /app && sleep 10 && PYTHONPATH=/app alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app"
     volumes:
       - ./backend:/app
-      - ./backend/logs:/app/logs
+      - ./shared:/app/shared
+      - ./logs:/app/logs
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql+psycopg2://lotto_user:lotto_pass@db:5432/lotto_db
+      - DATABASE_URL=postgresql://lotto_user:lotto_pass@db:5432/lotto_db
+      - LOG_DIR=/app/logs
+      - LOG_LEVEL=INFO
     env_file:
       - ./backend/.env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+
+  cron:
+    build:
+      context: .
+      dockerfile: cron/Dockerfile
+    volumes:
+      - ./cron:/app/cron
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    environment:
+      - BACKEND_URL=http://backend:8000
+      - LOG_DIR=/app/logs
+      - LOG_LEVEL=INFO
+    depends_on:
+      backend:
+        condition: service_started
+
+  email-service:
+    build:
+      context: .
+      dockerfile: email-service/Dockerfile
+    volumes:
+      - ./email-service/src:/app/src
+      - ./email-service/templates:/app/templates
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    ports:
+      - "8001:8000"
+    environment:
+      - LOG_DIR=/app/logs
+      - LOG_LEVEL=INFO
+    env_file:
+      - ./email-service/.env
+    depends_on:
+      - backend
 
 volumes:
-  pgdata: 
+  postgres_data: 

@@ -4,10 +4,11 @@ import json
 from datetime import datetime
 import re
 import time
+import os
 
 url = 'https://www.lotteryextreme.com/israel/lotto-results'
 headers = {
-    'User-Agent': 'Ye olde Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
 }
 
 draw_dates = set()
@@ -21,6 +22,7 @@ while True:
     table = soup.find('table', class_='results3')
     rows = table.find_all('tr')
     i = 0
+    should_stop = False
     while i < len(rows):
         row = rows[i]
         if 'class' in row.attrs and 'cy' in row.attrs['class']:
@@ -30,11 +32,13 @@ while True:
                 date_str = match.group(1)
                 try:
                     parsed_date = datetime.strptime(date_str, '%d.%m.%Y').date()
-                    draw_dates.add(parsed_date.isoformat())
-                    # Stop if we reach Jan 2024 or earlier
+                    # Stop if we reach January 2024
                     if parsed_date <= datetime(2024, 1, 1).date():
                         print(f"🏴‍☠️ Reached {parsed_date}, stoppin' the scrape as ordered!")
+                        should_stop = True
                         break
+                    draw_dates.add(parsed_date.isoformat())
+                    print(f"🏴‍☠️ Added date: {parsed_date.isoformat()}")
                 except Exception as e:
                     print(f"⚠️ Could not parse date: {date_str} ({e})")
             else:
@@ -42,9 +46,10 @@ while True:
             i += 2
         else:
             i += 1
-    # If we already reached Jan 2024 or earlier, break outer loop
-    if any(datetime.strptime(d, '%Y-%m-%d').date() <= datetime(2024, 1, 1).date() for d in draw_dates):
+    
+    if should_stop:
         break
+
     # Find the Previous month button
     prev_btn = soup.find('button', {'name': 'year_month_button'})
     if prev_btn and prev_btn.get('value'):
@@ -59,7 +64,9 @@ while True:
 
 # Save the bounty to a JSON file
 all_dates = sorted(draw_dates)
-with open('israel_lotto_draw_dates.json', 'w', encoding='utf-8') as f:
+backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+json_path = os.path.join(backend_dir, 'israel_lotto_draw_dates.json')
+with open(json_path, 'w', encoding='utf-8') as f:
     json.dump(all_dates, f, ensure_ascii=False, indent=2)
 
-print(f"🏴‍☠️ Arrr! The bounty of {len(all_dates)} draw dates be written to 'israel_lotto_draw_dates.json'") 
+print(f"🏴‍☠️ Arrr! The bounty of {len(all_dates)} draw dates be written to '{json_path}'") 

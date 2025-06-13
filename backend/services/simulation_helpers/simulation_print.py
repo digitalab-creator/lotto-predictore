@@ -1,40 +1,43 @@
-def print_combo_index_insights(results):
-    print("\n=== Combo Index Insights (Average Hits per Combo Index) ===")
-    for algo_version, res in results.items():
-        combo_hit_stats = [[] for _ in range(8)]
-        for date in res["dates"]:
-            for idx, combo_result in enumerate(date["combos"]):
-                if idx < 8:
-                    combo_hit_stats[idx].append(combo_result["hits"])
-        print(f"Algorithm: {algo_version}")
-        for idx, hits in enumerate(combo_hit_stats):
-            avg_hits = sum(hits) / len(hits) if hits else 0
-            print(f"  Combo #{{idx+1}}: Avg Hits = {{avg_hits:.2f}} (n={{len(hits)}})")
+from typing import Dict, Any
+from services.logger import dh_log
 
-def print_table_summary(results):
-    try:
-        from tabulate import tabulate
-        use_tabulate = True
-    except ImportError:
-        use_tabulate = False
-    for version, res in results.items():
-        print(f"\nAlgorithm: {version}")
-        headers = ["Date", "Actual Numbers", "Actual Strong", "Max Hits", "Any Strong Hit", "Total Prize"]
-        table = []
-        for d in res["dates"]:
-            table.append([
-                d["test_draw_date"],
-                d["actual_numbers"],
-                d["actual_strong"],
-                d["max_hits"],
-                d["any_strong_hit"],
-                d["total_prize"]
-            ])
-        if use_tabulate:
-            print(tabulate(table, headers=headers, tablefmt="github"))
-        else:
-            print(" | ".join(headers))
-            for row in table:
-                print(" | ".join(str(x) for x in row))
-        print(f"Total Prize: {res['total_prize']}, Total Cost: {res['total_cost']}, ROI: {res['roi']}")
-        print_combo_index_insights(results) 
+def print_combo_index_insights(results: Dict[str, Any]) -> None:
+    """
+    Print insights about combo indices from simulation results.
+    
+    Args:
+        results (Dict[str, Any]): Simulation results dictionary
+    """
+    dh_log("Arrr! Combo Index Insights:", level="INFO")
+    for (main_version, strong_version), result in results.items():
+        dh_log(f"Main: {main_version}, Strong: {strong_version}", level="INFO")
+        for date_entry in result.get('dates', []):
+            dh_log(
+                f"Date: {date_entry['test_draw_date']}",
+                level="INFO",
+                context={
+                    "max_hits": date_entry['max_hits'],
+                    "any_strong_hit": date_entry['any_strong_hit'],
+                    "total_prize": date_entry['total_prize']
+                }
+            )
+
+def print_table_summary(results: Dict[str, Any]) -> None:
+    """
+    Print summary of simulation results.
+    
+    Args:
+        results (Dict[str, Any]): Simulation results dictionary
+    """
+    dh_log("Arrr! Table Summary:", level="INFO")
+    for (main_version, strong_version), result in results.items():
+        dh_log(
+            f"Main: {main_version}, Strong: {strong_version}",
+            level="INFO",
+            context={
+                "roi": result['roi'],
+                "total_prize": result['total_prize'],
+                "total_cost": result['total_cost'],
+                "test_count": result['test_count']
+            }
+        ) 

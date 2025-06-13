@@ -2,6 +2,15 @@
 # All static (but changeable) settings for the lottery predictor backend
 # Praise the FSM for single source of truth!
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Database settings
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@db:5432/lotto_predictor')
+
 # Cost of a single ticket (per table)
 TICKET_COST_PER_TABLE = 2.80  # Change as needed
 
