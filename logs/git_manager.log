@@ -17,3 +17,29 @@
 2025-06-13 21:35:46,131 - git_manager - INFO - Executing: Set git author name
 2025-06-13 21:35:46,135 - git_manager - INFO - Executing: Set git author email
 2025-06-13 21:35:46,139 - git_manager - INFO - Executing: Stage all files
+2025-06-13 21:35:46,148 - git_manager - INFO - Executing: Check for staged changes
+2025-06-13 21:35:46,152 - git_manager - INFO - Command stdout: .env.development
+logs/git_manager.log
+scripts/git_manager.py
+2025-06-13 21:35:46,152 - git_manager - INFO - Executing: Commit files
+2025-06-13 21:35:46,164 - git_manager - INFO - Command stdout: [dev bc74632] recovery after db deleted. email and cron microservice
+ 3 files changed, 411 insertions(+)
+ create mode 100644 .env.development
+ create mode 100644 logs/git_manager.log
+ create mode 100755 scripts/git_manager.py
+2025-06-13 21:35:46,178 - git_manager - INFO - Executing: Add remote origin
+2025-06-13 21:35:46,184 - git_manager - INFO - Executing: Set branch to dev
+2025-06-13 21:35:46,193 - git_manager - INFO - Executing: Test repository access
+2025-06-13 21:39:26,372 - git_manager - INFO - Arrr! Changed working directory to git root: /home/orshv/lotto-predictore | Context: {'git_root': '/home/orshv/lotto-predictore', 'timestamp': '2025-06-13T21:39:26.372184'}
+2025-06-13 21:39:26,372 - git_manager - INFO - Arrr! Changed working directory to git root: /home/orshv/lotto-predictore | Context: {'git_root': '/home/orshv/lotto-predictore', 'timestamp': '2025-06-13T21:39:26.372595'}
+2025-06-13 21:39:26,374 - git_manager - INFO - Executing: Check if git repo exists
+2025-06-13 21:39:26,378 - git_manager - INFO - Command stdout: true
+2025-06-13 21:39:26,378 - git_manager - INFO - Executing: Unset credential helper
+2025-06-13 21:39:26,388 - git_manager - INFO - Executing: Add remote origin with token
+2025-06-13 21:39:26,394 - git_manager - INFO - Executing: Set branch to dev
+2025-06-13 21:39:26,401 - git_manager - INFO - Executing: Check for changes
+2025-06-13 21:39:26,410 - git_manager - INFO - Command stdout: M logs/git_manager.log
+ M scripts/git_manager.py
+2025-06-13 21:39:38,573 - git_manager - INFO - Executing: Set git author name
+2025-06-13 21:39:38,580 - git_manager - INFO - Executing: Set git author email
+2025-06-13 21:39:38,585 - git_manager - INFO - Executing: Stage all files

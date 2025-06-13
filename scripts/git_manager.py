@@ -98,6 +98,20 @@ def safe_remove_remote(remote_name: str) -> None:
         logger.debug(f"Failed to remove remote {remote_name}", {'error': str(e)})
         pass  # Ignore errors if remote doesn't exist
 
+def ensure_git_config(config: GitConfig):
+    """Ensure git config is set for this repo, including unsetting credential helper and setting remote with token."""
+    # Unset credential helper
+    run_command('git config --local credential.helper ""', 'Unset credential helper')
+    # Remove and re-add remote with token
+    safe_remove_remote('origin')
+    repo_url_with_token = re.sub(
+        r'https://github\.com/',
+        f'https://{config.github_token}@github.com/',
+        config.repo_url
+    )
+    run_command(f'git remote add origin {repo_url_with_token}', 'Add remote origin with token')
+    run_command(f'git branch -M {config.branch}', f'Set branch to {config.branch}')
+
 def commit_all_files(config: GitConfig) -> None:
     """Commit and push all files to GitHub."""
     try:
@@ -106,6 +120,9 @@ def commit_all_files(config: GitConfig) -> None:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
         except:
             run_command('git init', 'Initialize git repository')
+
+        # Ensure config and remote
+        ensure_git_config(config)
 
         # Check if there are any changes
         status = run_command('git status --porcelain', 'Check for changes')[0]
@@ -120,61 +137,30 @@ def commit_all_files(config: GitConfig) -> None:
             sys.exit(1)
 
         # Set git config
-        run_command(f'git config user.name "{config.author_name}"', 
-                   'Set git author name')
-        run_command(f'git config user.email "{config.author_email}"', 
-                   'Set git author email')
+        run_command(f'git config user.name "{config.author_name}"', 'Set git author name')
+        run_command(f'git config user.email "{config.author_email}"', 'Set git author email')
 
         # Add and commit files
         run_command('git add -A', 'Stage all files')
-        
         # Check if there are any staged changes
         staged_changes = run_command('git diff --cached --name-only', 'Check for staged changes')[0]
         if not staged_changes:
             logger.info("No changes were staged for commit")
             sys.exit(0)
-            
-        run_command(f'git commit -m "{commit_message}"', 
-                   'Commit files')
+        run_command(f'git commit -m "{commit_message}"', 'Commit files')
 
-        # Set up remote with token
-        safe_remove_remote('origin')
-        
-        # Insert token into repo URL
-        repo_url_with_token = re.sub(
-            r'https://github\.com/',
-            f'https://{config.github_token}@github.com/',
-            config.repo_url
-        )
-        
-        run_command(f'git remote add origin {repo_url_with_token}', 
-                   'Add remote origin')
-        run_command(f'git branch -M {config.branch}', 
-                   f'Set branch to {config.branch}')
-        
+        # Ensure config and remote again before push
+        ensure_git_config(config)
         # Test repository access
         try:
             run_command('git ls-remote origin', 'Test repository access')
         except subprocess.CalledProcessError:
-            logger.error("Failed to access repository - check your token and repo URL", {
-                'repo_url': config.repo_url
-            })
+            logger.error("Failed to access repository - check your token and repo URL", {'repo_url': config.repo_url})
             raise
-
-        run_command(f'git push -u origin {config.branch} --force', 
-                   'Push files to GitHub')
-
-        logger.info(f"Successfully pushed to {config.branch}", {
-            'branch': config.branch,
-            'repo': config.repo_url
-        })
-
+        run_command(f'git push -u origin {config.branch} --force', 'Push files to GitHub')
+        logger.info(f"Successfully pushed to {config.branch}", {'branch': config.branch, 'repo': config.repo_url})
     except Exception as e:
-        logger.error(f"Failed to commit and push: {str(e)}", {
-            'error': str(e),
-            'repo': config.repo_url,
-            'branch': config.branch
-        })
+        logger.error(f"Failed to commit and push: {str(e)}", {'error': str(e), 'repo': config.repo_url, 'branch': config.branch})
         sys.exit(1)
 
 def fetch_latest_commit(config: GitConfig) -> None:
@@ -185,35 +171,13 @@ def fetch_latest_commit(config: GitConfig) -> None:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
         except:
             run_command('git init', 'Initialize git repository')
-
-        # Set up remote with token
-        safe_remove_remote('origin')
-        
-        # Insert token into repo URL
-        repo_url_with_token = re.sub(
-            r'https://github\.com/',
-            f'https://{config.github_token}@github.com/',
-            config.repo_url
-        )
-        
-        run_command(f'git remote add origin {repo_url_with_token}', 
-                   'Add remote origin')
-        run_command('git fetch origin', 
-                   'Fetch latest changes')
-        run_command(f'git reset --hard origin/{config.branch}', 
-                   f'Reset to latest commit')
-
-        logger.info("Successfully fetched latest commit", {
-            'branch': config.branch,
-            'repo': config.repo_url
-        })
-
+        # Ensure config and remote
+        ensure_git_config(config)
+        run_command('git fetch origin', 'Fetch latest changes')
+        run_command(f'git reset --hard origin/{config.branch}', f'Reset to latest commit')
+        logger.info("Successfully fetched latest commit", {'branch': config.branch, 'repo': config.repo_url})
     except Exception as e:
-        logger.error(f"Failed to fetch latest commit: {str(e)}", {
-            'error': str(e),
-            'repo': config.repo_url,
-            'branch': config.branch
-        })
+        logger.error(f"Failed to fetch latest commit: {str(e)}", {'error': str(e), 'repo': config.repo_url, 'branch': config.branch})
         sys.exit(1)
 
 def fetch_specific_commit(config: GitConfig, commit_id: str) -> None:
@@ -224,49 +188,19 @@ def fetch_specific_commit(config: GitConfig, commit_id: str) -> None:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
         except:
             run_command('git init', 'Initialize git repository')
-
-        # Set up remote with token
-        safe_remove_remote('origin')
-        
-        # Insert token into repo URL
-        repo_url_with_token = re.sub(
-            r'https://github\.com/',
-            f'https://{config.github_token}@github.com/',
-            config.repo_url
-        )
-        
-        run_command(f'git remote add origin {repo_url_with_token}', 
-                   'Add remote origin')
-        run_command('git fetch origin', 
-                   'Fetch all changes')
-
+        # Ensure config and remote
+        ensure_git_config(config)
+        run_command('git fetch origin', 'Fetch all changes')
         # Verify commit exists
         try:
-            run_command(f'git rev-parse {commit_id}', 
-                       'Verify commit exists')
+            run_command(f'git rev-parse {commit_id}', 'Verify commit exists')
         except subprocess.CalledProcessError:
-            logger.error(f"Invalid commit ID: {commit_id}", {
-                'commit_id': commit_id,
-                'repo': config.repo_url
-            })
+            logger.error(f"Invalid commit ID: {commit_id}", {'commit_id': commit_id, 'repo': config.repo_url})
             raise ValueError(f"Commit '{commit_id}' not found")
-
-        # Reset to specific commit
-        run_command(f'git reset --hard {commit_id}', 
-                   f'Reset to commit {commit_id}')
-
-        logger.info(f"Successfully reset to commit {commit_id}", {
-            'commit_id': commit_id,
-            'repo': config.repo_url,
-            'branch': config.branch
-        })
-
+        run_command(f'git reset --hard {commit_id}', f'Reset to commit {commit_id}')
+        logger.info(f"Successfully reset to commit {commit_id}", {'commit_id': commit_id, 'repo': config.repo_url, 'branch': config.branch})
     except Exception as e:
-        logger.error(f"Failed to fetch commit: {str(e)}", {
-            'error': str(e),
-            'commit_id': commit_id,
-            'repo': config.repo_url
-        })
+        logger.error(f"Failed to fetch commit: {str(e)}", {'error': str(e), 'commit_id': commit_id, 'repo': config.repo_url})
         sys.exit(1)
 
 def commit_and_push():
