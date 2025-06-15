@@ -18,3 +18,7 @@ ALGORITHM_REGISTRY = {}
 def register_algorithm(cls):
     ALGORITHM_REGISTRY[cls.version] = cls
     return cls 
+
+def get_registered_algorithms():
+    """Return a list of all registered algorithm versions"""
+    return list(ALGORITHM_REGISTRY.keys()) 

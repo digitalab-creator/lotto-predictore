@@ -31,7 +31,12 @@ class GitConfig:
 
 def load_config() -> GitConfig:
     """Load configuration from environment variables."""
-    load_dotenv('.env.development')
+    # Try both .env.development and .env files
+    env_files = ['.env.development', '.env']
+    for env_file in env_files:
+        if os.path.exists(env_file):
+            load_dotenv(env_file)
+            break
     
     config = GitConfig(
         repo_url=os.getenv('GITHUB_REPO_URL', ''),
@@ -53,11 +58,28 @@ def load_config() -> GitConfig:
     
     return config
 
+def find_git_root() -> str:
+    """Find the root directory of the git repository (where .git lives)."""
+    current = os.path.abspath(os.getcwd())
+    while current != os.path.dirname(current):
+        if os.path.isdir(os.path.join(current, '.git')):
+            return current
+        current = os.path.dirname(current)
+    
+    logger.error("Could not find .git directory! Are ye in a git repo, matey?", {
+        'current_dir': os.getcwd()
+    })
+    raise RuntimeError("Could not find .git directory! Are ye in a git repo, matey?")
+
 def run_command(command: str, description: str) -> Tuple[str, str]:
     """Execute a git command and return stdout and stderr."""
     logger.info(f"Executing: {description}")
     
     try:
+        # Ensure we're in the git root directory
+        git_root = find_git_root()
+        os.chdir(git_root)
+        
         result = subprocess.run(
             command,
             shell=True,
@@ -248,16 +270,6 @@ def commit_and_push():
         'branch': current_branch,
         'message': commit_message
     })
-
-def find_git_root() -> str:
-    """Find the root directory of the git repository (where .git lives)."""
-    current = os.path.abspath(os.getcwd())
-    while current != os.path.dirname(current):
-        if os.path.isdir(os.path.join(current, '.git')):
-            return current
-        current = os.path.dirname(current)
-    logger.error("Could not find .git directory! Are ye in a git repo, matey?")
-    raise RuntimeError("Could not find .git directory! Are ye in a git repo, matey?")
 
 def main():
     """Main function to handle command-line arguments."""

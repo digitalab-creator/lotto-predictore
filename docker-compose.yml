@@ -22,7 +22,7 @@ services:
     build: 
       context: .
       dockerfile: backend/Dockerfile
-    command: /bin/sh -c "cd /app && sleep 10 && PYTHONPATH=/app alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app"
+    command: /bin/sh -c "cd /app && sleep 10 && PYTHONPATH=/app:/app/scripts alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app"
     volumes:
       - ./backend:/app
       - ./shared:/app/shared
@@ -59,18 +59,14 @@ services:
     build:
       context: .
       dockerfile: email-service/Dockerfile
-    volumes:
-      - ./email-service/src:/app/src
-      - ./email-service/templates:/app/templates
-      - ./shared:/app/shared
-      - ./logs:/app/logs
-    ports:
-      - "8001:8000"
-    environment:
-      - LOG_DIR=/app/logs
-      - LOG_LEVEL=INFO
     env_file:
       - ./email-service/.env
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./email-service:/app
+      - ./shared:/app/shared
+      - ./logs:/app/logs
     depends_on:
       - backend
 

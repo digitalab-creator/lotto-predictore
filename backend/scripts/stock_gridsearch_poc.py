@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from services.logger import dh_log
+from logger import logger
 import yfinance as yf
 import pandas as pd
 from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
@@ -10,10 +10,10 @@ from sklearn.metrics import mean_squared_error
 import numpy as np
 
 # 1. Fetch S&P 500 data (SPY ETF)
-dh_log("Arrr! Fetchin' SPY data from Yahoo Finance", level="INFO")
+logger.info("Arrr! Fetchin' SPY data from Yahoo Finance")
 data = yf.download("SPY", start="2010-01-01", end="2024-01-01")
 if data.empty:
-    dh_log("Arrr! Failed to fetch SPY data!", level="ERROR")
+    logger.error("Arrr! Failed to fetch SPY data!")
     sys.exit(1)
 data = data[["Close"]].reset_index()
 
@@ -42,13 +42,13 @@ tscv = TimeSeriesSplit(n_splits=5)
 grid = GridSearchCV(model, params, cv=tscv, scoring="neg_mean_squared_error")
 grid.fit(X_train, y_train)
 best_model = grid.best_estimator_
-dh_log("Arrr! Best model found!", level="INFO", context={"params": grid.best_params_})
+logger.info("Arrr! Best model found!", context={"params": grid.best_params_})
 
 # 6. Evaluate on test
-dh_log("Arrr! Predictin' on test set", level="INFO")
+logger.info("Arrr! Predictin' on test set")
 preds = best_model.predict(X_test)
 mse = mean_squared_error(y_test, preds)
-dh_log("Arrr! Test MSE calculated!", level="INFO", context={"mse": mse})
+logger.info("Arrr! Test MSE calculated!", context={"mse": mse})
 
 # 7. Compare cumulative returns
 test = test.iloc[:-1].copy()
@@ -57,7 +57,7 @@ test["pred_return"] = test["pred"].pct_change()
 test["spy_return"] = test["Close"].pct_change()
 test_cum_pred = (1 + test["pred_return"].fillna(0)).cumprod().iloc[-1]
 test_cum_spy = (1 + test["spy_return"].fillna(0)).cumprod().iloc[-1]
-dh_log("Arrr! Cumulative returns calculated!", level="INFO", context={
+logger.info("Arrr! Cumulative returns calculated!", context={
     "model_return": test_cum_pred,
     "spy_return": test_cum_spy
 })

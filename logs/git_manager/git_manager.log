@@ -1,0 +1,18 @@
+2025-06-15 23:15:58 UTC - git_manager - INFO - Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+2025-06-15 23:15:58 UTC - git_manager - INFO - Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+2025-06-15 23:15:58 UTC - git_manager - ERROR - Could not find .git directory! Are ye in a git repo, matey?
+2025-06-15 23:15:58 UTC - git_manager - ERROR - Could not find .git directory! Are ye in a git repo, matey?
+2025-06-15 23:15:58 UTC - git_manager - ERROR - Failed to find or change to git root: Could not find .git directory! Are ye in a git repo, matey? | Context: {'error': 'Could not find .git directory! Are ye in a git repo, matey?', 'current_dir': '/app', 'timestamp': '2025-06-15T20:15:58.247615'}
+2025-06-15 23:15:58 UTC - git_manager - ERROR - Failed to find or change to git root: Could not find .git directory! Are ye in a git repo, matey? | Context: {'error': 'Could not find .git directory! Are ye in a git repo, matey?', 'current_dir': '/app', 'timestamp': '2025-06-15T20:15:58.247615'}
+2025-06-15 23:16:38 UTC - git_manager - INFO - Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+2025-06-15 23:16:38 UTC - git_manager - INFO - Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+2025-06-15 23:16:38 UTC - git_manager - ERROR - Could not find .git directory! Are ye in a git repo, matey?
+2025-06-15 23:16:38 UTC - git_manager - ERROR - Could not find .git directory! Are ye in a git repo, matey?
+2025-06-15 23:16:38 UTC - git_manager - ERROR - Failed to find or change to git root: Could not find .git directory! Are ye in a git repo, matey? | Context: {'error': 'Could not find .git directory! Are ye in a git repo, matey?', 'current_dir': '/app', 'timestamp': '2025-06-15T20:16:38.136827'}
+2025-06-15 23:16:38 UTC - git_manager - ERROR - Failed to find or change to git root: Could not find .git directory! Are ye in a git repo, matey? | Context: {'error': 'Could not find .git directory! Are ye in a git repo, matey?', 'current_dir': '/app', 'timestamp': '2025-06-15T20:16:38.136827'}
+2025-06-15 23:17:37 UTC - git_manager - INFO - Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+2025-06-15 23:17:37 UTC - git_manager - INFO - Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+2025-06-15 23:17:37 UTC - git_manager - ERROR - Could not find .git directory! Are ye in a git repo, matey? | Context: {'current_dir': '/app', 'docker_git_exists': False, 'timestamp': '2025-06-15T20:17:37.564150'}
+2025-06-15 23:17:37 UTC - git_manager - ERROR - Could not find .git directory! Are ye in a git repo, matey? | Context: {'current_dir': '/app', 'docker_git_exists': False, 'timestamp': '2025-06-15T20:17:37.564150'}
+2025-06-15 23:17:37 UTC - git_manager - ERROR - Failed to find or change to git root: Could not find .git directory! Are ye in a git repo, matey? | Context: {'error': 'Could not find .git directory! Are ye in a git repo, matey?', 'current_dir': '/app', 'timestamp': '2025-06-15T20:17:37.565323'}
+2025-06-15 23:17:37 UTC - git_manager - ERROR - Failed to find or change to git root: Could not find .git directory! Are ye in a git repo, matey? | Context: {'error': 'Could not find .git directory! Are ye in a git repo, matey?', 'current_dir': '/app', 'timestamp': '2025-06-15T20:17:37.565323'}

@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from services.logger import dh_log
+from logger import logger
 
 def print_combo_index_insights(results: Dict[str, Any]) -> None:
     """
@@ -8,13 +8,12 @@ def print_combo_index_insights(results: Dict[str, Any]) -> None:
     Args:
         results (Dict[str, Any]): Simulation results dictionary
     """
-    dh_log("Arrr! Combo Index Insights:", level="INFO")
+    logger.info("Arrr! Combo Index Insights:")
     for (main_version, strong_version), result in results.items():
-        dh_log(f"Main: {main_version}, Strong: {strong_version}", level="INFO")
+        logger.info(f"Main: {main_version}, Strong: {strong_version}")
         for date_entry in result.get('dates', []):
-            dh_log(
+            logger.info(
                 f"Date: {date_entry['test_draw_date']}",
-                level="INFO",
                 context={
                     "max_hits": date_entry['max_hits'],
                     "any_strong_hit": date_entry['any_strong_hit'],
@@ -29,11 +28,10 @@ def print_table_summary(results: Dict[str, Any]) -> None:
     Args:
         results (Dict[str, Any]): Simulation results dictionary
     """
-    dh_log("Arrr! Table Summary:", level="INFO")
+    logger.info("Arrr! Table Summary:")
     for (main_version, strong_version), result in results.items():
-        dh_log(
+        logger.info(
             f"Main: {main_version}, Strong: {strong_version}",
-            level="INFO",
             context={
                 "roi": result['roi'],
                 "total_prize": result['total_prize'],

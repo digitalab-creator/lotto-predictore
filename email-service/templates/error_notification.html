@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Error Notification - {{ service }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Alert - {{ service }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,60 +12,91 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #f9f9f9;
         }
-        .error-container {
-            background-color: #fff3f3;
-            border: 1px solid #ffcdd2;
-            border-radius: 4px;
-            padding: 20px;
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 30px;
             margin: 20px 0;
         }
-        .error-header {
+        .alert-container {
+            background-color: #fff3f3;
+            border-left: 4px solid #d32f2f;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .alert-header {
             color: #d32f2f;
-            margin-top: 0;
+            margin: 0 0 15px 0;
+            font-size: 24px;
         }
         .error-details {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
             border-radius: 4px;
             padding: 15px;
             margin: 15px 0;
             white-space: pre-wrap;
-            font-family: monospace;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
             overflow-x: auto;
         }
         .service-info {
-            color: #666;
-            font-size: 0.9em;
+            color: #495057;
+            font-size: 0.95em;
             margin-bottom: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
         }
         .script-info {
-            color: #666;
+            color: #495057;
             font-style: italic;
-            margin-bottom: 10px;
+            margin: 10px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .timestamp {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <h1 class="error-header">Error Notification</h1>
-    
-    <div class="service-info">
-        Service: {{ service }}
-        {% if script %}
-        <div class="script-info">Script: {{ script }}</div>
+    <div class="container">
+        <div class="service-info">
+            <strong>Service:</strong> {{ service }}
+            {% if script %}
+            <div class="script-info"><strong>Script:</strong> {{ script }}</div>
+            {% endif %}
+            <div class="timestamp">Alert Time: {{ now().strftime('%Y-%m-%d %H:%M:%S UTC') }}</div>
+        </div>
+
+        <div class="alert-container">
+            <h1 class="alert-header">System Alert</h1>
+            <div class="error-details">{{ error_message }}</div>
+        </div>
+
+        {% if traceback %}
+        <div class="alert-container">
+            <h2>Technical Details</h2>
+            <div class="error-details">{{ traceback }}</div>
+        </div>
         {% endif %}
-    </div>
 
-    <div class="error-container">
-        <h2>Error Message</h2>
-        <div class="error-details">{{ error_message }}</div>
+        <div class="footer">
+            <p>This is an automated system alert. Please do not reply to this email directly.</p>
+            <p>To manage your notification preferences, please contact the system administrator.</p>
+        </div>
     </div>
-
-    {% if traceback %}
-    <div class="error-container">
-        <h2>Traceback</h2>
-        <div class="error-details">{{ traceback }}</div>
-    </div>
-    {% endif %}
 </body>
 </html> 

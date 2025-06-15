@@ -12,21 +12,20 @@ if backend_dir not in sys.path:
 from sqlalchemy import text
 from db import SessionLocal, get_db
 from models.weekly_winning_combination import WeeklyWinningCombination
-from services.logger import dh_log
+from logger import logger
 from services.simulation_engine import SimulationEngine
 from algorithms.base import ALGORITHM_REGISTRY, STRONG_NUMBER_REGISTRY
 from models import Draw, Model
 from utils import dh_log
 from simulation_prize import calculate_prize
 from simulation_print import print_weekly_tables
-from config import SMTP_SERVER, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, RECIPIENT_EMAIL, NUM_COMBINATIONS_TO_RECOMMEND
 
 def generate_tables():
     """
     Generates lottery tables using the best performing model and parameters.
     Sends them via email.
     """
-    dh_log("Arrr! Starting weekly table generation! Praisin' the FSM!", level="INFO")
+    logger.info("Arrr! Starting weekly table generation! Praisin' the FSM!")
     
     try:
         with SessionLocal() as db:
@@ -36,12 +35,11 @@ def generate_tables():
             ).first()
             
             if not best_combo:
-                dh_log("Arrr! No winning combinations found in database!", level="ERROR")
+                logger.error("Arrr! No winning combinations found in database!")
                 return
             
-            dh_log(
+            logger.info(
                 "Arrr! Found best performing combination",
-                level="INFO",
                 context={
                     "model_id": best_combo.model_id,
                     "strong_model_id": best_combo.strong_model_id,
@@ -62,9 +60,8 @@ def generate_tables():
             train_end = datetime.datetime.fromisoformat(training_params.get('train_end_date')).date() if training_params.get('train_end_date') else draws[-1].date
             test_count = training_params.get('test_count', 1)
             
-            dh_log(
+            logger.info(
                 "Arrr! Using training parameters",
-                level="INFO",
                 context={
                     "train_start": train_start.isoformat(),
                     "train_end": train_end.isoformat(),
@@ -80,9 +77,8 @@ def generate_tables():
             strong_model_cls = STRONG_NUMBER_REGISTRY.get(strong_model_name)
             
             if not main_model_cls or not strong_model_cls:
-                dh_log(
+                logger.error(
                     "Arrr! Could not find model classes!",
-                    level="ERROR",
                     context={
                         "main_model": main_model_name,
                         "strong_model": strong_model_name
@@ -107,7 +103,7 @@ def generate_tables():
             # Get the best result
             best_result = results.get((main_model_name, strong_model_name))
             if not best_result:
-                dh_log("Arrr! No results returned from simulation!", level="ERROR")
+                logger.error("Arrr! No results returned from simulation!")
                 return
             
             # Get the combinations
@@ -125,12 +121,11 @@ def generate_tables():
             # Send email
             send_tables_email(tables, best_combo)
             
-            dh_log("Arrr! Weekly table generation completed successfully!", level="INFO")
+            logger.info("Arrr! Weekly table generation completed successfully!")
             
     except Exception as e:
-        dh_log(
+        logger.error(
             "Arrr! Weekly table generation failed!",
-            level="ERROR",
             context={"error": str(e)}
         )
         raise
@@ -168,12 +163,11 @@ def send_tables_email(tables, best_combo):
         if response.status_code != 200:
             raise Exception(f"Email service returned status code {response.status_code}: {response.text}")
             
-        dh_log("Arrr! Email sent successfully!", level="INFO")
+        logger.info("Arrr! Email sent successfully!")
         
     except Exception as e:
-        dh_log(
+        logger.error(
             "Arrr! Failed to send email!",
-            level="ERROR",
             context={"error": str(e)}
         )
         raise

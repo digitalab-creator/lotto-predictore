@@ -11,11 +11,4 @@ def calculate_prize(hits: int, strong_hit: bool) -> float:
     Returns:
         float: Prize amount
     """
-    if hits not in PRIZE_TABLE:
-        return 0.0
-        
-    prize = PRIZE_TABLE[hits]
-    if strong_hit:
-        prize *= 2
-        
-    return prize 
+    return PRIZE_TABLE.get((hits, strong_hit), 0.0) 

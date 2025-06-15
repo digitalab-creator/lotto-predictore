@@ -1,9 +1,12 @@
 import os
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 from src.email_service import EmailService
 from shared.logging_service import LoggingService
+import smtplib
+from datetime import datetime
+from pathlib import Path
 
 # Initialize FastAPI app
 app = FastAPI(title="Email Service")
@@ -99,6 +102,132 @@ async def send_error_notification(request: ErrorNotificationRequest):
         )
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/health")
+async def health_check():
+    """Health check endpoint that verifies both FastAPI and SMTP connection"""
+    try:
+        # Check SMTP connection
+        with smtplib.SMTP(email_service.smtp_host, email_service.smtp_port) as server:
+            server.starttls()
+            server.login(email_service.smtp_username, email_service.smtp_password)
+        
+        return {
+            "status": "healthy",
+            "services": {
+                "fastapi": "up",
+                "smtp": "up"
+            }
+        }
+    except Exception as e:
+        logger.error("Health check failed", context={'error': str(e)})
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "status": "unhealthy",
+                "services": {
+                    "fastapi": "up",
+                    "smtp": "down",
+                    "error": str(e)
+                }
+            }
+        )
+
+@app.post("/api/notifications/model-corruption")
+async def notify_model_corruption(request: Request):
+    """
+    Send email notification about corrupted model files.
+    """
+    try:
+        data = await request.json()
+        corrupted_files = data.get("corrupted_files", [])
+        total_checked = data.get("total_checked", 0)
+        total_corrupted = data.get("total_corrupted", 0)
+        timestamp = data.get("timestamp", datetime.now().isoformat())
+        
+        if not corrupted_files:
+            return {"status": "success", "message": "No corrupted files to report"}
+        
+        # Prepare email content
+        subject = f"🚨 Model Corruption Alert: {total_corrupted} Corrupted Files Found"
+        
+        # Create HTML table of corrupted files
+        files_table = "<table border='1' style='border-collapse: collapse; width: 100%;'>"
+        files_table += """
+            <tr style='background-color: #f2f2f2;'>
+                <th style='padding: 8px; text-align: left;'>File Name</th>
+                <th style='padding: 8px; text-align: left;'>Error</th>
+                <th style='padding: 8px; text-align: left;'>Size</th>
+                <th style='padding: 8px; text-align: left;'>Last Modified</th>
+            </tr>
+        """
+        
+        for file_info in corrupted_files:
+            files_table += f"""
+                <tr>
+                    <td style='padding: 8px;'>{file_info['file']}</td>
+                    <td style='padding: 8px;'>{file_info['error']}</td>
+                    <td style='padding: 8px;'>{file_info['size']} bytes</td>
+                    <td style='padding: 8px;'>{file_info['last_modified']}</td>
+                </tr>
+            """
+        files_table += "</table>"
+        
+        # Create email body
+        body = f"""
+        <html>
+            <body style='font-family: Arial, sans-serif;'>
+                <h2 style='color: #d32f2f;'>🚨 Model Corruption Alert</h2>
+                <p>Arrr matey! The Flying Spaghetti Monster be warnin' ye about corrupted model files!</p>
+                
+                <h3>Summary:</h3>
+                <ul>
+                    <li>Total files checked: {total_checked}</li>
+                    <li>Corrupted files found: {total_corrupted}</li>
+                    <li>Check time: {timestamp}</li>
+                </ul>
+                
+                <h3>Corrupted Files:</h3>
+                {files_table}
+                
+                <p style='color: #666; font-size: 0.9em; margin-top: 20px;'>
+                    Note: Corrupted files have been moved to a backup directory for inspection.
+                    The system will automatically retrain these models when needed.
+                </p>
+                
+                <p style='margin-top: 20px;'>
+                    May the Flying Spaghetti Monster guide ye in fixin' these corrupted models! 🍝
+                </p>
+            </body>
+        </html>
+        """
+        
+        # Send email
+        recipients = os.getenv("ADMIN_EMAIL_RECIPIENTS", "").split(",")
+        if not recipients or not recipients[0]:
+            raise HTTPException(
+                status_code=500,
+                detail="No email recipients configured"
+            )
+        
+        email_service.send_email(
+            subject=subject,
+            body=body,
+            recipients=recipients,
+            is_html=True
+        )
+        
+        return {
+            "status": "success",
+            "message": f"Corruption notification sent to {len(recipients)} recipients",
+            "corrupted_files": len(corrupted_files)
+        }
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to send corruption notification: {str(e)}"
+        )
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001) 
+    uvicorn.run(app, host="0.0.0.0", port=8000) 

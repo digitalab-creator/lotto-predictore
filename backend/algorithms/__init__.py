@@ -1,19 +1,29 @@
-from .top_n_frequent import *
-from .top_n_overall import *
-from .positionwise_scored import *
-from .delta_system import *
-from .repeated_pattern import *
-from .recency_weighted import *
-from .random_from_top_pool import *
-from .balanced_spread import *
-from .pattern_learning import *
-from .skip_distance import *
-from .base import ALGORITHM_REGISTRY
+from logger import logger
 
+# Import base registry
+from .base import ALGORITHM_REGISTRY, register_algorithm, get_registered_algorithms
+
+# Import all algorithm modules
+from . import top_n_frequent
+from . import top_n_overall
+from . import positionwise_scored
+from . import delta_system
+from . import repeated_pattern
+from . import recency_weighted
+from . import random_from_top_pool
+from . import balanced_spread
+from . import pattern_learning
+from . import skip_distance
+from . import strong_number
+from . import dl
+
+# Try to import DL module, but don't fail if it's not available
 try:
-    from .dl import *
-except Exception as e:
-    from services.logger import dh_log
-    dh_log(f"Arrr! Failed to import .dl: {e}", level='ERROR')
-    import traceback
-    dh_log(traceback.format_exc(), level='ERROR')
+    from . import dl
+except ImportError as e:
+    logger.error(f"Failed to import DL module: {str(e)}", context={"error": str(e)})
+
+def register_algorithms():
+    """Register all algorithms with the registry"""
+    # All algorithms are registered via decorators when imported
+    pass

@@ -1,0 +1,56 @@
+Arr matey! I'll help ye test all the cron jobs in the correct order, by the grace of His Noodly Appendage! 🍝
+
+Since yer database be empty, we'll need to:
+1. First fetch some historical draws
+2. Then run the weekly combinations generation
+3. Then update the winning combinations
+4. Finally generate the tables
+
+Here be the commands in order, matey:
+
+1. First, let's fetch some historical draws (this will populate the database with past draws):
+```bash
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/fetch-latest-draw').json())"    -- TESTED - WORK FINE
+```
+
+2. After we have some draws, generate weekly combinations:
+```bash
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/generate-weekly-combinations').json())"   ---errors
+```
+
+3. Update the weekly winning combinations:
+```bash
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/update-weekly-winning-combinations').json())"
+```
+
+4. Finally, generate the weekly tables:
+```bash
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/generate-weekly-tables').json())"
+```
+
+To verify everything worked, ye can check:
+
+1. For draws:
+```bash
+docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM draws;"
+```
+
+2. For generated combinations:
+```bash
+docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM generated_combinations;"
+```
+
+3. For weekly winning combinations:
+```bash
+docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM weekly_winning_combinations;"
+```
+
+If anything fails, ye can check the logs:
+```bash
+docker-compose logs -f backend  # For backend logs
+docker-compose logs -f cron     # For cron service logs
+```
+
+Would ye like me to explain what each command does in more detail, matey? Or shall we start testing? 🏴‍☠️
+
+Remember, by the grace of His Noodly Appendage, we're doing this in a test environment first! 🍝

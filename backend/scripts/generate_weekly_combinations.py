@@ -8,21 +8,20 @@ from models import Draw, GeneratedCombination, Prediction
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from config import NUM_COMBINATIONS_TO_RECOMMEND
-from services.logger import dh_log
+from logger import logger
 
 def main():
-    dh_log("Arrr! Starting weekly combination generation, praisin' the FSM!", level="INFO")
+    logger.info("Arrr! Starting weekly combination generation, praisin' the FSM!")
     db = SessionLocal()
     try:
         draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
         filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
-        dh_log(
+        logger.info(
             "Arrr! Filtered out draws with strong_number == 8 for weekly generation, praisin' the FSM!",
-            level="INFO",
             context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
         )
         if len(draws) < 20:
-            dh_log("Not enough draws in database for recommendation.", level="ERROR")
+            logger.error("Not enough draws in database for recommendation.")
             return
         train_draws = draws[:-12]
         test_draws = draws[-12:]
@@ -41,7 +40,7 @@ def main():
                 top_n = 10
             else:
                 top_n = 3
-            dh_log(f"Running {algo_name} with top_n={top_n}", level="INFO")
+            logger.info(f"Running {algo_name} with top_n={top_n}")
             try:
                 res = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=[algo_name])
                 for (main_algo, strong_algo), r in res.items():
@@ -50,9 +49,10 @@ def main():
                         best_pair = (main_algo, strong_algo)
                         best_roi = r["roi"]
             except Exception as e:
-                dh_log(f"[FSM ERROR] Skipping {algo_name} due to error: {e}", level="ERROR")
+                logger.error(f"Skipping {algo_name} due to error: {e}", context={"algo_name": algo_name, "error": str(e)})
+                raise
         if not best_pair:
-            dh_log("No algorithm produced results.", level="ERROR")
+            logger.error("No algorithm produced results.")
             return
         main_algo_cls = ALGORITHM_REGISTRY[best_pair[0]]
         # Use correct top_n for the best algorithm
@@ -76,11 +76,11 @@ def main():
                 created_at=now
             )
             db.add(generated)
-            dh_log(f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}", level="INFO")
+            logger.info(f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}")
         db.commit()
-        dh_log(f"Arrr! Stored {len(combos)} combinations for the next draw, praisin' the FSM!", level="INFO")
+        logger.info(f"Arrr! Stored {len(combos)} combinations for the next draw, praisin' the FSM!")
     except Exception as e:
-        dh_log(f"[FSM ERROR] Exception in weekly generation: {e}", level="ERROR")
+        logger.error(f"Exception in weekly generation: {e}")
         raise
     finally:
         db.close()

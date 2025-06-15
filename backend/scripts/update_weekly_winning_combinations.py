@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from sqlalchemy import text
 from db import SessionLocal
 from models.weekly_winning_combination import WeeklyWinningCombination
-from services.logger import dh_log
+from logger import logger
 import traceback
 import json
 
@@ -15,9 +15,8 @@ def update_weekly_winning_combinations():
     This should be run once per week.
     """
     start_time = datetime.datetime.utcnow()
-    dh_log(
+    logger.info(
         "Arrr! Starting weekly winning combinations update! Praisin' the FSM!",
-        level="INFO",
         context={"start_time": start_time.isoformat()}
     )
     
@@ -27,9 +26,8 @@ def update_weekly_winning_combinations():
         week_start = today - datetime.timedelta(days=today.weekday())
         week_end = week_start + datetime.timedelta(days=6)
         
-        dh_log(
+        logger.info(
             "Arrr! Processing week range",
-            level="INFO",
             context={"week_start": week_start.isoformat(), "week_end": week_end.isoformat()}
         )
         
@@ -40,9 +38,8 @@ def update_weekly_winning_combinations():
                 WeeklyWinningCombination.week_end_date == week_end
             ).delete()
             
-            dh_log(
+            logger.info(
                 f"Arrr! Deleted {deleted} existing combinations for this week",
-                level="INFO",
                 context={"deleted_count": deleted}
             )
             
@@ -56,9 +53,8 @@ def update_weekly_winning_combinations():
             count_result = db.execute(check_query, {"week_start": week_start, "week_end": week_end}).scalar()
             
             if count_result == 0:
-                dh_log(
+                logger.warning(
                     "Arrr! No prediction details found for this week, using all-time data instead!",
-                    level="WARNING",
                     context={"week_start": week_start.isoformat(), "week_end": week_end.isoformat()}
                 )
                 # Use all-time data if no data for this week
@@ -88,9 +84,8 @@ def update_weekly_winning_combinations():
                 """)
                 results = db.execute(query).fetchall()
             else:
-                dh_log(
+                logger.info(
                     f"Arrr! Found {count_result} prediction details for this week!",
-                    level="INFO",
                     context={"week_start": week_start.isoformat(), "week_end": week_end.isoformat()}
                 )
                 # Use weekly data
@@ -123,16 +118,14 @@ def update_weekly_winning_combinations():
                 results = db.execute(query, {"week_start": week_start, "week_end": week_end}).fetchall()
             
             if not results:
-                dh_log(
+                logger.warning(
                     "Arrr! No results found for the week!",
-                    level="WARNING",
                     context={"week_start": week_start.isoformat(), "week_end": week_end.isoformat()}
                 )
                 return
             
-            dh_log(
+            logger.info(
                 f"Arrr! Found {len(results)} winning combinations",
-                level="INFO",
                 context={"num_combinations": len(results)}
             )
             
@@ -163,9 +156,8 @@ def update_weekly_winning_combinations():
                     week_end_date=week_end
                 )
                 db.add(winning_combo)
-                dh_log(
+                logger.info(
                     f"Arrr! Stored winning combination #{idx}",
-                    level="INFO",
                     context={
                         "position": idx,
                         "model_id": result.model_id,
@@ -184,9 +176,8 @@ def update_weekly_winning_combinations():
             end_time = datetime.datetime.utcnow()
             duration = (end_time - start_time).total_seconds()
             
-            dh_log(
+            logger.info(
                 "Arrr! Weekly winning combinations update completed successfully!",
-                level="INFO",
                 context={
                     "start_time": start_time.isoformat(),
                     "end_time": end_time.isoformat(),
@@ -200,9 +191,8 @@ def update_weekly_winning_combinations():
         duration = (end_time - start_time).total_seconds()
         error_traceback = traceback.format_exc()
         
-        dh_log(
+        logger.error(
             "Arrr! Weekly winning combinations update failed!",
-            level="ERROR",
             context={
                 "error": str(e),
                 "traceback": error_traceback,

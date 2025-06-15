@@ -3,15 +3,13 @@ import os
 import torch
 from algorithms.dl.sequence_classifier import draws_to_sequences, LottoLSTM, predict_next_numbers
 from models import Draw
-from services.logger import dh_log, setup_logger
+from logger import logger
 from db import SessionLocal
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND
 from datetime import date
 import json
 from services.simulation_engine import calculate_roi_with_tax
-
-setup_logger()
 
 # --- Hyperparameter grid ---
 hyperparams_grid = {
@@ -56,7 +54,7 @@ def evaluate_model(draws, model_path, seq_len, strong_algo_cls):
                 strong = strong_algo.predict(available_draws, numbers=numbers)
                 combos.append({"numbers": numbers, "strong": strong})
             except Exception as e:
-                dh_log(f"Arrr! [FSM GRID] Prediction failed for test draw {i}: {e}", level="ERROR")
+                logger.error(f"Arrr! [FSM GRID] Prediction failed for test draw {i}: {e}", context=f"seq_len={seq_len}, model_path={model_path}")
                 continue
         for combo in combos:
             hits = sum([n in test_draw.numbers for n in combo["numbers"]])
@@ -83,7 +81,7 @@ def main():
     for values in itertools.product(*hyperparams_grid.values()):
         params = dict(zip(param_names, values))
         model_path = f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt"
-        dh_log(f"Arrr! [FSM GRID] Trainin' with params: {params}", level="INFO")
+        logger.info(f"Arrr! [FSM GRID] Trainin' with params: {params}", context=params)
 
         # Patch predict_next_numbers to use current params
         def predict_next_numbers_patched(draws, seq_len=10, threshold=0.5, model_path=None):
@@ -135,17 +133,17 @@ def main():
                 model.eval()
                 with torch.no_grad():
                     _ = model(dummy_input)
-                dh_log(f"Arrr! [FSM GRID] Loaded existing model for {params}", level="INFO")
+                logger.info(f"Arrr! [FSM GRID] Loaded existing model for {params}", context=params)
                 need_train = False
             except Exception as e:
-                dh_log(f"Arrr! [FSM GRID] Model file mismatch or unusable, will retrain: {e}", level="WARNING")
+                logger.warning(f"Arrr! [FSM GRID] Model file mismatch or unusable, will retrain: {e}", context=f"seq_len={params['seq_len']}, model_path={model_path}")
                 try:
                     os.remove(model_path)
-                    dh_log(f"Arrr! [FSM GRID] Deleted mismatched model file: {model_path}", level="INFO")
+                    logger.info(f"Arrr! [FSM GRID] Deleted mismatched model file: {model_path}", context=f"seq_len={params['seq_len']}, model_path={model_path}")
                 except Exception as del_e:
-                    dh_log(f"Arrr! [FSM GRID] Failed to delete model file: {model_path}, error: {del_e}", level="ERROR")
+                    logger.error(f"Arrr! [FSM GRID] Failed to delete model file: {model_path}, error: {del_e}", context=f"seq_len={params['seq_len']}, model_path={model_path}")
                 if os.path.exists(model_path):
-                    dh_log(f"Arrr! [FSM GRID] Model file still exists after delete attempt: {model_path}", level="ERROR")
+                    logger.error(f"Arrr! [FSM GRID] Model file still exists after delete attempt: {model_path}", context=f"seq_len={params['seq_len']}, model_path={model_path}")
                 need_train = True
         if need_train:
             X, y = draws_to_sequences(draws, seq_len=params['seq_len'], num_numbers=37)
@@ -176,7 +174,7 @@ def main():
                 'test_count': eval_result['test_count']
             }
             results.append(result)
-            dh_log(f"Arrr! [FSM GRID] Model result: {result}", level="INFO")
+            logger.info(f"Arrr! [FSM GRID] Model result: {result}", context=result)
             if result['roi'] > best_roi:
                 best_roi = result['roi']
                 best_result = result
@@ -184,14 +182,14 @@ def main():
     with open('grid_search_results.json', 'w') as f:
         json.dump(results, f, indent=2)
     if best_result:
-        dh_log(f"Arrr! [FSM GRID] Best model: {best_result}", level="INFO")
+        logger.info(f"Arrr! [FSM GRID] Best model: {best_result}", context=best_result)
     else:
-        dh_log("Arrr! [FSM GRID] No successful models!", level="ERROR")
+        logger.error("Arrr! [FSM GRID] No successful models!")
 
     # Log the 3 models with the highest ROI
     top3 = sorted(results, key=lambda x: x['roi'], reverse=True)[:3]
     for idx, model in enumerate(top3, 1):
-        dh_log(f"Arrr! [FSM GRID] Top {idx} ROI model: ROI={model['roi']}, params={model['params']}, strong_algo={model['strong_algo']}, total_prize={model['total_prize']}, total_cost={model['total_cost']}", level="INFO")
+        logger.info(f"Arrr! [FSM GRID] Top {idx} ROI model: ROI={model['roi']}, params={model['params']}, strong_algo={model['strong_algo']}, total_prize={model['total_prize']}, total_cost={model['total_cost']}", context=model)
 
 if __name__ == '__main__':
     main() 

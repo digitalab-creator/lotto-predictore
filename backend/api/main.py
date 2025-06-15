@@ -1,17 +1,15 @@
-import algorithms
-import algorithms.dl.sequence_classifier
-import algorithms.strong_number  # Arrr! Ensure all strong number algorithms be registered, praisin' the FSM!
-from fastapi import FastAPI, Depends, Query, APIRouter, HTTPException
+from fastapi import FastAPI, Depends, Query, APIRouter, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from logger import logger
+from algorithms import register_algorithms, get_registered_algorithms
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
 from datetime import date, datetime, timedelta
 from services.simulation_engine import SimulationEngine
 from fastapi.responses import PlainTextResponse, JSONResponse
-from sqlalchemy import desc
+from sqlalchemy import desc, text
 from models import Draw
 from config import NUM_COMBINATIONS_TO_RECOMMEND
-from services.logger import setup_logger, dh_log
-import os
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from models.prediction import Prediction
@@ -23,17 +21,17 @@ from models.generated_combination import GeneratedCombination
 from models.weekly_winning_combination import WeeklyWinningCombination
 import sys
 from pathlib import Path
+import os
 
-app = FastAPI()
+# Initialize FastAPI app
+app = FastAPI(title="Lotto Predictor Backend")
 
-logger = setup_logger(service_name=os.getenv('SERVICE_NAME', 'api'))
-dh_log("Arrr! FastAPI backend be startin' up, praisin' the FSM!", level="INFO", context={"service": os.getenv('SERVICE_NAME', 'api')})
+# Log startup
+logger.info("Arrr! FastAPI backend be startin' up, praisin' the FSM!", context={"service": "backend"})
 
-dh_log(f"Arrr! Registered algorithms at startup: {list(ALGORITHM_REGISTRY.keys())}", level='INFO')
-
-# Add scripts directory to Python path
-scripts_dir = Path(__file__).parent.parent / 'scripts'
-sys.path.append(str(scripts_dir))
+# Register algorithms
+register_algorithms()
+logger.info("Arrr! Registered algorithms at startup", context={"algorithms": get_registered_algorithms()})
 
 router = APIRouter()
 
@@ -78,16 +76,14 @@ def simulate_table(
     # Arrr! If train_start or train_end be None, calculate 'em from draws and test_count, praisin' the FSM!
     draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
     filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
-    dh_log(
+    logger.info(
         "Arrr! Filtered out draws with strong_number == 8, praisin' the FSM!",
-        level="INFO",
         context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
     )
     if train_start is None or train_end is None:
         if len(draws) <= test_count:
-            dh_log(
+            logger.error(
                 "Arrr! Not enough draws to split into train and test! Praisin' the FSM for catchin' this!",
-                level="ERROR",
                 context={"draw_count": len(draws), "test_count": test_count}
             )
             return PlainTextResponse(
@@ -96,9 +92,8 @@ def simulate_table(
             )
         train_start_calc = draws[0].date
         train_end_calc = draws[-test_count-1].date
-        dh_log(
+        logger.info(
             "Arrr! Calculated train_start and train_end from draws and test_count, praisin' the FSM!",
-            level="INFO",
             context={
                 "train_start": str(train_start_calc),
                 "train_end": str(train_end_calc),
@@ -165,7 +160,7 @@ def recommend(db: Session = Depends(get_db)):
     # Get all predictions, most recent first
     predictions = db.query(Prediction).order_by(Prediction.run_time.desc()).all()
     if not predictions:
-        dh_log("Arrr! No predictions found in DB, praisin' the FSM!", level="ERROR")
+        logger.error("Arrr! No predictions found in DB, praisin' the FSM!")
         return JSONResponse(content={"error": "No predictions found in DB."}, status_code=400)
 
     # Group predictions by (main_model_id, strong_model_id, main_model_params, strong_model_params)
@@ -222,9 +217,8 @@ def recommend(db: Session = Depends(get_db)):
     main_algo_cls = ALGORITHM_REGISTRY.get(main_algo_name)
     strong_algo_cls = STRONG_NUMBER_REGISTRY.get(strong_algo_name)
     if not main_algo_cls or not strong_algo_cls:
-        dh_log(
+        logger.error(
             "Arrr! Could not find algorithm class for best model group! Praisin' the FSM!",
-            level="ERROR",
             context={"main_algo": main_algo_name, "strong_algo": strong_algo_name}
         )
         return JSONResponse(content={"error": "Could not find algorithm class for best model group."}, status_code=400)
@@ -260,9 +254,8 @@ def recommend(db: Session = Depends(get_db)):
     # Save each recommended combo to generated_combinations
     for idx, combo in enumerate(combos):
         if "numbers" not in combo:
-            dh_log(
+            logger.error(
                 f"Arrr! Combo at index {idx} be missin' the 'numbers' key! Praisin' the FSM! Throwin' error!",
-                level="ERROR",
                 context={
                     "combo": combo,
                     "index": idx,
@@ -278,9 +271,8 @@ def recommend(db: Session = Depends(get_db)):
             created_at=now
         )
         db.add(generated)
-        dh_log(
+        logger.info(
             f"Arrr! Stored recommended combo {idx+1}: {combo['numbers']} + {combo['strong']}",
-            level="INFO",
             context={
                 "prediction_id": new_prediction.id,
                 "numbers": combo["numbers"],
@@ -290,9 +282,8 @@ def recommend(db: Session = Depends(get_db)):
         )
     db.commit()
 
-    dh_log(
+    logger.info(
         f"Arrr! Recommendation selected: {main_algo_name} + {strong_algo_name} | Reason: {reason}",
-        level="INFO",
         context={
             "main_algo": main_algo_name,
             "strong_algo": strong_algo_name,
@@ -324,7 +315,7 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
     """
     Get the top 5 winning combinations for the current week.
     """
-    dh_log("Arrr! Fetching weekly winning combinations! Praisin' the FSM!", level="INFO")
+    logger.info("Arrr! Fetching weekly winning combinations! Praisin' the FSM!")
     
     # Calculate current week's date range
     today = date.today()
@@ -337,9 +328,8 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
     ).order_by(WeeklyWinningCombination.total_roi.desc()).all()
     
     if not combinations:
-        dh_log(
+        logger.warning(
             "Arrr! No winning combinations found for current week!",
-            level="WARNING",
             context={"week_start": week_start, "week_end": week_end}
         )
         return JSONResponse(
@@ -364,13 +354,12 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
             "created_at": combo.created_at.isoformat()
         })
     
-    dh_log(
+    logger.info(
         f"Arrr! Found {len(result)} winning combinations!",
-        level="INFO",
         context={"week_start": week_start, "week_end": week_end, "num_combinations": len(result)}
     )
     
-    return JSONResponse(content={"combinations": result})
+    return JSONResponse(content={"combinations": result}) 
 
 @router.post("/cron/generate-weekly-combinations")
 async def generate_weekly_combinations():
@@ -403,4 +392,313 @@ async def generate_weekly_tables():
         generate_tables()
         return {"status": "success", "message": "Weekly tables generated successfully"}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e)) 
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/cron/update-weekly-winning-combinations")
+async def update_weekly_winning_combinations():
+    """Update weekly winning combinations - called by cron service"""
+    try:
+        # Import and run the script
+        from scripts.update_weekly_winning_combinations import update_weekly_winning_combinations
+        update_weekly_winning_combinations()
+        return {"status": "success", "message": "Weekly winning combinations updated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Include the router in the main app
+app.include_router(router)
+
+@app.get("/health")
+async def health_check(db: Session = Depends(get_db)):
+    """Health check endpoint that verifies both FastAPI and database connection"""
+    try:
+        # Check database connection
+        db.execute(text("SELECT 1"))
+        
+        return {
+            "status": "healthy",
+            "services": {
+                "fastapi": "up",
+                "database": "up"
+            }
+        }
+    except Exception as e:
+        logger.error("Health check failed", context={'error': str(e)})
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "status": "unhealthy",
+                "services": {
+                    "fastapi": "up",
+                    "database": "down",
+                    "error": str(e)
+                }
+            }
+        )
+
+@app.post("/api/check-model-files")
+async def check_model_files_endpoint(db: Session = Depends(get_db)):
+    """
+    Endpoint to check all PyTorch model files for corruption.
+    Does a thorough check by trying to use the model, not just load it.
+    If loading fails, tries different model architectures to find the correct one.
+    Returns detailed report of model file health status.
+    """
+    try:
+        import torch
+        import torch.nn as nn
+        from pathlib import Path
+        import shutil
+        from datetime import datetime
+        import re
+        
+        models_dir = Path("/app/algorithms/dl/models")
+        corrupted_files = []
+        healthy_files = []
+        
+        # Get all models from database
+        db_models = db.query(Model).all()
+        model_paths = {m.model_path for m in db_models if m.model_path}
+        
+        # Model class definitions for thorough testing
+        class LottoLSTM(nn.Module):
+            def __init__(self, num_numbers=37, seq_len=10, hidden_size=64, num_layers=2):
+                super().__init__()
+                self.num_numbers = num_numbers
+                self.seq_len = seq_len
+                self.lstm = nn.LSTM(input_size=num_numbers, hidden_size=hidden_size, num_layers=num_layers, batch_first=True)
+                self.fc = nn.Linear(hidden_size, num_numbers)
+                self.sigmoid = nn.Sigmoid()
+
+            def forward(self, x):
+                out, _ = self.lstm(x)
+                out = out[:, -1, :]  # Take last output
+                out = self.fc(out)
+                out = self.sigmoid(out)
+                return out
+
+        class LottoLSTMPosition(nn.Module):
+            def __init__(self, num_numbers=37, seq_len=10, hidden_size=64, num_layers=2, num_positions=6):
+                super().__init__()
+                self.num_numbers = num_numbers
+                self.seq_len = seq_len
+                self.num_positions = num_positions
+                self.lstm = nn.LSTM(input_size=num_numbers, hidden_size=hidden_size, num_layers=num_layers, batch_first=True)
+                self.fc = nn.Linear(hidden_size, num_numbers * num_positions)
+                self.softmax = nn.Softmax(dim=2)
+
+            def forward(self, x):
+                out, _ = self.lstm(x)
+                out = out[:, -1, :]  # Take last output
+                out = self.fc(out)
+                out = out.view(-1, self.num_positions, self.num_numbers)
+                out = self.softmax(out)
+                return out
+
+        def try_load_model(fname, is_position_model, state_dict):
+            """Try loading the model with different architectures until one works."""
+            # Try architectures in order of likelihood
+            hidden_sizes = [64, 128, 256, 32]  # Most common first
+            num_layers_options = [2, 1, 3]      # Most common first
+            
+            # First try the architecture from filename
+            hidden_size = 64  # default
+            num_layers = 2    # default
+            if "h128" in fname.name:
+                hidden_size = 128
+            elif "h256" in fname.name:
+                hidden_size = 256
+            elif "h32" in fname.name:
+                hidden_size = 32
+            if "l1" in fname.name:
+                num_layers = 1
+            elif "l3" in fname.name:
+                num_layers = 3
+            
+            # Try the architecture from filename first
+            try:
+                if is_position_model:
+                    model = LottoLSTMPosition(hidden_size=hidden_size, num_layers=num_layers)
+                else:
+                    model = LottoLSTM(hidden_size=hidden_size, num_layers=num_layers)
+                model.load_state_dict(state_dict)
+                return model, hidden_size, num_layers
+            except Exception as e:
+                logger.warning(
+                    f"Arrr! Failed to load {fname.name} with architecture from filename, trying others...",
+                    context={
+                        "file": fname.name,
+                        "error": str(e),
+                        "tried_hidden_size": hidden_size,
+                        "tried_num_layers": num_layers
+                    }
+                )
+            
+            # Try other architectures
+            for h in hidden_sizes:
+                for l in num_layers_options:
+                    if h == hidden_size and l == num_layers:
+                        continue  # Skip the one we already tried
+                    try:
+                        if is_position_model:
+                            model = LottoLSTMPosition(hidden_size=h, num_layers=l)
+                        else:
+                            model = LottoLSTM(hidden_size=h, num_layers=l)
+                        model.load_state_dict(state_dict)
+                        logger.info(
+                            f"Arrr! Found correct architecture for {fname.name}!",
+                            context={
+                                "file": fname.name,
+                                "actual_hidden_size": h,
+                                "actual_num_layers": l,
+                                "filename_hidden_size": hidden_size,
+                                "filename_num_layers": num_layers
+                            }
+                        )
+                        return model, h, l
+                    except Exception:
+                        continue
+            
+            raise Exception("Could not find a working architecture for this model")
+        
+        # Check each .pt file
+        for fname in models_dir.glob("*.pt"):
+            try:
+                # First try loading the state dict
+                state_dict = torch.load(str(fname))
+                
+                # Determine model type from filename
+                is_position_model = "position" in fname.name
+                
+                # Try to load the model with different architectures
+                model, actual_hidden_size, actual_num_layers = try_load_model(fname, is_position_model, state_dict)
+                
+                # Try to use the model
+                model.eval()
+                with torch.no_grad():
+                    # Create dummy input
+                    if is_position_model:
+                        dummy_input = torch.zeros((1, model.seq_len, 37))
+                        output = model(dummy_input)
+                        # Check output shape
+                        assert output.shape == (1, model.num_positions, 37), f"Invalid output shape: {output.shape}"
+                    else:
+                        dummy_input = torch.zeros((1, model.seq_len, 37))
+                        output = model(dummy_input)
+                        # Check output shape
+                        assert output.shape == (1, 37), f"Invalid output shape: {output.shape}"
+                
+                # Get architecture from filename for comparison
+                filename_hidden_size = 64  # default
+                filename_num_layers = 2    # default
+                if "h128" in fname.name:
+                    filename_hidden_size = 128
+                elif "h256" in fname.name:
+                    filename_hidden_size = 256
+                elif "h32" in fname.name:
+                    filename_hidden_size = 32
+                if "l1" in fname.name:
+                    filename_num_layers = 1
+                elif "l3" in fname.name:
+                    filename_num_layers = 3
+                
+                file_info = {
+                    "file": fname.name,
+                    "size": fname.stat().st_size,
+                    "last_modified": datetime.fromtimestamp(fname.stat().st_mtime).isoformat(),
+                    "in_db": str(fname) in model_paths,
+                    "model_type": "position" if is_position_model else "sequence",
+                    "filename_hidden_size": filename_hidden_size,
+                    "filename_num_layers": filename_num_layers,
+                    "actual_hidden_size": actual_hidden_size,
+                    "actual_num_layers": actual_num_layers,
+                    "architecture_mismatch": filename_hidden_size != actual_hidden_size or filename_num_layers != actual_num_layers
+                }
+                healthy_files.append(file_info)
+                logger.info(
+                    f"Arrr! Model file {fname.name} be healthy!",
+                    context={
+                        "file": fname.name,
+                        "in_db": file_info["in_db"],
+                        "model_type": file_info["model_type"],
+                        "filename_hidden_size": filename_hidden_size,
+                        "filename_num_layers": filename_num_layers,
+                        "actual_hidden_size": actual_hidden_size,
+                        "actual_num_layers": actual_num_layers,
+                        "architecture_mismatch": file_info["architecture_mismatch"]
+                    }
+                )
+            except Exception as e:
+                file_info = {
+                    "file": fname.name,
+                    "error": str(e),
+                    "size": fname.stat().st_size,
+                    "last_modified": datetime.fromtimestamp(fname.stat().st_mtime).isoformat(),
+                    "in_db": str(fname) in model_paths,
+                    "model_type": "position" if "position" in fname.name else "sequence"
+                }
+                corrupted_files.append(file_info)
+                logger.error(
+                    f"Arrr! Found corrupted model file: {fname.name}!",
+                    context={
+                        "file": fname.name,
+                        "error": str(e),
+                        "in_db": file_info["in_db"],
+                        "model_type": file_info["model_type"]
+                    }
+                )
+                # Move corrupted file to backup directory
+                backup_dir = models_dir / "corrupted_backups"
+                backup_dir.mkdir(exist_ok=True)
+                backup_path = backup_dir / f"{fname.stem}_{datetime.now().strftime('%Y%m%d_%H%M%S')}{fname.suffix}"
+                shutil.move(str(fname), str(backup_path))
+                logger.info(
+                    f"Arrr! Moved corrupted file {fname.name} to backup: {backup_path.name}",
+                    context={
+                        "original_file": fname.name,
+                        "backup_file": backup_path.name
+                    }
+                )
+                
+                # Update database if model was registered
+                if str(fname) in model_paths:
+                    db_model = next((m for m in db_models if m.model_path == str(fname)), None)
+                    if db_model:
+                        db_model.model_path = None  # Clear the path since file is corrupted
+                        db.add(db_model)
+                        logger.warning(
+                            f"Arrr! Cleared model_path for corrupted model in DB: {db_model.name} v{db_model.version}",
+                            context={
+                                "model_id": db_model.id,
+                                "model_name": db_model.name,
+                                "model_version": db_model.version
+                            }
+                        )
+        
+        # Commit any database changes
+        if corrupted_files:
+            db.commit()
+        
+        return {
+            "status": "success",
+            "timestamp": datetime.now().isoformat(),
+            "summary": {
+                "total_checked": len(healthy_files) + len(corrupted_files),
+                "healthy_files": len(healthy_files),
+                "corrupted_files": len(corrupted_files),
+                "files_in_db": len(model_paths),
+                "files_with_architecture_mismatch": sum(1 for f in healthy_files if f.get("architecture_mismatch", False))
+            },
+            "healthy_files": healthy_files,
+            "corrupted_files": corrupted_files
+        }
+        
+    except Exception as e:
+        logger.error(
+            "Arrr! Error during model file check!",
+            context={"error": str(e)}
+        )
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to check model files: {str(e)}"
+        ) 
