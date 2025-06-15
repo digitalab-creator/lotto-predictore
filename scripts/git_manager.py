@@ -27,7 +27,13 @@ class GitConfig:
 
 def load_config() -> GitConfig:
     """Load configuration from environment variables."""
-    load_dotenv('.env.development')
+    # Find git root and load .env.development from there
+    git_root = find_git_root()
+    env_path = os.path.join(git_root, '.env.development')
+    if not os.path.exists(env_path):
+        logger.error(f'Could not find .env.development at {env_path}')
+        sys.exit(1)
+    load_dotenv(env_path)
     
     config = GitConfig(
         repo_url=os.getenv('GITHUB_REPO_URL', ''),
@@ -45,7 +51,7 @@ def load_config() -> GitConfig:
         logger.error('GITHUB_TOKEN environment variable is missing')
         logger.error('\nTo fix this:')
         logger.error('1. Create a Personal Access Token (PAT) on GitHub')
-        logger.error('2. Add GITHUB_TOKEN=your_token_here to your .env file')
+        logger.error('2. Add GITHUB_TOKEN=your_token_here to your .env.development file')
         sys.exit(1)
     
     return config
