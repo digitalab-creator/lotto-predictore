@@ -6874,3 +6874,33 @@
 2025-06-16 00:17:28 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
 2025-06-16 00:17:28 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:17:28.974083'}
 2025-06-16 00:17:28 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:17:28.977717'}
+2025-06-16 00:18:28 UTC - cron_service - INFO - Arrr! Attempting to call backend endpoint: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:18:28 UTC - cron_service - INFO - Arrr! Backend health check successful!
+2025-06-16 00:18:28 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:18:28 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:18:28.989656'}
+2025-06-16 00:18:28 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:18:28.993217'}
+2025-06-16 00:19:28 UTC - cron_service - INFO - Arrr! Attempting to call backend endpoint: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:19:29 UTC - cron_service - INFO - Arrr! Backend health check successful!
+2025-06-16 00:19:29 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:19:29 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:19:29.005221'}
+2025-06-16 00:19:29 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:19:29.009059'}
+2025-06-16 00:20:29 UTC - cron_service - INFO - Arrr! Attempting to call backend endpoint: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:20:29 UTC - cron_service - INFO - Arrr! Backend health check successful!
+2025-06-16 00:20:29 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:20:29 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:20:29.021213'}
+2025-06-16 00:20:29 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:20:29.025180'}
+2025-06-16 00:21:29 UTC - cron_service - INFO - Arrr! Attempting to call backend endpoint: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:21:29 UTC - cron_service - INFO - Arrr! Backend health check successful!
+2025-06-16 00:21:29 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:21:29 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:21:29.037295'}
+2025-06-16 00:21:29 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:21:29.041115'}
+2025-06-16 00:22:29 UTC - cron_service - INFO - Arrr! Attempting to call backend endpoint: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:22:29 UTC - cron_service - INFO - Arrr! Backend health check successful!
+2025-06-16 00:22:29 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:22:29 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:22:29.053086'}
+2025-06-16 00:22:29 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:22:29.056680'}
+2025-06-16 00:23:29 UTC - cron_service - INFO - Arrr! Attempting to call backend endpoint: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:23:29 UTC - cron_service - INFO - Arrr! Backend health check successful!
+2025-06-16 00:23:29 UTC - cron_service - INFO - Arrr! Sending POST request to: http://backend:8000/cron/generate-weekly-combinations
+2025-06-16 00:23:29 UTC - cron_service - ERROR - Arrr! Error calling endpoint /cron/generate-weekly-combinations! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'endpoint': '/cron/generate-weekly-combinations', 'backend_url': 'http://backend:8000', 'timestamp': '2025-06-15T21:23:29.071313'}
+2025-06-16 00:23:29 UTC - cron_service - ERROR - Arrr! Error in scheduler loop! | Context: {'error': '500 Server Error: Internal Server Error for url: http://backend:8000/cron/generate-weekly-combinations', 'timestamp': '2025-06-15T21:23:29.075940'}
