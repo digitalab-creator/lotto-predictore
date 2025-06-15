@@ -1,25 +1,21 @@
 #!/usr/bin/env python3
 import os
 import sys
-from pathlib import Path
-
-# Add project root to Python path
-project_root = Path(__file__).parent.parent.absolute()
-sys.path.append(str(project_root))
-
-# Set log directory to local logs folder
-os.environ['LOG_DIR'] = str(project_root / 'logs')
-
 import subprocess
 from typing import Dict, Optional, Tuple
+from pathlib import Path
 from dotenv import load_dotenv
+import logging
 from dataclasses import dataclass
 import re
 from datetime import datetime
-from shared.logging_service import LoggingService
 
-# Initialize logger
-logger = LoggingService('git_manager')
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 @dataclass
 class GitConfig:
@@ -31,12 +27,7 @@ class GitConfig:
 
 def load_config() -> GitConfig:
     """Load configuration from environment variables."""
-    # Try both .env.development and .env files
-    env_files = ['.env.development', '.env']
-    for env_file in env_files:
-        if os.path.exists(env_file):
-            load_dotenv(env_file)
-            break
+    load_dotenv('.env.development')
     
     config = GitConfig(
         repo_url=os.getenv('GITHUB_REPO_URL', ''),
@@ -51,35 +42,19 @@ def load_config() -> GitConfig:
         sys.exit(1)
     
     if not config.github_token:
-        logger.error('GITHUB_TOKEN environment variable is missing', {
-            'help': 'To fix this:\n1. Create a Personal Access Token (PAT) on GitHub\n2. Add GITHUB_TOKEN=your_token_here to your .env file'
-        })
+        logger.error('GITHUB_TOKEN environment variable is missing')
+        logger.error('\nTo fix this:')
+        logger.error('1. Create a Personal Access Token (PAT) on GitHub')
+        logger.error('2. Add GITHUB_TOKEN=your_token_here to your .env file')
         sys.exit(1)
     
     return config
-
-def find_git_root() -> str:
-    """Find the root directory of the git repository (where .git lives)."""
-    current = os.path.abspath(os.getcwd())
-    while current != os.path.dirname(current):
-        if os.path.isdir(os.path.join(current, '.git')):
-            return current
-        current = os.path.dirname(current)
-    
-    logger.error("Could not find .git directory! Are ye in a git repo, matey?", {
-        'current_dir': os.getcwd()
-    })
-    raise RuntimeError("Could not find .git directory! Are ye in a git repo, matey?")
 
 def run_command(command: str, description: str) -> Tuple[str, str]:
     """Execute a git command and return stdout and stderr."""
     logger.info(f"Executing: {description}")
     
     try:
-        # Ensure we're in the git root directory
-        git_root = find_git_root()
-        os.chdir(git_root)
-        
         result = subprocess.run(
             command,
             shell=True,
@@ -96,10 +71,8 @@ def run_command(command: str, description: str) -> Tuple[str, str]:
         
         return result.stdout, result.stderr
     except subprocess.CalledProcessError as e:
-        logger.error(f"Failed to execute git command: {description}", {
-            'error': e.stderr,
-            'command': command
-        })
+        logger.error(f"Failed to execute git command: {description}")
+        logger.error(f"Error: {e.stderr}")
         raise
 
 def ask_commit_message() -> str:
@@ -116,23 +89,8 @@ def safe_remove_remote(remote_name: str) -> None:
             capture_output=True,
             text=True
         )
-    except Exception as e:
-        logger.debug(f"Failed to remove remote {remote_name}", {'error': str(e)})
+    except:
         pass  # Ignore errors if remote doesn't exist
-
-def ensure_git_config(config: GitConfig):
-    """Ensure git config is set for this repo, including unsetting credential helper and setting remote with token."""
-    # Unset credential helper
-    run_command('git config --local credential.helper ""', 'Unset credential helper')
-    # Remove and re-add remote with token
-    safe_remove_remote('origin')
-    repo_url_with_token = re.sub(
-        r'https://github\.com/',
-        f'https://{config.github_token}@github.com/',
-        config.repo_url
-    )
-    run_command(f'git remote add origin {repo_url_with_token}', 'Add remote origin with token')
-    run_command(f'git branch -M {config.branch}', f'Set branch to {config.branch}')
 
 def commit_all_files(config: GitConfig) -> None:
     """Commit and push all files to GitHub."""
@@ -142,9 +100,6 @@ def commit_all_files(config: GitConfig) -> None:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
         except:
             run_command('git init', 'Initialize git repository')
-
-        # Ensure config and remote
-        ensure_git_config(config)
 
         # Check if there are any changes
         status = run_command('git status --porcelain', 'Check for changes')[0]
@@ -159,30 +114,52 @@ def commit_all_files(config: GitConfig) -> None:
             sys.exit(1)
 
         # Set git config
-        run_command(f'git config user.name "{config.author_name}"', 'Set git author name')
-        run_command(f'git config user.email "{config.author_email}"', 'Set git author email')
+        run_command(f'git config user.name "{config.author_name}"', 
+                   'Set git author name')
+        run_command(f'git config user.email "{config.author_email}"', 
+                   'Set git author email')
 
         # Add and commit files
         run_command('git add -A', 'Stage all files')
+        
         # Check if there are any staged changes
         staged_changes = run_command('git diff --cached --name-only', 'Check for staged changes')[0]
         if not staged_changes:
             logger.info("No changes were staged for commit")
             sys.exit(0)
-        run_command(f'git commit -m "{commit_message}"', 'Commit files')
+            
+        run_command(f'git commit -m "{commit_message}"', 
+                   'Commit files')
 
-        # Ensure config and remote again before push
-        ensure_git_config(config)
+        # Set up remote with token
+        safe_remove_remote('origin')
+        
+        # Insert token into repo URL
+        repo_url_with_token = re.sub(
+            r'https://github\.com/',
+            f'https://{config.github_token}@github.com/',
+            config.repo_url
+        )
+        
+        run_command(f'git remote add origin {repo_url_with_token}', 
+                   'Add remote origin')
+        run_command(f'git branch -M {config.branch}', 
+                   f'Set branch to {config.branch}')
+        
         # Test repository access
         try:
             run_command('git ls-remote origin', 'Test repository access')
         except subprocess.CalledProcessError:
-            logger.error("Failed to access repository - check your token and repo URL", {'repo_url': config.repo_url})
+            logger.error("Failed to access repository - check your token and repo URL")
             raise
-        run_command(f'git push -u origin {config.branch} --force', 'Push files to GitHub')
-        logger.info(f"Successfully pushed to {config.branch}", {'branch': config.branch, 'repo': config.repo_url})
+
+        run_command(f'git push -u origin {config.branch} --force', 
+                   'Push files to GitHub')
+
+        logger.info(f"Successfully pushed to {config.branch}")
+
     except Exception as e:
-        logger.error(f"Failed to commit and push: {str(e)}", {'error': str(e), 'repo': config.repo_url, 'branch': config.branch})
+        logger.error(f"Failed to commit and push: {str(e)}")
         sys.exit(1)
 
 def fetch_latest_commit(config: GitConfig) -> None:
@@ -193,13 +170,28 @@ def fetch_latest_commit(config: GitConfig) -> None:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
         except:
             run_command('git init', 'Initialize git repository')
-        # Ensure config and remote
-        ensure_git_config(config)
-        run_command('git fetch origin', 'Fetch latest changes')
-        run_command(f'git reset --hard origin/{config.branch}', f'Reset to latest commit')
-        logger.info("Successfully fetched latest commit", {'branch': config.branch, 'repo': config.repo_url})
+
+        # Set up remote with token
+        safe_remove_remote('origin')
+        
+        # Insert token into repo URL
+        repo_url_with_token = re.sub(
+            r'https://github\.com/',
+            f'https://{config.github_token}@github.com/',
+            config.repo_url
+        )
+        
+        run_command(f'git remote add origin {repo_url_with_token}', 
+                   'Add remote origin')
+        run_command('git fetch origin', 
+                   'Fetch latest changes')
+        run_command(f'git reset --hard origin/{config.branch}', 
+                   f'Reset to latest commit')
+
+        logger.info(f"Successfully fetched latest commit")
+
     except Exception as e:
-        logger.error(f"Failed to fetch latest commit: {str(e)}", {'error': str(e), 'repo': config.repo_url, 'branch': config.branch})
+        logger.error(f"Failed to fetch latest commit: {str(e)}")
         sys.exit(1)
 
 def fetch_specific_commit(config: GitConfig, commit_id: str) -> None:
@@ -210,75 +202,95 @@ def fetch_specific_commit(config: GitConfig, commit_id: str) -> None:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
         except:
             run_command('git init', 'Initialize git repository')
-        # Ensure config and remote
-        ensure_git_config(config)
-        run_command('git fetch origin', 'Fetch all changes')
+
+        # Set up remote with token
+        safe_remove_remote('origin')
+        
+        # Insert token into repo URL
+        repo_url_with_token = re.sub(
+            r'https://github\.com/',
+            f'https://{config.github_token}@github.com/',
+            config.repo_url
+        )
+        
+        run_command(f'git remote add origin {repo_url_with_token}', 
+                   'Add remote origin')
+        run_command('git fetch origin', 
+                   'Fetch all changes')
+
         # Verify commit exists
         try:
-            run_command(f'git rev-parse {commit_id}', 'Verify commit exists')
+            run_command(f'git rev-parse {commit_id}', 
+                       'Verify commit exists')
         except subprocess.CalledProcessError:
-            logger.error(f"Invalid commit ID: {commit_id}", {'commit_id': commit_id, 'repo': config.repo_url})
+            logger.error(f"Invalid commit ID: {commit_id}")
             raise ValueError(f"Commit '{commit_id}' not found")
-        run_command(f'git reset --hard {commit_id}', f'Reset to commit {commit_id}')
-        logger.info(f"Successfully reset to commit {commit_id}", {'commit_id': commit_id, 'repo': config.repo_url, 'branch': config.branch})
+
+        # Reset to specific commit
+        run_command(f'git reset --hard {commit_id}', 
+                   f'Reset to commit {commit_id}')
+
+        logger.info(f"Successfully reset to commit {commit_id}")
+
     except Exception as e:
-        logger.error(f"Failed to fetch commit: {str(e)}", {'error': str(e), 'commit_id': commit_id, 'repo': config.repo_url})
+        logger.error(f"Failed to fetch commit: {str(e)}")
         sys.exit(1)
 
 def commit_and_push():
     """Commit and push changes to GitHub"""
     # Check if we're in a git repository
     if not os.path.exists('.git'):
-        logger.error("Not a git repository")
+        print("Error: Not a git repository")
         sys.exit(1)
 
     # Get current branch
     current_branch = run_command('git rev-parse --abbrev-ref HEAD', 'Get current branch')[0].strip()
-    logger.info(f"Current branch: {current_branch}", {'branch': current_branch})
+    print(f"Current branch: {current_branch}")
 
     # Check if there are any changes
     status = run_command('git status --porcelain', 'Check for changes')[0]
     if not status:
-        logger.info("No changes to commit - working tree is clean")
+        print("No changes to commit - working tree is clean")
         sys.exit(0)  # Exit with success code since this is a valid state
 
     # Add all changes
-    logger.info("Adding changes...")
+    print("Adding changes...")
     run_command('git add .', 'Add all changes')
 
     # Check if there are any staged changes
     staged_changes = run_command('git diff --cached --name-only', 'Check for staged changes')[0]
     if not staged_changes:
-        logger.info("No changes were staged for commit")
+        print("No changes were staged for commit")
         sys.exit(0)
 
     # Get commit message from command line or use default
     commit_message = ' '.join(sys.argv[1:]) if len(sys.argv) > 1 else f"Update {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
     # Commit changes
-    logger.info(f"Committing changes with message: {commit_message}", {
-        'message': commit_message,
-        'branch': current_branch
-    })
+    print(f"Committing changes with message: {commit_message}")
     run_command(f'git commit -m "{commit_message}"', 'Commit changes')
 
     # Push changes
-    logger.info("Pushing changes...", {'branch': current_branch})
+    print("Pushing changes...")
     run_command(f'git push origin {current_branch}', 'Push changes')
 
-    logger.info("Changes successfully committed and pushed!", {
-        'branch': current_branch,
-        'message': commit_message
-    })
+    print("Changes successfully committed and pushed!")
+
+def find_git_root() -> str:
+    """Find the root directory of the git repository (where .git lives)."""
+    current = os.path.abspath(os.getcwd())
+    while current != os.path.dirname(current):
+        if os.path.isdir(os.path.join(current, '.git')):
+            return current
+        current = os.path.dirname(current)
+    raise RuntimeError("Could not find .git directory! Are ye in a git repo, matey?")
 
 def main():
     """Main function to handle command-line arguments."""
     try:
         git_root = find_git_root()
         os.chdir(git_root)
-        logger.info(f"Arrr! Changed working directory to git root: {git_root}", {
-            'git_root': git_root
-        })
+        logger.info(f"Arrr! Changed working directory to git root: {git_root}")
 
         config = load_config()
         args = sys.argv[1:]
@@ -292,32 +304,20 @@ def main():
         elif action == 'checkout' and commit_id:
             fetch_specific_commit(config, commit_id)
         else:
-            logger.error("Invalid command. Use: commit, fetch, or checkout <commit_id>", {
-                'action': action,
-                'commit_id': commit_id
-            })
+            logger.error("Invalid command. Use: commit, fetch, or checkout <commit_id>")
             sys.exit(1)
 
     except Exception as e:
-        logger.error(f"An error occurred: {str(e)}", {
-            'error': str(e),
-            'action': action if 'action' in locals() else None,
-            'commit_id': commit_id if 'commit_id' in locals() else None
-        })
+        logger.error(f"An error occurred: {str(e)}")
         sys.exit(1)
 
 if __name__ == '__main__':
     try:
         git_root = find_git_root()
         os.chdir(git_root)
-        logger.info(f"Arrr! Changed working directory to git root: {git_root}", {
-            'git_root': git_root
-        })
+        logger.info(f"Arrr! Changed working directory to git root: {git_root}")
     except Exception as e:
-        logger.error(f"Failed to find or change to git root: {e}", {
-            'error': str(e),
-            'current_dir': os.getcwd()
-        })
+        logger.error(f"Failed to find or change to git root: {e}")
         sys.exit(1)
 
     main() 
