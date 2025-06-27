@@ -27,6 +27,12 @@ class WeeklyTablesRequest(BaseModel):
     tables: List[Dict[str, Any]]
     attachments: Optional[List[Dict[str, Any]]] = None
 
+class BestModelTablesRequest(BaseModel):
+    date: str
+    tables: List[Dict[str, Any]]
+    model_info: Dict[str, Any]
+    attachments: Optional[List[Dict[str, Any]]] = None
+
 class ErrorNotificationRequest(BaseModel):
     error_message: str
     service: str
@@ -72,6 +78,29 @@ async def send_weekly_tables(request: WeeklyTablesRequest):
     except Exception as e:
         logger.error(
             "Failed to send weekly tables",
+            context={
+                'error': str(e),
+                'date': request.date
+            }
+        )
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/send-best-model-tables")
+async def send_best_model_tables(request: BestModelTablesRequest):
+    """Send best model tables email"""
+    try:
+        success = email_service.send_best_model_tables(
+            date=request.date,
+            tables=request.tables,
+            model_info=request.model_info,
+            attachments=request.attachments
+        )
+        if not success:
+            raise HTTPException(status_code=500, detail="Failed to send best model tables")
+        return {"status": "success"}
+    except Exception as e:
+        logger.error(
+            "Failed to send best model tables",
             context={
                 'error': str(e),
                 'date': request.date

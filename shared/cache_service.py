@@ -367,10 +367,18 @@ class CacheService:
 
 # Singleton instances for different cache types
 _strong_number_cache = None
+_database_cache = None
 
 def get_strong_number_cache() -> CacheService:
     """Get the strong number cache instance"""
     global _strong_number_cache
     if _strong_number_cache is None:
         _strong_number_cache = CacheService('strong_number', expiration_days=2)
-    return _strong_number_cache 
+    return _strong_number_cache
+
+def get_database_cache() -> CacheService:
+    """Get the database cache instance"""
+    global _database_cache
+    if _database_cache is None:
+        _database_cache = CacheService('database', expiration_days=1)
+    return _database_cache 

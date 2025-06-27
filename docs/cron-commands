@@ -28,6 +28,16 @@ docker-compose exec backend python3 -c "import requests; print(requests.post('ht
 docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/generate-weekly-tables').json())"
 ```
 
+5. Generate tables using the best performing model (ROI > 1):
+```bash
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/generate-best-model-tables').json())"
+```
+
+6. Send the best model tables email:
+```bash
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/send-best-model-email').json())"
+```
+
 To verify everything worked, ye can check:
 
 1. For draws:
@@ -43,6 +53,36 @@ docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM g
 3. For weekly winning combinations:
 ```bash
 docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM weekly_winning_combinations;"
+```
+
+4. For best model performance (ROI > 1):
+```bash
+docker-compose exec db psql -U lotto_user -d lotto_db -c "
+SELECT
+    mm.name AS main_model_name,
+    sm.name AS strong_model_name,
+    COUNT(*) AS total_predictions,
+    ROUND(SUM(p.total_prize)::numeric, 2) AS total_prize,
+    ROUND(SUM(p.total_cost)::numeric, 2) AS total_cost,
+    ROUND(
+        CASE 
+            WHEN SUM(p.total_cost) = 0 THEN NULL
+            ELSE (SUM(p.total_prize)::numeric / NULLIF(SUM(p.total_cost), 0)::numeric)
+        END, 4
+    ) AS roi_ratio
+FROM
+    predictions p
+JOIN
+    models mm ON p.model_id = mm.id
+JOIN
+    models sm ON p.strong_model_id = sm.id
+GROUP BY
+    mm.name, sm.name
+HAVING
+    (SUM(p.total_prize)::numeric / NULLIF(SUM(p.total_cost), 0)::numeric) > 1
+ORDER BY
+    roi_ratio DESC;
+"
 ```
 
 If anything fails, ye can check the logs:

@@ -9,14 +9,12 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Database settings
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@db:5432/lotto_predictor')
+def get_backend_dir():
+    """Get the backend directory path dynamically."""
+    return Path(__file__).parent
 
-# Cost of a single ticket (per table)
-TICKET_COST_PER_TABLE = 2.80  # Change as needed
-
-# Path configurations
-# Base paths
+# Base directory paths
+BACKEND_DIR = get_backend_dir()
 APP_BASE_PATH = Path("/app")
 ALGORITHMS_PATH = APP_BASE_PATH / "algorithms"
 DL_PATH = ALGORITHMS_PATH / "dl"
@@ -25,6 +23,13 @@ SEQUENCE_CLASSIFIER_MODEL_DIR = MODELS_PATH
 CACHE_PATH = APP_BASE_PATH / "shared" / "cache"
 LOGS_PATH = APP_BASE_PATH / "logs"
 
+# Database settings
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@db:5432/lotto_predictor')
+
+# Cost of a single ticket (per table)
+TICKET_COST_PER_TABLE = 2.80  # Change as needed
+
+# Path configurations
 # Model file paths
 SEQUENCE_CLASSIFIER_MODEL_PATH = SEQUENCE_CLASSIFIER_MODEL_DIR / "sequence_classifier_model.pt"
 SEQUENCE_CLASSIFIER_MODEL_SEQ20_PATH = SEQUENCE_CLASSIFIER_MODEL_DIR / "sequence_classifier_model_seq20.pt"

@@ -26,6 +26,7 @@ import torch
 import torch.nn as nn
 from algorithms.dl.sequence_classifier import LottoLSTM
 import shutil
+import time
 
 # Initialize FastAPI app
 app = FastAPI(title="Lotto Predictor Backend")
@@ -371,6 +372,9 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
 @router.post("/cron/generate-weekly-combinations")
 async def generate_weekly_combinations():
     """Generate weekly combinations - called by cron service"""
+    start_time = time.time()
+    logger.info("Arrr! Starting weekly combination generation, praisin' the FSM!", context={"start_time": start_time})
+    
     try:
         # Use the same logic as the /generate-combinations endpoint
         from services.simulation_engine import SimulationEngine
@@ -378,12 +382,18 @@ async def generate_weekly_combinations():
         db = next(get_db())
         try:
             # Get all draws, filtering out strong_number == 8
+            draws_start = time.time()
             draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
             filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
+            draws_time = time.time() - draws_start
             
             logger.info(
                 "Arrr! Filtered out draws with strong_number == 8 for weekly generation, praisin' the FSM!",
-                context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
+                context={
+                    "filtered_count": filtered_count, 
+                    "total_after_filter": len(draws),
+                    "draws_load_time": f"{draws_time:.2f}s"
+                }
             )
             
             if len(draws) < 20:
@@ -398,19 +408,42 @@ async def generate_weekly_combinations():
             test_count = 12
             
             # Find best algorithm pair by ROI using SimulationEngine
+            engine_start = time.time()
             engine = SimulationEngine(db)
             results = {}
             best_pair = None
             best_roi = float('-inf')
             
-            for algo_name, algo_cls in ALGORITHM_REGISTRY.items():
+            # Get all algorithm names for progress tracking
+            all_algorithms = list(ALGORITHM_REGISTRY.keys())
+            total_algorithms = len(all_algorithms)
+            
+            logger.info(
+                f"Arrr! Starting algorithm evaluation for {total_algorithms} algorithms",
+                context={
+                    "total_algorithms": total_algorithms,
+                    "algorithms": all_algorithms
+                }
+            )
+            
+            for idx, (algo_name, algo_cls) in enumerate(ALGORITHM_REGISTRY.items(), 1):
+                algo_start = time.time()
+                
                 # Set top_n according to algorithm requirements
                 if algo_name == 'top_6_overall_frequent_v2':
                     top_n = 10
                 else:
                     top_n = 3
                     
-                logger.info(f"Running {algo_name} with top_n={top_n}")
+                logger.info(
+                    f"Arrr! Running algorithm {idx}/{total_algorithms}: {algo_name}",
+                    context={
+                        "algorithm": algo_name,
+                        "progress": f"{idx}/{total_algorithms}",
+                        "top_n": top_n,
+                        "elapsed_time": f"{time.time() - start_time:.2f}s"
+                    }
+                )
                 
                 try:
                     res = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=[algo_name])
@@ -419,17 +452,47 @@ async def generate_weekly_combinations():
                         if r["roi"] > best_roi:
                             best_pair = (main_algo, strong_algo)
                             best_roi = r["roi"]
+                            
+                    algo_time = time.time() - algo_start
+                    logger.info(
+                        f"Arrr! Completed algorithm {algo_name}",
+                        context={
+                            "algorithm": algo_name,
+                            "algorithm_time": f"{algo_time:.2f}s",
+                            "best_roi_so_far": best_roi,
+                            "total_elapsed": f"{time.time() - start_time:.2f}s"
+                        }
+                    )
+                    
                 except Exception as e:
+                    algo_time = time.time() - algo_start
                     logger.error(
-                        f"Skipping {algo_name} due to error: {e}",
-                        context={"algo_name": algo_name, "error": str(e)}
+                        f"Arrr! Skipping {algo_name} due to error",
+                        context={
+                            "algorithm": algo_name,
+                            "error": str(e),
+                            "algorithm_time": f"{algo_time:.2f}s"
+                        }
                     )
                     continue
+            
+            engine_time = time.time() - engine_start
+            logger.info(
+                f"Arrr! Completed algorithm evaluation",
+                context={
+                    "total_engine_time": f"{engine_time:.2f}s",
+                    "best_pair": best_pair,
+                    "best_roi": best_roi,
+                    "total_elapsed": f"{time.time() - start_time:.2f}s"
+                }
+            )
             
             if not best_pair:
                 logger.error("No algorithm produced results.")
                 return {"status": "error", "message": "No algorithm produced results."}
             
+            # Generate final combinations
+            generation_start = time.time()
             main_algo_name, strong_algo_name = best_pair
             main_algo_cls = ALGORITHM_REGISTRY[main_algo_name]
             strong_algo_cls = STRONG_NUMBER_REGISTRY[strong_algo_name]
@@ -446,9 +509,20 @@ async def generate_weekly_combinations():
             strong_algo = strong_algo_cls()
             strong_number = strong_algo.predict(all_draws)
             
+            generation_time = time.time() - generation_start
+            logger.info(
+                f"Arrr! Generated final combinations",
+                context={
+                    "generation_time": f"{generation_time:.2f}s",
+                    "num_combinations": len(combos),
+                    "total_elapsed": f"{time.time() - start_time:.2f}s"
+                }
+            )
+            
             now = datetime.utcnow()
             
             # Create a new Prediction row for this generation event
+            db_start = time.time()
             new_prediction = Prediction(
                 model_id=db.query(Model).filter(Model.name == main_algo_name).first().id,
                 strong_model_id=db.query(Model).filter(Model.name == strong_algo_name).first().id,
@@ -489,7 +563,9 @@ async def generate_weekly_combinations():
                 )
             
             db.commit()
+            db_time = time.time() - db_start
             
+            total_time = time.time() - start_time
             logger.info(
                 f"Arrr! Generated {len(combos)} weekly combinations using {main_algo_name} + {strong_algo_name}",
                 context={
@@ -497,7 +573,14 @@ async def generate_weekly_combinations():
                     "strong_algo": strong_algo_name,
                     "best_roi": best_roi,
                     "num_combinations": len(combos),
-                    "prediction_id": new_prediction.id
+                    "prediction_id": new_prediction.id,
+                    "total_time": f"{total_time:.2f}s",
+                    "breakdown": {
+                        "draws_load": f"{draws_time:.2f}s",
+                        "engine_evaluation": f"{engine_time:.2f}s",
+                        "generation": f"{generation_time:.2f}s",
+                        "database": f"{db_time:.2f}s"
+                    }
                 }
             )
             
@@ -505,13 +588,14 @@ async def generate_weekly_combinations():
                 "status": "success", 
                 "message": f"Weekly combinations generated successfully using {main_algo_name} + {strong_algo_name}",
                 "num_combinations": len(combos),
-                "prediction_id": new_prediction.id
+                "prediction_id": new_prediction.id,
+                "total_time": f"{total_time:.2f}s"
             }
             
         except Exception as e:
             logger.error(
                 "Arrr! Error in weekly combination generation!",
-                context={"error": str(e)}
+                context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
             )
             db.rollback()
             raise
@@ -521,7 +605,7 @@ async def generate_weekly_combinations():
     except Exception as e:
         logger.error(
             "Arrr! Error in weekly combination generation endpoint!",
-            context={"error": str(e)}
+            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
         )
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -555,6 +639,28 @@ async def update_weekly_winning_combinations():
         from scripts.update_weekly_winning_combinations import update_weekly_winning_combinations
         update_weekly_winning_combinations()
         return {"status": "success", "message": "Weekly winning combinations updated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/cron/generate-best-model-tables")
+async def generate_best_model_tables():
+    """Generate tables using the best performing model (ROI > 1) - called by cron service"""
+    try:
+        # Import and run the script
+        from scripts.generate_best_model_tables import generate_best_model_tables
+        result = generate_best_model_tables()
+        return {"status": "success", "message": "Best model tables generated successfully", "data": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/cron/send-best-model-email")
+async def send_best_model_email():
+    """Send email with best model tables - called by cron service"""
+    try:
+        # Import and run the script
+        from scripts.send_best_model_email import send_best_model_email
+        result = send_best_model_email()
+        return {"status": "success", "message": "Best model email sent successfully", "data": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -90,7 +90,7 @@ class LoggingService:
         console_handler = logging.StreamHandler()
         console_handler.setLevel(getattr(logging, log_level))
         console_format = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(funcName)s:%(lineno)d] - %(message)s',
+            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         console_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
@@ -108,7 +108,7 @@ class LoggingService:
         )
         file_handler.setLevel(getattr(logging, log_level))
         file_format = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(funcName)s:%(lineno)d] - %(message)s',
+            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         file_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
@@ -149,14 +149,23 @@ class LoggingService:
         """
         log_method = getattr(self.logger, level.lower())
         
+        stack = inspect.stack()
+        caller_func = caller_file = caller_lineno = None
+        for frame in stack:
+            if frame.function != 'log':
+                caller_func = frame.function
+                caller_file = frame.filename.split('/')[-1]
+                caller_lineno = frame.lineno
+                break
+        extra = {
+            'caller_func': caller_func or '',
+            'caller_file': caller_file or '',
+            'caller_lineno': caller_lineno or 0
+        }
         if context:
-            # Add timestamp to context
             context['timestamp'] = datetime.now().isoformat()
-            
-            # Format context as readable multi-line string
             context_lines = []
             for key, value in context.items():
-                # Format the value nicely - if it's a long list or dict, make it readable
                 if isinstance(value, (list, dict)) and len(str(value)) > 50:
                     context_lines.append(f"  {key}:")
                     if isinstance(value, list):
@@ -167,12 +176,10 @@ class LoggingService:
                             context_lines.append(f"    {k}: {v}")
                 else:
                     context_lines.append(f"  {key}: {value}")
-            
-            # Join context lines with newlines and add extra line break for readability
             context_str = "\n".join(context_lines)
-            log_method(f"{message}\n\nContext:\n{context_str}\n")
+            log_method(f"{message}\nContext:\n{context_str}", extra=extra)
         else:
-            log_method(f"{message}\n")
+            log_method(f"{message}", extra=extra)
 
     def info(self, message: str, context: Optional[Dict[str, Any]] = None) -> None:
         """Log an info message"""

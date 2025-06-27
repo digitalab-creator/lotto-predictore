@@ -7,3 +7,4 @@ watchdog[watchmedo]==3.0.0
 fastapi==0.109.2
 uvicorn==0.27.1
 pytz==2024.1 
+google-cloud-storage==2.14.0 

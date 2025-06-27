@@ -45,12 +45,19 @@ services:
       context: .
       dockerfile: cron/Dockerfile
     user: "1001:1002"
+    privileged: true
+    ports:
+      - "8002:8002"
     volumes:
       - ./cron:/app/cron
       - ./shared:/app/shared
       - ./logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.config/gcloud:/root/.config/gcloud:ro
     environment:
       - BACKEND_URL=http://backend:8000
+      - DATABASE_URL=postgresql://lotto_user:lotto_pass@db:5432/lotto_db
+      - GCS_BUCKET_NAME=lotto-predictor-backups
       - LOG_DIR=/app/logs
       - LOG_LEVEL=INFO
     depends_on:

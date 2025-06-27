@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Best Model Lottery Tables - {{ date }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .model-info {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        .model-info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .model-info p {
+            margin: 5px 0;
+        }
+        .table-container {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .combination {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .strong-number {
+            background-color: #e74c3c;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .highlight {
+            background-color: #f39c12;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏆 Best Model Lottery Tables - {{ date }}</h1>
+        <p>Generated using the highest performing model combination with ROI > 1</p>
+    </div>
+    
+    <div class="model-info">
+        <h3>📊 Model Performance Information</h3>
+        <p><strong>Main Algorithm:</strong> {{ model_info.main_model }}</p>
+        <p><strong>Strong Number Algorithm:</strong> {{ model_info.strong_model }}</p>
+        <p><strong>ROI Ratio:</strong> <span class="highlight">{{ model_info.roi_ratio }}</span></p>
+        <p><strong>Total Prize:</strong> {{ model_info.total_prize }}</p>
+        <p><strong>Total Cost:</strong> {{ model_info.total_cost }}</p>
+        <p><strong>Total Predictions:</strong> {{ model_info.total_predictions }}</p>
+    </div>
+    
+    <div class="table-container">
+        <h2>🎯 Recommended Combinations</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Numbers</th>
+                    <th>Strong Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for table in tables %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td class="combination">{{ table.numbers | join(', ') }}</td>
+                    <td><span class="strong-number">{{ table.strong }}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
+        <h3>💡 Important Notes</h3>
+        <ul>
+            <li>These combinations are generated using the best performing model combination with ROI > 1</li>
+            <li>The model has been tested on historical data and shows positive returns</li>
+            <li>Past performance does not guarantee future results</li>
+            <li>Please play responsibly and within your means</li>
+        </ul>
+    </div>
+</body>
+</html> 

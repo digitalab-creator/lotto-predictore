@@ -120,6 +120,25 @@ class EmailService:
             attachments=attachments
         )
 
+    def send_best_model_tables(
+        self,
+        date: str,
+        tables: List[Dict[str, Any]],
+        model_info: Dict[str, Any],
+        attachments: Optional[List[Dict[str, Any]]] = None
+    ) -> bool:
+        """Send best model lottery tables email"""
+        return self.send_email(
+            subject=f"Best Model Lottery Tables - {date}",
+            template_name='best_model_tables.html',
+            template_data={
+                'date': date,
+                'tables': tables,
+                'model_info': model_info
+            },
+            attachments=attachments
+        )
+
     def send_error_notification(
         self,
         error_message: str,

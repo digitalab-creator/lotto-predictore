@@ -14,6 +14,11 @@ docker-compose down
 
 # Rebuild backend
 docker-compose build backend
+
+docker-compose restart backend
+
+# Show Docker disk usage summary (images, containers, volumes, cache)
+docker system df --format "table {{.Type}}\t{{.TotalCount}}\t{{.Size}}\t{{.Reclaimable}}"
 ```
 
 ### Database Management
@@ -30,6 +35,32 @@ docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT date FROM draws
 # Clear prediction data
 docker-compose exec db psql -U lotto_user -d lotto_db -c "DELETE FROM predictions;"
 docker-compose exec db psql -U lotto_user -d lotto_db -c "DELETE FROM prediction_details;"
+
+# View model performance by main/strong model combination
+docker-compose exec db psql -U lotto_user -d lotto_db -c "
+SELECT
+    mm.name AS main_model_name,
+    sm.name AS strong_model_name,
+    COUNT(*) AS total_predictions,
+    ROUND(SUM(p.total_prize)::numeric, 2) AS total_prize,
+    ROUND(SUM(p.total_cost)::numeric, 2) AS total_cost,
+    ROUND(
+        CASE 
+            WHEN SUM(p.total_cost) = 0 THEN NULL
+            ELSE (SUM(p.total_prize)::numeric / NULLIF(SUM(p.total_cost), 0)::numeric)
+        END, 4
+    ) AS roi_ratio
+FROM
+    predictions p
+JOIN
+    models mm ON p.model_id = mm.id
+JOIN
+    models sm ON p.strong_model_id = sm.id
+GROUP BY
+    mm.name, sm.name
+ORDER BY
+    roi_ratio DESC;
+"
 ```
 
 ### Database Migrations
@@ -129,6 +160,20 @@ sudo rm /home/orshv/lotto-predictore/logs/backend_service/backend_service.log.20
 ./scripts/cleanup.sh
 ```
 
+### System Cleanup (Automated)
+```sh
+# The cron service automatically runs comprehensive system cleanup daily at 2:00 AM
+# This includes:
+# - Cleaning up old log files
+# - Running docker system prune -a -f to free up disk space
+
+# Manually trigger system cleanup
+curl -X POST http://localhost:8002/api/cleanup-system
+
+# Check cleanup job status
+curl -X GET http://localhost:8002/health
+```
+
 ## Git Operations 🏴‍☠️
 
 May the Flying Spaghetti Monster guide yer version control! 🍝
@@ -144,8 +189,8 @@ python3 scripts/git_manager.py fetch
 # Checkout specific commit
 python3 scripts/git_manager.py checkout <commit_id>
 
-# Quick commit and push (with optional message)
-python3 scripts/git_manager.py commit_and_push "Yer commit message here"
+# Quick commit and push (with optional messdage)
+python3 scripts/git_manager.py commit_and_push "switched tokeen"
 ```
 
 ### Environment Setup
@@ -177,3 +222,6 @@ git ls-remote origin
 - All operations are logged to the logs directory
 - Force push is used to ensure remote matches local state
 - Commit messages are required for commits
+
+'roi':\s*-\d+(\.\d+)?
+'roi':\s*(0(\.\d+)?|[1-9]\d*(\.\d+)?)
