@@ -6,7 +6,7 @@ from models import Draw
 from logger import logger
 from db import SessionLocal
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
-from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND
+from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND, SEQUENCE_CLASSIFIER_MODEL_DIR
 from datetime import date
 import json
 from services.simulation_engine import calculate_roi_with_tax
@@ -80,7 +80,7 @@ def main():
     best_roi = float('-inf')
     for values in itertools.product(*hyperparams_grid.values()):
         params = dict(zip(param_names, values))
-        model_path = f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt"
+        model_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
         logger.info(f"Arrr! [FSM GRID] Trainin' with params: {params}", context=params)
 
         # Patch predict_next_numbers to use current params

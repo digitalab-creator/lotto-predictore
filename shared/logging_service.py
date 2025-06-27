@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional, List
 from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 import shutil
+import inspect
 
 class LoggingService:
     @staticmethod
@@ -89,7 +90,7 @@ class LoggingService:
         console_handler = logging.StreamHandler()
         console_handler.setLevel(getattr(logging, log_level))
         console_format = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(funcName)s:%(lineno)d] - %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         console_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
@@ -107,7 +108,7 @@ class LoggingService:
         )
         file_handler.setLevel(getattr(logging, log_level))
         file_format = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(funcName)s:%(lineno)d] - %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         file_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
@@ -151,9 +152,27 @@ class LoggingService:
         if context:
             # Add timestamp to context
             context['timestamp'] = datetime.now().isoformat()
-            log_method(f"{message} | Context: {context}")
+            
+            # Format context as readable multi-line string
+            context_lines = []
+            for key, value in context.items():
+                # Format the value nicely - if it's a long list or dict, make it readable
+                if isinstance(value, (list, dict)) and len(str(value)) > 50:
+                    context_lines.append(f"  {key}:")
+                    if isinstance(value, list):
+                        for i, item in enumerate(value):
+                            context_lines.append(f"    [{i}]: {item}")
+                    elif isinstance(value, dict):
+                        for k, v in value.items():
+                            context_lines.append(f"    {k}: {v}")
+                else:
+                    context_lines.append(f"  {key}: {value}")
+            
+            # Join context lines with newlines and add extra line break for readability
+            context_str = "\n".join(context_lines)
+            log_method(f"{message}\n\nContext:\n{context_str}\n")
         else:
-            log_method(message)
+            log_method(f"{message}\n")
 
     def info(self, message: str, context: Optional[Dict[str, Any]] = None) -> None:
         """Log an info message"""

@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from typing import Any
 from models import Draw, Model, ModelType, Prediction, GeneratedCombination, PredictionDetail
 from algorithms.base import ALGORITHM_REGISTRY
@@ -98,7 +99,7 @@ class SimulationEngine:
                         
                         # Set a longer timeout for LSTM models
                         if 'lstm' in main_version.lower():
-                            session.execute("SET statement_timeout = '300s'")  # 5 minutes timeout
+                            session.execute(text("SET statement_timeout = '300s'"))  # 5 minutes timeout
                         
                         run_sig = inspect.signature(algo.run)
                         run_kwargs = dict(
@@ -126,7 +127,7 @@ class SimulationEngine:
                         
                         # Reset timeout after LSTM models
                         if 'lstm' in main_version.lower():
-                            session.execute("SET statement_timeout = '30s'")  # Reset to default
+                            session.execute(text("SET statement_timeout = '30s'"))  # Reset to default
                         
                         logger.debug(
                             f"[FSM DEBUG] algo.run returned",

@@ -7,9 +7,9 @@ class GeneratedCombination(Base):
     __tablename__ = "generated_combinations"
 
     id = Column(Integer, primary_key=True, index=True)
-    prediction_id = Column(Integer, ForeignKey('predictions.id'), nullable=False)
+    prediction_id = Column(Integer, ForeignKey('predictions.id'), nullable=True)
     numbers = Column(ARRAY(Integer), nullable=False)  # 6 numbers
     strong_number = Column(Integer, nullable=False)
     position = Column(Integer, nullable=False)  # 1 = highest prob, 2 = next, etc.
-    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    generated_at = Column(DateTime, nullable=False, default=datetime.datetime.utcnow)
     prediction = relationship("Prediction", back_populates="combinations") 

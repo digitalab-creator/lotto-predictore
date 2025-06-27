@@ -22,6 +22,7 @@ services:
     build: 
       context: .
       dockerfile: backend/Dockerfile
+    user: "1001:1002"
     command: /bin/sh -c "cd /app && sleep 10 && PYTHONPATH=/app:/app/scripts alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app"
     volumes:
       - ./backend:/app
@@ -43,6 +44,7 @@ services:
     build:
       context: .
       dockerfile: cron/Dockerfile
+    user: "1001:1002"
     volumes:
       - ./cron:/app/cron
       - ./shared:/app/shared
@@ -59,6 +61,7 @@ services:
     build:
       context: .
       dockerfile: email-service/Dockerfile
+    user: "1001:1002"
     env_file:
       - ./email-service/.env
     ports:

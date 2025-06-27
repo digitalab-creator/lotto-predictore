@@ -16,7 +16,6 @@ from logger import logger
 from services.simulation_engine import SimulationEngine
 from algorithms.base import ALGORITHM_REGISTRY, STRONG_NUMBER_REGISTRY
 from models import Draw, Model
-from utils import dh_log
 from simulation_prize import calculate_prize
 from simulation_print import print_weekly_tables
 

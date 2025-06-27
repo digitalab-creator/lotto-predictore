@@ -6,8 +6,8 @@ May the Flying Spaghetti Monster bless yer predictions and models! 🍝
 
 ### API Endpoints
 ```sh
-# Get recommendations
-curl http://localhost:8000/recommend
+# Generate combinations using best performing algorithm
+curl http://localhost:8000/generate-combinations
 
 # Run simulation
 curl -G 'http://localhost:8000/simulate' \

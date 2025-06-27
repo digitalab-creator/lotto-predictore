@@ -22,6 +22,10 @@ from models.weekly_winning_combination import WeeklyWinningCombination
 import sys
 from pathlib import Path
 import os
+import torch
+import torch.nn as nn
+from algorithms.dl.sequence_classifier import LottoLSTM
+import shutil
 
 # Initialize FastAPI app
 app = FastAPI(title="Lotto Predictor Backend")
@@ -152,163 +156,166 @@ def simulate_table(
             output.append(f"  Combo #{idx+1}: Avg Hits = {avg_hits:.2f} (n={len(hits)})")
     return "\n".join(output)
 
-@app.get("/recommend", response_class=JSONResponse)
-def recommend(db: Session = Depends(get_db)):
-    MIN_TEST_DRAWS = 20  # Threshold for statistical significance
-    ALPHA = 0.5  # Weight for prize/cost ratio in score
-
-    # Get all predictions, most recent first
-    predictions = db.query(Prediction).order_by(Prediction.run_time.desc()).all()
-    if not predictions:
-        logger.error("Arrr! No predictions found in DB, praisin' the FSM!")
-        return JSONResponse(content={"error": "No predictions found in DB."}, status_code=400)
-
-    # Group predictions by (main_model_id, strong_model_id, main_model_params, strong_model_params)
-    groups = defaultdict(list)
-    for p in predictions:
-        main_params = json.dumps(p.main_model_params, sort_keys=True) if p.main_model_params else '{}'
-        strong_params = json.dumps(p.strong_model_params, sort_keys=True) if p.strong_model_params else '{}'
-        key = (p.model_id, p.strong_model_id, main_params, strong_params)
-        groups[key].append(p)
-
-    # Aggregate stats for each group
-    aggregated = []
-    for key, preds in groups.items():
-        agg_total_prize = sum(p.total_prize for p in preds)
-        agg_total_cost = sum(p.total_cost for p in preds)
-        agg_num_test_draws = sum(p.num_test_draws for p in preds)
-        if agg_total_cost == 0 or agg_num_test_draws == 0:
-            continue
-        prize_per_draw = agg_total_prize / agg_num_test_draws
-        cost_per_draw = agg_total_cost / agg_num_test_draws
-        roi_per_draw = (prize_per_draw - cost_per_draw) / cost_per_draw if cost_per_draw else 0
-        prize_cost_ratio = agg_total_prize / agg_total_cost if agg_total_cost else 0
-        score = roi_per_draw * math.log(agg_num_test_draws + 1) + ALPHA * prize_cost_ratio
-        most_recent = max(preds, key=lambda p: p.run_time)
-        aggregated.append({
-            "key": key,
-            "model_id": key[0],
-            "strong_model_id": key[1],
-            "main_model_params": most_recent.main_model_params,
-            "strong_model_params": most_recent.strong_model_params,
-            "score": score,
-            "roi_per_draw": roi_per_draw,
-            "prize_per_draw": prize_per_draw,
-            "cost_per_draw": cost_per_draw,
-            "agg_total_prize": agg_total_prize,
-            "agg_total_cost": agg_total_cost,
-            "agg_num_test_draws": agg_num_test_draws,
-            "most_recent": most_recent
-        })
-
-    # Filter for statistical significance
-    significant = [a for a in aggregated if a["agg_num_test_draws"] >= MIN_TEST_DRAWS]
-    if significant:
-        best = max(significant, key=lambda a: a["score"])
-        reason = f"Selected by score (statistically significant, N>={MIN_TEST_DRAWS})"
-    else:
-        best = max(aggregated, key=lambda a: a["roi_per_draw"])
-        reason = "Fallback: selected by highest ROI (no significant model group)"
-
-    main_model = db.query(Model).filter(Model.id == best["model_id"]).first()
-    strong_model = db.query(Model).filter(Model.id == best["strong_model_id"]).first()
-    main_algo_name = main_model.name if main_model else None
-    strong_algo_name = strong_model.name if strong_model else None
-    main_algo_cls = ALGORITHM_REGISTRY.get(main_algo_name)
-    strong_algo_cls = STRONG_NUMBER_REGISTRY.get(strong_algo_name)
-    if not main_algo_cls or not strong_algo_cls:
-        logger.error(
-            "Arrr! Could not find algorithm class for best model group! Praisin' the FSM!",
-            context={"main_algo": main_algo_name, "strong_algo": strong_algo_name}
+@app.get("/generate-combinations", response_class=JSONResponse)
+def generate_combinations(db: Session = Depends(get_db)):
+    """
+    Generate lottery combinations using the best performing algorithm based on recent simulations.
+    This endpoint uses the same logic as the weekly combinations generation.
+    """
+    logger.info("Arrr! Starting combination generation, praisin' the FSM!")
+    
+    try:
+        # Get all draws, filtering out strong_number == 8
+        draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
+        filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
+        
+        logger.info(
+            "Arrr! Filtered out draws with strong_number == 8 for generation, praisin' the FSM!",
+            context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
         )
-        return JSONResponse(content={"error": "Could not find algorithm class for best model group."}, status_code=400)
-    # Use all draws for recommendation
-    draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
-    top_n = best["main_model_params"].get("top_n", 3) if best["main_model_params"] else 3
-    num_to_recommend = best["main_model_params"].get("num_to_recommend", NUM_COMBINATIONS_TO_RECOMMEND) if best["main_model_params"] else NUM_COMBINATIONS_TO_RECOMMEND
-    combos = main_algo_cls().run(draws, top_n=top_n, num_to_recommend=num_to_recommend)
-    strong_algo = strong_algo_cls()
-    for combo in combos:
-        combo["strong"] = strong_algo.predict(draws, numbers=combo["numbers"]) if "numbers" in combo else strong_algo.predict(draws)
-
-    # Create a new Prediction row for this recommendation event
-    now = datetime.utcnow()
-    new_prediction = Prediction(
-        model_id=main_model.id,
-        strong_model_id=strong_model.id,
-        run_time=now,
-        roi=best["roi_per_draw"],
-        total_prize=best["agg_total_prize"],
-        total_cost=best["agg_total_cost"],
-        test_count=0,  # Not a simulation, so 0
-        notes=f"Recommendation event at {now.isoformat()} | {reason}",
-        train_start_date=draws[0].date if draws else now.date(),
-        train_end_date=draws[-1].date if draws else now.date(),
-        num_test_draws=0,
-        main_model_params=best["main_model_params"],
-        strong_model_params=best["strong_model_params"]
-    )
-    db.add(new_prediction)
-    db.flush()  # Get the new prediction.id
-
-    # Save each recommended combo to generated_combinations
-    for idx, combo in enumerate(combos):
-        if "numbers" not in combo:
-            logger.error(
-                f"Arrr! Combo at index {idx} be missin' the 'numbers' key! Praisin' the FSM! Throwin' error!",
+        
+        if len(draws) < 20:
+            logger.error("Not enough draws in database for recommendation.")
+            return JSONResponse(content={"error": "Not enough draws in database for recommendation."}, status_code=400)
+        
+        # Use last 12 draws as test set, rest as training
+        train_draws = draws[:-12]
+        test_draws = draws[-12:]
+        train_start = train_draws[0].date
+        train_end = train_draws[-1].date
+        test_count = 12
+        
+        # Find best algorithm pair by ROI using SimulationEngine
+        engine = SimulationEngine(db)
+        results = {}
+        best_pair = None
+        best_roi = float('-inf')
+        
+        for algo_name, algo_cls in ALGORITHM_REGISTRY.items():
+            # Set top_n according to algorithm requirements
+            if algo_name == 'top_6_overall_frequent_v2':
+                top_n = 10
+            else:
+                top_n = 3
+                
+            logger.info(f"Running {algo_name} with top_n={top_n}")
+            
+            try:
+                res = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=[algo_name])
+                for (main_algo, strong_algo), r in res.items():
+                    results[(main_algo, strong_algo)] = r
+                    if r["roi"] > best_roi:
+                        best_pair = (main_algo, strong_algo)
+                        best_roi = r["roi"]
+            except Exception as e:
+                logger.error(
+                    f"Skipping {algo_name} due to error: {e}",
+                    context={"algo_name": algo_name, "error": str(e)}
+                )
+                continue
+        
+        if not best_pair:
+            logger.error("No algorithm produced results.")
+            return JSONResponse(content={"error": "No algorithm produced results."}, status_code=400)
+        
+        main_algo_name, strong_algo_name = best_pair
+        main_algo_cls = ALGORITHM_REGISTRY[main_algo_name]
+        strong_algo_cls = STRONG_NUMBER_REGISTRY[strong_algo_name]
+        
+        # Use correct top_n for the best algorithm
+        if main_algo_name == 'top_6_overall_frequent_v2':
+            top_n = 10
+        else:
+            top_n = 3
+        
+        # Generate combinations using all draws
+        all_draws = draws
+        combos = main_algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
+        strong_algo = strong_algo_cls()
+        strong_number = strong_algo.predict(all_draws)
+        
+        now = datetime.utcnow()
+        
+        # Create a new Prediction row for this generation event
+        new_prediction = Prediction(
+            model_id=db.query(Model).filter(Model.name == main_algo_name).first().id,
+            strong_model_id=db.query(Model).filter(Model.name == strong_algo_name).first().id,
+            run_time=now,
+            roi=best_roi,
+            total_prize=results[best_pair]["total_prize"],
+            total_cost=results[best_pair]["total_cost"],
+            test_count=test_count,
+            notes=f"Combination generation at {now.isoformat()} | Best ROI: {best_roi:.4f}",
+            train_start_date=train_start,
+            train_end_date=train_end,
+            num_test_draws=test_count,
+            main_model_params={"top_n": top_n, "num_to_recommend": NUM_COMBINATIONS_TO_RECOMMEND},
+            strong_model_params={"strong_algo": strong_algo_name}
+        )
+        db.add(new_prediction)
+        db.flush()  # Get the new prediction.id
+        
+        # Store each combo in DB
+        stored_combos = []
+        for idx, combo in enumerate(combos):
+            generated = GeneratedCombination(
+                prediction_id=new_prediction.id,
+                numbers=combo["numbers"],
+                strong_number=strong_number,
+                position=idx+1,
+                generated_at=now
+            )
+            db.add(generated)
+            
+            stored_combos.append({
+                "numbers": combo["numbers"],
+                "strong": strong_number,
+                "position": idx+1
+            })
+            
+            logger.info(
+                f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}",
                 context={
-                    "combo": combo,
-                    "index": idx,
-                    "recommendation_prediction_id": new_prediction.id
+                    "prediction_id": new_prediction.id,
+                    "numbers": combo["numbers"],
+                    "strong_number": strong_number,
+                    "position": idx+1
                 }
             )
-            raise ValueError(f"Combo at index {idx} be missin' the 'numbers' key! Combo: {combo}")
-        generated = GeneratedCombination(
-            prediction_id=new_prediction.id,
-            numbers=combo["numbers"],
-            strong_number=combo["strong"],
-            position=idx+1,
-            created_at=now
-        )
-        db.add(generated)
+        
+        db.commit()
+        
         logger.info(
-            f"Arrr! Stored recommended combo {idx+1}: {combo['numbers']} + {combo['strong']}",
+            f"Arrr! Generated {len(combos)} combinations using {main_algo_name} + {strong_algo_name}",
             context={
-                "prediction_id": new_prediction.id,
-                "numbers": combo["numbers"],
-                "strong_number": combo["strong"],
-                "position": idx+1
+                "main_algo": main_algo_name,
+                "strong_algo": strong_algo_name,
+                "best_roi": best_roi,
+                "num_combinations": len(combos),
+                "prediction_id": new_prediction.id
             }
         )
-    db.commit()
-
-    logger.info(
-        f"Arrr! Recommendation selected: {main_algo_name} + {strong_algo_name} | Reason: {reason}",
-        context={
-            "main_algo": main_algo_name,
-            "strong_algo": strong_algo_name,
-            "score": best["score"],
-            "roi_per_draw": best["roi_per_draw"],
-            "prize_per_draw": best["prize_per_draw"],
-            "cost_per_draw": best["cost_per_draw"],
-            "agg_total_prize": best["agg_total_prize"],
-            "agg_total_cost": best["agg_total_cost"],
-            "agg_num_test_draws": best["agg_num_test_draws"],
-            "reason": reason,
-            "recommendation_prediction_id": new_prediction.id
+        
+        return {
+            "algorithm": main_algo_name,
+            "strong_algorithm": strong_algo_name,
+            "roi": best_roi,
+            "total_prize": results[best_pair]["total_prize"],
+            "total_cost": results[best_pair]["total_cost"],
+            "num_test_draws": test_count,
+            "combinations": stored_combos,
+            "prediction_id": new_prediction.id,
+            "train_start": train_start.isoformat(),
+            "train_end": train_end.isoformat()
         }
-    )
-    return {
-        "algorithm": main_algo_name,
-        "strong_algorithm": strong_algo_name,
-        "roi": best["roi_per_draw"],
-        "total_prize": best["agg_total_prize"],
-        "total_cost": best["agg_total_cost"],
-        "num_test_draws": best["agg_num_test_draws"],
-        "recommendations": combos,
-        "recommendation_prediction_id": new_prediction.id,
-        "reason": reason
-    }
+        
+    except Exception as e:
+        logger.error(
+            "Arrr! Error in combination generation!",
+            context={"error": str(e)}
+        )
+        db.rollback()
+        return JSONResponse(content={"error": f"Error generating combinations: {str(e)}"}, status_code=500)
 
 @app.get("/weekly-winning-combinations", response_class=JSONResponse)
 def get_weekly_winning_combinations(db: Session = Depends(get_db)):
@@ -365,11 +372,157 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
 async def generate_weekly_combinations():
     """Generate weekly combinations - called by cron service"""
     try:
-        # Import and run the script
-        from scripts.generate_weekly_combinations import main as generate_combinations
-        generate_combinations()
-        return {"status": "success", "message": "Weekly combinations generated successfully"}
+        # Use the same logic as the /generate-combinations endpoint
+        from services.simulation_engine import SimulationEngine
+        
+        db = next(get_db())
+        try:
+            # Get all draws, filtering out strong_number == 8
+            draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
+            filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
+            
+            logger.info(
+                "Arrr! Filtered out draws with strong_number == 8 for weekly generation, praisin' the FSM!",
+                context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
+            )
+            
+            if len(draws) < 20:
+                logger.error("Not enough draws in database for recommendation.")
+                return {"status": "error", "message": "Not enough draws in database for recommendation."}
+            
+            # Use last 12 draws as test set, rest as training
+            train_draws = draws[:-12]
+            test_draws = draws[-12:]
+            train_start = train_draws[0].date
+            train_end = train_draws[-1].date
+            test_count = 12
+            
+            # Find best algorithm pair by ROI using SimulationEngine
+            engine = SimulationEngine(db)
+            results = {}
+            best_pair = None
+            best_roi = float('-inf')
+            
+            for algo_name, algo_cls in ALGORITHM_REGISTRY.items():
+                # Set top_n according to algorithm requirements
+                if algo_name == 'top_6_overall_frequent_v2':
+                    top_n = 10
+                else:
+                    top_n = 3
+                    
+                logger.info(f"Running {algo_name} with top_n={top_n}")
+                
+                try:
+                    res = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=[algo_name])
+                    for (main_algo, strong_algo), r in res.items():
+                        results[(main_algo, strong_algo)] = r
+                        if r["roi"] > best_roi:
+                            best_pair = (main_algo, strong_algo)
+                            best_roi = r["roi"]
+                except Exception as e:
+                    logger.error(
+                        f"Skipping {algo_name} due to error: {e}",
+                        context={"algo_name": algo_name, "error": str(e)}
+                    )
+                    continue
+            
+            if not best_pair:
+                logger.error("No algorithm produced results.")
+                return {"status": "error", "message": "No algorithm produced results."}
+            
+            main_algo_name, strong_algo_name = best_pair
+            main_algo_cls = ALGORITHM_REGISTRY[main_algo_name]
+            strong_algo_cls = STRONG_NUMBER_REGISTRY[strong_algo_name]
+            
+            # Use correct top_n for the best algorithm
+            if main_algo_name == 'top_6_overall_frequent_v2':
+                top_n = 10
+            else:
+                top_n = 3
+            
+            # Generate combinations using all draws
+            all_draws = draws
+            combos = main_algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
+            strong_algo = strong_algo_cls()
+            strong_number = strong_algo.predict(all_draws)
+            
+            now = datetime.utcnow()
+            
+            # Create a new Prediction row for this generation event
+            new_prediction = Prediction(
+                model_id=db.query(Model).filter(Model.name == main_algo_name).first().id,
+                strong_model_id=db.query(Model).filter(Model.name == strong_algo_name).first().id,
+                run_time=now,
+                roi=best_roi,
+                total_prize=results[best_pair]["total_prize"],
+                total_cost=results[best_pair]["total_cost"],
+                test_count=test_count,
+                notes=f"Weekly combination generation at {now.isoformat()} | Best ROI: {best_roi:.4f}",
+                train_start_date=train_start,
+                train_end_date=train_end,
+                num_test_draws=test_count,
+                main_model_params={"top_n": top_n, "num_to_recommend": NUM_COMBINATIONS_TO_RECOMMEND},
+                strong_model_params={"strong_algo": strong_algo_name}
+            )
+            db.add(new_prediction)
+            db.flush()  # Get the new prediction.id
+            
+            # Store each combo in DB
+            for idx, combo in enumerate(combos):
+                generated = GeneratedCombination(
+                    prediction_id=new_prediction.id,
+                    numbers=combo["numbers"],
+                    strong_number=strong_number,
+                    position=idx+1,
+                    generated_at=now
+                )
+                db.add(generated)
+                
+                logger.info(
+                    f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}",
+                    context={
+                        "prediction_id": new_prediction.id,
+                        "numbers": combo["numbers"],
+                        "strong_number": strong_number,
+                        "position": idx+1
+                    }
+                )
+            
+            db.commit()
+            
+            logger.info(
+                f"Arrr! Generated {len(combos)} weekly combinations using {main_algo_name} + {strong_algo_name}",
+                context={
+                    "main_algo": main_algo_name,
+                    "strong_algo": strong_algo_name,
+                    "best_roi": best_roi,
+                    "num_combinations": len(combos),
+                    "prediction_id": new_prediction.id
+                }
+            )
+            
+            return {
+                "status": "success", 
+                "message": f"Weekly combinations generated successfully using {main_algo_name} + {strong_algo_name}",
+                "num_combinations": len(combos),
+                "prediction_id": new_prediction.id
+            }
+            
+        except Exception as e:
+            logger.error(
+                "Arrr! Error in weekly combination generation!",
+                context={"error": str(e)}
+            )
+            db.rollback()
+            raise
+        finally:
+            db.close()
+            
     except Exception as e:
+        logger.error(
+            "Arrr! Error in weekly combination generation endpoint!",
+            context={"error": str(e)}
+        )
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/cron/fetch-latest-draw")
@@ -461,22 +614,6 @@ async def check_model_files_endpoint(db: Session = Depends(get_db)):
         model_paths = {m.model_path for m in db_models if m.model_path}
         
         # Model class definitions for thorough testing
-        class LottoLSTM(nn.Module):
-            def __init__(self, num_numbers=37, seq_len=10, hidden_size=64, num_layers=2):
-                super().__init__()
-                self.num_numbers = num_numbers
-                self.seq_len = seq_len
-                self.lstm = nn.LSTM(input_size=num_numbers, hidden_size=hidden_size, num_layers=num_layers, batch_first=True)
-                self.fc = nn.Linear(hidden_size, num_numbers)
-                self.sigmoid = nn.Sigmoid()
-
-            def forward(self, x):
-                out, _ = self.lstm(x)
-                out = out[:, -1, :]  # Take last output
-                out = self.fc(out)
-                out = self.sigmoid(out)
-                return out
-
         class LottoLSTMPosition(nn.Module):
             def __init__(self, num_numbers=37, seq_len=10, hidden_size=64, num_layers=2, num_positions=6):
                 super().__init__()

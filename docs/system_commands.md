@@ -102,6 +102,18 @@ curl -X POST http://localhost:8001/send-email \
 
 ## Maintenance
 
+### Cache Management
+```sh
+# Clear all cache files
+find /home/orshv/lotto-predictore/shared/cache -name "*.json" -delete
+
+# Clear specific cache (e.g., strong number cache)
+rm /home/orshv/lotto-predictore/shared/cache/strong_number_cache.json
+
+# List all cache files
+find /home/orshv/lotto-predictore/shared/cache -name "*.json"
+```
+
 ### Log Management
 ```sh
 # Clear backend logs
@@ -124,7 +136,7 @@ May the Flying Spaghetti Monster guide yer version control! 🍝
 ### Basic Git Commands
 ```sh
 # Commit and push all changes
-python3 scripts/git_manager.py commit
+source venv/bin/activate && python3 scripts/git_manager.py commit
 
 # Fetch latest commit from remote
 python3 scripts/git_manager.py fetch

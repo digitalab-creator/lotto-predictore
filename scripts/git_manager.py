@@ -307,10 +307,12 @@ def main():
             fetch_latest_commit(config)
         elif action == 'commit':
             commit_all_files(config)
+        elif action == 'commit_and_push':
+            commit_and_push()
         elif action == 'checkout' and commit_id:
             fetch_specific_commit(config, commit_id)
         else:
-            logger.error("Invalid command. Use: commit, fetch, or checkout <commit_id>")
+            logger.error("Invalid command. Use: commit, commit_and_push, fetch, or checkout <commit_id>")
             sys.exit(1)
 
     except Exception as e:
