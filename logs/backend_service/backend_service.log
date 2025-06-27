@@ -48631,3 +48631,4241 @@ Context:
 
 2025-06-27 18:13:43 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.03s
 
+2025-06-27 18:16:18 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:18.604228
+
+2025-06-27 18:16:18 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:18.604228
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.099023
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.099023
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.572475
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.572475
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.575038
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.575038
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.576684
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.576684
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.578045
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.578045
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.579380
+
+2025-06-27 18:16:19 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:16:19.579380
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 158.53s
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 158.53s
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - Running repeated_pattern_matching_v2 with top_n=3
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - Running repeated_pattern_matching_v2 with top_n=3
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['repeated_pattern_matching_v2'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['repeated_pattern_matching_v2'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:16:21.818591
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:16:21.818591
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.45s
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.45s
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:16:21.825934
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:16:21.825934
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.01s
+
+2025-06-27 18:16:21 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.01s
+
+2025-06-27 18:17:57 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:57.818549
+
+2025-06-27 18:17:57 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:57.818549
+
+2025-06-27 18:17:57 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:57.858620
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:57.858620
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.100130
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.100130
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.316436
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.316436
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.374875
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.374875
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.571531
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.571531
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.575476
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.575476
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.590387
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.590387
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 97.44s
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 97.44s
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - Running recency_weighted_linear with top_n=3
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - Running recency_weighted_linear with top_n=3
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['recency_weighted_linear'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['recency_weighted_linear'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:17:58.842611
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:17:58.842611
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:17:58.848148
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:17:58.848148
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.860554
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.860554
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.862233
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.862233
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.863882
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.863882
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.867629
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.867629
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.869296
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.869296
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.870691
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.870691
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.872055
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.872055
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.873374
+
+2025-06-27 18:17:58 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:17:58.873374
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.99s
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.99s
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - Running recency_weighted_exponential with top_n=3
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - Running recency_weighted_exponential with top_n=3
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['recency_weighted_exponential'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['recency_weighted_exponential'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:17:59.849185
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:17:59.849185
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:17:59.854132
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:17:59.854132
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:17:59 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.096423
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.096423
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.102305
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.102305
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.330154
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.330154
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.332529
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.332529
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.337130
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.337130
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.339230
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.339230
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.343195
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.343195
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.344854
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.344854
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.54s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.54s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - Running recency_weighted_window with top_n=3
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - Running recency_weighted_window with top_n=3
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['recency_weighted_window'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['recency_weighted_window'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:00.583117
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:00.583117
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:00.587952
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:00.587952
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.610588
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.610588
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.834676
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.834676
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.836739
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.836739
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.838694
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.838694
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.840560
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.840560
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.841961
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.841961
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.843269
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.843269
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.844525
+
+2025-06-27 18:18:00 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:00.844525
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.95s
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.95s
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - Running random_from_top15_pool with top_n=3
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - Running random_from_top15_pool with top_n=3
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['random_from_top15_pool'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['random_from_top15_pool'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:01.353421
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:01.353421
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.03s
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.03s
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:01.359222
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:01.359222
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.565614
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.565614
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.595165
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.595165
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.608580
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.608580
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.611075
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.611075
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.619542
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.619542
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.623364
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.623364
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.824067
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.824067
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.826540
+
+2025-06-27 18:18:01 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:01.826540
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 1.51s
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 1.51s
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - Running random_from_top10_pool with top_n=3
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - Running random_from_top10_pool with top_n=3
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['random_from_top10_pool'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['random_from_top10_pool'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:02.855890
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:02.855890
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:02.860714
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:02.860714
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:02 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.067779
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.067779
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.095958
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.095958
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.098840
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.098840
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.100924
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.100924
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.102645
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.102645
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.106900
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.106900
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.320081
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.320081
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.322106
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.322106
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.53s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.53s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - Running random_from_top20_pool with top_n=3
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - Running random_from_top20_pool with top_n=3
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['random_from_top20_pool'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['random_from_top20_pool'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:03.576574
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:03.576574
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:03.581357
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:03.581357
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.588832
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.588832
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.590363
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.590363
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.591952
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.591952
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.593407
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.593407
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.594805
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.594805
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.596198
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.596198
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.597580
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.597580
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.598968
+
+2025-06-27 18:18:03 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:03.598968
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.72s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.72s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Running balanced_spread_fixed_ranges with top_n=3
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Running balanced_spread_fixed_ranges with top_n=3
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['balanced_spread_fixed_ranges'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['balanced_spread_fixed_ranges'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:04.106624
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:04.106624
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:04.113058
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:04.113058
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.01s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.01s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.119820
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.119820
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.121699
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.121699
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.123272
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.123272
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.124805
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.124805
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.319002
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.319002
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.348584
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.348584
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.360963
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.360963
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.363546
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.363546
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.52s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.52s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Running balanced_spread_equal_ranges with top_n=3
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Running balanced_spread_equal_ranges with top_n=3
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['balanced_spread_equal_ranges'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['balanced_spread_equal_ranges'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:04.823923
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:04.823923
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:04.828705
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:04.828705
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.840290
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.840290
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.862182
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.862182
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.866043
+
+2025-06-27 18:18:04 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:04.866043
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.066318
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.066318
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.069920
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.069920
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.071902
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.071902
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.105401
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.105401
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.115914
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.115914
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.72s
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.72s
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - Running balanced_spread_random_ranges with top_n=3
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - Running balanced_spread_random_ranges with top_n=3
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['balanced_spread_random_ranges'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['balanced_spread_random_ranges'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:05.357026
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:05.357026
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:05.361883
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:05.361883
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.566664
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.566664
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.569533
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.569533
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.571206
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.571206
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.593453
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.593453
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.595192
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.595192
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.597381
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.597381
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.599526
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.599526
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.601162
+
+2025-06-27 18:18:05 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:18:05.601162
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.74s
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.74s
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - Running pattern_learning_from_winners_v1 with top_n=3
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - Running pattern_learning_from_winners_v1 with top_n=3
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['pattern_learning_from_winners_v1'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['pattern_learning_from_winners_v1'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:06.115339
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:18:06.115339
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.03s
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.03s
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:06.122281
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:18:06.122281
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:18:06 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.321517
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.321517
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.366717
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.366717
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.603954
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.603954
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.818352
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.818352
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.842090
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.842090
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.869124
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.869124
+
+2025-06-27 18:19:41 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.874880
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:41.874880
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:42.070337
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:19:42.070337
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 96.02s
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 96.02s
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - Running pattern_learning_from_winners_v2 with top_n=3
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - Running pattern_learning_from_winners_v2 with top_n=3
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['pattern_learning_from_winners_v2'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['pattern_learning_from_winners_v2'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:19:42.323987
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:19:42.323987
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.21s
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:19:42.329891
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:19:42.329891
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:19:42 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.071266
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.071266
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.074631
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.074631
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.091300
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.091300
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.093388
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.093388
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.095146
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.095146
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.096875
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.096875
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.098525
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.098525
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.100010
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.100010
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 101.21s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 101.21s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Running skip_distance_frequency_v1 with top_n=3
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Running skip_distance_frequency_v1 with top_n=3
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['skip_distance_frequency_v1'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['skip_distance_frequency_v1'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:21:23.339422
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:21:23.339422
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:21:23.343733
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:21:23.343733
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.00s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.354521
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.354521
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.356051
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.356051
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.357374
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.357374
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.358694
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.358694
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.360105
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.360105
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.594717
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.594717
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.596302
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.596302
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.597796
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:23.597796
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.53s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.53s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Running skip_distance_frequency_v2 with top_n=3
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Running skip_distance_frequency_v2 with top_n=3
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['skip_distance_frequency_v2'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['skip_distance_frequency_v2'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:21:23.873756
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:21:23.873756
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:21:23 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.02s
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:21:24.069049
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:21:24.069049
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.19s
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.19s
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.115282
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.115282
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.118410
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.118410
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.120557
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.120557
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.122530
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.122530
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.327459
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.327459
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.333261
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.333261
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.337361
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.337361
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.349675
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:173] - Found candidates from counter: [3, 1, 6, 5, 2, 4, 7]
+
+Context:
+  candidates: [3, 1, 6, 5, 2, 4, 7]
+  counter:
+    2: 249
+    1: 261
+    3: 264
+    5: 255
+    4: 241
+    6: 260
+    7: 240
+  timestamp: 2025-06-27T15:21:24.349675
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.99s
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] run_comparison finished in 0.99s
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - Running sequence_lstm_classifier with top_n=3
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - Running sequence_lstm_classifier with top_n=3
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['sequence_lstm_classifier'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Starting run_comparison: train_start=2009-03-03, train_end=2025-05-06, test_count=12, top_n=3, algo_names=['sequence_lstm_classifier'], strong_algo_names=None, use_cache=True
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available algorithms in registry: ['top_n_frequent_per_position_v1', 'top_n_frequent_per_position_v2', 'top_6_overall_frequent_v1', 'top_6_overall_frequent_v2', 'positionwise_scored_v1', 'positionwise_scored_v2', 'delta_system_data_driven', 'delta_system_fixed', 'repeated_pattern_matching_v1', 'repeated_pattern_matching_v2', 'recency_weighted_linear', 'recency_weighted_exponential', 'recency_weighted_window', 'random_from_top15_pool', 'random_from_top10_pool', 'random_from_top20_pool', 'balanced_spread_fixed_ranges', 'balanced_spread_equal_ranges', 'balanced_spread_random_ranges', 'pattern_learning_from_winners_v1', 'pattern_learning_from_winners_v2', 'skip_distance_frequency_v1', 'skip_distance_frequency_v2', 'sequence_lstm_classifier', 'sequence_lstm_classifier_h32_l1', 'sequence_lstm_classifier_h128_l2', 'sequence_lstm_classifier_seq20', 'sequence_lstm_classifier_h128_l2_e20', 'sequence_lstm_classifier_gridsearch']
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:21:24 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! Available strong number algorithms: ['most_common', 'recency_weighted', 'random']
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:21:25.071508
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in training, praisin' the FSM!
+
+Context:
+  filtered_count: 21
+  total_after_filter: 1770
+  timestamp: 2025-06-27T15:21:25.071508
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.23s
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 1770 training draws in 0.23s
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:21:25.078909
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!
+
+Context:
+  filtered_count: 0
+  total_after_filter: 12
+  timestamp: 2025-06-27T15:21:25.078909
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.01s
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - [FSM DEBUG] Loaded 12 test draws in 0.01s
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! LSTM run method called!
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! LSTM run method called!
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! LSTM run method called!
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! LSTM run method called!
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!
+
+Context:
+  latest_db_date: 2025-06-12
+  meta_date: 2025-05-06
+  timestamp: 2025-06-27T15:21:25.102852
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!
+
+Context:
+  latest_db_date: 2025-06-12
+  meta_date: 2025-05-06
+  timestamp: 2025-06-27T15:21:25.102852
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! LSTM run method called!
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! LSTM run method called!
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!
+
+Context:
+  latest_db_date: 2025-06-12
+  meta_date: 2025-05-06
+  timestamp: 2025-06-27T15:21:25.113619
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!
+
+Context:
+  latest_db_date: 2025-06-12
+  meta_date: 2025-05-06
+  timestamp: 2025-06-27T15:21:25.113619
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!
+
+Context:
+  latest_db_date: 2025-06-12
+  meta_date: 2025-05-06
+  timestamp: 2025-06-27T15:21:25.319618
+
+2025-06-27 18:21:25 UTC - backend_service - INFO - [logging_service.py:log:173] - Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!
+
+Context:
+  latest_db_date: 2025-06-12
+  meta_date: 2025-05-06
+  timestamp: 2025-06-27T15:21:25.319618
+
+2025-06-27 18:21:27 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! [FSM DEBUG] Loaded model from /app/algorithms/dl/models/sequence_classifier_model.pt for fine-tuning
+
+2025-06-27 18:21:27 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! [FSM DEBUG] Loaded model from /app/algorithms/dl/models/sequence_classifier_model.pt for fine-tuning
+
+2025-06-27 18:21:27 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! [FSM DEBUG] Loaded model from /app/algorithms/dl/models/sequence_classifier_model.pt for fine-tuning
+
+2025-06-27 18:21:27 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! [FSM DEBUG] Loaded model from /app/algorithms/dl/models/sequence_classifier_model.pt for fine-tuning
+
+2025-06-27 18:21:27 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! [FSM DEBUG] Loaded model from /app/algorithms/dl/models/sequence_classifier_model.pt for fine-tuning
+
+2025-06-27 18:21:27 UTC - backend_service - INFO - [logging_service.py:log:175] - Arrr! [FSM DEBUG] Loaded model from /app/algorithms/dl/models/sequence_classifier_model.pt for fine-tuning
+
