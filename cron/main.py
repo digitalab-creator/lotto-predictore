@@ -5,14 +5,17 @@ from fastapi import FastAPI
 import uvicorn
 from threading import Thread
 from shared.logging_service import get_cron_logger
-from .api_endpoints import (
+from cron.api_endpoints import (
     call_backend_endpoint,
     health_check_endpoint,
     check_model_files_endpoint,
     cleanup_system_endpoint,
-    backup_database_endpoint
+    backup_database_endpoint,
+    best_model_job_endpoint,
+    fetch_latest_draw_endpoint,
+    test_error_handling_endpoint
 )
-from .scheduler import setup_jobs, run_scheduler
+from cron.scheduler import setup_jobs, run_scheduler
 
 # Add shared directory to Python path
 shared_dir = Path('/app/shared')
@@ -30,6 +33,7 @@ last_successful_job = {
     "fetch-latest-draw": None,
     "generate-weekly-tables": None,
     "update-weekly-winning-combinations": None,
+    "best-model-tables-and-email": None,
     "cleanup-system": None,
     "backup-database": None
 }
@@ -63,6 +67,29 @@ async def backup_database():
     This creates a compressed database dump with timestamp.
     """
     return backup_database_endpoint()
+
+@app.post("/api/best-model-job")
+async def best_model_job():
+    """
+    Endpoint to manually trigger best model table generation and email sending.
+    This is the same logic used by the scheduled job.
+    """
+    return best_model_job_endpoint()
+
+@app.post("/api/fetch-latest-draw")
+async def fetch_latest_draw():
+    """
+    Endpoint to manually trigger fetch latest draw.
+    This is the same logic used by the scheduled job.
+    """
+    return fetch_latest_draw_endpoint()
+
+@app.post("/api/test-error-handling")
+async def test_error_handling():
+    """
+    Test endpoint that deliberately fails to test error handling and email notifications.
+    """
+    return test_error_handling_endpoint()
 
 if __name__ == "__main__":
     logger.info("Arrr! Starting cron service...")

@@ -18,6 +18,13 @@ from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from models import Draw, Model
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 
+def normalize_model_name(name):
+    if name.startswith('main_'):
+        return name[len('main_'):]
+    if name.startswith('strong_'):
+        return name[len('strong_'):]
+    return name
+
 def generate_best_model_tables():
     """
     Generates lottery tables using the best performing model combination (ROI > 1).
@@ -94,21 +101,29 @@ def generate_best_model_tables():
                     "tables": []
                 }
             
-            # Get the model classes
-            main_model_cls = ALGORITHM_REGISTRY.get(main_model_name)
-            strong_model_cls = STRONG_NUMBER_REGISTRY.get(strong_model_name)
+            # Reverse the draws to get chronological order for proper training/test split
+            draws = list(reversed(draws))
+            
+            # Normalize model names for registry and simulation engine
+            main_model_key = normalize_model_name(main_model_name)
+            strong_model_key = normalize_model_name(strong_model_name)
+            
+            main_model_cls = ALGORITHM_REGISTRY.get(main_model_key)
+            strong_model_cls = STRONG_NUMBER_REGISTRY.get(strong_model_key)
             
             if not main_model_cls or not strong_model_cls:
                 logger.error(
                     "Arrr! Could not find model classes!",
                     context={
                         "main_model": main_model_name,
-                        "strong_model": strong_model_name
+                        "strong_model": strong_model_name,
+                        "main_model_key": main_model_key,
+                        "strong_model_key": strong_model_key
                     }
                 )
                 return {
                     "success": False,
-                    "message": f"Could not find model classes: {main_model_name}, {strong_model_name}",
+                    "message": f"Could not find model classes: {main_model_name} -> {main_model_key}, {strong_model_name} -> {strong_model_key}",
                     "tables": []
                 }
             
@@ -128,30 +143,71 @@ def generate_best_model_tables():
             else:
                 top_n = 3
             
-            # Run simulation with the best model
-            results = engine.run_comparison(
-                train_start=train_start,
-                train_end=train_end,
-                test_count=test_count,
-                top_n=top_n,
-                algo_names=[main_model_name],
-                strong_algo_names=[strong_model_name],
-                use_cache=True
+            logger.info(
+                "Arrr! Preparing to run simulation",
+                context={
+                    "num_draws": len(draws),
+                    "main_model_key": main_model_key,
+                    "strong_model_key": strong_model_key,
+                    "train_start": train_start,
+                    "train_end": train_end,
+                    "test_count": test_count
+                }
             )
             
+            try:
+                results = engine.run_comparison(
+                    train_start=train_start,
+                    train_end=train_end,
+                    test_count=test_count,
+                    top_n=top_n,
+                    algo_names=[main_model_key],
+                    strong_algo_names=[strong_model_key],
+                    use_cache=True
+                )
+            except Exception as e:
+                logger.error(
+                    "Arrr! Simulation engine failed!",
+                    context={"error": str(e)}
+                )
+                return {
+                    "success": False,
+                    "message": f"Simulation engine failed: {str(e)}",
+                    "tables": []
+                }
+            
             # Get the best result
-            best_result = results.get((main_model_name, strong_model_name))
+            best_result = results.get((main_model_key, strong_model_key))
             if not best_result:
-                logger.error("Arrr! No results returned from simulation!")
+                logger.error(
+                    "Arrr! No results returned from simulation!",
+                    context={
+                        "main_model_key": main_model_key,
+                        "strong_model_key": strong_model_key,
+                        "results_keys": list(results.keys())
+                    }
+                )
                 return {
                     "success": False,
                     "message": "No results returned from simulation",
                     "tables": []
                 }
             
-            # Get the combinations
+            # Get the combinations from the dates array
             tables = []
-            for combo in best_result.get('combos', []):
+            all_combos = []
+
+            # Extract all combinations from all dates
+            for date_entry in best_result.get('dates', []):
+                date_combos = date_entry.get('combos', [])
+                for combo in date_combos:
+                    # Only add unique combinations (avoid duplicates)
+                    combo_key = tuple(combo["numbers"]) + (combo.get("strong"),)
+                    if combo_key not in [tuple(c["numbers"]) + (c.get("strong"),) for c in all_combos]:
+                        all_combos.append(combo)
+
+            # Convert to table format
+            for combo in all_combos:
                 table = {
                     "numbers": combo["numbers"],
                     "strong": combo.get("strong")

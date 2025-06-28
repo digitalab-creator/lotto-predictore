@@ -3,7 +3,8 @@ import requests
 from datetime import datetime
 from fastapi import HTTPException
 from shared.logging_service import get_cron_logger
-from .job_handlers import cleanup_system, backup_database
+from cron.job_handlers import cleanup_system, backup_database
+from cron.error_handler import handle_cron_error
 
 logger = get_cron_logger()
 
@@ -226,10 +227,11 @@ def cleanup_system_endpoint():
             "timestamp": datetime.now().isoformat()
         }
     except Exception as e:
-        logger.error(
-            "Arrr! Error during manual system cleanup!",
-            context={"error": str(e)}
-        )
+        # Use the error handler for consistent error handling
+        handle_cron_error("cleanup-system-manual", e, {
+            "trigger_type": "manual",
+            "endpoint": "/api/cleanup-system"
+        })
         raise HTTPException(
             status_code=500,
             detail=f"System cleanup failed: {str(e)}"
@@ -241,19 +243,120 @@ def backup_database_endpoint():
     This creates a compressed database dump with timestamp.
     """
     try:
-        logger.info("Arrr! Manual database backup triggered via API!")
         backup_database()
+        return {"status": "success", "message": "Database backup completed successfully"}
+    except Exception as e:
+        # Use the error handler for consistent error handling
+        handle_cron_error("backup-database-manual", e, {
+            "trigger_type": "manual",
+            "endpoint": "/api/backup-database"
+        })
+        raise HTTPException(status_code=500, detail=str(e))
+
+def best_model_job_endpoint():
+    """
+    Endpoint to manually trigger best model table generation and email sending.
+    This is the same logic used by the scheduled job.
+    """
+    try:
+        import requests
+        import os
+        import json
+        
+        backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
+        email_url = os.getenv('EMAIL_SERVICE_URL', 'http://email-service:8000')
+        
+        # First generate the best model tables
+        logger.info("Arrr! Generating best model tables...")
+        generate_response = requests.post(f"{backend_url}/cron/generate-best-model-tables")
+        generate_response.raise_for_status()
+        generate_data = generate_response.json()
+        
+        if not generate_data.get("data", {}).get("success", False):
+            raise Exception(f"Failed to generate best model tables: {generate_data.get('message', 'Unknown error')}")
+        
+        # Extract the data from the generate response
+        tables_data = generate_data["data"]
+        
+        # Prepare email data
+        email_data = {
+            "date": tables_data["date"],
+            "tables": tables_data["tables"],
+            "model_info": tables_data["model_info"]
+        }
+        
+        # Send email directly to email service
+        logger.info("Arrr! Sending best model email...")
+        email_response = requests.post(
+            f"{email_url}/send-best-model-tables",
+            json=email_data,
+            timeout=30
+        )
+        email_response.raise_for_status()
+        
+        return {
+            "status": "success", 
+            "message": "Best model tables generated and email sent successfully",
+            "data": {
+                "date": tables_data["date"],
+                "num_tables": len(tables_data["tables"]),
+                "main_model": tables_data["model_info"]["main_model"],
+                "strong_model": tables_data["model_info"]["strong_model"],
+                "roi_ratio": tables_data["model_info"]["roi_ratio"]
+            }
+        }
+        
+    except Exception as e:
+        # Use the error handler for consistent error handling
+        handle_cron_error("best-model-job-manual", e, {
+            "trigger_type": "manual",
+            "endpoint": "/api/best-model-job"
+        })
+        raise HTTPException(status_code=500, detail=str(e))
+
+def fetch_latest_draw_endpoint():
+    """
+    Endpoint to manually trigger fetch latest draw.
+    This is the same logic used by the scheduled job.
+    """
+    try:
+        import requests
+        import os
+        
+        backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
+        
+        logger.info("Arrr! Fetching latest draw...")
+        response = requests.post(f"{backend_url}/cron/fetch-latest-draw")
+        response.raise_for_status()
+        result = response.json()
+        
         return {
             "status": "success",
-            "message": "Arrr! Database backup completed successfully!",
-            "timestamp": datetime.now().isoformat()
+            "message": "Latest draw fetched successfully",
+            "data": result
         }
+        
     except Exception as e:
-        logger.error(
-            "Arrr! Error during manual database backup!",
-            context={"error": str(e)}
-        )
-        raise HTTPException(
-            status_code=500,
-            detail=f"Database backup failed: {str(e)}"
-        ) 
+        # Use the error handler for consistent error handling
+        handle_cron_error("fetch-latest-draw-manual", e, {
+            "trigger_type": "manual",
+            "endpoint": "/api/fetch-latest-draw"
+        })
+        raise HTTPException(status_code=500, detail=str(e))
+
+def test_error_handling_endpoint():
+    """
+    Test endpoint that deliberately fails to test error handling and email notifications.
+    """
+    try:
+        # Deliberately raise an exception to test error handling
+        raise Exception("This is a test error to verify the error handling system works correctly!")
+        
+    except Exception as e:
+        # Use the error handler for consistent error handling
+        handle_cron_error("test-error-handling", e, {
+            "trigger_type": "manual",
+            "endpoint": "/api/test-error-handling",
+            "purpose": "Testing error notification system"
+        })
+        raise HTTPException(status_code=500, detail=str(e)) 

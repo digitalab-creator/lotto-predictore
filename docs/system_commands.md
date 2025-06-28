@@ -190,7 +190,7 @@ python3 scripts/git_manager.py fetch
 python3 scripts/git_manager.py checkout <commit_id>
 
 # Quick commit and push (with optional messdage)
-python3 scripts/git_manager.py commit_and_push "switched tokeen"
+python3 scripts/git_manager.py commit_and_push "refactore cron service, add db backup"
 ```
 
 ### Environment Setup

@@ -27,8 +27,8 @@ def fetch_latest_draw_magayo():
     resp.raise_for_status()
     data = resp.json()
     if data.get("error", 1) == 303:
-        logger.error("API limit reached (error 303) for latest draw. Stopping script.")
-        raise SystemExit("API limit reached (error 303) for latest draw.")
+        logger.error("API limit reached (error 303) for latest draw.")
+        raise Exception("API limit reached (error 303) for latest draw.")
     if data.get("error", 1) != 0:
         logger.warning(f"No draw or error: {data}")
         return None
