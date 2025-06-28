@@ -98,75 +98,57 @@ def safe_remove_remote(remote_name: str) -> None:
     except:
         pass  # Ignore errors if remote doesn't exist
 
-def commit_all_files(config: GitConfig) -> None:
-    """Commit and push all files to GitHub."""
-    try:
-        # Initialize git if needed
-        try:
-            run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
-        except:
-            run_command('git init', 'Initialize git repository')
+def commit_and_push():
+    """Commit and push changes to GitHub, always using the branch from .env.development"""
+    # Load config to get the branch from .env.development
+    config = load_config()
 
-        # Check if there are any changes
-        status = run_command('git status --porcelain', 'Check for changes')[0]
-        if not status:
-            logger.info("No changes to commit - working tree is clean")
-            sys.exit(0)
-
-        # Get commit message
-        commit_message = ask_commit_message()
-        if not commit_message:
-            logger.error("Empty commit message provided")
-            sys.exit(1)
-
-        # Set git config
-        run_command(f'git config user.name "{config.author_name}"', 
-                   'Set git author name')
-        run_command(f'git config user.email "{config.author_email}"', 
-                   'Set git author email')
-
-        # Add and commit files
-        run_command('git add -A', 'Stage all files')
-        
-        # Check if there are any staged changes
-        staged_changes = run_command('git diff --cached --name-only', 'Check for staged changes')[0]
-        if not staged_changes:
-            logger.info("No changes were staged for commit")
-            sys.exit(0)
-            
-        run_command(f'git commit -m "{commit_message}"', 
-                   'Commit files')
-
-        # Set up remote with token
-        safe_remove_remote('origin')
-        
-        # Insert token into repo URL
-        repo_url_with_token = re.sub(
-            r'https://github\.com/',
-            f'https://{config.github_token}@github.com/',
-            config.repo_url
-        )
-        
-        run_command(f'git remote add origin {repo_url_with_token}', 
-                   'Add remote origin')
-        run_command(f'git branch -M {config.branch}', 
-                   f'Set branch to {config.branch}')
-        
-        # Test repository access
-        try:
-            run_command('git ls-remote origin', 'Test repository access')
-        except subprocess.CalledProcessError:
-            logger.error("Failed to access repository - check your token and repo URL")
-            raise
-
-        run_command(f'git push -u origin {config.branch} --force', 
-                   'Push files to GitHub')
-
-        logger.info(f"Successfully pushed to {config.branch}")
-
-    except Exception as e:
-        logger.error(f"Failed to commit and push: {str(e)}")
+    # Check if we're in a git repository
+    if not os.path.exists('.git'):
+        print("Error: Not a git repository")
         sys.exit(1)
+
+    # Checkout the branch from config (create if missing)
+    branches = run_command('git branch', 'List local branches')[0]
+    branch_names = [b.strip().replace('* ', '') for b in branches.split('\n') if b.strip()]
+    if config.branch not in branch_names:
+        print(f"Branch '{config.branch}' does not exist. Creating it...")
+        run_command(f'git checkout -b {config.branch}', f'Create and switch to branch {config.branch}')
+    else:
+        run_command(f'git checkout {config.branch}', f'Switch to branch {config.branch}')
+
+    # Get current branch (should now be config.branch)
+    current_branch = run_command('git rev-parse --abbrev-ref HEAD', 'Get current branch')[0].strip()
+    print(f"Current branch: {current_branch}")
+
+    # Check if there are any changes
+    status = run_command('git status --porcelain', 'Check for changes')[0]
+    if not status:
+        print("No changes to commit - working tree is clean")
+        sys.exit(0)  # Exit with success code since this is a valid state
+
+    # Add all changes
+    print("Adding changes...")
+    run_command('git add .', 'Add all changes')
+
+    # Check if there are any staged changes
+    staged_changes = run_command('git diff --cached --name-only', 'Check for staged changes')[0]
+    if not staged_changes:
+        print("No changes were staged for commit")
+        sys.exit(0)
+
+    # Get commit message from command line or use default
+    commit_message = ' '.join(sys.argv[1:]) if len(sys.argv) > 1 else f"Update {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+
+    # Commit changes
+    print(f"Committing changes with message: {commit_message}")
+    run_command(f'git commit -m "{commit_message}"', 'Commit changes')
+
+    # Push changes
+    print("Pushing changes...")
+    run_command(f'git push origin {config.branch}', 'Push changes')
+
+    print("Changes successfully committed and pushed!")
 
 def fetch_latest_commit(config: GitConfig) -> None:
     """Fetch the latest commit from the remote repository."""
@@ -242,46 +224,6 @@ def fetch_specific_commit(config: GitConfig, commit_id: str) -> None:
         logger.error(f"Failed to fetch commit: {str(e)}")
         sys.exit(1)
 
-def commit_and_push():
-    """Commit and push changes to GitHub"""
-    # Check if we're in a git repository
-    if not os.path.exists('.git'):
-        print("Error: Not a git repository")
-        sys.exit(1)
-
-    # Get current branch
-    current_branch = run_command('git rev-parse --abbrev-ref HEAD', 'Get current branch')[0].strip()
-    print(f"Current branch: {current_branch}")
-
-    # Check if there are any changes
-    status = run_command('git status --porcelain', 'Check for changes')[0]
-    if not status:
-        print("No changes to commit - working tree is clean")
-        sys.exit(0)  # Exit with success code since this is a valid state
-
-    # Add all changes
-    print("Adding changes...")
-    run_command('git add .', 'Add all changes')
-
-    # Check if there are any staged changes
-    staged_changes = run_command('git diff --cached --name-only', 'Check for staged changes')[0]
-    if not staged_changes:
-        print("No changes were staged for commit")
-        sys.exit(0)
-
-    # Get commit message from command line or use default
-    commit_message = ' '.join(sys.argv[1:]) if len(sys.argv) > 1 else f"Update {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-
-    # Commit changes
-    print(f"Committing changes with message: {commit_message}")
-    run_command(f'git commit -m "{commit_message}"', 'Commit changes')
-
-    # Push changes
-    print("Pushing changes...")
-    run_command(f'git push origin {current_branch}', 'Push changes')
-
-    print("Changes successfully committed and pushed!")
-
 def find_git_root() -> str:
     """Find the root directory of the git repository (where .git lives)."""
     current = os.path.abspath(os.getcwd())
@@ -305,9 +247,7 @@ def main():
 
         if action == 'fetch':
             fetch_latest_commit(config)
-        elif action == 'commit':
-            commit_all_files(config)
-        elif action == 'commit_and_push':
+        elif action in ['commit', 'commit_and_push']:
             commit_and_push()
         elif action == 'checkout' and commit_id:
             fetch_specific_commit(config, commit_id)
