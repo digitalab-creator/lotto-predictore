@@ -5,3 +5,4 @@ from .generated_combination import GeneratedCombination
 from .model import Model, ModelType
 from .prediction import Prediction, PredictionDetail
 from .weekly_winning_combination import WeeklyWinningCombination
+from .cron_job import CronJob, JobStatus

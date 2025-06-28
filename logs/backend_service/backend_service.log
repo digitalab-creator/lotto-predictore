@@ -1471,3 +1471,2193 @@ Fetching latest draw from Magayo API
 Added draw 2025-06-21: [10, 12, 13, 19, 20, 27] + 7
 2025-06-28 15:51:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
 Added draw 2025-06-21: [10, 12, 13, 19, 20, 27] + 7
+2025-06-28 17:35:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:35:52.504390
+2025-06-28 17:35:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:35:52.504390
+2025-06-28 17:35:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:35:52.525467
+2025-06-28 17:35:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:35:52.525467
+2025-06-28 17:36:17 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Failed to start tracking job: fetch-latest-draw
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121377.0205622}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  timestamp: 2025-06-28T14:36:17.065452
+2025-06-28 17:36:17 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Failed to start tracking job: fetch-latest-draw
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121377.0205622}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  timestamp: 2025-06-28T14:36:17.065452
+2025-06-28 17:36:17 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121377.0205622}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  total_elapsed: 0.05s
+  timestamp: 2025-06-28T14:36:17.076489
+2025-06-28 17:36:17 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121377.0205622}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  total_elapsed: 0.05s
+  timestamp: 2025-06-28T14:36:17.076489
+2025-06-28 17:37:03 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:37:03.942280
+2025-06-28 17:37:03 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:37:03.942280
+2025-06-28 17:37:03 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:37:03.963074
+2025-06-28 17:37:03 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:37:03.963074
+2025-06-28 17:38:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:38:25.779220
+2025-06-28 17:38:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:38:25.779220
+2025-06-28 17:38:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:38:25.801681
+2025-06-28 17:38:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:38:25.801681
+2025-06-28 17:38:33 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Failed to start tracking job: fetch-latest-draw
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121513.6251972}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  timestamp: 2025-06-28T14:38:33.689558
+2025-06-28 17:38:33 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Failed to start tracking job: fetch-latest-draw
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121513.6251972}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  timestamp: 2025-06-28T14:38:33.689558
+2025-06-28 17:38:33 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121513.6251972}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  total_elapsed: 0.07s
+  timestamp: 2025-06-28T14:38:33.695234
+2025-06-28 17:38:33 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "RUNNING"
+LINE 1: ..._type, job_metadata) VALUES ('fetch-latest-draw', 'RUNNING',...
+                                                             ^
+
+[SQL: INSERT INTO cron_jobs (job_name, status, completed_at, duration_seconds, error_message, job_type, job_metadata) VALUES (%(job_name)s, %(status)s, %(completed_at)s, %(duration_seconds)s, %(error_message)s, %(job_type)s, %(job_metadata)s::JSON) RETURNING cron_jobs.id, cron_jobs.started_at]
+[parameters: {'job_name': 'fetch-latest-draw', 'status': 'RUNNING', 'completed_at': None, 'duration_seconds': None, 'error_message': None, 'job_type': 'scheduled', 'job_metadata': '{"start_time": 1751121513.6251972}'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  total_elapsed: 0.07s
+  timestamp: 2025-06-28T14:38:33.695234
+2025-06-28 17:39:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:08.709165
+2025-06-28 17:39:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:08.709165
+2025-06-28 17:39:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:08.737178
+2025-06-28 17:39:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:08.737178
+2025-06-28 17:39:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:25.027186
+2025-06-28 17:39:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:25.027186
+2025-06-28 17:39:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:25.047582
+2025-06-28 17:39:25 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:25.047582
+2025-06-28 17:39:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:32.366600
+2025-06-28 17:39:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:32.366600
+2025-06-28 17:39:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:32.386371
+2025-06-28 17:39:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:32.386371
+2025-06-28 17:39:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:44.733678
+2025-06-28 17:39:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:39:44.733678
+2025-06-28 17:39:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:44.754008
+2025-06-28 17:39:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:39:44.754008
+2025-06-28 17:40:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:10.731822
+2025-06-28 17:40:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:10.731822
+2025-06-28 17:40:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:10.751718
+2025-06-28 17:40:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:10.751718
+2025-06-28 17:40:15 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:15.756649
+2025-06-28 17:40:15 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:15.756649
+2025-06-28 17:40:15 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:15.776696
+2025-06-28 17:40:15 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:15.776696
+2025-06-28 17:40:30 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:30.190634
+2025-06-28 17:40:30 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:30.190634
+2025-06-28 17:40:30 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:30.211785
+2025-06-28 17:40:30 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:30.211785
+2025-06-28 17:40:34 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:34.643383
+2025-06-28 17:40:34 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:34.643383
+2025-06-28 17:40:34 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:34.664044
+2025-06-28 17:40:34 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:34.664044
+2025-06-28 17:40:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:38.167632
+2025-06-28 17:40:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:40:38.167632
+2025-06-28 17:40:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:38.191220
+2025-06-28 17:40:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:40:38.191220
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 1
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:40:41.415432
+  timestamp: 2025-06-28T14:40:41.428692
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 1
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:40:41.415432
+  timestamp: 2025-06-28T14:40:41.428692
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:40:41 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:40:41 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Failed to mark job as completed: fetch-latest-draw
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "COMPLETED"
+LINE 1: UPDATE cron_jobs SET status='COMPLETED', completed_at='2025-...
+                                    ^
+
+[SQL: UPDATE cron_jobs SET status=%(status)s, completed_at=%(completed_at)s, duration_seconds=%(duration_seconds)s WHERE cron_jobs.id = %(cron_jobs_id)s]
+[parameters: {'status': 'COMPLETED', 'completed_at': datetime.datetime(2025, 6, 28, 14, 40, 41, 949932), 'duration_seconds': 0.5715906620025635, 'cron_jobs_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  job_id: 1
+  job_name: fetch-latest-draw
+  timestamp: 2025-06-28T14:40:41.967647
+2025-06-28 17:40:41 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Failed to mark job as completed: fetch-latest-draw
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "COMPLETED"
+LINE 1: UPDATE cron_jobs SET status='COMPLETED', completed_at='2025-...
+                                    ^
+
+[SQL: UPDATE cron_jobs SET status=%(status)s, completed_at=%(completed_at)s, duration_seconds=%(duration_seconds)s WHERE cron_jobs.id = %(cron_jobs_id)s]
+[parameters: {'status': 'COMPLETED', 'completed_at': datetime.datetime(2025, 6, 28, 14, 40, 41, 949932), 'duration_seconds': 0.5715906620025635, 'cron_jobs_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  job_id: 1
+  job_name: fetch-latest-draw
+  timestamp: 2025-06-28T14:40:41.967647
+2025-06-28 17:40:41 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "COMPLETED"
+LINE 1: UPDATE cron_jobs SET status='COMPLETED', completed_at='2025-...
+                                    ^
+
+[SQL: UPDATE cron_jobs SET status=%(status)s, completed_at=%(completed_at)s, duration_seconds=%(duration_seconds)s WHERE cron_jobs.id = %(cron_jobs_id)s]
+[parameters: {'status': 'COMPLETED', 'completed_at': datetime.datetime(2025, 6, 28, 14, 40, 41, 949932), 'duration_seconds': 0.5715906620025635, 'cron_jobs_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  total_elapsed: 0.59s
+  timestamp: 2025-06-28T14:40:41.974495
+2025-06-28 17:40:41 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "COMPLETED"
+LINE 1: UPDATE cron_jobs SET status='COMPLETED', completed_at='2025-...
+                                    ^
+
+[SQL: UPDATE cron_jobs SET status=%(status)s, completed_at=%(completed_at)s, duration_seconds=%(duration_seconds)s WHERE cron_jobs.id = %(cron_jobs_id)s]
+[parameters: {'status': 'COMPLETED', 'completed_at': datetime.datetime(2025, 6, 28, 14, 40, 41, 949932), 'duration_seconds': 0.5715906620025635, 'cron_jobs_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  total_elapsed: 0.59s
+  timestamp: 2025-06-28T14:40:41.974495
+2025-06-28 17:40:41 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Cron job failed: fetch-latest-draw
+Context:
+  job_id: 1
+  job_name: fetch-latest-draw
+  error_message: Error fetching latest draw: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "COMPLETED"
+LINE 1: UPDATE cron_jobs SET status='COMPLETED', completed_at='2025-...
+                                    ^
+
+[SQL: UPDATE cron_jobs SET status=%(status)s, completed_at=%(completed_at)s, duration_seconds=%(duration_seconds)s WHERE cron_jobs.id = %(cron_jobs_id)s]
+[parameters: {'status': 'COMPLETED', 'completed_at': datetime.datetime(2025, 6, 28, 14, 40, 41, 949932), 'duration_seconds': 0.5715906620025635, 'cron_jobs_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  duration_seconds: 0.5967822074890137
+  completed_at: 2025-06-28T14:40:41.975061
+  timestamp: 2025-06-28T14:40:41.980175
+2025-06-28 17:40:41 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Cron job failed: fetch-latest-draw
+Context:
+  job_id: 1
+  job_name: fetch-latest-draw
+  error_message: Error fetching latest draw: (psycopg2.errors.InvalidTextRepresentation) invalid input value for enum job_status: "COMPLETED"
+LINE 1: UPDATE cron_jobs SET status='COMPLETED', completed_at='2025-...
+                                    ^
+
+[SQL: UPDATE cron_jobs SET status=%(status)s, completed_at=%(completed_at)s, duration_seconds=%(duration_seconds)s WHERE cron_jobs.id = %(cron_jobs_id)s]
+[parameters: {'status': 'COMPLETED', 'completed_at': datetime.datetime(2025, 6, 28, 14, 40, 41, 949932), 'duration_seconds': 0.5715906620025635, 'cron_jobs_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+  duration_seconds: 0.5967822074890137
+  completed_at: 2025-06-28T14:40:41.975061
+  timestamp: 2025-06-28T14:40:41.980175
+2025-06-28 17:41:01 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:01.373345
+2025-06-28 17:41:01 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:01.373345
+2025-06-28 17:41:01 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:01.401757
+2025-06-28 17:41:01 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:01.401757
+2025-06-28 17:41:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:14.540246
+2025-06-28 17:41:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:14.540246
+2025-06-28 17:41:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:14.560986
+2025-06-28 17:41:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:14.560986
+2025-06-28 17:41:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:18.039879
+2025-06-28 17:41:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:18.039879
+2025-06-28 17:41:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:18.067914
+2025-06-28 17:41:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:18.067914
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 2
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:41:20.160367
+  timestamp: 2025-06-28T14:41:20.171424
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 2
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:41:20.160367
+  timestamp: 2025-06-28T14:41:20.171424
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:41:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:41:20 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: 'completed' is not among the defined enum values. Enum name: jobstatus. Possible values: RUNNING, COMPLETED, FAILED
+  total_elapsed: 0.43s
+  timestamp: 2025-06-28T14:41:20.562139
+2025-06-28 17:41:20 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: 'completed' is not among the defined enum values. Enum name: jobstatus. Possible values: RUNNING, COMPLETED, FAILED
+  total_elapsed: 0.43s
+  timestamp: 2025-06-28T14:41:20.562139
+2025-06-28 17:41:57 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:57.598754
+2025-06-28 17:41:57 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:41:57.598754
+2025-06-28 17:41:57 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:57.618320
+2025-06-28 17:41:57 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:41:57.618320
+2025-06-28 17:42:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:00.899215
+2025-06-28 17:42:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:00.899215
+2025-06-28 17:42:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:00.919727
+2025-06-28 17:42:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:00.919727
+2025-06-28 17:42:39 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:39.518266
+2025-06-28 17:42:39 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:39.518266
+2025-06-28 17:42:39 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:39.541337
+2025-06-28 17:42:39 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:39.541337
+2025-06-28 17:42:43 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:43.059273
+2025-06-28 17:42:43 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:43.059273
+2025-06-28 17:42:43 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:43.083384
+2025-06-28 17:42:43 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:43.083384
+2025-06-28 17:42:48 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:48.882806
+2025-06-28 17:42:48 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:42:48.882806
+2025-06-28 17:42:48 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:48.905421
+2025-06-28 17:42:48 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:42:48.905421
+2025-06-28 17:43:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 3
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:43:32.824816
+  timestamp: 2025-06-28T14:43:32.835680
+2025-06-28 17:43:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 3
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:43:32.824816
+  timestamp: 2025-06-28T14:43:32.835680
+2025-06-28 17:43:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:43:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:43:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:43:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:43:33 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:43:33 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:43:33 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: 'completed' is not among the defined enum values. Enum name: jobstatus. Possible values: RUNNING, COMPLETED, FAILED
+  total_elapsed: 0.42s
+  timestamp: 2025-06-28T14:43:33.234980
+2025-06-28 17:43:33 UTC - backend_service - ERROR - [logging_service.py:error:194] -
+Arrr! Error fetching latest draw!
+Context:
+  error: 'completed' is not among the defined enum values. Enum name: jobstatus. Possible values: RUNNING, COMPLETED, FAILED
+  total_elapsed: 0.42s
+  timestamp: 2025-06-28T14:43:33.234980
+2025-06-28 17:45:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:45:52.455970
+2025-06-28 17:45:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:45:52.455970
+2025-06-28 17:45:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:45:52.476415
+2025-06-28 17:45:52 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:45:52.476415
+2025-06-28 17:46:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:46:14.454315
+2025-06-28 17:46:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:46:14.454315
+2025-06-28 17:46:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:46:14.483847
+2025-06-28 17:46:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:46:14.483847
+2025-06-28 17:46:24 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:46:24.529423
+2025-06-28 17:46:24 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T14:46:24.529423
+2025-06-28 17:46:24 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:46:24.551725
+2025-06-28 17:46:24 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T14:46:24.551725
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 4
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:46:28.087297
+  timestamp: 2025-06-28T14:46:28.101176
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 4
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:46:28.087297
+  timestamp: 2025-06-28T14:46:28.101176
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Script started, praisin' the FSM!
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Completed cron job: fetch-latest-draw
+Context:
+  job_id: 4
+  job_name: fetch-latest-draw
+  duration_seconds: 0.48169541358947754
+  completed_at: 2025-06-28T14:46:28.544489
+  timestamp: 2025-06-28T14:46:28.564514
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Completed cron job: fetch-latest-draw
+Context:
+  job_id: 4
+  job_name: fetch-latest-draw
+  duration_seconds: 0.48169541358947754
+  completed_at: 2025-06-28T14:46:28.544489
+  timestamp: 2025-06-28T14:46:28.564514
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Latest draw fetched successfully!
+Context:
+  total_time: 0.48s
+  job_id: 4
+  timestamp: 2025-06-28T14:46:28.574761
+2025-06-28 17:46:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Latest draw fetched successfully!
+Context:
+  total_time: 0.48s
+  job_id: 4
+  timestamp: 2025-06-28T14:46:28.574761
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 5
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:47:08.006589
+  timestamp: 2025-06-28T14:47:08.014949
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Started tracking cron job: fetch-latest-draw
+Context:
+  job_id: 5
+  job_name: fetch-latest-draw
+  job_type: scheduled
+  started_at: 2025-06-28T14:47:08.006589
+  timestamp: 2025-06-28T14:47:08.014949
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Fetching latest draw from Magayo API
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Draw for 2025-06-21 already exists in DB. No action needed.
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Completed cron job: fetch-latest-draw
+Context:
+  job_id: 5
+  job_name: fetch-latest-draw
+  duration_seconds: 0.2207961082458496
+  completed_at: 2025-06-28T14:47:08.225683
+  timestamp: 2025-06-28T14:47:08.237122
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Completed cron job: fetch-latest-draw
+Context:
+  job_id: 5
+  job_name: fetch-latest-draw
+  duration_seconds: 0.2207961082458496
+  completed_at: 2025-06-28T14:47:08.225683
+  timestamp: 2025-06-28T14:47:08.237122
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Latest draw fetched successfully!
+Context:
+  total_time: 0.22s
+  job_id: 5
+  timestamp: 2025-06-28T14:47:08.244735
+2025-06-28 17:47:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Latest draw fetched successfully!
+Context:
+  total_time: 0.22s
+  job_id: 5
+  timestamp: 2025-06-28T14:47:08.244735

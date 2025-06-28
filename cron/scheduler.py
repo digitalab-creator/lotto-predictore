@@ -70,8 +70,8 @@ def _run_job_with_error_handling(job_name: str, job_function, last_successful_jo
         # Run the job
         job_function()
         
-        # Update last successful job timestamp
-        last_successful_job[job_name] = datetime.now()
+        # Note: Job tracking is now handled by the backend database
+        # The last_successful_job dict is kept for backward compatibility but not updated
         
         logger.info(f"Arrr! Job '{job_name}' completed successfully!")
         

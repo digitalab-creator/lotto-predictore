@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from db.base import SessionLocal
 from datetime import date, datetime, timedelta
 from services.simulation_engine import SimulationEngine
+from services.cron_tracker import CronTracker
 from fastapi.responses import PlainTextResponse, JSONResponse
 from sqlalchemy import desc, text
 from models import Draw
@@ -375,11 +376,22 @@ async def generate_weekly_combinations():
     start_time = time.time()
     logger.info("Arrr! Starting weekly combination generation, praisin' the FSM!", context={"start_time": start_time})
     
+    # Initialize cron tracking
+    db = next(get_db())
+    tracker = CronTracker(db)
+    cron_job = None
+    
     try:
+        # Start tracking the job
+        cron_job = tracker.start_job(
+            job_name="generate-weekly-combinations",
+            job_type="scheduled",
+            metadata={"start_time": start_time}
+        )
+        
         # Use the same logic as the /generate-combinations endpoint
         from services.simulation_engine import SimulationEngine
         
-        db = next(get_db())
         try:
             # Get all draws, filtering out strong_number == 8
             draws_start = time.time()
@@ -397,8 +409,11 @@ async def generate_weekly_combinations():
             )
             
             if len(draws) < 20:
-                logger.error("Not enough draws in database for recommendation.")
-                return {"status": "error", "message": "Not enough draws in database for recommendation."}
+                error_msg = "Not enough draws in database for recommendation."
+                logger.error(error_msg)
+                if cron_job:
+                    tracker.fail_job(cron_job, error_msg, time.time() - start_time)
+                return {"status": "error", "message": error_msg}
             
             # Use last 12 draws as test set, rest as training
             train_draws = draws[:-12]
@@ -488,8 +503,11 @@ async def generate_weekly_combinations():
             )
             
             if not best_pair:
-                logger.error("No algorithm produced results.")
-                return {"status": "error", "message": "No algorithm produced results."}
+                error_msg = "No algorithm produced results."
+                logger.error(error_msg)
+                if cron_job:
+                    tracker.fail_job(cron_job, error_msg, time.time() - start_time)
+                return {"status": "error", "message": error_msg}
             
             # Generate final combinations
             generation_start = time.time()
@@ -566,6 +584,11 @@ async def generate_weekly_combinations():
             db_time = time.time() - db_start
             
             total_time = time.time() - start_time
+            
+            # Mark job as completed
+            if cron_job:
+                tracker.complete_job(cron_job, total_time)
+            
             logger.info(
                 f"Arrr! Generated {len(combos)} weekly combinations using {main_algo_name} + {strong_algo_name}",
                 context={
@@ -593,76 +616,277 @@ async def generate_weekly_combinations():
             }
             
         except Exception as e:
+            error_msg = f"Error in weekly combination generation: {str(e)}"
             logger.error(
                 "Arrr! Error in weekly combination generation!",
                 context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
             )
+            if cron_job:
+                tracker.fail_job(cron_job, error_msg, time.time() - start_time)
             db.rollback()
             raise
         finally:
             db.close()
             
     except Exception as e:
+        error_msg = f"Error in weekly combination generation endpoint: {str(e)}"
         logger.error(
             "Arrr! Error in weekly combination generation endpoint!",
             context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
         )
+        if cron_job:
+            tracker.fail_job(cron_job, error_msg, time.time() - start_time)
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/cron/fetch-latest-draw")
 async def fetch_latest_draw():
     """Fetch latest draw - called by cron service"""
+    start_time = time.time()
+    
+    # Initialize cron tracking
+    db = next(get_db())
+    tracker = CronTracker(db)
+    cron_job = None
+    
     try:
+        # Start tracking the job
+        cron_job = tracker.start_job(
+            job_name="fetch-latest-draw",
+            job_type="scheduled",
+            metadata={"start_time": start_time}
+        )
+        
         # Import and run the script
         from services.fetch_latest_draw import main as fetch_draw
         fetch_draw()
+        
+        total_time = time.time() - start_time
+        
+        # Mark job as completed
+        if cron_job:
+            tracker.complete_job(cron_job, total_time)
+        
+        logger.info(
+            "Arrr! Latest draw fetched successfully!",
+            context={
+                "total_time": f"{total_time:.2f}s",
+                "job_id": cron_job.id if cron_job else None
+            }
+        )
+        
         return {"status": "success", "message": "Latest draw fetched successfully"}
+        
     except Exception as e:
+        error_msg = f"Error fetching latest draw: {str(e)}"
+        logger.error(
+            "Arrr! Error fetching latest draw!",
+            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
+        )
+        if cron_job:
+            tracker.fail_job(cron_job, error_msg, time.time() - start_time)
         raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
 
 @router.post("/cron/generate-weekly-tables")
 async def generate_weekly_tables():
     """Generate weekly tables - called by cron service"""
+    start_time = time.time()
+    
+    # Initialize cron tracking
+    db = next(get_db())
+    tracker = CronTracker(db)
+    cron_job = None
+    
     try:
+        # Start tracking the job
+        cron_job = tracker.start_job(
+            job_name="generate-weekly-tables",
+            job_type="scheduled",
+            metadata={"start_time": start_time}
+        )
+        
         # Import and run the script
         from scripts.generate_weekly_tables import main as generate_tables
         generate_tables()
+        
+        total_time = time.time() - start_time
+        
+        # Mark job as completed
+        if cron_job:
+            tracker.complete_job(cron_job, total_time)
+        
+        logger.info(
+            "Arrr! Weekly tables generated successfully!",
+            context={
+                "total_time": f"{total_time:.2f}s",
+                "job_id": cron_job.id if cron_job else None
+            }
+        )
+        
         return {"status": "success", "message": "Weekly tables generated successfully"}
+        
     except Exception as e:
+        error_msg = f"Error generating weekly tables: {str(e)}"
+        logger.error(
+            "Arrr! Error generating weekly tables!",
+            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
+        )
+        if cron_job:
+            tracker.fail_job(cron_job, error_msg, time.time() - start_time)
         raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
 
 @router.post("/cron/update-weekly-winning-combinations")
 async def update_weekly_winning_combinations():
     """Update weekly winning combinations - called by cron service"""
+    start_time = time.time()
+    
+    # Initialize cron tracking
+    db = next(get_db())
+    tracker = CronTracker(db)
+    cron_job = None
+    
     try:
+        # Start tracking the job
+        cron_job = tracker.start_job(
+            job_name="update-weekly-winning-combinations",
+            job_type="scheduled",
+            metadata={"start_time": start_time}
+        )
+        
         # Import and run the script
         from scripts.update_weekly_winning_combinations import update_weekly_winning_combinations
         update_weekly_winning_combinations()
+        
+        total_time = time.time() - start_time
+        
+        # Mark job as completed
+        if cron_job:
+            tracker.complete_job(cron_job, total_time)
+        
+        logger.info(
+            "Arrr! Weekly winning combinations updated successfully!",
+            context={
+                "total_time": f"{total_time:.2f}s",
+                "job_id": cron_job.id if cron_job else None
+            }
+        )
+        
         return {"status": "success", "message": "Weekly winning combinations updated successfully"}
+        
     except Exception as e:
+        error_msg = f"Error updating weekly winning combinations: {str(e)}"
+        logger.error(
+            "Arrr! Error updating weekly winning combinations!",
+            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
+        )
+        if cron_job:
+            tracker.fail_job(cron_job, error_msg, time.time() - start_time)
         raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
 
 @router.post("/cron/generate-best-model-tables")
 async def generate_best_model_tables():
     """Generate tables using the best performing model (ROI > 1) - called by cron service"""
+    start_time = time.time()
+    
+    # Initialize cron tracking
+    db = next(get_db())
+    tracker = CronTracker(db)
+    cron_job = None
+    
     try:
+        # Start tracking the job
+        cron_job = tracker.start_job(
+            job_name="generate-best-model-tables",
+            job_type="scheduled",
+            metadata={"start_time": start_time}
+        )
+        
         # Import and run the script
         from scripts.generate_best_model_tables import generate_best_model_tables
         result = generate_best_model_tables()
+        
+        total_time = time.time() - start_time
+        
+        # Mark job as completed
+        if cron_job:
+            tracker.complete_job(cron_job, total_time)
+        
+        logger.info(
+            "Arrr! Best model tables generated successfully!",
+            context={
+                "total_time": f"{total_time:.2f}s",
+                "job_id": cron_job.id if cron_job else None
+            }
+        )
+        
         return {"status": "success", "message": "Best model tables generated successfully", "data": result}
+        
     except Exception as e:
+        error_msg = f"Error generating best model tables: {str(e)}"
+        logger.error(
+            "Arrr! Error generating best model tables!",
+            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
+        )
+        if cron_job:
+            tracker.fail_job(cron_job, error_msg, time.time() - start_time)
         raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
 
 @router.post("/cron/send-best-model-email")
 async def send_best_model_email():
     """Send email with best model tables - called by cron service"""
+    start_time = time.time()
+    
+    # Initialize cron tracking
+    db = next(get_db())
+    tracker = CronTracker(db)
+    cron_job = None
+    
     try:
+        # Start tracking the job
+        cron_job = tracker.start_job(
+            job_name="send-best-model-email",
+            job_type="scheduled",
+            metadata={"start_time": start_time}
+        )
+        
         # Import and run the script
         from scripts.send_best_model_email import send_best_model_email
         result = send_best_model_email()
+        
+        total_time = time.time() - start_time
+        
+        # Mark job as completed
+        if cron_job:
+            tracker.complete_job(cron_job, total_time)
+        
+        logger.info(
+            "Arrr! Best model email sent successfully!",
+            context={
+                "total_time": f"{total_time:.2f}s",
+                "job_id": cron_job.id if cron_job else None
+            }
+        )
+        
         return {"status": "success", "message": "Best model email sent successfully", "data": result}
+        
     except Exception as e:
+        error_msg = f"Error sending best model email: {str(e)}"
+        logger.error(
+            "Arrr! Error sending best model email!",
+            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
+        )
+        if cron_job:
+            tracker.fail_job(cron_job, error_msg, time.time() - start_time)
         raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
 
 # Include the router in the main app
 app.include_router(router)
@@ -692,6 +916,31 @@ async def health_check(db: Session = Depends(get_db)):
                     "database": "down",
                     "error": str(e)
                 }
+            }
+        )
+
+@app.get("/cron/status")
+async def get_cron_status(db: Session = Depends(get_db)):
+    """Get detailed status of all cron jobs from the database"""
+    try:
+        tracker = CronTracker(db)
+        job_summary = tracker.get_job_status_summary()
+        
+        return {
+            "status": "success",
+            "jobs": job_summary,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    except Exception as e:
+        logger.error(
+            "Arrr! Failed to get cron status!",
+            context={"error": str(e)}
+        )
+        raise HTTPException(
+            status_code=500,
+            detail={
+                "status": "error",
+                "message": f"Failed to get cron status: {str(e)}"
             }
         )
 

@@ -14,7 +14,7 @@ def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
     
     Args:
         endpoint (str): The endpoint to call (e.g., '/cron/generate-weekly-combinations')
-        last_successful_job (dict): Dictionary to track last successful job times
+        last_successful_job (dict): Dictionary to track last successful job times (deprecated - now using database)
     """
     try:
         backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
@@ -41,10 +41,8 @@ def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
         response = requests.post(url)
         response.raise_for_status()
         
-        # Update last successful job timestamp
-        job_name = endpoint.split('/')[-1]
-        if job_name in last_successful_job:
-            last_successful_job[job_name] = datetime.now()
+        # Note: Job tracking is now handled by the backend database
+        # The last_successful_job dict is kept for backward compatibility but not updated
         
         logger.info(f"Arrr! Successfully called {endpoint}: {response.json()}")
     except requests.exceptions.ConnectionError as e:
@@ -104,6 +102,11 @@ def health_check_endpoint(last_successful_job: dict):
         backend_health = requests.get(f"{backend_url}/health")
         backend_health.raise_for_status()
         
+        # Get cron job status from database
+        cron_status = requests.get(f"{backend_url}/cron/status")
+        cron_status.raise_for_status()
+        cron_data = cron_status.json()
+        
         # Check if any jobs are scheduled
         import schedule
         if not schedule.jobs:
@@ -112,24 +115,15 @@ def health_check_endpoint(last_successful_job: dict):
                 detail="No jobs scheduled"
             )
         
-        # Check last successful job times
-        now = datetime.now()
-        job_status = {}
-        for job_name, last_success in last_successful_job.items():
-            if last_success is None:
-                job_status[job_name] = "never_run"
-            else:
-                # If job hasn't run in 24 hours, mark it as stale
-                hours_since_last_run = (now - last_success).total_seconds() / 3600
-                job_status[job_name] = "stale" if hours_since_last_run > 24 else "healthy"
-        
         return {
             "status": "healthy",
             "services": {
                 "cron": "up",
                 "backend": "up",
-                "jobs": job_status
-            }
+                "database_tracking": "up",
+                "jobs": cron_data.get("jobs", {})
+            },
+            "timestamp": cron_data.get("timestamp")
         }
     except requests.exceptions.RequestException as e:
         logger.error("Health check failed - backend connection error", context={'error': str(e)})
