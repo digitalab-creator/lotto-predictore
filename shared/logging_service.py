@@ -7,6 +7,21 @@ from typing import Any, Dict, Optional, List
 from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 import shutil
 import inspect
+import threading
+
+class CallerAwareFormatter(logging.Formatter):
+    """Custom formatter that handles missing caller fields gracefully."""
+    
+    def format(self, record):
+        # Ensure caller fields exist with defaults
+        if not hasattr(record, 'caller_file'):
+            record.caller_file = 'unknown'
+        if not hasattr(record, 'caller_func'):
+            record.caller_func = 'unknown'
+        if not hasattr(record, 'caller_lineno'):
+            record.caller_lineno = 0
+            
+        return super().format(record)
 
 class LoggingService:
     @staticmethod
@@ -74,6 +89,11 @@ class LoggingService:
         self.service_name = service_name
         self.logger = logging.getLogger(service_name)
         
+        # Check if logger is already configured to prevent duplicate handlers
+        if self.logger.handlers:
+            # Logger already configured, just return
+            return
+        
         # Get log directory from environment or use default
         base_log_dir = os.getenv('LOG_DIR', '/app/logs')
         self.logs_dir = Path(base_log_dir) / service_name
@@ -89,8 +109,8 @@ class LoggingService:
         # Console handler with Israel timezone
         console_handler = logging.StreamHandler()
         console_handler.setLevel(getattr(logging, log_level))
-        console_format = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s',
+        console_format = CallerAwareFormatter(
+            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s\n',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         console_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
@@ -107,28 +127,16 @@ class LoggingService:
             encoding='utf-8'
         )
         file_handler.setLevel(getattr(logging, log_level))
-        file_format = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s',
+        file_format = CallerAwareFormatter(
+            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s\n',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         file_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
         file_handler.setFormatter(file_format)
         
-        # Time-based rotation (weekly)
-        time_handler = TimedRotatingFileHandler(
-            log_file,
-            when='midnight',
-            interval=1,
-            backupCount=7,  # Keep logs for 7 days
-            encoding='utf-8'
-        )
-        time_handler.setLevel(getattr(logging, log_level))
-        time_handler.setFormatter(file_format)
-        
-        # Add all handlers
+        # Add handlers (only console and file, remove time-based to prevent duplicates)
         self.logger.addHandler(console_handler)
         self.logger.addHandler(file_handler)
-        self.logger.addHandler(time_handler)
         
         # Log that the service is initialized
         self.logger.info("Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily")
@@ -151,8 +159,12 @@ class LoggingService:
         
         stack = inspect.stack()
         caller_func = caller_file = caller_lineno = None
+        
+        # Skip logging service internal methods to find the actual caller
+        logging_service_methods = {'log', 'info', 'warning', 'error', 'debug'}
         for frame in stack:
-            if frame.function != 'log':
+            if (frame.function not in logging_service_methods and 
+                'logging_service.py' not in frame.filename):
                 caller_func = frame.function
                 caller_file = frame.filename.split('/')[-1]
                 caller_lineno = frame.lineno
@@ -200,17 +212,22 @@ class LoggingService:
 # Create a singleton instance for each service
 _cron_logger = None
 _backend_logger = None
+_logger_lock = threading.Lock()
 
 def get_cron_logger() -> LoggingService:
     """Get the cron service logger instance"""
     global _cron_logger
     if _cron_logger is None:
-        _cron_logger = LoggingService('cron_service')
+        with _logger_lock:
+            if _cron_logger is None:
+                _cron_logger = LoggingService('cron_service')
     return _cron_logger
 
 def get_backend_logger() -> LoggingService:
     """Get the backend service logger instance"""
     global _backend_logger
     if _backend_logger is None:
-        _backend_logger = LoggingService('backend_service')
+        with _logger_lock:
+            if _backend_logger is None:
+                _backend_logger = LoggingService('backend_service')
     return _backend_logger 

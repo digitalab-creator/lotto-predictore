@@ -288,3 +288,48 @@ Arrr! Error notification sent for job 'test-error-handling'
 Context:
   job_name: test-error-handling
   timestamp: 2025-06-28T13:05:16.572906
+2025-06-28 19:29:33 UTC - cron_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 19:29:33 UTC - cron_service - INFO - [main.py:<module>:93] -
+Arrr! Starting cron service...
+
+2025-06-28 19:29:33 UTC - cron_service - INFO - [scheduler.py:setup_jobs:49] -
+Arrr! All jobs scheduled successfully!
+
+2025-06-28 20:04:16 UTC - cron_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:04:16 UTC - cron_service - INFO - [main.py:<module>:93] -
+Arrr! Starting cron service...
+
+2025-06-28 20:04:16 UTC - cron_service - INFO - [scheduler.py:setup_jobs:49] -
+Arrr! All jobs scheduled successfully!
+
+2025-06-28 20:08:14 UTC - cron_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:08:14 UTC - cron_service - INFO - [main.py:<module>:93] -
+Arrr! Starting cron service...
+
+2025-06-28 20:08:14 UTC - cron_service - INFO - [scheduler.py:setup_jobs:49] -
+Arrr! All jobs scheduled successfully!
+
+2025-06-28 20:13:23 UTC - cron_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:13:23 UTC - cron_service - INFO - [main.py:<module>:93] -
+Arrr! Starting cron service...
+
+2025-06-28 20:13:23 UTC - cron_service - INFO - [scheduler.py:setup_jobs:49] -
+Arrr! All jobs scheduled successfully!
+
+2025-06-28 20:20:13 UTC - cron_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:20:13 UTC - cron_service - INFO - [main.py:<module>:93] -
+Arrr! Starting cron service...
+
+2025-06-28 20:20:13 UTC - cron_service - INFO - [scheduler.py:setup_jobs:49] -
+Arrr! All jobs scheduled successfully!
+

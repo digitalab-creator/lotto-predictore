@@ -17,13 +17,7 @@ from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from models import Draw, Model
 from config import NUM_COMBINATIONS_TO_RECOMMEND
-
-def normalize_model_name(name):
-    if name.startswith('main_'):
-        return name[len('main_'):]
-    if name.startswith('strong_'):
-        return name[len('strong_'):]
-    return name
+from utils.model_utils import normalize_model_name
 
 def generate_best_model_tables():
     """

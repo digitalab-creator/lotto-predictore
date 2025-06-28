@@ -23,7 +23,7 @@ from config import (
     NUM_COMBINATIONS_TO_RECOMMEND
 )
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
-from services.simulation_engine import calculate_roi_with_tax
+from services.simulation_helpers.simulation_utils import calculate_roi_with_tax
 from .lstm_model import LottoLSTM, draws_to_sequences
 
 logger = get_backend_logger()

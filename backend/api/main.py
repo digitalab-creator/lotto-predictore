@@ -6,7 +6,12 @@ from algorithms import register_algorithms, get_registered_algorithms
 # Import route modules
 from api.routes.simulation import router as simulation_router
 from api.routes.combinations import router as combinations_router
-from api.routes.cron import router as cron_router
+from api.routes.cron import (
+    weekly_combinations_router,
+    draw_fetching_router,
+    model_tables_router,
+    status_router
+)
 from api.routes.system import router as system_router
 
 # Initialize FastAPI app
@@ -35,5 +40,8 @@ def root():
 # Include all route modules
 app.include_router(simulation_router, tags=["simulation"])
 app.include_router(combinations_router, tags=["combinations"])
-app.include_router(cron_router, tags=["cron"])
+app.include_router(weekly_combinations_router, tags=["cron"])
+app.include_router(draw_fetching_router, tags=["cron"])
+app.include_router(model_tables_router, tags=["cron"])
+app.include_router(status_router, tags=["cron"])
 app.include_router(system_router, tags=["system"]) 

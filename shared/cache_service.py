@@ -162,13 +162,54 @@ class CacheService:
             return {}
         
         try:
+            # First, check if file is empty or corrupted
+            file_size = self.cache_file.stat().st_size
+            if file_size == 0:
+                self.logger.warning(
+                    "Cache file is empty, starting fresh",
+                    context={"cache_file": str(self.cache_file)}
+                )
+                return {}
+            
             with open(self.cache_file, 'r', encoding='utf-8') as f:
-                cache_data = json.load(f)
+                content = f.read().strip()
+                
+            # Check if content is empty after stripping whitespace
+            if not content:
+                self.logger.warning(
+                    "Cache file is empty after stripping whitespace, starting fresh",
+                    context={"cache_file": str(self.cache_file)}
+                )
+                return {}
+                
+            cache_data = json.loads(content)
+            
+            # Validate cache structure
+            if not isinstance(cache_data, dict):
+                self.logger.warning(
+                    "Cache file contains invalid structure (not a dict), starting fresh",
+                    context={
+                        "cache_file": str(self.cache_file),
+                        "cache_type": type(cache_data).__name__
+                    }
+                )
+                return {}
             
             # Deserialize values
             for entry in cache_data.values():
                 if 'value' in entry and isinstance(entry['value'], dict) and 'type' in entry['value']:
-                    entry['value'] = self._deserialize_value(entry['value'])
+                    try:
+                        entry['value'] = self._deserialize_value(entry['value'])
+                    except Exception as e:
+                        self.logger.warning(
+                            f"Failed to deserialize cache entry: {e}",
+                            context={
+                                "cache_file": str(self.cache_file),
+                                "error": str(e)
+                            }
+                        )
+                        # Remove the problematic entry
+                        continue
             
             self.logger.debug(
                 f"Cache loaded from file: {len(cache_data)} entries",
@@ -178,14 +219,32 @@ class CacheService:
                 }
             )
             return cache_data
-        except (json.JSONDecodeError, FileNotFoundError) as e:
+        except (json.JSONDecodeError, FileNotFoundError, UnicodeDecodeError) as e:
             self.logger.warning(
                 f"Error loading cache, starting fresh: {e}",
                 context={
                     "cache_file": str(self.cache_file),
-                    "error": str(e)
+                    "error": str(e),
+                    "timestamp": datetime.now().isoformat()
                 }
             )
+            # Backup corrupted file and start fresh
+            try:
+                backup_file = self.cache_file.with_suffix('.json.corrupted')
+                if self.cache_file.exists():
+                    self.cache_file.rename(backup_file)
+                    self.logger.info(
+                        f"Corrupted cache file backed up to: {backup_file}",
+                        context={"backup_file": str(backup_file)}
+                    )
+            except Exception as backup_error:
+                self.logger.error(
+                    f"Failed to backup corrupted cache file: {backup_error}",
+                    context={
+                        "cache_file": str(self.cache_file),
+                        "backup_error": str(backup_error)
+                    }
+                )
             return {}
     
     def _save_cache(self, cache_data: Dict[str, Dict[str, Any]]) -> None:
@@ -203,8 +262,14 @@ class CacheService:
                 serialized_entry['value'] = self._serialize_value(entry['value'])
                 serialized_data[key] = serialized_entry
             
-            with open(self.cache_file, 'w', encoding='utf-8') as f:
-                json.dump(serialized_data, f, indent=2)
+            # Use atomic write to prevent corruption
+            temp_file = self.cache_file.with_suffix('.tmp')
+            
+            with open(temp_file, 'w', encoding='utf-8') as f:
+                json.dump(serialized_data, f, indent=2, ensure_ascii=False)
+            
+            # Atomic move to final location
+            temp_file.replace(self.cache_file)
             
             self.logger.debug(
                 f"Cache saved to file: {len(cache_data)} entries",
@@ -218,9 +283,17 @@ class CacheService:
                 f"Error saving cache: {e}",
                 context={
                     "cache_file": str(self.cache_file),
-                    "error": str(e)
+                    "error": str(e),
+                    "timestamp": datetime.now().isoformat()
                 }
             )
+            # Clean up temp file if it exists
+            try:
+                temp_file = self.cache_file.with_suffix('.tmp')
+                if temp_file.exists():
+                    temp_file.unlink()
+            except Exception:
+                pass
     
     def _is_expired(self, timestamp: str) -> bool:
         """

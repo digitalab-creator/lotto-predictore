@@ -9,7 +9,7 @@ from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND, SEQUENCE_CLASSIFIER_MODEL_DIR
 from datetime import date
 import json
-from services.simulation_engine import calculate_roi_with_tax
+from services.simulation_helpers.simulation_utils import calculate_roi_with_tax
 
 # --- Hyperparameter grid ---
 hyperparams_grid = {

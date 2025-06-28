@@ -8,6 +8,7 @@ from models import Draw, Prediction, Model, GeneratedCombination
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
+from utils.model_utils import normalize_model_name, denormalize_model_name
 from logger import logger
 
 router = APIRouter()
@@ -100,9 +101,28 @@ def generate_combinations(db: Session = Depends(get_db)):
         now = datetime.utcnow()
         
         # Create a new Prediction row for this generation event
+        main_model = db.query(Model).filter(Model.name == denormalize_model_name(main_algo_name, 'main')).first()
+        strong_model = db.query(Model).filter(Model.name == denormalize_model_name(strong_algo_name, 'strong')).first()
+        
+        if not main_model:
+            error_msg = f"Main model '{main_algo_name}' not found in database"
+            logger.error(
+                "Arrr! Main model not found in database!",
+                context={"main_algo_name": main_algo_name}
+            )
+            return JSONResponse(content={"error": error_msg}, status_code=400)
+        
+        if not strong_model:
+            error_msg = f"Strong model '{strong_algo_name}' not found in database"
+            logger.error(
+                "Arrr! Strong model not found in database!",
+                context={"strong_algo_name": strong_algo_name}
+            )
+            return JSONResponse(content={"error": error_msg}, status_code=400)
+        
         new_prediction = Prediction(
-            model_id=db.query(Model).filter(Model.name == main_algo_name).first().id,
-            strong_model_id=db.query(Model).filter(Model.name == strong_algo_name).first().id,
+            model_id=main_model.id,
+            strong_model_id=strong_model.id,
             run_time=now,
             roi=best_roi,
             total_prize=results[best_pair]["total_prize"],

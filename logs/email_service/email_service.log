@@ -40,3 +40,33 @@ Context:
   template: error_notification.html
   attachments: 0
   timestamp: 2025-06-28T13:05:16.565979
+2025-06-28 19:29:33 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 19:29:33 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-06-28 20:04:17 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:04:17 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-06-28 20:08:14 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:08:14 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-06-28 20:13:24 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:13:24 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-06-28 20:20:13 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-28 20:20:13 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
