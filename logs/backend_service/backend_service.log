@@ -3661,3 +3661,2967 @@ Context:
   total_time: 0.22s
   job_id: 5
   timestamp: 2025-06-28T14:47:08.244735
+2025-06-28 18:12:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:12:44.586040
+2025-06-28 18:12:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:12:44.586040
+2025-06-28 18:12:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:12:44.611485
+2025-06-28 18:12:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:12:44.611485
+2025-06-28 18:13:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:13:02.712640
+2025-06-28 18:13:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:13:02.712640
+2025-06-28 18:13:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:13:02.731809
+2025-06-28 18:13:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:13:02.731809
+2025-06-28 18:16:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:16:56.603476
+2025-06-28 18:16:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:16:56.603476
+2025-06-28 18:16:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:16:56.622877
+2025-06-28 18:16:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:16:56.622877
+2025-06-28 18:20:19 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:20:19.615207
+2025-06-28 18:20:19 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:20:19.615207
+2025-06-28 18:20:19 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:20:19.636161
+2025-06-28 18:20:19 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:20:19.636161
+2025-06-28 18:20:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:20:23.216417
+2025-06-28 18:20:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:20:23.216417
+2025-06-28 18:20:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:20:23.239223
+2025-06-28 18:20:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:20:23.239223
+2025-06-28 18:20:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:20:38.847173
+2025-06-28 18:20:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:20:38.847173
+2025-06-28 18:20:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:20:38.867134
+2025-06-28 18:20:38 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:20:38.867134
+2025-06-28 18:21:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:21:00.653685
+2025-06-28 18:21:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:21:00.653685
+2025-06-28 18:21:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:21:00.673574
+2025-06-28 18:21:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:21:00.673574
+2025-06-28 18:21:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:21:04.309420
+2025-06-28 18:21:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:21:04.309420
+2025-06-28 18:21:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:21:04.329387
+2025-06-28 18:21:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:21:04.329387
+2025-06-28 18:21:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:21:07.520954
+2025-06-28 18:21:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:21:07.520954
+2025-06-28 18:21:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:21:07.540966
+2025-06-28 18:21:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:21:07.540966
+2025-06-28 18:23:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:23:10.947102
+2025-06-28 18:23:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:23:10.947102
+2025-06-28 18:23:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:23:10.984830
+2025-06-28 18:23:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:23:10.984830
+2025-06-28 18:23:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:23:14.472369
+2025-06-28 18:23:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:23:14.472369
+2025-06-28 18:23:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:23:14.492005
+2025-06-28 18:23:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:23:14.492005
+2025-06-28 18:23:17 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:23:17.721853
+2025-06-28 18:23:17 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:23:17.721853
+2025-06-28 18:23:17 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:23:17.741449
+2025-06-28 18:23:17 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:23:17.741449
+2025-06-28 18:24:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:02.684988
+2025-06-28 18:24:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:02.684988
+2025-06-28 18:24:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:02.706746
+2025-06-28 18:24:02 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:02.706746
+2025-06-28 18:24:06 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:06.148266
+2025-06-28 18:24:06 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:06.148266
+2025-06-28 18:24:06 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:06.167511
+2025-06-28 18:24:06 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:06.167511
+2025-06-28 18:24:09 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:09.449912
+2025-06-28 18:24:09 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:09.449912
+2025-06-28 18:24:09 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:09.469539
+2025-06-28 18:24:09 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:09.469539
+2025-06-28 18:24:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:14.737696
+2025-06-28 18:24:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:14.737696
+2025-06-28 18:24:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:14.759949
+2025-06-28 18:24:14 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:14.759949
+2025-06-28 18:24:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:18.420306
+2025-06-28 18:24:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:18.420306
+2025-06-28 18:24:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:18.440217
+2025-06-28 18:24:18 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:18.440217
+2025-06-28 18:24:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:23.406344
+2025-06-28 18:24:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:23.406344
+2025-06-28 18:24:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:23.439017
+2025-06-28 18:24:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:23.439017
+2025-06-28 18:24:26 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:26.705449
+2025-06-28 18:24:26 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:26.705449
+2025-06-28 18:24:26 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:26.725089
+2025-06-28 18:24:26 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:26.725089
+2025-06-28 18:24:31 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:31.154869
+2025-06-28 18:24:31 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:31.154869
+2025-06-28 18:24:31 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:31.175120
+2025-06-28 18:24:31 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:31.175120
+2025-06-28 18:24:35 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:35.935275
+2025-06-28 18:24:35 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:24:35.935275
+2025-06-28 18:24:35 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:35.955077
+2025-06-28 18:24:35 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:24:35.955077
+2025-06-28 18:37:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:37:10.073929
+2025-06-28 18:37:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:37:10.073929
+2025-06-28 18:37:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:37:10.100062
+2025-06-28 18:37:10 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:37:10.100062
+2025-06-28 18:37:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:37:28.989843
+2025-06-28 18:37:28 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:37:28.989843
+2025-06-28 18:37:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:37:29.009819
+2025-06-28 18:37:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:37:29.009819
+2025-06-28 18:38:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:38:08.420201
+2025-06-28 18:38:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:38:08.420201
+2025-06-28 18:38:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:38:08.442253
+2025-06-28 18:38:08 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:38:08.442253
+2025-06-28 18:44:12 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:12.857635
+2025-06-28 18:44:12 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:12.857635
+2025-06-28 18:44:12 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:12.878635
+2025-06-28 18:44:12 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:12.878635
+2025-06-28 18:44:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:23.934143
+2025-06-28 18:44:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:23.934143
+2025-06-28 18:44:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:23.954145
+2025-06-28 18:44:23 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:23.954145
+2025-06-28 18:44:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:29.560887
+2025-06-28 18:44:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:29.560887
+2025-06-28 18:44:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:29.585671
+2025-06-28 18:44:29 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:29.585671
+2025-06-28 18:44:37 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:37.160728
+2025-06-28 18:44:37 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:37.160728
+2025-06-28 18:44:37 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:37.182277
+2025-06-28 18:44:37 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:37.182277
+2025-06-28 18:44:47 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:47.613729
+2025-06-28 18:44:47 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:47.613729
+2025-06-28 18:44:47 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:47.634543
+2025-06-28 18:44:47 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:47.634543
+2025-06-28 18:44:53 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:53.417954
+2025-06-28 18:44:53 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:53.417954
+2025-06-28 18:44:53 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:53.438120
+2025-06-28 18:44:53 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:53.438120
+2025-06-28 18:44:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:56.906296
+2025-06-28 18:44:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:44:56.906296
+2025-06-28 18:44:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:56.934170
+2025-06-28 18:44:56 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:44:56.934170
+2025-06-28 18:45:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:00.344723
+2025-06-28 18:45:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:00.344723
+2025-06-28 18:45:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:00.374445
+2025-06-28 18:45:00 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:00.374445
+2025-06-28 18:45:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:04.133988
+2025-06-28 18:45:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:04.133988
+2025-06-28 18:45:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:04.160226
+2025-06-28 18:45:04 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:04.160226
+2025-06-28 18:45:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:07.916783
+2025-06-28 18:45:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:07.916783
+2025-06-28 18:45:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:07.937323
+2025-06-28 18:45:07 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:07.937323
+2025-06-28 18:45:11 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:11.151861
+2025-06-28 18:45:11 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:45:11.151861
+2025-06-28 18:45:11 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:11.183206
+2025-06-28 18:45:11 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:45:11.183206
+2025-06-28 18:46:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:46:32.919276
+2025-06-28 18:46:32 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:46:32.919276
+2025-06-28 18:46:33 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:46:33.011046
+2025-06-28 18:46:33 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:46:33.011046
+2025-06-28 18:46:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:46:44.390016
+2025-06-28 18:46:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:46:44.390016
+2025-06-28 18:46:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:46:44.409879
+2025-06-28 18:46:44 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:46:44.409879
+2025-06-28 18:47:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:47:20.248999
+2025-06-28 18:47:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! FastAPI backend be startin' up, praisin' the FSM!
+Context:
+  service: backend
+  timestamp: 2025-06-28T15:47:20.248999
+2025-06-28 18:47:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:47:20.269419
+2025-06-28 18:47:20 UTC - backend_service - INFO - [logging_service.py:info:186] -
+Arrr! Registered algorithms at startup
+Context:
+  algorithms:
+    [0]: top_n_frequent_per_position_v1
+    [1]: top_n_frequent_per_position_v2
+    [2]: top_6_overall_frequent_v1
+    [3]: top_6_overall_frequent_v2
+    [4]: positionwise_scored_v1
+    [5]: positionwise_scored_v2
+    [6]: delta_system_data_driven
+    [7]: delta_system_fixed
+    [8]: repeated_pattern_matching_v1
+    [9]: repeated_pattern_matching_v2
+    [10]: recency_weighted_linear
+    [11]: recency_weighted_exponential
+    [12]: recency_weighted_window
+    [13]: random_from_top15_pool
+    [14]: random_from_top10_pool
+    [15]: random_from_top20_pool
+    [16]: balanced_spread_fixed_ranges
+    [17]: balanced_spread_equal_ranges
+    [18]: balanced_spread_random_ranges
+    [19]: pattern_learning_from_winners_v1
+    [20]: pattern_learning_from_winners_v2
+    [21]: skip_distance_frequency_v1
+    [22]: skip_distance_frequency_v2
+    [23]: sequence_lstm_classifier
+    [24]: sequence_lstm_classifier_h32_l1
+    [25]: sequence_lstm_classifier_h128_l2
+    [26]: sequence_lstm_classifier_seq20
+    [27]: sequence_lstm_classifier_h128_l2_e20
+    [28]: sequence_lstm_classifier_gridsearch
+  timestamp: 2025-06-28T15:47:20.269419

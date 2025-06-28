@@ -24,20 +24,6 @@ def setup_jobs(last_successful_job: dict):
             last_successful_job)
     )
     
-    # Weekly winning combinations update - runs every Sunday at 9:00 AM
-    schedule.every().sunday.at("09:00").do(
-        lambda: _run_job_with_error_handling("update-weekly-winning-combinations",
-            lambda: call_backend_endpoint("/cron/update-weekly-winning-combinations", last_successful_job),
-            last_successful_job)
-    )
-    
-    # Weekly table generation - runs every Sunday at 10:00 AM
-    schedule.every().sunday.at("10:00").do(
-        lambda: _run_job_with_error_handling("generate-weekly-tables",
-            lambda: call_backend_endpoint("/cron/generate-weekly-tables", last_successful_job),
-            last_successful_job)
-    )
-    
     # Best model table generation and email - runs every Sunday at 14:00 UTC (16:00 Israel time)
     schedule.every().sunday.at("14:00").do(
         lambda: _run_job_with_error_handling("best-model-tables-and-email",

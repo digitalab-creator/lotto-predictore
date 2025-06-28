@@ -31,8 +31,6 @@ logger = get_cron_logger()
 last_successful_job = {
     "generate-weekly-combinations": None,
     "fetch-latest-draw": None,
-    "generate-weekly-tables": None,
-    "update-weekly-winning-combinations": None,
     "best-model-tables-and-email": None,
     "cleanup-system": None,
     "backup-database": None

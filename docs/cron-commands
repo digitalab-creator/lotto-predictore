@@ -1,95 +1,74 @@
 Arr matey! I'll help ye test all the cron jobs in the correct order, by the grace of His Noodly Appendage! 🍝
 
+The cron service now uses a **unified approach** where it calls backend endpoints through a centralized system. Here's how it works:
+
+## 🏴‍☠️ **Cron Service Architecture:**
+- **Cron Service** → Calls **Backend Endpoints** → **Backend Processes** → **Database Storage**
+- All jobs are tracked in the database with error handling and logging
+- The cron service acts as a scheduler that calls the backend API endpoints
+
+## 📅 **Current Cron Schedule:**
+- **Daily 2:00 AM:** System cleanup & database backup
+- **Daily 3:00 AM:** Fetch latest draw
+- **Sunday 3:00 AM:** Generate weekly combinations
+- **Sunday 14:00 UTC:** Best model tables & email (unified job)
+
+## 🧪 **Manual Testing Commands:**
+
 Since yer database be empty, we'll need to:
 1. First fetch some historical draws
 2. Then run the weekly combinations generation
-3. Then update the winning combinations
-4. Finally generate the tables
+3. Test the unified best model job
 
 Here be the commands in order, matey:
 
-1. First, let's fetch some historical draws (this will populate the database with past draws):
+1. **Fetch historical draws** (populates database with past draws):
 ```bash
-docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/fetch-latest-draw').json())"    -- TESTED - WORK FINE
+docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/fetch-latest-draw').json())"
 ```
 
-2. After we have some draws, generate weekly combinations:
+2. **Generate weekly combinations** (AI picks best algorithm and generates numbers):
 ```bash
-docker-compose exec backend curl -X POST http://localhost:8000/cron/generate-weekly-combinations   ---errors
+docker-compose exec backend curl -X POST http://localhost:8000/cron/generate-weekly-combinations   
 ```
 
-3. Update the weekly winning combinations:
+3. **Test unified best model job** (generates tables AND sends email in one operation, via the cron service!):
 ```bash
-docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/update-weekly-winning-combinations').json())"
+docker-compose exec cron curl -X POST http://localhost:8002/api/best-model-job
 ```
+> Note: This endpoint is on the **cron service** (port 8002), not the backend! It will both generate the best model tables and send the email in one go.
 
-4. Finally, generate the weekly tables:
-```bash
-docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/generate-weekly-tables').json())"
-```
+## 🔍 **Verification Commands:**
 
-5. Generate tables using the best performing model (ROI > 1):
-```bash
-docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/generate-best-model-tables').json())"
-```
-
-6. Send the best model tables email:
-```bash
-docker-compose exec backend python3 -c "import requests; print(requests.post('http://backend:8000/cron/send-best-model-email').json())"
-```
-
-To verify everything worked, ye can check:
-
-1. For draws:
+1. **Check draws in database:**
 ```bash
 docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM draws;"
 ```
 
-2. For generated combinations:
+2. **Check generated combinations:**
 ```bash
 docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM generated_combinations;"
 ```
 
-3. For weekly winning combinations:
+3. **Check cron job tracking:**
 ```bash
-docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT COUNT(*) FROM weekly_winning_combinations;"
+docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT job_name, status, created_at FROM cron_jobs ORDER BY created_at DESC LIMIT 5;"
 ```
 
-4. For best model performance (ROI > 1):
-```bash
-docker-compose exec db psql -U lotto_user -d lotto_db -c "
-SELECT
-    mm.name AS main_model_name,
-    sm.name AS strong_model_name,
-    COUNT(*) AS total_predictions,
-    ROUND(SUM(p.total_prize)::numeric, 2) AS total_prize,
-    ROUND(SUM(p.total_cost)::numeric, 2) AS total_cost,
-    ROUND(
-        CASE 
-            WHEN SUM(p.total_cost) = 0 THEN NULL
-            ELSE (SUM(p.total_prize)::numeric / NULLIF(SUM(p.total_cost), 0)::numeric)
-        END, 4
-    ) AS roi_ratio
-FROM
-    predictions p
-JOIN
-    models mm ON p.model_id = mm.id
-JOIN
-    models sm ON p.strong_model_id = sm.id
-GROUP BY
-    mm.name, sm.name
-HAVING
-    (SUM(p.total_prize)::numeric / NULLIF(SUM(p.total_cost), 0)::numeric) > 1
-ORDER BY
-    roi_ratio DESC;
-"
-```
+## 📋 **Logs & Debugging:**
 
 If anything fails, ye can check the logs:
 ```bash
 docker-compose logs -f backend  # For backend logs
 docker-compose logs -f cron     # For cron service logs
 ```
+
+## 🎯 **Key Changes:**
+- **Unified endpoint calls** through cron service
+- **Database job tracking** for all operations
+- **Best model job** now handles both generation AND email in one unified operation
+- **Removed separate weekly winning combinations** and **weekly tables** jobs
+- **Simplified workflow** with better error handling
 
 Would ye like me to explain what each command does in more detail, matey? Or shall we start testing? 🏴‍☠️
 

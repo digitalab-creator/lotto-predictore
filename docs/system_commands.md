@@ -19,6 +19,10 @@ docker-compose restart backend
 
 # Show Docker disk usage summary (images, containers, volumes, cache)
 docker system df --format "table {{.Type}}\t{{.TotalCount}}\t{{.Size}}\t{{.Reclaimable}}"
+
+# View logs
+docker-compose logs -f backend
+docker-compose logs -f cron_service
 ```
 
 ### Database Management
@@ -42,6 +46,12 @@ SELECT
     mm.name AS main_model_name,
     sm.name AS strong_model_name,
     COUNT(*) AS total_predictions,
+    (
+        SELECT COUNT(*)
+        FROM prediction_details pd
+        JOIN predictions p2 ON pd.prediction_id = p2.id
+        WHERE p2.model_id = p.model_id AND p2.strong_model_id = p.strong_model_id
+    ) AS total_prediction_details,
     ROUND(SUM(p.total_prize)::numeric, 2) AS total_prize,
     ROUND(SUM(p.total_cost)::numeric, 2) AS total_cost,
     ROUND(
@@ -57,7 +67,7 @@ JOIN
 JOIN
     models sm ON p.strong_model_id = sm.id
 GROUP BY
-    mm.name, sm.name
+    mm.name, sm.name, p.model_id, p.strong_model_id
 ORDER BY
     roi_ratio DESC;
 "
@@ -190,7 +200,7 @@ python3 scripts/git_manager.py fetch
 python3 scripts/git_manager.py checkout <commit_id>
 
 # Quick commit and push (with optional messdage)
-python3 scripts/git_manager.py commit_and_push "refactore cron service, add db backup"
+python3 scripts/git_manager.py commit_and_push "add cron tracking db table"
 ```
 
 ### Environment Setup
@@ -225,3 +235,124 @@ git ls-remote origin
 
 'roi':\s*-\d+(\.\d+)?
 'roi':\s*(0(\.\d+)?|[1-9]\d*(\.\d+)?)
+
+## API Endpoints
+
+### Health Check
+```bash
+curl http://localhost:8000/health
+```
+
+### Generate Combinations
+```bash
+curl http://localhost:8000/generate-combinations
+```
+
+### Weekly Combinations Generation (Balanced)
+```bash
+# Generate weekly combinations with balanced prediction details
+docker-compose exec backend curl -X POST http://localhost:8000/cron/generate-weekly-combinations
+```
+
+### Check Prediction Balance Status
+```bash
+# Check current balance of prediction details across models
+docker-compose exec backend curl http://localhost:8000/cron/prediction-balance-status
+```
+
+### Manual Simulation
+```bash
+# Run simulation with specific parameters
+curl "http://localhost:8000/simulate?train_start=2024-01-01&train_end=2024-12-31&test_count=12&top_n=3"
+```
+
+## Prediction Balance System
+
+### How It Works
+The weekly combinations generation now includes a **prediction balance system** that:
+
+1. **Analyzes Current Data**: Counts prediction details for each model combination
+2. **Prioritizes Underrepresented Models**: Focuses on models with fewer prediction details
+3. **Maintains Balance**: Aims to keep ~100 prediction details per model combination
+4. **Adaptive Selection**: Automatically selects algorithms that need more data
+
+### Balance Status Endpoint
+The `/cron/prediction-balance-status` endpoint provides:
+
+```json
+{
+  "status": "success",
+  "balance_summary": {
+    "total_model_combinations": 84,
+    "min_prediction_details": 0,
+    "max_prediction_details": 480,
+    "average_prediction_details": 120.5,
+    "models_needing_data": 25,
+    "target_details_per_model": 100
+  },
+  "top_models_needing_data": [
+    {
+      "main_algo": "sequence_lstm_classifier",
+      "strong_algo": "random",
+      "current_details": 0,
+      "priority_score": 100
+    }
+  ],
+  "main_algorithm_averages": {
+    "top_n_frequent_per_position_v2": 96.0,
+    "sequence_lstm_classifier": 48.0
+  }
+}
+```
+
+### Benefits
+- **Fair Evaluation**: All models get equal opportunity for evaluation
+- **Data Quality**: Ensures sufficient data for reliable ROI calculations
+- **Performance Tracking**: Better comparison across all algorithms
+- **Automatic Management**: No manual intervention needed
+
+### Monitoring Commands
+```bash
+# Check balance before running weekly generation
+docker-compose exec backend curl http://localhost:8000/cron/prediction-balance-status | jq
+
+# Run weekly generation (will prioritize models needing data)
+docker-compose exec backend curl -X POST http://localhost:8000/cron/generate-weekly-combinations
+
+# Check balance after running
+docker-compose exec backend curl http://localhost:8000/cron/prediction-balance-status | jq
+```
+
+## Troubleshooting
+
+### Check Service Status
+```bash
+# Check if all services are running
+docker-compose ps
+
+# Check backend logs
+docker-compose logs backend
+
+# Check cron service logs
+docker-compose logs cron_service
+```
+
+### Database Issues
+```bash
+# Reset database (WARNING: This will delete all data)
+docker-compose down
+docker volume rm lotto-predictore_postgres_data
+docker-compose up -d
+
+# Check database connection
+docker-compose exec db psql -U lotto_user -d lotto_db -c "SELECT version();"
+```
+
+### Algorithm Issues
+```bash
+# Check available algorithms
+docker-compose exec backend curl http://localhost:8000/health | jq '.algorithms'
+
+# Test specific algorithm
+curl "http://localhost:8000/simulate?train_start=2024-01-01&train_end=2024-12-31&algorithms=top_n_frequent_per_position_v2"
+```
