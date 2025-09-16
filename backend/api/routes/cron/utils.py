@@ -52,7 +52,6 @@ def get_balanced_algorithm_list(db: Session, target_details_per_model: int = 100
     
     # Get all algorithm combinations
     all_combinations = []
-    grid_search_combinations = []  # Separate list for grid search algorithms
     
     for main_algo in ALGORITHM_REGISTRY.keys():
         for strong_algo in STRONG_NUMBER_REGISTRY.keys():
@@ -67,29 +66,22 @@ def get_balanced_algorithm_list(db: Session, target_details_per_model: int = 100
                 'priority_score': current_count  # Use current_count directly for sorting
             }
             
-            # Separate grid search algorithms to add them last
-            if 'gridsearch' in main_algo.lower():
-                grid_search_combinations.append(combo)
-            else:
-                all_combinations.append(combo)
+            all_combinations.append(combo)
     
     # Debug logging
     logger.info(
         "Arrr! Algorithm selection debug info",
         context={
-            "total_regular_combinations": len(all_combinations),
-            "total_grid_search_combinations": len(grid_search_combinations),
-            "sample_regular_algorithms": [{"algo": c['main_algo'], "details": c['current_details']} for c in all_combinations[:5]]
+            "total_combinations": len(all_combinations),
+            "grid_search_combinations": len([c for c in all_combinations if 'gridsearch' in c['main_algo'].lower()]),
+            "sample_algorithms": [{"algo": c['main_algo'], "details": c['current_details']} for c in all_combinations[:5]]
         }
     )
     
-    # Sort regular algorithms by prediction details (lowest first)
+    # Sort all algorithms by prediction details (lowest first)
     all_combinations.sort(key=lambda x: x['current_details'])
     
-    # Take top 10 algorithms with least prediction details
+    # Take top 10 algorithms with least prediction details (this will include grid search if it has 0 details)
     top_10_combinations = all_combinations[:10]
-    
-    # Add grid search algorithms at the end (they'll always be included but run last)
-    top_10_combinations.extend(grid_search_combinations)
     
     return top_10_combinations 

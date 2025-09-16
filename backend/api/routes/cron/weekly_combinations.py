@@ -200,6 +200,46 @@ async def generate_weekly_combinations():
             strong_algo = strong_algo_cls()
             strong_number = strong_algo.predict(all_draws)
             
+            # Validate algorithm result
+            if not isinstance(combos, list):
+                error_msg = f"Algorithm {main_algo_name} returned invalid result type: {type(combos)}"
+                logger.error(
+                    "Arrr! Algorithm returned invalid result type!",
+                    context={
+                        "algorithm": main_algo_name,
+                        "result_type": type(combos),
+                        "result_value": str(combos)[:200],
+                        "total_elapsed": f"{time.time() - start_time:.2f}s"
+                    }
+                )
+                if cron_job:
+                    tracker.fail_job(cron_job, error_msg, time.time() - start_time)
+                return {"status": "error", "message": error_msg}
+            
+            if not combos:
+                error_msg = f"Algorithm {main_algo_name} returned empty result"
+                logger.error(
+                    "Arrr! Algorithm returned empty result!",
+                    context={
+                        "algorithm": main_algo_name,
+                        "total_elapsed": f"{time.time() - start_time:.2f}s"
+                    }
+                )
+                if cron_job:
+                    tracker.fail_job(cron_job, error_msg, time.time() - start_time)
+                return {"status": "error", "message": error_msg}
+            
+            logger.info(
+                f"Arrr! Algorithm {main_algo_name} returned {len(combos)} combinations",
+                context={
+                    "algorithm": main_algo_name,
+                    "num_combinations": len(combos),
+                    "first_combo_keys": list(combos[0].keys()) if combos and isinstance(combos[0], dict) else "N/A",
+                    "first_combo_type": type(combos[0]) if combos else "N/A",
+                    "first_combo_sample": str(combos[0])[:200] if combos else "N/A"
+                }
+            )
+            
             generation_time = time.time() - generation_start
             logger.info(
                 f"Arrr! Generated final combinations",
@@ -258,26 +298,111 @@ async def generate_weekly_combinations():
             db.flush()  # Get the new prediction.id
             
             # Store each combo in DB
+            valid_combos_processed = 0
             for idx, combo in enumerate(combos):
+                # Validate combo format and extract numbers safely
+                if not isinstance(combo, dict):
+                    logger.error(
+                        f"Arrr! Invalid combo format at index {idx}: not a dict",
+                        context={
+                            "combo_type": type(combo),
+                            "combo_value": str(combo)[:100],
+                            "prediction_id": new_prediction.id
+                        }
+                    )
+                    continue
+                
+                # Try to extract numbers from different possible formats
+                numbers = None
+                if "numbers" in combo:
+                    numbers = combo["numbers"]
+                elif "strong" in combo and isinstance(combo.get("strong"), (list, tuple)):
+                    # Some algorithms might put numbers in "strong" field
+                    numbers = combo["strong"]
+                else:
+                    logger.error(
+                        f"Arrr! Combo at index {idx} missing 'numbers' key",
+                        context={
+                            "combo_keys": list(combo.keys()),
+                            "combo_value": str(combo)[:100],
+                            "prediction_id": new_prediction.id
+                        }
+                    )
+                    continue
+                
+                # Validate numbers format
+                if not isinstance(numbers, (list, tuple)) or len(numbers) != 6:
+                    logger.error(
+                        f"Arrr! Invalid numbers format at index {idx}",
+                        context={
+                            "numbers_type": type(numbers),
+                            "numbers_value": numbers,
+                            "numbers_length": len(numbers) if isinstance(numbers, (list, tuple)) else "N/A",
+                            "prediction_id": new_prediction.id
+                        }
+                    )
+                    continue
+                
+                # Ensure all numbers are integers
+                try:
+                    numbers = [int(n) for n in numbers]
+                except (ValueError, TypeError) as e:
+                    logger.error(
+                        f"Arrr! Error converting numbers to int at index {idx}",
+                        context={
+                            "error": str(e),
+                            "numbers": numbers,
+                            "prediction_id": new_prediction.id
+                        }
+                    )
+                    continue
+                
                 generated = GeneratedCombination(
                     prediction_id=new_prediction.id,
-                    numbers=combo["numbers"],
+                    numbers=numbers,
                     strong_number=strong_number,
-                    position=idx+1,
+                    position=valid_combos_processed+1,
                     version="weekly_generation",  # Set version for tracking
                     generated_at=now
                 )
                 db.add(generated)
+                valid_combos_processed += 1
                 
                 logger.info(
-                    f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}",
+                    f"Stored combo {valid_combos_processed}: {numbers} + {strong_number}",
                     context={
                         "prediction_id": new_prediction.id,
-                        "numbers": combo["numbers"],
+                        "numbers": numbers,
                         "strong_number": strong_number,
-                        "position": idx+1
+                        "position": valid_combos_processed
                     }
                 )
+            
+            # Check if we processed any valid combos
+            if valid_combos_processed == 0:
+                error_msg = f"No valid combinations found from algorithm {main_algo_name}"
+                logger.error(
+                    "Arrr! No valid combinations processed!",
+                    context={
+                        "algorithm": main_algo_name,
+                        "total_combos_received": len(combos),
+                        "valid_combos_processed": valid_combos_processed,
+                        "total_elapsed": f"{time.time() - start_time:.2f}s"
+                    }
+                )
+                if cron_job:
+                    tracker.fail_job(cron_job, error_msg, time.time() - start_time)
+                return {"status": "error", "message": error_msg}
+            
+            logger.info(
+                f"Arrr! Successfully processed {valid_combos_processed} valid combinations out of {len(combos)} received",
+                context={
+                    "algorithm": main_algo_name,
+                    "total_combos_received": len(combos),
+                    "valid_combos_processed": valid_combos_processed,
+                    "total_elapsed": f"{time.time() - start_time:.2f}s"
+                }
+            )
             
             db.commit()
             db_time = time.time() - db_start
@@ -289,12 +414,12 @@ async def generate_weekly_combinations():
                 tracker.complete_job(cron_job, total_time)
             
             logger.info(
-                f"Arrr! Generated {len(combos)} weekly combinations using {main_algo_name} + {strong_algo_name}",
+                f"Arrr! Generated {valid_combos_processed} weekly combinations using {main_algo_name} + {strong_algo_name}",
                 context={
                     "main_algo": main_algo_name,
                     "strong_algo": strong_algo_name,
                     "best_roi": best_roi,
-                    "num_combinations": len(combos),
+                    "num_combinations": valid_combos_processed,
                     "prediction_id": new_prediction.id,
                     "total_time": f"{total_time:.2f}s",
                     "breakdown": {
@@ -309,7 +434,7 @@ async def generate_weekly_combinations():
             return {
                 "status": "success", 
                 "message": f"Weekly combinations generated successfully using {main_algo_name} + {strong_algo_name}",
-                "num_combinations": len(combos),
+                "num_combinations": valid_combos_processed,
                 "prediction_id": new_prediction.id,
                 "total_time": f"{total_time:.2f}s"
             }

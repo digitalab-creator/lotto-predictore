@@ -70,3 +70,2965 @@ Logging service initialized - log cleanup is scheduled via cron service at 02:00
 2025-06-28 20:20:13 UTC - email_service - INFO - [email_service.py:__init__:36] -
 Email service initialized
 
+2025-06-29 05:00:14 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:00:14.930975
+
+2025-06-29 05:01:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:01:17.413961
+
+2025-06-29 05:02:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:02:19.822081
+
+2025-06-29 05:03:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:03:22.225802
+
+2025-06-29 05:04:24 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:04:24.660302
+
+2025-06-29 05:05:27 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:05:27.083989
+
+2025-06-29 05:06:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:06:29.519163
+
+2025-06-29 05:07:31 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:07:31.907302
+
+2025-06-29 05:08:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:08:34.373534
+
+2025-06-29 05:09:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:09:36.712577
+
+2025-06-29 05:10:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:10:39.249123
+
+2025-06-29 05:11:41 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:11:41.794885
+
+2025-06-29 05:12:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:12:43.412769
+
+2025-06-29 05:13:45 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:13:45.784217
+
+2025-06-29 05:14:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:14:46.634048
+
+2025-06-29 05:15:49 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:15:49.071642
+
+2025-06-29 05:16:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:16:51.495302
+
+2025-06-29 05:17:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:17:53.114808
+
+2025-06-29 05:18:54 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:18:54.487364
+
+2025-06-29 05:19:56 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:19:56.128812
+
+2025-06-29 05:20:58 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:20:58.711103
+
+2025-06-29 05:22:01 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:22:01.165907
+
+2025-06-29 05:23:03 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:23:03.584352
+
+2025-06-29 05:24:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:24:05.297106
+
+2025-06-29 05:25:07 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:25:07.787722
+
+2025-06-29 05:26:09 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:26:09.413143
+
+2025-06-29 05:27:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:27:10.303007
+
+2025-06-29 05:28:12 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:28:12.795744
+
+2025-06-29 05:29:15 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:29:15.211314
+
+2025-06-29 05:30:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:30:17.716131
+
+2025-06-29 05:31:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:31:19.282602
+
+2025-06-29 05:32:21 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:32:21.703460
+
+2025-06-29 05:33:23 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:33:23.371886
+
+2025-06-29 05:34:25 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:34:25.804419
+
+2025-06-29 05:35:28 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:35:28.271402
+
+2025-06-29 05:36:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:36:29.987006
+
+2025-06-29 05:37:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:37:32.364571
+
+2025-06-29 05:38:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:38:34.784285
+
+2025-06-29 05:39:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:39:36.474771
+
+2025-06-29 05:40:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:40:38.119643
+
+2025-06-29 05:41:40 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:41:40.613167
+
+2025-06-29 05:42:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:42:43.141731
+
+2025-06-29 05:43:45 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:43:45.516411
+
+2025-06-29 05:44:47 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:44:47.319357
+
+2025-06-29 05:45:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:45:48.947170
+
+2025-06-29 05:46:50 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:46:50.761951
+
+2025-06-29 05:47:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:47:51.612371
+
+2025-06-29 05:48:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:48:53.989254
+
+2025-06-29 05:49:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:49:55.619663
+
+2025-06-29 05:50:58 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:50:58.039764
+
+2025-06-29 05:51:59 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:51:59.808123
+
+2025-06-29 05:53:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:53:00.733510
+
+2025-06-29 05:54:02 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:54:02.453774
+
+2025-06-29 05:55:04 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:55:04.187019
+
+2025-06-29 05:56:06 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:56:06.561679
+
+2025-06-29 05:57:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:57:08.989498
+
+2025-06-29 05:58:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:58:10.538183
+
+2025-06-29 05:59:12 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T02:59:12.224161
+
+2025-06-29 06:00:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:00:13.870108
+
+2025-06-29 06:01:15 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:01:15.521705
+
+2025-06-29 06:02:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:02:17.196198
+
+2025-06-29 06:03:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:03:19.717764
+
+2025-06-29 06:04:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:04:20.582767
+
+2025-06-29 06:05:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:05:22.659490
+
+2025-06-29 06:06:25 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:06:25.261024
+
+2025-06-29 06:07:26 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:07:26.897910
+
+2025-06-29 06:08:28 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:08:28.543851
+
+2025-06-29 06:09:31 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:09:31.002471
+
+2025-06-29 06:10:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:10:32.627183
+
+2025-06-29 06:11:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:11:33.483389
+
+2025-06-29 06:12:35 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:12:35.157168
+
+2025-06-29 06:13:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:13:36.028244
+
+2025-06-29 06:14:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:14:38.513606
+
+2025-06-29 06:15:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:15:39.555585
+
+2025-06-29 06:16:42 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:16:42.074451
+
+2025-06-29 06:17:44 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:17:44.474212
+
+2025-06-29 06:18:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:18:46.175129
+
+2025-06-29 06:19:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:19:48.631917
+
+2025-06-29 06:20:50 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:20:50.308077
+
+2025-06-29 06:21:52 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:21:52.693818
+
+2025-06-29 06:22:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:22:55.168134
+
+2025-06-29 06:23:57 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:23:57.687477
+
+2025-06-29 06:24:59 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:24:59.238674
+
+2025-06-29 06:26:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:26:00.083023
+
+2025-06-29 06:27:01 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:27:01.668946
+
+2025-06-29 06:28:04 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:28:04.081347
+
+2025-06-29 06:29:06 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:29:06.498314
+
+2025-06-29 06:30:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:30:08.965531
+
+2025-06-29 06:31:11 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:31:11.424042
+
+2025-06-29 06:32:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:32:13.916124
+
+2025-06-29 06:33:16 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:33:16.397279
+
+2025-06-29 06:34:18 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:34:18.831259
+
+2025-06-29 06:35:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:35:19.910212
+
+2025-06-29 06:36:21 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:36:21.550236
+
+2025-06-29 06:37:23 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:37:23.985609
+
+2025-06-29 06:38:26 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:38:26.317157
+
+2025-06-29 06:39:27 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:39:27.911844
+
+2025-06-29 06:40:30 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:40:30.360946
+
+2025-06-29 06:41:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:41:32.780078
+
+2025-06-29 06:42:35 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:42:35.177207
+
+2025-06-29 06:43:37 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:43:37.554169
+
+2025-06-29 06:44:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:44:39.186743
+
+2025-06-29 06:45:41 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:45:41.562166
+
+2025-06-29 06:46:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:46:43.939957
+
+2025-06-29 06:47:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:47:46.335435
+
+2025-06-29 06:48:47 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:48:47.988072
+
+2025-06-29 06:49:49 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:49:49.619554
+
+2025-06-29 06:50:52 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:50:52.103453
+
+2025-06-29 06:51:54 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:51:54.550579
+
+2025-06-29 06:52:56 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:52:56.956629
+
+2025-06-29 06:53:58 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:53:58.565079
+
+2025-06-29 06:55:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:55:00.955093
+
+2025-06-29 06:56:01 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:56:01.798016
+
+2025-06-29 06:57:03 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:57:03.378899
+
+2025-06-29 06:58:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:58:05.722081
+
+2025-06-29 06:59:07 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T03:59:07.482497
+
+2025-06-29 07:00:09 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:00:09.877990
+
+2025-06-29 07:01:12 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:01:12.340377
+
+2025-06-29 07:02:14 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:02:14.132762
+
+2025-06-29 07:03:16 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:03:16.627276
+
+2025-06-29 07:04:18 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:04:18.245438
+
+2025-06-29 07:05:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:05:19.869804
+
+2025-06-29 07:06:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:06:22.305173
+
+2025-06-29 07:07:24 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:07:24.832385
+
+2025-06-29 07:08:26 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:08:26.393845
+
+2025-06-29 07:09:28 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:09:28.937956
+
+2025-06-29 07:10:31 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:10:31.263501
+
+2025-06-29 07:11:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:11:33.618149
+
+2025-06-29 07:12:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:12:36.137824
+
+2025-06-29 07:13:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:13:38.593506
+
+2025-06-29 07:14:41 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:14:41.143081
+
+2025-06-29 07:15:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:15:43.561179
+
+2025-06-29 07:16:45 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:16:45.979078
+
+2025-06-29 07:17:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:17:48.439460
+
+2025-06-29 07:18:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:18:51.056777
+
+2025-06-29 07:19:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:19:53.476111
+
+2025-06-29 07:20:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:20:55.957880
+
+2025-06-29 07:21:58 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:21:58.324744
+
+2025-06-29 07:23:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:23:00.776283
+
+2025-06-29 07:24:02 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:24:02.421821
+
+2025-06-29 07:25:04 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:25:04.841277
+
+2025-06-29 07:26:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:26:05.688693
+
+2025-06-29 07:27:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:27:08.146832
+
+2025-06-29 07:28:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:28:10.694063
+
+2025-06-29 07:29:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:29:13.047000
+
+2025-06-29 07:30:15 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:30:15.411252
+
+2025-06-29 07:31:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:31:17.825337
+
+2025-06-29 07:32:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:32:20.279144
+
+2025-06-29 07:33:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:33:22.753507
+
+2025-06-29 07:34:25 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:34:25.160203
+
+2025-06-29 07:35:27 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:35:27.615969
+
+2025-06-29 07:36:30 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:36:30.010529
+
+2025-06-29 07:37:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:37:32.444185
+
+2025-06-29 07:38:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:38:34.798634
+
+2025-06-29 07:39:37 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:39:37.243551
+
+2025-06-29 07:40:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:40:38.095964
+
+2025-06-29 07:41:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:41:39.738079
+
+2025-06-29 07:42:42 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:42:42.179456
+
+2025-06-29 07:43:44 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:43:44.630994
+
+2025-06-29 07:44:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:44:46.247571
+
+2025-06-29 07:45:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:45:48.594844
+
+2025-06-29 07:46:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:46:51.060914
+
+2025-06-29 07:47:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:47:53.508913
+
+2025-06-29 07:48:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:48:55.841703
+
+2025-06-29 07:49:58 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:49:58.217872
+
+2025-06-29 07:51:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:51:00.604277
+
+2025-06-29 07:52:03 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:52:03.001365
+
+2025-06-29 07:53:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:53:05.563767
+
+2025-06-29 07:54:07 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:54:07.644764
+
+2025-06-29 07:55:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:55:10.119890
+
+2025-06-29 07:56:12 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:56:12.609139
+
+2025-06-29 07:57:14 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:57:14.991548
+
+2025-06-29 07:58:16 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:58:16.650972
+
+2025-06-29 07:59:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T04:59:19.081185
+
+2025-06-29 08:00:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:00:20.903517
+
+2025-06-29 08:01:23 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:01:23.380700
+
+2025-06-29 08:02:25 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:02:25.839331
+
+2025-06-29 08:03:27 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:03:27.507887
+
+2025-06-29 08:04:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:04:29.945138
+
+2025-06-29 08:05:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:05:32.498758
+
+2025-06-29 08:06:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:06:34.893753
+
+2025-06-29 08:07:37 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:07:37.381628
+
+2025-06-29 08:08:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:08:39.827562
+
+2025-06-29 08:09:42 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:09:42.209424
+
+2025-06-29 08:10:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:10:43.881691
+
+2025-06-29 08:11:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:11:46.279971
+
+2025-06-29 08:12:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:12:48.737534
+
+2025-06-29 08:13:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:13:51.146983
+
+2025-06-29 08:14:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:14:53.528915
+
+2025-06-29 08:15:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:15:55.896858
+
+2025-06-29 08:16:57 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:16:57.600568
+
+2025-06-29 08:17:59 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:17:59.993628
+
+2025-06-29 08:19:02 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:19:02.397595
+
+2025-06-29 08:20:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:20:05.622513
+
+2025-06-29 08:21:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:21:08.032250
+
+2025-06-29 08:22:09 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:22:09.643202
+
+2025-06-29 08:23:11 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:23:11.296746
+
+2025-06-29 08:24:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:24:13.778861
+
+2025-06-29 08:25:16 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:25:16.231551
+
+2025-06-29 08:26:18 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:26:18.639996
+
+2025-06-29 08:27:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:27:19.532232
+
+2025-06-29 08:28:21 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:28:21.942206
+
+2025-06-29 08:29:24 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:29:24.362393
+
+2025-06-29 08:30:26 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:30:26.073130
+
+2025-06-29 08:31:28 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:31:28.501893
+
+2025-06-29 08:32:30 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:32:30.732419
+
+2025-06-29 08:33:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:33:33.229083
+
+2025-06-29 08:34:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:34:34.851997
+
+2025-06-29 08:35:37 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:35:37.398495
+
+2025-06-29 08:36:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:36:39.831833
+
+2025-06-29 08:37:42 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:37:42.230043
+
+2025-06-29 08:38:44 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:38:44.622447
+
+2025-06-29 08:39:47 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:39:47.102684
+
+2025-06-29 08:40:49 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:40:49.593410
+
+2025-06-29 08:41:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:41:51.202063
+
+2025-06-29 08:42:52 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:42:52.828536
+
+2025-06-29 08:43:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:43:55.266182
+
+2025-06-29 08:44:57 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:44:57.706660
+
+2025-06-29 08:46:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:46:00.148222
+
+2025-06-29 08:47:02 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:47:02.371051
+
+2025-06-29 08:48:04 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:48:04.769235
+
+2025-06-29 08:49:07 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:49:07.226933
+
+2025-06-29 08:50:09 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:50:09.725390
+
+2025-06-29 08:51:12 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:51:12.210184
+
+2025-06-29 08:52:14 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:52:14.578553
+
+2025-06-29 08:53:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:53:17.019165
+
+2025-06-29 08:54:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:54:19.410110
+
+2025-06-29 08:55:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:55:22.006147
+
+2025-06-29 08:56:24 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:56:24.719031
+
+2025-06-29 08:57:26 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:57:26.339432
+
+2025-06-29 08:58:28 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:58:28.863273
+
+2025-06-29 08:59:31 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T05:59:31.285591
+
+2025-06-29 09:00:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:00:33.810360
+
+2025-06-29 09:01:35 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:01:35.736393
+
+2025-06-29 09:02:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:02:38.391639
+
+2025-06-29 09:03:40 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:03:40.889695
+
+2025-06-29 09:04:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:04:43.457049
+
+2025-06-29 09:05:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:05:46.110735
+
+2025-06-29 09:06:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:06:48.728212
+
+2025-06-29 09:07:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:07:51.269687
+
+2025-06-29 09:08:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:08:53.772922
+
+2025-06-29 09:09:56 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:09:56.182903
+
+2025-06-29 09:10:57 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:10:57.870686
+
+2025-06-29 09:12:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:12:00.425117
+
+2025-06-29 09:13:02 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:13:02.904618
+
+2025-06-29 09:14:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:14:05.303265
+
+2025-06-29 09:15:07 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:15:07.807699
+
+2025-06-29 09:16:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:16:10.223925
+
+2025-06-29 09:17:11 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:17:11.871688
+
+2025-06-29 09:18:14 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:18:14.393174
+
+2025-06-29 09:19:16 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:19:16.793055
+
+2025-06-29 09:20:19 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:20:19.195965
+
+2025-06-29 09:21:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:21:20.811035
+
+2025-06-29 09:22:23 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:22:23.223112
+
+2025-06-29 09:23:25 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:23:25.557945
+
+2025-06-29 09:24:28 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:24:28.002920
+
+2025-06-29 09:25:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:25:29.621302
+
+2025-06-29 09:26:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:26:32.033800
+
+2025-06-29 09:27:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:27:34.427233
+
+2025-06-29 09:28:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:28:36.867887
+
+2025-06-29 09:29:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:29:38.562475
+
+2025-06-29 09:30:41 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:30:41.037966
+
+2025-06-29 09:31:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:31:43.416588
+
+2025-06-29 09:32:45 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:32:45.850611
+
+2025-06-29 09:33:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:33:48.282131
+
+2025-06-29 09:34:50 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:34:50.720646
+
+2025-06-29 09:35:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:35:53.243503
+
+2025-06-29 09:36:55 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:36:55.707512
+
+2025-06-29 09:37:57 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:37:57.304723
+
+2025-06-29 09:38:58 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:38:58.937190
+
+2025-06-29 09:40:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:40:00.675083
+
+2025-06-29 09:41:03 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:41:03.169441
+
+2025-06-29 09:42:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:42:05.629394
+
+2025-06-29 09:43:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:43:08.047547
+
+2025-06-29 09:44:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:44:10.414324
+
+2025-06-29 09:45:12 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:45:12.828130
+
+2025-06-29 09:46:15 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:46:15.181209
+
+2025-06-29 09:47:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:47:17.578047
+
+2025-06-29 09:48:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:48:20.037763
+
+2025-06-29 09:49:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:49:22.530089
+
+2025-06-29 09:50:25 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:50:25.023582
+
+2025-06-29 09:51:26 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:51:26.655650
+
+2025-06-29 09:52:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:52:29.078429
+
+2025-06-29 09:53:31 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:53:31.524430
+
+2025-06-29 09:54:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:54:33.906348
+
+2025-06-29 09:55:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:55:34.792864
+
+2025-06-29 09:56:37 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:56:37.161595
+
+2025-06-29 09:57:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:57:39.611721
+
+2025-06-29 09:58:42 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:58:42.005311
+
+2025-06-29 09:59:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T06:59:43.630936
+
+2025-06-29 10:00:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:00:46.085932
+
+2025-06-29 10:01:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:01:48.565492
+
+2025-06-29 10:02:50 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:02:50.284331
+
+2025-06-29 10:03:52 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:03:52.730997
+
+2025-06-29 10:04:54 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:04:54.371219
+
+2025-06-29 10:05:56 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:05:56.785497
+
+2025-06-29 10:06:59 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:06:59.147431
+
+2025-06-29 10:08:01 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:08:01.514950
+
+2025-06-29 10:09:03 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:09:03.889771
+
+2025-06-29 10:10:06 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:10:06.253668
+
+2025-06-29 10:11:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:11:08.627869
+
+2025-06-29 10:12:11 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:12:11.028148
+
+2025-06-29 10:13:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:13:13.431578
+
+2025-06-29 10:14:15 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:14:15.045446
+
+2025-06-29 10:15:17 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:15:17.722643
+
+2025-06-29 10:16:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:16:20.144488
+
+2025-06-29 10:17:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:17:22.540344
+
+2025-06-29 10:18:24 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:18:24.942447
+
+2025-06-29 10:19:27 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:19:27.421783
+
+2025-06-29 10:20:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:20:29.794218
+
+2025-06-29 10:21:31 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:21:31.393660
+
+2025-06-29 10:22:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:22:33.005088
+
+2025-06-29 10:23:35 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:23:35.601356
+
+2025-06-29 10:24:37 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:24:37.205638
+
+2025-06-29 10:25:39 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:25:39.623881
+
+2025-06-29 10:26:42 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:26:42.054486
+
+2025-06-29 10:27:44 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:27:44.404021
+
+2025-06-29 10:28:46 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:28:46.995654
+
+2025-06-29 10:29:49 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:29:49.418125
+
+2025-06-29 10:30:51 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:30:51.991217
+
+2025-06-29 10:31:54 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:31:54.581719
+
+2025-06-29 10:32:56 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:32:56.977032
+
+2025-06-29 10:33:59 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:33:59.440315
+
+2025-06-29 10:35:00 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:35:00.362695
+
+2025-06-29 10:36:02 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:36:02.083901
+
+2025-06-29 10:37:04 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:37:04.629164
+
+2025-06-29 10:38:06 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:38:06.273571
+
+2025-06-29 10:39:08 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:39:08.834172
+
+2025-06-29 10:40:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:40:10.598469
+
+2025-06-29 10:41:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:41:13.018976
+
+2025-06-29 10:42:15 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:42:15.549911
+
+2025-06-29 10:43:18 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:43:18.067986
+
+2025-06-29 10:44:20 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:44:20.493187
+
+2025-06-29 10:45:22 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:45:22.948771
+
+2025-06-29 10:46:24 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:46:24.896803
+
+2025-06-29 10:47:27 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:47:27.306903
+
+2025-06-29 10:48:29 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:48:29.776749
+
+2025-06-29 10:49:32 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:49:32.128055
+
+2025-06-29 10:50:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:50:33.738919
+
+2025-06-29 10:51:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:51:36.260608
+
+2025-06-29 10:52:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:52:38.719212
+
+2025-06-29 10:53:40 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:53:40.872893
+
+2025-06-29 10:54:43 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:54:43.266975
+
+2025-06-29 10:55:45 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:55:45.658609
+
+2025-06-29 10:56:48 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:56:48.029736
+
+2025-06-29 10:57:50 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:57:50.658400
+
+2025-06-29 10:58:53 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-06-29T07:58:53.182666
+
+2025-06-29 19:35:11 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-06-29 19:35:11 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-06-29 19:43:04 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-06-29
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-06-29T16:43:04.586691
+
+2025-07-06 17:00:40 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-07-06
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-07-06T14:00:40.078260
+
+2025-07-10 02:03:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: Connection unexpectedly closed
+  timestamp: 2025-07-09T23:03:52.776487
+
+2025-07-13 17:00:13 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-07-13
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-07-13T14:00:13.570427
+
+2025-07-16 20:34:55 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 ca18e2360f4ac-8796bc1313asm370184739f.28 - gsmtp')
+  timestamp: 2025-07-16T17:34:55.988206
+
+2025-07-20 17:00:49 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-07-20
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-07-20T14:00:49.785410
+
+2025-07-23 07:10:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 8926c6da1cb9f-5084ca01aafsm2910472173.86 - gsmtp')
+  timestamp: 2025-07-23T04:10:22.114053
+
+2025-07-27 17:00:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-07-27
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-07-27T14:00:38.576849
+
+2025-07-29 03:17:36 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: Connection unexpectedly closed
+  timestamp: 2025-07-29T00:17:36.318187
+
+2025-07-31 16:53:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 8926c6da1cb9f-50a55b86f12sm508853173.47 - gsmtp')
+  timestamp: 2025-07-31T13:53:03.072844
+
+2025-08-03 17:00:10 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-08-03
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-08-03T14:00:10.074799
+
+2025-08-10 17:00:35 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-08-10
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-08-10T14:00:35.806844
+
+2025-08-13 05:54:24 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 e9e14a558f8ab-3e53e6f897csm41430085ab.37 - gsmtp')
+  timestamp: 2025-08-13T02:54:24.153706
+
+2025-08-17 17:00:05 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-08-17
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-08-17T14:00:05.148905
+
+2025-08-19 07:59:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-08-19T04:59:34.887701
+
+2025-08-19 08:01:45 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-08-19T05:01:45.945107
+
+2025-08-24 17:00:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-08-24
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-08-24T14:00:33.369015
+
+2025-08-25 17:06:05 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-08-25T14:06:05.414941
+
+2025-08-25 17:08:16 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-08-25T14:08:16.473467
+
+2025-08-25 17:10:27 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-08-25T14:10:27.545401
+
+2025-08-31 17:00:36 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-08-31
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-08-31T14:00:36.830876
+
+2025-09-06 01:19:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 e9e14a558f8ab-3f3e136cc71sm79620405ab.46 - gsmtp')
+  timestamp: 2025-09-05T22:19:39.493288
+
+2025-09-07 17:00:38 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-09-07
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-09-07T14:00:38.988627
+
+2025-09-16 20:55:28 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-09-16 20:55:28 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-09-16 20:58:11 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-09-16 20:58:11 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-09-16 21:04:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-09-16
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-09-16T18:04:33.669157
+
