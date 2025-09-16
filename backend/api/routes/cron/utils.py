@@ -54,6 +54,10 @@ def get_balanced_algorithm_list(db: Session, target_details_per_model: int = 100
     all_combinations = []
     
     for main_algo in ALGORITHM_REGISTRY.keys():
+        # Skip grid search algorithms - they're optimization tools, not prediction algorithms
+        if 'gridsearch' in main_algo.lower():
+            continue
+            
         for strong_algo in STRONG_NUMBER_REGISTRY.keys():
             # Create key using algorithm registry names
             key = f"{main_algo}_{strong_algo}"
@@ -70,10 +74,10 @@ def get_balanced_algorithm_list(db: Session, target_details_per_model: int = 100
     
     # Debug logging
     logger.info(
-        "Arrr! Algorithm selection debug info",
+        "Arrr! Algorithm selection debug info (grid search filtered out)",
         context={
             "total_combinations": len(all_combinations),
-            "grid_search_combinations": len([c for c in all_combinations if 'gridsearch' in c['main_algo'].lower()]),
+            "grid_search_filtered": True,
             "sample_algorithms": [{"algo": c['main_algo'], "details": c['current_details']} for c in all_combinations[:5]]
         }
     )

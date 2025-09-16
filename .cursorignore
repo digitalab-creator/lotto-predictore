@@ -1,1 +1,104 @@
-# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+# ===========================================
+# 🏴‍☠️ LOTTO PREDICTORE - CURSOR IGNORE FILE
+# May the Flying Spaghetti Monster bless this code!
+# ===========================================
+
+# Virtual Environment - Don't index Python packages
+venv/
+env/
+ENV/
+.venv/
+
+# Node modules - Don't index JavaScript packages
+node_modules/
+
+# Logs - Don't index log files (they're huge and change frequently)
+logs/
+*.log
+*.log.*
+
+# Database files - Don't index database dumps and backups
+backups/
+*.db
+*.sqlite3
+*.sql
+*.sql.gz
+*.dump
+
+# Cache directories - Don't index cached data
+shared/cache/
+__pycache__/
+*.cache
+*.tmp
+*.temp
+
+# Large model files - Don't index ML model files
+*.pkl
+*.joblib
+*.h5
+*.model
+*.weights
+grid_search_results.json
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Temporary and generated files
+*.pyc
+*.pyo
+*.pyd
+*.so
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Coverage and testing
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+
+# Large data files that might be in the repo
+*.csv
+*.json
+*.xml
+*.parquet
+*.feather
+*.hdf5
+
+# Docker volumes and data
+postgres_data/
+
+# Specific project files that are large or frequently changing
+grid_model_candidates.txt
+torch_load_output.txt
+test_backup.txt
+cron_fetch_latest.log
+cron_weekly_winning.log
