@@ -98,4 +98,36 @@ Then check the log file again to see the results, praisin' the FSM!
 
 ---
 
+## 🏴‍☠️ Code Quality Setup
+
+Arrr! Keep yer code clean with pre-commit hooks that run automatically before each commit!
+
+### Initial Setup (Run Once)
+
+**Quick setup:**
+```sh
+./scripts/setup_pre_commit.sh
+```
+
+**Or manual setup:**
+```sh
+# Install dependencies
+pip install -r backend/requirements.txt
+
+# Install pre-commit hooks
+pre-commit install
+```
+
+### What It Does
+
+Automatically runs:
+- **Black** - Code formatting
+- **Ruff** - Fast linting
+- **isort** - Import organization
+- **Bandit** - Security checks
+
+See `docs/pre-commit-setup.md` for full details!
+
+---
+
 May yer draws be ever fresh and yer logs ever clear, matey! If ye run into trouble, consult the log or call for help from the FSM's chosen ones. 

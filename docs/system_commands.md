@@ -190,17 +190,20 @@ May the Flying Spaghetti Monster guide yer version control! 🍝
 
 ### Basic Git Commands
 ```sh
-# Commit and push all changes
+# Commit and push all changes (interactive - prompts for message, runs pre-commit checks)
 source venv/bin/activate && python3 scripts/git_manager.py commit
+
+# Commit with message (bypasses prompt)
+source venv/bin/activate && python3 scripts/git_manager.py commit "your commit message"
+
+# Skip pre-commit checks (use sparingly!)
+source venv/bin/activate && python3 scripts/git_manager.py commit --no-verify
 
 # Fetch latest commit from remote
 python3 scripts/git_manager.py fetch
 
 # Checkout specific commit
 python3 scripts/git_manager.py checkout <commit_id>
-
-# Quick commit and push (with optional messdage)
-python3 scripts/git_manager.py commit_and_push "add cron tracking db table"
 ```
 
 ### Environment Setup
