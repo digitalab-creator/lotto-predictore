@@ -3032,3 +3032,1661 @@ Context:
   attachments: 0
   timestamp: 2025-09-16T18:04:33.669157
 
+2025-09-17 13:08:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T10:08:38.971446
+
+2025-09-17 16:55:29 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T13:55:29.040893
+
+2025-09-17 16:56:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T13:56:19.186075
+
+2025-09-17 16:57:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T13:57:09.296885
+
+2025-09-17 16:57:59 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T13:57:59.433138
+
+2025-09-17 16:58:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T13:58:49.619182
+
+2025-09-17 16:59:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T13:59:39.964725
+
+2025-09-17 17:00:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:00:30.616998
+
+2025-09-17 17:01:21 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:01:21.276177
+
+2025-09-17 17:02:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:02:12.285750
+
+2025-09-17 17:03:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:03:02.999431
+
+2025-09-17 17:03:53 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:03:53.642106
+
+2025-09-17 17:04:44 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:04:44.539670
+
+2025-09-17 17:05:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:05:35.291853
+
+2025-09-17 17:06:26 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:06:26.018708
+
+2025-09-17 17:07:16 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:07:16.775425
+
+2025-09-17 17:08:07 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:08:07.470984
+
+2025-09-17 17:08:58 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:08:58.173646
+
+2025-09-17 17:09:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:09:48.968386
+
+2025-09-17 17:10:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:10:39.826073
+
+2025-09-17 17:11:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:11:30.543329
+
+2025-09-17 17:12:20 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:12:20.868178
+
+2025-09-17 17:13:11 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:13:11.008794
+
+2025-09-17 17:14:01 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:14:01.155088
+
+2025-09-17 17:14:51 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:14:51.318359
+
+2025-09-17 17:15:41 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:15:41.464694
+
+2025-09-17 17:16:31 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:16:31.614240
+
+2025-09-17 17:17:21 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:17:21.792791
+
+2025-09-17 17:18:11 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:18:11.929342
+
+2025-09-17 17:19:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:19:02.057037
+
+2025-09-17 17:19:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:19:52.183143
+
+2025-09-17 17:20:42 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:20:42.338691
+
+2025-09-17 17:21:32 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:21:32.479028
+
+2025-09-17 17:22:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:22:22.618913
+
+2025-09-17 17:23:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:23:12.783237
+
+2025-09-17 17:24:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:24:02.924038
+
+2025-09-17 17:24:53 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:24:53.059870
+
+2025-09-17 17:25:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:25:43.312992
+
+2025-09-17 17:26:33 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:26:33.442959
+
+2025-09-17 17:27:23 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:27:23.586354
+
+2025-09-17 17:28:13 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:28:13.708452
+
+2025-09-17 17:29:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:29:03.845770
+
+2025-09-17 17:29:53 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:29:53.977091
+
+2025-09-17 17:30:44 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:30:44.123777
+
+2025-09-17 17:31:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:31:34.262157
+
+2025-09-17 17:32:24 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:32:24.390521
+
+2025-09-17 17:33:14 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:33:14.533515
+
+2025-09-17 17:34:05 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:34:05.031112
+
+2025-09-17 17:34:56 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:34:56.847076
+
+2025-09-17 17:35:47 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:35:47.205793
+
+2025-09-17 17:36:37 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:36:37.442943
+
+2025-09-17 17:37:27 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:37:27.665965
+
+2025-09-17 17:38:17 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:38:17.889657
+
+2025-09-17 17:39:08 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:39:08.009124
+
+2025-09-17 17:39:58 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:39:58.309437
+
+2025-09-17 17:40:48 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:40:48.586994
+
+2025-09-17 17:41:38 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:41:38.758424
+
+2025-09-17 17:42:28 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:42:28.923811
+
+2025-09-17 17:43:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:43:19.113470
+
+2025-09-17 17:44:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:44:09.298779
+
+2025-09-17 17:44:59 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:44:59.444663
+
+2025-09-17 17:45:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:45:49.663399
+
+2025-09-17 17:46:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:46:39.833236
+
+2025-09-17 17:47:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:47:30.026616
+
+2025-09-17 17:48:20 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:48:20.235081
+
+2025-09-17 17:49:10 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:49:10.473352
+
+2025-09-17 17:50:00 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:50:00.816938
+
+2025-09-17 17:50:51 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:50:51.257674
+
+2025-09-17 17:51:41 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:51:41.812432
+
+2025-09-17 17:52:32 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:52:32.147416
+
+2025-09-17 17:53:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:53:22.531320
+
+2025-09-17 17:54:13 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:54:13.188381
+
+2025-09-17 17:55:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:55:03.714739
+
+2025-09-17 17:55:54 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:55:54.406283
+
+2025-09-17 17:56:45 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:56:45.293778
+
+2025-09-17 17:57:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:57:35.713686
+
+2025-09-17 17:58:26 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:58:26.312039
+
+2025-09-17 17:59:16 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T14:59:16.979632
+
+2025-09-17 18:00:07 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:00:07.704476
+
+2025-09-17 18:00:58 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:00:58.320064
+
+2025-09-17 18:01:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:01:48.992680
+
+2025-09-17 18:02:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:02:39.577783
+
+2025-09-17 18:03:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:03:30.248344
+
+2025-09-17 18:04:21 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:04:21.038334
+
+2025-09-17 18:05:11 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:05:11.819950
+
+2025-09-17 18:06:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:06:02.470648
+
+2025-09-17 18:06:53 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:06:53.166220
+
+2025-09-17 18:07:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:07:43.864678
+
+2025-09-17 18:08:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:08:34.560328
+
+2025-09-17 18:09:25 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:09:25.370451
+
+2025-09-17 18:10:16 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:10:16.383431
+
+2025-09-17 18:11:07 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:11:07.288032
+
+2025-09-17 18:11:58 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:11:58.204489
+
+2025-09-17 18:12:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:12:48.989464
+
+2025-09-17 18:13:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:13:39.813955
+
+2025-09-17 18:14:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:14:30.658726
+
+2025-09-17 18:15:21 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:15:21.528437
+
+2025-09-17 18:16:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:16:12.458753
+
+2025-09-17 18:17:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:17:03.486733
+
+2025-09-17 18:17:54 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:17:54.397891
+
+2025-09-17 18:18:45 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:18:45.142802
+
+2025-09-17 18:19:36 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:19:36.053356
+
+2025-09-17 18:20:27 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:20:26.996591
+
+2025-09-17 18:21:18 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:21:18.217372
+
+2025-09-17 18:22:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:22:09.390517
+
+2025-09-17 18:23:00 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:23:00.514119
+
+2025-09-17 18:23:51 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:23:51.494345
+
+2025-09-17 18:24:42 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:24:42.951237
+
+2025-09-17 18:25:33 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:25:33.882324
+
+2025-09-17 18:26:25 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:26:25.372489
+
+2025-09-17 18:27:16 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:27:16.682691
+
+2025-09-17 18:28:08 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:28:08.209837
+
+2025-09-17 18:28:59 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:28:59.782393
+
+2025-09-17 18:29:51 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:29:51.313637
+
+2025-09-17 18:30:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:30:43.308531
+
+2025-09-17 18:31:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:31:34.973971
+
+2025-09-17 18:32:26 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:32:26.210689
+
+2025-09-17 18:33:17 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:33:17.336739
+
+2025-09-17 18:34:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:34:09.245980
+
+2025-09-17 18:35:00 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:35:00.519494
+
+2025-09-17 18:35:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:35:52.396659
+
+2025-09-17 18:36:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:36:43.868942
+
+2025-09-17 18:37:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:37:35.898504
+
+2025-09-17 18:38:27 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:38:27.428448
+
+2025-09-17 18:39:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:39:19.123071
+
+2025-09-17 18:40:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:40:12.066852
+
+2025-09-17 18:41:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:41:03.937861
+
+2025-09-17 18:41:55 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:41:55.724625
+
+2025-09-17 18:42:48 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:42:48.306615
+
+2025-09-17 18:43:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:43:39.749875
+
+2025-09-17 18:44:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:44:34.003975
+
+2025-09-17 18:45:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:45:35.490365
+
+2025-09-17 18:46:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:46:35.007007
+
+2025-09-17 18:47:31 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:47:30.737394
+
+2025-09-17 18:48:38 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:48:38.004351
+
+2025-09-17 18:50:06 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:50:04.779291
+
+2025-09-17 18:52:01 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:52:01.308549
+
+2025-09-17 18:58:15 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T15:58:14.977407
+
+2025-09-17 19:02:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:02:35.692946
+
+2025-09-17 19:03:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:03:34.520263
+
+2025-09-17 19:09:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:09:11.733973
+
+2025-09-17 19:15:42 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:15:42.046147
+
+2025-09-17 19:18:57 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:18:57.308173
+
+2025-09-17 19:30:25 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:30:25.293147
+
+2025-09-17 19:34:13 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:34:13.012222
+
+2025-09-17 19:42:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:42:21.557149
+
+2025-09-17 19:47:10 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:47:08.804397
+
+2025-09-17 19:49:46 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:49:46.744420
+
+2025-09-17 19:51:48 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T16:51:47.971266
+
+2025-09-17 20:02:07 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:02:04.044047
+
+2025-09-17 20:06:06 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:06:05.762830
+
+2025-09-17 20:12:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:12:51.765871
+
+2025-09-17 20:15:32 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:15:32.726279
+
+2025-09-17 20:17:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:17:02.198947
+
+2025-09-17 20:20:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:20:18.494364
+
+2025-09-17 20:27:13 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:27:13.245123
+
+2025-09-17 20:34:46 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:34:45.774516
+
+2025-09-17 20:42:53 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:42:53.444363
+
+2025-09-17 20:43:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:43:38.740153
+
+2025-09-17 20:48:29 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:48:29.285115
+
+2025-09-17 20:49:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:49:43.256504
+
+2025-09-17 20:56:46 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T17:56:46.517451
+
+2025-09-17 21:03:25 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T18:03:25.759341
+
+2025-09-17 21:09:01 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T18:09:01.748803
+
+2025-09-17 21:32:32 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T18:32:30.751711
+
+2025-09-17 21:50:36 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T18:50:36.707939
+
+2025-09-17 22:18:35 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T19:18:34.808903
+
+2025-09-17 22:26:05 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T19:26:05.538066
+
+2025-09-17 22:34:15 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T19:34:15.721770
+
+2025-09-17 22:37:33 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T19:37:33.527260
+
+2025-09-17 23:05:21 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T20:05:20.795147
+
+2025-09-17 23:19:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T20:19:02.046110
+
+2025-09-17 23:48:13 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T20:48:13.459586
+
+2025-09-17 23:57:37 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T20:57:36.693755
+
+2025-09-18 00:30:04 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-17T21:30:04.531103
+
+2025-09-18 07:52:03 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:52:02.982105
+
+2025-09-18 07:53:01 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:53:00.771559
+
+2025-09-18 07:54:06 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:54:06.264725
+
+2025-09-18 07:55:15 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:55:15.243387
+
+2025-09-18 07:56:14 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:56:14.749230
+
+2025-09-18 07:57:29 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:57:29.452513
+
+2025-09-18 07:58:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:58:19.008544
+
+2025-09-18 07:59:18 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T04:59:18.706159
+
+2025-09-18 08:00:25 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:00:25.009308
+
+2025-09-18 08:01:29 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:01:29.564470
+
+2025-09-18 08:02:47 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:02:47.561434
+
+2025-09-18 08:03:36 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:03:35.700057
+
+2025-09-18 08:04:41 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:04:41.784105
+
+2025-09-18 08:05:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:05:43.522104
+
+2025-09-18 08:06:46 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:06:45.972522
+
+2025-09-18 08:07:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:07:52.458963
+
+2025-09-18 08:08:54 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:08:54.446883
+
+2025-09-18 08:09:47 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:09:46.973767
+
+2025-09-18 08:10:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:10:52.699770
+
+2025-09-18 08:12:01 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:12:01.197429
+
+2025-09-18 08:12:47 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:12:47.707030
+
+2025-09-18 08:14:01 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:14:01.281741
+
+2025-09-18 08:15:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:15:02.498466
+
+2025-09-18 08:16:08 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:16:08.272481
+
+2025-09-18 08:17:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:17:09.263024
+
+2025-09-18 08:18:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:18:11.969742
+
+2025-09-18 08:19:37 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:19:37.281680
+
+2025-09-18 08:20:32 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:20:31.789328
+
+2025-09-18 08:21:46 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:21:45.986918
+
+2025-09-18 08:22:45 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:22:44.780502
+
+2025-09-18 08:23:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:23:49.696463
+
+2025-09-18 08:24:50 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:24:50.538253
+
+2025-09-18 08:25:52 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:25:52.206155
+
+2025-09-18 08:26:59 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:26:59.789544
+
+2025-09-18 08:27:54 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:27:54.233359
+
+2025-09-18 08:29:02 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:29:02.559390
+
+2025-09-18 08:30:18 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:30:18.068386
+
+2025-09-18 08:31:11 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:31:11.300070
+
+2025-09-18 08:32:23 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:32:22.987571
+
+2025-09-18 08:33:32 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:33:32.058181
+
+2025-09-18 08:34:24 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:34:24.255294
+
+2025-09-18 08:35:33 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:35:33.464619
+
+2025-09-18 08:36:48 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:36:48.758774
+
+2025-09-18 08:37:46 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:37:46.811271
+
+2025-09-18 08:38:47 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:38:47.237549
+
+2025-09-18 08:40:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:40:09.455559
+
+2025-09-18 08:40:51 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:40:51.722016
+
+2025-09-18 08:43:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:43:30.951710
+
+2025-09-18 08:44:25 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:44:25.247797
+
+2025-09-18 08:45:36 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:45:36.742231
+
+2025-09-18 08:46:51 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:46:50.969985
+
+2025-09-18 08:47:50 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:47:49.805925
+
+2025-09-18 08:49:10 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:49:10.447087
+
+2025-09-18 08:50:00 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:50:00.273116
+
+2025-09-18 08:51:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:51:22.060820
+
+2025-09-18 08:53:42 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:53:42.206721
+
+2025-09-18 08:55:17 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:55:17.016100
+
+2025-09-18 08:56:10 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:56:10.474020
+
+2025-09-18 08:57:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:57:34.796703
+
+2025-09-18 08:58:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:58:30.468796
+
+2025-09-18 08:59:41 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T05:59:41.506938
+
+2025-09-18 09:00:49 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:00:49.253943
+
+2025-09-18 09:04:07 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:04:07.739145
+
+2025-09-18 09:05:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:05:12.475396
+
+2025-09-18 09:06:15 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:06:15.215061
+
+2025-09-18 09:07:31 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:07:31.197785
+
+2025-09-18 09:08:39 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:08:39.065129
+
+2025-09-18 09:09:54 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:09:53.723752
+
+2025-09-18 09:11:13 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:11:13.310733
+
+2025-09-18 09:12:12 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno -3] Temporary failure in name resolution
+  timestamp: 2025-09-18T06:12:11.307122
+
+2025-09-18 09:23:30 UTC - email_service - INFO - [unknown:unknown:0] -
+Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily
+
+2025-09-18 09:23:30 UTC - email_service - INFO - [email_service.py:__init__:36] -
+Email service initialized
+
+2025-09-19 01:29:28 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 e9e14a558f8ab-4244a682a59sm14591395ab.16 - gsmtp')
+  timestamp: 2025-09-18T22:29:28.157733
+
+2025-09-19 06:00:33 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-09-19T03:00:33.266888
+
+2025-09-19 06:01:34 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-09-19T03:01:34.430727
+
+2025-09-19 09:19:34 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 e9e14a558f8ab-4244b29f796sm18492365ab.38 - gsmtp')
+  timestamp: 2025-09-19T06:19:34.173849
+
+2025-09-19 10:36:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (454, b'4.7.0 Cannot authenticate due to temporary system problem. Try again later.\n4.7.0 For more information, go to\n4.7.0  https://support.google.com/a/answer/3221692 e9e14a558f8ab-4244b2ba662sm19538975ab.46 - gsmtp')
+  timestamp: 2025-09-19T07:36:22.428343
+
+2025-09-30 15:35:41 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 104] Connection reset by peer
+  timestamp: 2025-09-30T12:35:41.403563
+
+2025-09-30 15:58:28 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T12:58:28.496634
+
+2025-09-30 16:28:40 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T13:28:40.921563
+
+2025-09-30 16:32:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T13:32:22.105391
+
+2025-09-30 16:47:17 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T13:47:17.081281
+
+2025-09-30 17:06:11 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T14:06:11.673483
+
+2025-09-30 17:08:22 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T14:08:22.746590
+
+2025-09-30 17:10:33 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T14:10:33.817992
+
+2025-09-30 17:21:45 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T14:21:45.561365
+
+2025-09-30 17:28:00 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-09-30T14:28:00.345934
+
+2025-10-08 03:01:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-08T00:01:19.587616
+
+2025-10-11 02:04:04 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-10T23:04:04.068497
+
+2025-10-11 05:51:27 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-11T02:51:27.843239
+
+2025-10-16 20:06:38 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: (421, b'4.4.5 Server busy, try again later.')
+  timestamp: 2025-10-16T17:06:38.620064
+
+2025-10-28 01:54:09 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-27T23:54:09.506920
+
+2025-10-28 01:56:20 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-27T23:56:20.569565
+
+2025-10-28 01:58:31 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-27T23:58:31.641305
+
+2025-10-28 08:20:45 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-28T06:20:45.154660
+
+2025-10-28 17:11:19 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-28T15:11:19.268806
+
+2025-10-28 17:13:30 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-28T15:13:30.329571
+
+2025-10-28 23:59:43 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-28T21:59:43.586951
+
+2025-10-29 05:14:50 UTC - email_service - ERROR - [main.py:health_check:151] -
+Health check failed
+Context:
+  error: [Errno 99] Cannot assign requested address
+  timestamp: 2025-10-29T03:14:50.723460
+
+2025-11-02 09:43:56 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Error Notification - cron-service
+  template: error_notification.html
+  attachments: 0
+  timestamp: 2025-11-02T07:43:56.570068
+
+2025-11-02 09:45:09 UTC - email_service - INFO - [email_service.py:send_email:83] -
+Email sent successfully
+Context:
+  subject: Best Model Lottery Tables - 2025-11-02
+  template: best_model_tables.html
+  attachments: 0
+  timestamp: 2025-11-02T07:45:09.078518
+

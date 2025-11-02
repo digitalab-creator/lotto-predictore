@@ -417,3 +417,4 @@ class WeeklyCombinationsGridSearch:
             'expected_roi': 0,
             'grid_search_metadata': {'note': 'Using default parameters - grid search failed'}
         }
+

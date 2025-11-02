@@ -7,7 +7,10 @@ from algorithms import register_algorithms, get_registered_algorithms
 from api.routes.simulation import router as simulation_router
 from api.routes.combinations import router as combinations_router
 from api.routes.cron import (
-    weekly_combinations_router,
+    optimized_combinations_router,
+    fast_combinations_router,
+    standard_combinations_router,
+    grid_search_analysis_router,
     draw_fetching_router,
     model_tables_router,
     status_router
@@ -40,7 +43,10 @@ def root():
 # Include all route modules
 app.include_router(simulation_router, tags=["simulation"])
 app.include_router(combinations_router, tags=["combinations"])
-app.include_router(weekly_combinations_router, tags=["cron"])
+app.include_router(optimized_combinations_router, tags=["cron"])
+app.include_router(fast_combinations_router, tags=["cron"])
+app.include_router(standard_combinations_router, tags=["cron"])
+app.include_router(grid_search_analysis_router, tags=["cron"])
 app.include_router(draw_fetching_router, tags=["cron"])
 app.include_router(model_tables_router, tags=["cron"])
 app.include_router(status_router, tags=["cron"])
