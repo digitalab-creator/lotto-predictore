@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
-from services.cron_tracker import CronTracker
+from services.core.cron_tracker import CronTracker
 from logger import logger
 import time
 

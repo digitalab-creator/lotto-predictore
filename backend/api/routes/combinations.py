@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
 from datetime import date, datetime, timedelta
-from services.simulation_engine import SimulationEngine
+from services.core.simulation_engine import SimulationEngine
 from models import Draw, Prediction, Model, GeneratedCombination
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 from algorithms.base import ALGORITHM_REGISTRY

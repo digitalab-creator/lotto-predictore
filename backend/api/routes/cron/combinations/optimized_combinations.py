@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from datetime import datetime
-from services.cron_tracker import CronTracker
-from services.grid_search_service import WeeklyCombinationsGridSearch
+from services.core.cron_tracker import CronTracker
+from services.core.grid_search_service import WeeklyCombinationsGridSearch
 from models import Prediction
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 from logger import logger

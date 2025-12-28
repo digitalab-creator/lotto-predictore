@@ -4,16 +4,7 @@ from logger import logger
 from .base import ALGORITHM_REGISTRY, register_algorithm, get_registered_algorithms
 
 # Import all algorithm modules
-from . import top_n_frequent
-from . import top_n_overall
-from . import positionwise_scored
-from . import delta_system
-from . import repeated_pattern
-from . import recency_weighted
-from . import random_from_top_pool
-from . import balanced_spread
-from . import pattern_learning
-from . import skip_distance
+from . import statistical
 from . import strong_number
 from . import dl
 

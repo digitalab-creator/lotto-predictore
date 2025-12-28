@@ -1,0 +1,13 @@
+rq==1.15.1
+redis==5.0.1
+psycopg2-binary==2.9.10
+SQLAlchemy==2.0.41
+python-dotenv==1.0.1
+requests==2.31.0
+torch==2.3.0
+numpy
+scikit-learn
+pandas
+matplotlib
+backoff==2.2.1
+

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from services.cron_tracker import CronTracker
-from services.grid_search_service import WeeklyCombinationsGridSearch
+from services.core.cron_tracker import CronTracker
+from services.core.grid_search_service import WeeklyCombinationsGridSearch
 from logger import logger
 from .base_combination_generator import get_db_session, load_draws_with_filter
 from typing import Dict, Any, List

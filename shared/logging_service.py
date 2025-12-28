@@ -8,6 +8,17 @@ from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 import shutil
 import inspect
 import threading
+import sys
+
+# Import config constants
+sys.path.append('/app')
+try:
+    from config import LOG_ROTATION_MAX_BYTES, LOG_ROTATION_BACKUP_COUNT, LOG_RETENTION_DAYS
+except ImportError:
+    # Fallback values if config is not available
+    LOG_ROTATION_MAX_BYTES = int(9.5 * 1024 * 1024)  # 9.5MB
+    LOG_ROTATION_BACKUP_COUNT = 100
+    LOG_RETENTION_DAYS = 14
 
 class CallerAwareFormatter(logging.Formatter):
     """Custom formatter that handles missing caller fields gracefully."""
@@ -27,7 +38,7 @@ class LoggingService:
     @staticmethod
     def cleanup_old_logs(base_log_dir: Optional[str] = None) -> Dict[str, List[str]]:
         """
-        Clean up log files older than 7 days for all services.
+        Clean up log files older than 14 days for all services.
         This method should be called by the cron service.
         
         Args:
@@ -43,8 +54,8 @@ class LoggingService:
         if not logs_dir.exists():
             return {}
             
-        # Calculate the cutoff date (7 days ago)
-        cutoff_date = datetime.now() - timedelta(days=7)
+        # Calculate the cutoff date (based on retention days)
+        cutoff_date = datetime.now() - timedelta(days=LOG_RETENTION_DAYS)
         cutoff_timestamp = cutoff_date.timestamp()
         
         # Track removed files per service
@@ -61,7 +72,7 @@ class LoggingService:
                 # Get all log files in the service directory
                 log_files = list(service_dir.glob(f"{service_name}.*"))
                 
-                # Remove files older than 7 days
+                # Remove files older than retention period
                 for log_file in log_files:
                     if log_file.stat().st_mtime < cutoff_timestamp:
                         log_file.unlink()
@@ -70,6 +81,18 @@ class LoggingService:
                 # If no files were removed for this service, remove it from the dict
                 if not removed_files[service_name]:
                     del removed_files[service_name]
+            
+            # Also clean up root-level log files (like backup.log)
+            root_log_files = list(logs_dir.glob("*.log*"))
+            if root_log_files:
+                if 'root' not in removed_files:
+                    removed_files['root'] = []
+                for log_file in root_log_files:
+                    if log_file.stat().st_mtime < cutoff_timestamp:
+                        log_file.unlink()
+                        removed_files['root'].append(str(log_file))
+                if not removed_files['root']:
+                    del removed_files['root']
                     
             return removed_files
             
@@ -116,14 +139,14 @@ class LoggingService:
         console_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
         console_handler.setFormatter(console_format)
         
-        # File handler with rotation based on size (15MB) and time (weekly)
+        # File handler with rotation based on size
         log_file = self.logs_dir / f'{service_name}.log'
         
-        # Size-based rotation (15MB)
+        # Size-based rotation
         file_handler = RotatingFileHandler(
             log_file,
-            maxBytes=15 * 1024 * 1024,  # 15MB
-            backupCount=100,  # Keep up to 100 backup files
+            maxBytes=LOG_ROTATION_MAX_BYTES,
+            backupCount=LOG_ROTATION_BACKUP_COUNT,
             encoding='utf-8'
         )
         file_handler.setLevel(getattr(logging, log_level))
@@ -139,7 +162,11 @@ class LoggingService:
         self.logger.addHandler(file_handler)
         
         # Log that the service is initialized
-        self.logger.info("Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily")
+        self.logger.info(
+            f"Logging service initialized - log rotation: {LOG_ROTATION_MAX_BYTES / (1024 * 1024):.1f}MB max, "
+            f"backup count: {LOG_ROTATION_BACKUP_COUNT}, "
+            f"cleanup scheduled via cron service at 02:00 AM daily ({LOG_RETENTION_DAYS} days retention)"
+        )
     
     def log(
         self,

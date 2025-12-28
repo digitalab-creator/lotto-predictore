@@ -4,7 +4,7 @@ Praise the FSM for clean, shared code!
 """
 
 from sqlalchemy.orm import Session
-from services.cron_tracker import CronTracker
+from services.core.cron_tracker import CronTracker
 from models import Draw, Prediction, Model, GeneratedCombination
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
@@ -199,6 +199,18 @@ def store_combinations_in_db(
                 context={
                     "error": str(e),
                     "numbers": numbers,
+                    "prediction_id": prediction_id
+                }
+            )
+            continue
+        
+        # Check for duplicate numbers within the combination
+        if len(numbers) != len(set(numbers)):
+            logger.warning(
+                f"Arrr! Skipping combo at index {idx} - contains duplicate numbers",
+                context={
+                    "numbers": numbers,
+                    "duplicates": [n for n in numbers if numbers.count(n) > 1],
                     "prediction_id": prediction_id
                 }
             )

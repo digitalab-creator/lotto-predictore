@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
 from datetime import datetime
-from services.cron_tracker import CronTracker
+from services.core.cron_tracker import CronTracker
 from logger import logger
 from .utils import get_model_prediction_details_count, get_balanced_algorithm_list
 

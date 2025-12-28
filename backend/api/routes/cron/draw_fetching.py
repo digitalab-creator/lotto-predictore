@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
-from services.cron_tracker import CronTracker
+from services.core.cron_tracker import CronTracker
 from logger import logger
 import time
 
@@ -33,7 +33,7 @@ async def fetch_latest_draw():
         )
         
         # Import and run the script
-        from services.fetch_latest_draw import main as fetch_draw
+        from services.data_import.fetch_latest_draw import main as fetch_draw
         fetch_draw()
         
         total_time = time.time() - start_time

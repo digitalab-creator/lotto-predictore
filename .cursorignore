@@ -12,10 +12,7 @@ ENV/
 # Node modules - Don't index JavaScript packages
 node_modules/
 
-# Logs - Don't index log files (they're huge and change frequently)
-logs/
-*.log
-*.log.*
+
 
 # Database files - Don't index database dumps and backups
 backups/

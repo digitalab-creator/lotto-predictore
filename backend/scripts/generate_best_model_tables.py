@@ -12,7 +12,7 @@ if backend_dir not in sys.path:
 from sqlalchemy import text
 from db import SessionLocal
 from logger import logger
-from services.simulation_engine import SimulationEngine
+from services.core.simulation_engine import SimulationEngine
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from models import Draw, Model

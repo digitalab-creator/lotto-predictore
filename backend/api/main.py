@@ -13,9 +13,11 @@ from api.routes.cron import (
     grid_search_analysis_router,
     draw_fetching_router,
     model_tables_router,
-    status_router
+    status_router,
+    send_weekly_email_router
 )
 from api.routes.system import router as system_router
+from api.routes.queue.status import router as queue_status_router
 
 # Initialize FastAPI app
 app = FastAPI(title="Lotto Predictor Backend")
@@ -50,4 +52,6 @@ app.include_router(grid_search_analysis_router, tags=["cron"])
 app.include_router(draw_fetching_router, tags=["cron"])
 app.include_router(model_tables_router, tags=["cron"])
 app.include_router(status_router, tags=["cron"])
+app.include_router(send_weekly_email_router, tags=["cron"])
+app.include_router(queue_status_router, tags=["queue"])
 app.include_router(system_router, tags=["system"]) 

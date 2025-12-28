@@ -10,6 +10,7 @@ from .combinations import (
 from .draw_fetching import router as draw_fetching_router
 from .model_tables import router as model_tables_router
 from .status import router as status_router
+from .send_weekly_email import router as send_weekly_email_router
 
 # Export all routers for easy inclusion
 __all__ = [
@@ -19,5 +20,6 @@ __all__ = [
     'grid_search_analysis_router',
     'draw_fetching_router', 
     'model_tables_router',
-    'status_router'
+    'status_router',
+    'send_weekly_email_router'
 ] 

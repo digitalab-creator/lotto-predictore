@@ -89,6 +89,51 @@ async def test_error_handling():
     """
     return test_error_handling_endpoint()
 
+@app.get("/api/scheduler-status")
+async def scheduler_status():
+    """
+    Diagnostic endpoint to check scheduler status and next run times for all jobs.
+    """
+    import schedule
+    from datetime import datetime
+    import pytz
+    
+    UTC = pytz.UTC
+    current_time_utc = datetime.now(UTC)
+    
+    jobs_info = []
+    for job in schedule.jobs:
+        next_run = job.next_run
+        if next_run:
+            # Handle timezone-aware datetime
+            if next_run.tzinfo is None:
+                next_run_utc = UTC.localize(next_run)
+            else:
+                next_run_utc = next_run.astimezone(UTC)
+            
+            time_until_run = next_run_utc - current_time_utc
+            jobs_info.append({
+                "job_tag": str(job.tags) if hasattr(job, 'tags') else "N/A",
+                "next_run_utc": next_run_utc.isoformat(),
+                "time_until_run_seconds": int(time_until_run.total_seconds()),
+                "time_until_run_human": str(time_until_run),
+                "is_pending": time_until_run.total_seconds() > 0
+            })
+        else:
+            jobs_info.append({
+                "job_tag": str(job.tags) if hasattr(job, 'tags') else "N/A",
+                "next_run_utc": None,
+                "status": "No next run scheduled"
+            })
+    
+    return {
+        "status": "active",
+        "current_time_utc": current_time_utc.isoformat(),
+        "total_jobs": len(schedule.jobs),
+        "jobs": jobs_info,
+        "scheduler_running": True
+    }
+
 if __name__ == "__main__":
     logger.info("Arrr! Starting cron service...")
     setup_jobs(last_successful_job)

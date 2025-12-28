@@ -62,4 +62,9 @@ PRIZE_TABLE = {
     (2, False): 0,          # 2 correct, no strong
 }
 
+# Logging configuration
+LOG_ROTATION_MAX_BYTES = int(9.5 * 1024 * 1024)  # 9.5MB
+LOG_ROTATION_BACKUP_COUNT = 100  # Keep up to 100 backup files
+LOG_RETENTION_DAYS = 14  # Keep logs for 14 days before cleanup
+
 # Add more config values as needed, matey! 

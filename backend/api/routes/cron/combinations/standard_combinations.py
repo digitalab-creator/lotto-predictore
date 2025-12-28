@@ -1,26 +1,73 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from datetime import datetime
-from services.cron_tracker import CronTracker
-from services.simulation_engine import SimulationEngine
+from services.core.cron_tracker import CronTracker
+from services.core.simulation_engine import SimulationEngine
 from models import Prediction
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 from algorithms.base import ALGORITHM_REGISTRY
+from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from logger import logger
 from ..utils import get_balanced_algorithm_list
 from .base_combination_generator import (
     get_db_session, load_draws_with_filter, generate_combinations,
     validate_combos_result, get_model_objects, store_combinations_in_db
 )
+from services.queue.job_queue import enqueue_job
 import time
+import uuid
 
 router = APIRouter()
 
 
 @router.post("/cron/generate-weekly-combinations")
-async def generate_weekly_combinations():
-    """Generate weekly combinations - called by cron service"""
+async def generate_weekly_combinations(sync: bool = Query(False, description="Run synchronously (for fallback)")):
+    """
+    Generate weekly combinations - called by cron service.
+    By default, enqueues job to background worker. Use ?sync=true for synchronous execution.
+    """
+    # If sync mode, run the old synchronous logic
+    if sync:
+        return await _generate_weekly_combinations_sync()
+    
+    # Otherwise, enqueue to background worker
+    try:
+        # Use string-based function reference to avoid circular import
+        job_id = f"weekly-combinations-{uuid.uuid4().hex[:8]}"
+        job = enqueue_job(
+            None,  # func not needed when using func_name
+            job_id=job_id,
+            job_timeout=600,  # 10 minutes
+            func_name="services.queue.workers.generate_weekly_combinations_task"
+        )
+        
+        logger.info(
+            "Arrr! Weekly combinations job enqueued!",
+            context={"job_id": job.id, "execution_mode": "background"}
+        )
+        
+        return {
+            "success": True,
+            "data": {
+                "status": "queued",
+                "job_id": job.id,
+                "message": "Job enqueued successfully. Use /api/jobs/{job_id}/status to check progress.",
+                "status_url": f"/api/jobs/{job.id}/status"
+            }
+        }
+    except Exception as e:
+        logger.error(
+            "Arrr! Failed to enqueue job!",
+            context={"error": str(e)}
+        )
+        # Fallback to synchronous execution on error
+        logger.warning("Arrr! Falling back to synchronous execution!")
+        return await _generate_weekly_combinations_sync()
+
+
+async def _generate_weekly_combinations_sync():
+    """Synchronous version of weekly combination generation (fallback)"""
     start_time = time.time()
-    logger.info("Arrr! Starting weekly combination generation, praisin' the FSM!", context={"start_time": start_time})
+    logger.info("Arrr! Starting weekly combination generation (sync mode), praisin' the FSM!", context={"start_time": start_time})
     
     # Initialize cron tracking
     db = get_db_session()
@@ -79,16 +126,38 @@ async def generate_weekly_combinations():
             
             if not balanced_algorithms:
                 logger.info("Arrr! All models have sufficient prediction details, running all algorithms")
-                # If all models are balanced, run all algorithms (excluding grid search)
+                # If all models are balanced, create combinations of top algorithms with all strong algorithms
                 all_algorithms = [algo for algo in ALGORITHM_REGISTRY.keys() 
                                 if 'gridsearch' not in algo.lower()]
-                total_algorithms = len(all_algorithms)
+                
+                # Take top 10 main algorithms and create combinations with all strong algorithms
+                top_main_algorithms = all_algorithms[:10]
+                all_strong_algorithms = list(STRONG_NUMBER_REGISTRY.keys())
+                
+                # Create combinations: each main algo with each strong algo
+                seen_combinations = set()
+                for main_algo in top_main_algorithms:
+                    for strong_algo in all_strong_algorithms:
+                        combination_key = f"{main_algo}_{strong_algo}"
+                        if combination_key not in seen_combinations:
+                            unique_combinations.append({
+                                'main_algo': main_algo,
+                                'strong_algo': strong_algo,
+                                'current_details': 0,  # All balanced, so assume 0 needed
+                                'priority_score': 0
+                            })
+                            seen_combinations.add(combination_key)
+                
+                total_algorithms = len(unique_combinations)
                 
                 logger.info(
-                    "Arrr! Filtered out grid search algorithms from weekly evaluation",
+                    "Arrr! Created algorithm combinations from top main algorithms with all strong algorithms",
                     context={
-                        "total_algorithms_after_filter": total_algorithms,
-                        "filtered_algorithms": all_algorithms[:5]  # Show first 5 for debugging
+                        "total_main_algorithms": len(all_algorithms),
+                        "top_main_algorithms_selected": len(top_main_algorithms),
+                        "total_strong_algorithms": len(all_strong_algorithms),
+                        "total_combinations_created": total_algorithms,
+                        "sample_combinations": [f"{c['main_algo']}+{c['strong_algo']}" for c in unique_combinations[:5]]
                     }
                 )
             else:

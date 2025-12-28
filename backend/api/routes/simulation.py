@@ -3,7 +3,7 @@ from fastapi.responses import PlainTextResponse, JSONResponse
 from sqlalchemy.orm import Session
 from db.base import SessionLocal
 from datetime import date
-from services.simulation_engine import SimulationEngine
+from services.core.simulation_engine import SimulationEngine
 from models import Draw
 from logger import logger
 

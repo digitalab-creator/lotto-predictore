@@ -10,89 +10,198 @@ logger = get_cron_logger()
 
 def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
     """
-    Call a backend API endpoint.
+    Call a backend API endpoint with retry logic for connection errors.
     
     Args:
         endpoint (str): The endpoint to call (e.g., '/cron/generate-weekly-combinations')
         last_successful_job (dict): Dictionary to track last successful job times (deprecated - now using database)
     """
-    try:
-        backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
-        url = f"{backend_url}{endpoint}"
-        logger.info(f"Arrr! Attempting to call backend endpoint: {url}")
-        
-        # Test backend connection first
+    import time as time_module
+    
+    backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
+    url = f"{backend_url}{endpoint}"
+    max_retries = 3
+    retry_delay = 5  # seconds
+    
+    for attempt in range(1, max_retries + 1):
         try:
-            health_check = requests.get(f"{backend_url}/health")
-            health_check.raise_for_status()
-            logger.info("Arrr! Backend health check successful!")
-        except Exception as health_error:
-            logger.error(
-                "Arrr! Backend health check failed!",
-                context={
-                    "error": str(health_error),
-                    "url": f"{backend_url}/health"
-                }
-            )
-            raise
-        
-        # Call the actual endpoint
-        logger.info(f"Arrr! Sending POST request to: {url}")
-        response = requests.post(url)
-        response.raise_for_status()
-        
-        # Note: Job tracking is now handled by the backend database
-        # The last_successful_job dict is kept for backward compatibility but not updated
-        
-        logger.info(f"Arrr! Successfully called {endpoint}: {response.json()}")
-    except requests.exceptions.ConnectionError as e:
-        logger.error(
-            "Arrr! Connection error calling endpoint!",
-            context={
-                "error": str(e),
-                "endpoint": endpoint,
-                "backend_url": backend_url
-            }
-        )
-        raise
-    except requests.exceptions.Timeout as e:
-        logger.error(
-            "Arrr! Timeout calling endpoint!",
-            context={
-                "error": str(e),
-                "endpoint": endpoint,
-                "backend_url": backend_url
-            }
-        )
-        raise
-    except Exception as e:
-        logger.error(
-            f"Arrr! Error calling endpoint {endpoint}!",
-            context={
-                "error": str(e),
-                "endpoint": endpoint,
-                "backend_url": backend_url
-            }
-        )
-        # Notify via API
-        try:
-            requests.post(
-                f"{backend_url}/api/notifications/error",
-                json={
-                    "error": str(e),
-                    "endpoint": endpoint,
-                    "timestamp": datetime.now().isoformat()
-                }
-            )
-        except Exception as notify_error:
-            logger.error(
-                "Arrr! Failed to send error notification!",
-                context={
-                    "error": str(notify_error),
-                    "original_error": str(e)
-                }
-            )
-        raise
+            logger.info(f"Arrr! Attempting to call backend endpoint: {url} (attempt {attempt}/{max_retries})")
+            
+            # Test backend connection first
+            try:
+                health_check = requests.get(f"{backend_url}/health", timeout=10)
+                health_check.raise_for_status()
+                logger.info("Arrr! Backend health check successful!")
+            except Exception as health_error:
+                if attempt < max_retries:
+                    logger.warning(
+                        f"Arrr! Backend health check failed (attempt {attempt}/{max_retries}), retrying...",
+                        context={
+                            "error": str(health_error),
+                            "url": f"{backend_url}/health",
+                            "retry_in_seconds": retry_delay
+                        }
+                    )
+                    time_module.sleep(retry_delay)
+                    continue
+                else:
+                    logger.error(
+                        "Arrr! Backend health check failed after all retries!",
+                        context={
+                            "error": str(health_error),
+                            "url": f"{backend_url}/health",
+                            "total_attempts": max_retries
+                        }
+                    )
+                    raise
+            
+            # Call the actual endpoint
+            logger.info(f"Arrr! Sending POST request to: {url}")
+            response = requests.post(url, timeout=30)  # Short timeout for job enqueueing
+            response.raise_for_status()
+            response_data = response.json()
+            
+            # Check if job was enqueued (async mode)
+            if response_data.get("success") and response_data.get("data", {}).get("status") == "queued":
+                job_id = response_data["data"]["job_id"]
+                logger.info(
+                    f"Arrr! Job enqueued, polling for completion: {job_id}",
+                    context={"job_id": job_id, "endpoint": endpoint}
+                )
+                
+                # Poll job status until completion
+                max_poll_time = 600  # 10 minutes max
+                poll_interval = 10  # Check every 10 seconds
+                start_poll_time = time_module.time()
+                
+                while time_module.time() - start_poll_time < max_poll_time:
+                    status_response = requests.get(f"{backend_url}/api/jobs/{job_id}/status", timeout=10)
+                    status_response.raise_for_status()
+                    status_data = status_response.json()
+                    
+                    job_status = status_data.get("data", {}).get("status")
+                    
+                    if job_status == "finished":
+                        logger.info(
+                            f"Arrr! Job completed successfully!",
+                            context={
+                                "job_id": job_id,
+                                "result": status_data.get("data", {}).get("result")
+                            }
+                        )
+                        return  # Success - exit retry loop
+                    elif job_status == "failed":
+                        error_info = status_data.get("data", {}).get("exc_info", "Unknown error")
+                        logger.error(
+                            f"Arrr! Job failed!",
+                            context={"job_id": job_id, "error": error_info}
+                        )
+                        raise Exception(f"Job {job_id} failed: {error_info}")
+                    
+                    # Job still running, wait and poll again
+                    logger.debug(
+                        f"Arrr! Job still running, status: {job_status}",
+                        context={"job_id": job_id, "status": job_status}
+                    )
+                    time_module.sleep(poll_interval)
+                
+                # Timeout waiting for job
+                raise Exception(f"Job {job_id} did not complete within {max_poll_time} seconds")
+            
+            # Synchronous response (fallback mode)
+            logger.info(f"Arrr! Successfully called {endpoint}: {response_data}")
+            return  # Success - exit retry loop
+            
+        except requests.exceptions.ConnectionError as e:
+            if attempt < max_retries:
+                logger.warning(
+                    f"Arrr! Connection error calling endpoint (attempt {attempt}/{max_retries}), retrying...",
+                    context={
+                        "error": str(e),
+                        "endpoint": endpoint,
+                        "backend_url": backend_url,
+                        "retry_in_seconds": retry_delay
+                    }
+                )
+                time_module.sleep(retry_delay)
+                continue
+            else:
+                logger.error(
+                    "Arrr! Connection error calling endpoint after all retries!",
+                    context={
+                        "error": str(e),
+                        "endpoint": endpoint,
+                        "backend_url": backend_url,
+                        "total_attempts": max_retries
+                    }
+                )
+                raise
+        except requests.exceptions.Timeout as e:
+            if attempt < max_retries:
+                logger.warning(
+                    f"Arrr! Timeout calling endpoint (attempt {attempt}/{max_retries}), retrying...",
+                    context={
+                        "error": str(e),
+                        "endpoint": endpoint,
+                        "backend_url": backend_url,
+                        "retry_in_seconds": retry_delay
+                    }
+                )
+                time_module.sleep(retry_delay)
+                continue
+            else:
+                logger.error(
+                    "Arrr! Timeout calling endpoint after all retries!",
+                    context={
+                        "error": str(e),
+                        "endpoint": endpoint,
+                        "backend_url": backend_url,
+                        "total_attempts": max_retries
+                    }
+                )
+                raise
+        except Exception as e:
+            if attempt < max_retries:
+                logger.warning(
+                    f"Arrr! Error calling endpoint (attempt {attempt}/{max_retries}), retrying...",
+                    context={
+                        "error": str(e),
+                        "endpoint": endpoint,
+                        "backend_url": backend_url,
+                        "retry_in_seconds": retry_delay
+                    }
+                )
+                time_module.sleep(retry_delay)
+                continue
+            else:
+                logger.error(
+                    f"Arrr! Error calling endpoint {endpoint} after all retries!",
+                    context={
+                        "error": str(e),
+                        "endpoint": endpoint,
+                        "backend_url": backend_url,
+                        "total_attempts": max_retries
+                    }
+                )
+                # Notify via API
+                try:
+                    requests.post(
+                        f"{backend_url}/api/notifications/error",
+                        json={
+                            "error": str(e),
+                            "endpoint": endpoint,
+                            "timestamp": datetime.now().isoformat()
+                        }
+                    )
+                except Exception as notify_error:
+                    logger.error(
+                        "Arrr! Failed to send error notification!",
+                        context={
+                            "error": str(notify_error),
+                            "original_error": str(e)
+                        }
+                    )
+                raise
 
 def health_check_endpoint(last_successful_job: dict):
     """Health check endpoint that verifies cron service and backend connection"""
