@@ -24,3 +24,10 @@ the input device is not a TTY
 the input device is not a TTY
 the input device is not a TTY
 the input device is not a TTY
+The following deploy sub-keys are not supported and have been ignored: resources.reservations.cpus
+The following deploy sub-keys are not supported and have been ignored: resources.reservations.cpus
+The following deploy sub-keys are not supported and have been ignored: resources.reservations.cpus
+The following deploy sub-keys are not supported and have been ignored: resources.reservations.cpus
+The following deploy sub-keys are not supported and have been ignored: resources.reservations.cpus
+The following deploy sub-keys are not supported and have been ignored: resources.reservations.cpus
+the input device is not a TTY

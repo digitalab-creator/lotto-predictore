@@ -94,3 +94,4 @@ curl -X POST "http://localhost:8000/cron/generate-weekly-combinations?sync=true"
 4. Monitor job status via the status endpoint
 5. Check resource usage: `docker stats`
 
+

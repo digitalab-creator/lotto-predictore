@@ -79,3 +79,4 @@ async def cancel_job_endpoint(job_id: str):
         )
         raise HTTPException(status_code=500, detail=str(e))
 
+

@@ -36,3 +36,4 @@ def close_redis_client():
         _redis_client = None
         logger.info("Arrr! Redis connection closed!")
 
+

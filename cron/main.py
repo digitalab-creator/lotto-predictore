@@ -15,6 +15,13 @@ from cron.api_endpoints import (
     fetch_latest_draw_endpoint,
     test_error_handling_endpoint
 )
+from cron.schedule_api import (
+    list_available_jobs,
+    schedule_cron_job,
+    get_scheduled_job_status,
+    list_scheduled_jobs,
+    ScheduleRequest
+)
 from cron.scheduler import setup_jobs, run_scheduler
 
 # Add shared directory to Python path
@@ -40,7 +47,17 @@ last_successful_job = {
 @app.get("/health")
 async def health_check():
     """Health check endpoint that verifies cron service and backend connection"""
-    return health_check_endpoint(last_successful_job)
+    try:
+        return health_check_endpoint(last_successful_job)
+    except Exception as e:
+        # Fallback - return minimal health status
+        return {
+            "status": "degraded",
+            "services": {
+                "cron": "up",
+                "error": str(e)
+            }
+        }
 
 @app.post("/api/check-model-files")
 async def check_model_files():
@@ -133,6 +150,32 @@ async def scheduler_status():
         "jobs": jobs_info,
         "scheduler_running": True
     }
+
+@app.get("/api/schedule/jobs")
+async def list_available_jobs_endpoint():
+    """List all available cron jobs that can be scheduled"""
+    return list_available_jobs()
+
+@app.post("/api/schedule")
+async def schedule_job_endpoint(request: ScheduleRequest):
+    """
+    Schedule a cron job to run at a specific time.
+    
+    You can either provide:
+    - `scheduled_time`: ISO format datetime string (e.g., "2025-12-29T14:30:00")
+    - `minutes_from_now`: Number of minutes from now (e.g., 5 for 5 minutes from now)
+    """
+    return schedule_cron_job(request, last_successful_job)
+
+@app.get("/api/schedule")
+async def list_scheduled_jobs_endpoint():
+    """List all scheduled jobs"""
+    return list_scheduled_jobs()
+
+@app.get("/api/schedule/{job_id}")
+async def get_scheduled_job_status_endpoint(job_id: str):
+    """Get status of a scheduled job"""
+    return get_scheduled_job_status(job_id)
 
 if __name__ == "__main__":
     logger.info("Arrr! Starting cron service...")

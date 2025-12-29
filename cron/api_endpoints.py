@@ -28,8 +28,9 @@ def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
             logger.info(f"Arrr! Attempting to call backend endpoint: {url} (attempt {attempt}/{max_retries})")
             
             # Test backend connection first
+            # Increased timeout to 30s to handle heavy operations (grid search, etc.)
             try:
-                health_check = requests.get(f"{backend_url}/health", timeout=10)
+                health_check = requests.get(f"{backend_url}/health", timeout=30)
                 health_check.raise_for_status()
                 logger.info("Arrr! Backend health check successful!")
             except Exception as health_error:
@@ -56,8 +57,9 @@ def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
                     raise
             
             # Call the actual endpoint
+            # Increased timeout to 60s to handle long-running operations like grid search
             logger.info(f"Arrr! Sending POST request to: {url}")
-            response = requests.post(url, timeout=30)  # Short timeout for job enqueueing
+            response = requests.post(url, timeout=60)  # Longer timeout for heavy operations
             response.raise_for_status()
             response_data = response.json()
             
@@ -70,12 +72,12 @@ def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
                 )
                 
                 # Poll job status until completion
-                max_poll_time = 600  # 10 minutes max
+                max_poll_time = 1800  # 30 minutes max (grid search can take a while)
                 poll_interval = 10  # Check every 10 seconds
                 start_poll_time = time_module.time()
                 
                 while time_module.time() - start_poll_time < max_poll_time:
-                    status_response = requests.get(f"{backend_url}/api/jobs/{job_id}/status", timeout=10)
+                    status_response = requests.get(f"{backend_url}/api/jobs/{job_id}/status", timeout=30)
                     status_response.raise_for_status()
                     status_data = status_response.json()
                     
@@ -206,60 +208,54 @@ def call_backend_endpoint(endpoint: str, last_successful_job: dict) -> None:
 def health_check_endpoint(last_successful_job: dict):
     """Health check endpoint that verifies cron service and backend connection"""
     try:
-        # Check backend connection
+        # Check backend connection with timeout
         backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
-        backend_health = requests.get(f"{backend_url}/health")
-        backend_health.raise_for_status()
         
-        # Get cron job status from database
-        cron_status = requests.get(f"{backend_url}/cron/status")
-        cron_status.raise_for_status()
-        cron_data = cron_status.json()
+        # Quick backend health check with short timeout
+        try:
+            backend_health = requests.get(f"{backend_url}/health", timeout=3)
+            backend_health.raise_for_status()
+            backend_status = "up"
+        except requests.exceptions.RequestException as e:
+            backend_status = "down"
+            logger.warning("Backend health check failed", context={'error': str(e)})
+        
+        # Get cron job status from database with timeout
+        cron_data = {}
+        try:
+            cron_status = requests.get(f"{backend_url}/cron/status", timeout=3)
+            cron_status.raise_for_status()
+            cron_data = cron_status.json()
+        except requests.exceptions.RequestException as e:
+            logger.warning("Cron status check failed", context={'error': str(e)})
         
         # Check if any jobs are scheduled
         import schedule
-        if not schedule.jobs:
-            raise HTTPException(
-                status_code=503,
-                detail="No jobs scheduled"
-            )
+        jobs_count = len(schedule.jobs) if schedule.jobs else 0
         
+        # Return health status even if backend is down (cron service itself is up)
         return {
-            "status": "healthy",
+            "status": "healthy" if backend_status == "up" else "degraded",
             "services": {
                 "cron": "up",
-                "backend": "up",
-                "database_tracking": "up",
-                "jobs": cron_data.get("jobs", {})
+                "backend": backend_status,
+                "database_tracking": "up" if cron_data else "unknown",
+                "scheduled_jobs_count": jobs_count,
+                "jobs": cron_data.get("jobs", {}) if cron_data else {}
             },
-            "timestamp": cron_data.get("timestamp")
+            "timestamp": cron_data.get("timestamp") if cron_data else None
         }
-    except requests.exceptions.RequestException as e:
-        logger.error("Health check failed - backend connection error", context={'error': str(e)})
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "status": "unhealthy",
-                "services": {
-                    "cron": "up",
-                    "backend": "down",
-                    "error": str(e)
-                }
-            }
-        )
     except Exception as e:
         logger.error("Health check failed", context={'error': str(e)})
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "status": "unhealthy",
-                "services": {
-                    "cron": "up",
-                    "backend": "unknown",
-                    "error": str(e)
-                }
+        # Return minimal health status - cron service is up even if checks fail
+        return {
+            "status": "degraded",
+            "services": {
+                "cron": "up",
+                "backend": "unknown",
+                "error": str(e)
             }
-        )
+        }
 
 def check_model_files_endpoint():
     """

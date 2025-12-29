@@ -1,12 +1,8 @@
 import itertools
 import time
-import pickle
-import hashlib
-import os
-from typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Any
 from sqlalchemy.orm import Session
 from models import Draw
-from pathlib import Path
 
 # Set up backend path using utility function
 from utils.path_setup import setup_backend_path
@@ -16,6 +12,8 @@ from shared.logging_service import get_backend_logger
 from algorithms.base import ALGORITHM_REGISTRY
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from services.core.simulation_engine import SimulationEngine
+from services.core.grid_search_validator import GridSearchValidator
+from services.core.grid_search_cache import GridSearchCache
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 
 logger = get_backend_logger()
@@ -26,10 +24,16 @@ class WeeklyCombinationsGridSearch:
     Praisin' the FSM! 🍝⚓
     """
     
-    def __init__(self, db: Session, cache_dir: str = "/tmp/grid_search_cache"):
+    def __init__(self, db: Session, cache_ttl: int = 7 * 24 * 60 * 60):
+        """
+        Initialize grid search service
+        
+        Args:
+            db: Database session
+            cache_ttl: Cache TTL in seconds (default: 7 days)
+        """
         self.db = db
-        self.cache_dir = Path(cache_dir)
-        self.cache_dir.mkdir(exist_ok=True)
+        self.cache = GridSearchCache(cache_ttl)
         self.engine = SimulationEngine(db)
         
         # Define parameter grids for optimization
@@ -43,7 +47,7 @@ class WeeklyCombinationsGridSearch:
         logger.info(
             "Arrr! Weekly Combinations Grid Search initialized, praisin' the FSM!",
             context={
-                "cache_dir": str(self.cache_dir),
+                "cache_ttl": cache_ttl,
                 "parameter_grids": {k: len(v) for k, v in self.parameter_grids.items()}
             }
         )
@@ -64,68 +68,6 @@ class WeeklyCombinationsGridSearch:
         
         return combinations
     
-    def _get_cache_key(self, draws: List[Draw], grid_params: List[Dict[str, Any]]) -> str:
-        """Generate cache key for grid search results"""
-        # Create hash from draw dates and grid parameters
-        draw_dates = ','.join(str(d.date) for d in draws[-50:])  # Use last 50 draws for cache key
-        # grid_params is a list of dicts, convert to sorted string for consistent hashing
-        params_str = str(sorted(tuple(sorted(p.items())) for p in grid_params))
-        key_string = f"{draw_dates}_{params_str}"
-        return hashlib.md5(key_string.encode()).hexdigest()
-    
-    def _load_from_cache(self, cache_key: str) -> Optional[Dict[str, Any]]:
-        """Load grid search results from cache"""
-        cache_file = self.cache_dir / f"grid_search_{cache_key}.pkl"
-        if cache_file.exists():
-            try:
-                with open(cache_file, 'rb') as f:
-                    cached_data = pickle.load(f)
-                
-                # Handle old cache format (list) - invalidate it
-                if isinstance(cached_data, list):
-                    logger.warning(
-                        "Arrr! Found old cache format (list), invalidating cache",
-                        context={"cache_key": cache_key}
-                    )
-                    cache_file.unlink()  # Delete old cache
-                    return None
-                
-                # Validate cache format
-                if not isinstance(cached_data, dict) or 'best_parameters' not in cached_data:
-                    logger.warning(
-                        "Arrr! Invalid cache format, invalidating cache",
-                        context={"cache_key": cache_key, "cache_type": type(cached_data).__name__}
-                    )
-                    cache_file.unlink()  # Delete invalid cache
-                    return None
-                
-                logger.info(
-                    "Arrr! Loaded grid search results from cache, praisin' the FSM!",
-                    context={"cache_key": cache_key, "cached_results": len(cached_data.get('all_results', []))}
-                )
-                return cached_data
-            except Exception as e:
-                logger.warning(
-                    "Arrr! Failed to load from cache, will recompute",
-                    context={"cache_key": cache_key, "error": str(e)}
-                )
-        return None
-    
-    def _save_to_cache(self, cache_key: str, results: Dict[str, Any]):
-        """Save grid search results to cache"""
-        cache_file = self.cache_dir / f"grid_search_{cache_key}.pkl"
-        try:
-            with open(cache_file, 'wb') as f:
-                pickle.dump(results, f)
-            logger.info(
-                "Arrr! Saved grid search results to cache, praisin' the FSM!",
-                context={"cache_key": cache_key, "results_count": len(results.get('results', []))}
-            )
-        except Exception as e:
-            logger.error(
-                "Arrr! Failed to save to cache",
-                context={"cache_key": cache_key, "error": str(e)}
-            )
     
     def run_grid_search(
         self, 
@@ -178,11 +120,11 @@ class WeeklyCombinationsGridSearch:
         
         # Create grid search parameters
         grid_params = self._create_grid_parameters(quick_mode, max_combinations)
-        cache_key = self._get_cache_key(filtered_draws, grid_params)
+        cache_key = self.cache.get_cache_key(filtered_draws, grid_params)
         
         # Check cache first
         if use_cache:
-            cached_results = self._load_from_cache(cache_key)
+            cached_results = self.cache.load_from_cache(cache_key)
             if cached_results:
                 return cached_results
         
@@ -207,7 +149,7 @@ class WeeklyCombinationsGridSearch:
         
         # Save to cache
         if use_cache:
-            self._save_to_cache(cache_key, final_results)
+            self.cache.save_to_cache(cache_key, final_results)
         
         logger.info(
             "Arrr! Grid search completed successfully, praisin' the FSM!",
@@ -250,14 +192,72 @@ class WeeklyCombinationsGridSearch:
         
         # Convert to parameter dictionaries
         parameter_combinations = []
-        for top_n, num_to_recommend, test_count, algo_combo in all_combinations:
-            parameter_combinations.append({
-                'top_n': top_n,
-                'num_to_recommend': num_to_recommend,
-                'test_count': test_count,
-                'main_algo': algo_combo['main_algo'],
-                'strong_algo': algo_combo['strong_algo']
-            })
+        for idx, combo_tuple in enumerate(all_combinations):
+            try:
+                top_n, num_to_recommend, test_count, algo_combo = combo_tuple
+                
+                # Validate algo_combo is a dict
+                if not isinstance(algo_combo, dict):
+                    error_msg = (
+                        f"Invalid algorithm combination at index {idx}: expected dict, got {type(algo_combo).__name__}. "
+                        f"Value: {str(algo_combo)[:200]}. "
+                        f"This indicates algorithm_combinations contains non-dict items."
+                    )
+                    logger.error(
+                        "Arrr! Invalid algorithm combination format in _create_grid_parameters!",
+                        context={
+                            "index": idx,
+                            "expected_type": "dict",
+                            "actual_type": type(algo_combo).__name__,
+                            "value": str(algo_combo)[:200],
+                            "combo_tuple": str(combo_tuple)[:200],
+                            "algorithm_combinations_type": type(self.parameter_grids['algorithm_combinations']).__name__,
+                            "algorithm_combinations_length": len(self.parameter_grids['algorithm_combinations']) if isinstance(self.parameter_grids['algorithm_combinations'], list) else "N/A"
+                        }
+                    )
+                    raise ValueError(error_msg)
+                
+                # Validate required keys exist
+                if 'main_algo' not in algo_combo or 'strong_algo' not in algo_combo:
+                    error_msg = (
+                        f"Algorithm combination at index {idx} missing required keys. "
+                        f"Expected 'main_algo' and 'strong_algo', got keys: {list(algo_combo.keys())}. "
+                        f"Value: {str(algo_combo)[:200]}"
+                    )
+                    logger.error(
+                        "Arrr! Algorithm combination missing required keys!",
+                        context={
+                            "index": idx,
+                            "expected_keys": ["main_algo", "strong_algo"],
+                            "actual_keys": list(algo_combo.keys()),
+                            "algo_combo": str(algo_combo)[:200]
+                        }
+                    )
+                    raise ValueError(error_msg)
+                
+                parameter_combinations.append({
+                    'top_n': top_n,
+                    'num_to_recommend': num_to_recommend,
+                    'test_count': test_count,
+                    'main_algo': algo_combo['main_algo'],
+                    'strong_algo': algo_combo['strong_algo']
+                })
+            except (ValueError, TypeError, KeyError) as e:
+                error_msg = (
+                    f"Error processing combination at index {idx}: {str(e)}. "
+                    f"Combination tuple: {str(combo_tuple)[:200]}"
+                )
+                logger.error(
+                    "Arrr! Error processing combination in _create_grid_parameters!",
+                    context={
+                        "index": idx,
+                        "error": str(e),
+                        "combo_tuple": str(combo_tuple)[:200],
+                        "combo_tuple_type": type(combo_tuple).__name__,
+                        "combo_tuple_length": len(combo_tuple) if hasattr(combo_tuple, '__len__') else "N/A"
+                    }
+                )
+                raise ValueError(error_msg) from e
         
         logger.info(
             "Arrr! Created parameter combinations for grid search",
@@ -413,48 +413,22 @@ class WeeklyCombinationsGridSearch:
             quick_mode=quick_mode
         )
         
-        # Validate grid_results format
-        if not isinstance(grid_results, dict):
-            error_details = {
-                "expected_type": "dict",
-                "actual_type": type(grid_results).__name__,
-                "actual_value": str(grid_results)[:500],
-                "quick_mode": quick_mode,
-                "use_cache": use_cache,
-                "draws_count": len(draws)
-            }
-            logger.error(
-                f"Arrr! Grid search returned invalid format! Expected dict, got {type(grid_results).__name__}",
-                context=error_details
-            )
-            raise ValueError(
-                f"Grid search returned invalid format: expected dict, got {type(grid_results).__name__}. "
-                f"Result: {str(grid_results)[:200]}"
-            )
+        # Validate all aspects of grid search results
+        best_params = GridSearchValidator.validate_all(
+            grid_results, quick_mode, use_cache, len(draws)
+        )
         
-        if 'error' in grid_results:
-            logger.error(
-                "Arrr! Grid search failed, using default parameters",
-                context={"error": grid_results['error']}
-            )
-            return self._get_default_parameters()
-        
-        best_params = grid_results.get('best_parameters', {})
-        if not best_params:
-            logger.warning(
-                "Arrr! No best parameters found, using defaults",
-                context={"grid_results": grid_results}
-            )
-            return self._get_default_parameters()
+        # Extract validated parameters
+        params_dict = best_params['parameters']
         
         # Return optimized parameters in the format expected by weekly combinations
         optimized_params = {
-            'top_n': best_params.get('parameters', {}).get('top_n', 3),
-            'num_to_recommend': best_params.get('parameters', {}).get('num_to_recommend', NUM_COMBINATIONS_TO_RECOMMEND),
-            'test_count': best_params.get('parameters', {}).get('test_count', 12),
-            'main_algo': best_params.get('parameters', {}).get('main_algo', 'most_common'),
-            'strong_algo': best_params.get('parameters', {}).get('strong_algo', 'random'),
-            'expected_roi': best_params.get('roi', 0),
+            'top_n': params_dict['top_n'],
+            'num_to_recommend': params_dict['num_to_recommend'],
+            'test_count': params_dict['test_count'],
+            'main_algo': params_dict['main_algo'],
+            'strong_algo': params_dict['strong_algo'],
+            'expected_roi': best_params['roi'],
             'grid_search_metadata': grid_results.get('grid_search_metadata', {})
         }
         
@@ -464,16 +438,4 @@ class WeeklyCombinationsGridSearch:
         )
         
         return optimized_params
-    
-    def _get_default_parameters(self) -> Dict[str, Any]:
-        """Get default parameters as fallback"""
-        return {
-            'top_n': 3,
-            'num_to_recommend': NUM_COMBINATIONS_TO_RECOMMEND,
-            'test_count': 12,
-            'main_algo': 'most_common',
-            'strong_algo': 'random',
-            'expected_roi': 0,
-            'grid_search_metadata': {'note': 'Using default parameters - grid search failed'}
-        }
 

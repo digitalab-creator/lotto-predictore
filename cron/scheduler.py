@@ -173,6 +173,10 @@ def _should_send_notification(job_name: str) -> bool:
     last_failure = failure_info['last_failure']
     failure_count = failure_info['count']
     
+    # Ensure last_failure is timezone-aware (UTC)
+    if last_failure.tzinfo is None:
+        last_failure = UTC.localize(last_failure)
+    
     # Cooldown periods based on failure count
     if failure_count == 1:
         # First failure - send notification immediately
@@ -187,7 +191,9 @@ def _should_send_notification(job_name: str) -> bool:
         # 6+ failures - wait 24 hours between notifications
         cooldown_period = timedelta(hours=24)
     
-    time_since_last_failure = datetime.now() - last_failure
+    # Use UTC-aware datetime for comparison
+    current_time_utc = datetime.now(UTC)
+    time_since_last_failure = current_time_utc - last_failure
     return time_since_last_failure >= cooldown_period
 
 def _cleanup_old_failures():
@@ -327,12 +333,13 @@ def run_scheduler():
                 )
                 time.sleep(60)  # Wait before retrying
             else:
-                logger.critical(
+                logger.error(
                     "Arrr! Too many consecutive errors in scheduler loop! Stopping scheduler to prevent spam!",
                     context={
                         "error": str(e),
                         "consecutive_errors": consecutive_errors,
-                        "max_consecutive_errors": max_consecutive_errors
+                        "max_consecutive_errors": max_consecutive_errors,
+                        "severity": "critical"
                     }
                 )
                 

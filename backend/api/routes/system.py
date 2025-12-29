@@ -10,6 +10,7 @@ import torch.nn as nn
 from pathlib import Path
 import shutil
 import re
+import asyncio
 from algorithms.dl.sequence_classifier import LottoLSTM
 
 router = APIRouter()
@@ -22,32 +23,79 @@ def get_db():
         db.close()
 
 @router.get("/health")
-async def health_check(db: Session = Depends(get_db)):
-    """Health check endpoint that verifies both FastAPI and database connection"""
+async def health_check():
+    """
+    Health check endpoint that verifies FastAPI is running.
+    Database check is optional and non-blocking to prevent timeouts during heavy operations.
+    Returns immediately if FastAPI is up, even if DB check is slow/busy.
+    """
+    # FastAPI is always up if we can respond
+    fastapi_status = "up"
+    database_status = "unknown"
+    database_error = None
+    
+    # Try to check database with a very short timeout to avoid blocking
+    # Use a separate task that we can cancel if it takes too long
     try:
-        # Check database connection
-        db.execute(text("SELECT 1"))
-        
-        return {
-            "status": "healthy",
-            "services": {
-                "fastapi": "up",
-                "database": "up"
-            }
-        }
+        db = SessionLocal()
+        db_check_task = None
+        try:
+            # Run the database check with a very short timeout (1 second)
+            # This ensures we return quickly even if DB is busy
+            db_check_task = asyncio.create_task(
+                asyncio.wait_for(
+                    asyncio.to_thread(db.execute, text("SELECT 1")),
+                    timeout=1.0  # 1 second timeout - very aggressive
+                )
+            )
+            await db_check_task
+            database_status = "up"
+        except asyncio.TimeoutError:
+            database_status = "timeout"
+            database_error = "Database check timed out (likely busy with operations)"
+            # Cancel the task if it's still running
+            if db_check_task and not db_check_task.done():
+                db_check_task.cancel()
+            logger.debug(
+                "Arrr! Health check database timeout - service may be busy",
+                context={"timeout_seconds": 1}
+            )
+        except asyncio.CancelledError:
+            database_status = "timeout"
+            database_error = "Database check cancelled (likely busy)"
+            logger.debug("Arrr! Health check database check cancelled")
+        except Exception as e:
+            database_status = "down"
+            database_error = str(e)
+            logger.warning(
+                "Arrr! Health check database error",
+                context={"error": str(e)}
+            )
+        finally:
+            try:
+                db.close()
+            except Exception:
+                pass  # Ignore errors during cleanup
     except Exception as e:
-        logger.error("Health check failed", context={'error': str(e)})
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "status": "unhealthy",
-                "services": {
-                    "fastapi": "up",
-                    "database": "down",
-                    "error": str(e)
-                }
-            }
+        database_status = "error"
+        database_error = str(e)
+        logger.warning(
+            "Arrr! Health check database connection error",
+            context={"error": str(e)}
         )
+    
+    # Return healthy if FastAPI is up, even if DB check fails/timeouts
+    # This prevents health checks from failing during heavy operations
+    # The cron service can still proceed even if DB is busy
+    return {
+        "status": "healthy" if fastapi_status == "up" else "unhealthy",
+        "services": {
+            "fastapi": fastapi_status,
+            "database": database_status
+        },
+        "database_error": database_error,
+        "timestamp": datetime.now().isoformat()
+    }
 
 @router.post("/api/check-model-files")
 async def check_model_files_endpoint(db: Session = Depends(get_db)):

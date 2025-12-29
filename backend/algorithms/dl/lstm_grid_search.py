@@ -73,15 +73,38 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
         if use_cache:
             best_params = self._best_params_cache.get(cache_key) or self._load_best_params_from_disk(cache_key)
         if not best_params:
-            logger.info(f"Arrr! [FSM GRID] No cached best params, runnin' grid search! Praisin' the FSM!")
+            # Calculate total combinations for progress tracking
+            all_combinations = list(itertools.product(*hyperparams_grid.values()))
+            total_combinations = len(all_combinations)
+            strong_algos_count = len(STRONG_NUMBER_REGISTRY)
+            estimated_time_per_combo = 10  # minutes
+            total_estimated_hours = (total_combinations * estimated_time_per_combo) / 60
+            
+            logger.info(
+                f"Arrr! [FSM GRID] No cached best params, runnin' grid search! Praisin' the FSM!",
+                context={
+                    "total_combinations": total_combinations,
+                    "strong_algos_per_combo": strong_algos_count,
+                    "test_draws_per_eval": test_count,
+                    "estimated_time_per_combo_minutes": estimated_time_per_combo,
+                    "estimated_total_hours": round(total_estimated_hours, 1)
+                }
+            )
             results = []
             param_names = list(hyperparams_grid.keys())
             best_result = None
             best_roi = float('-inf')
-            for values in itertools.product(*hyperparams_grid.values()):
+            for combo_idx, values in enumerate(all_combinations, 1):
                 params = dict(zip(param_names, values))
                 model_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
-                logger.info(f"Arrr! [FSM GRID] Trainin' with params: {params}")
+                logger.info(
+                    f"Arrr! [FSM GRID] Processing combination {combo_idx}/{total_combinations}",
+                    context={
+                        "params": params,
+                        "progress": f"{combo_idx}/{total_combinations}",
+                        "percent_complete": round((combo_idx / total_combinations) * 100, 1)
+                    }
+                )
                 model = LottoLSTM(num_numbers=37, seq_len=params['seq_len'], hidden_size=params['hidden_size'], num_layers=params['num_layers'])
                 need_train = True
                 if os.path.exists(model_path):
@@ -93,6 +116,16 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                         with torch.no_grad():
                             _ = model(dummy_input)
                         logger.info(f"Arrr! [FSM GRID] Loaded existing model for {params}")
+                        logger.info(
+                            f"Arrr! [FSM GRID] Starting evaluation phase (combination {combo_idx}/{total_combinations})",
+                            context={
+                                "params": params,
+                                "test_draws_count": len(test_draws),
+                                "strong_algos_count": strong_algos_count,
+                                "estimated_time_minutes": estimated_time_per_combo,
+                                "progress": f"{combo_idx}/{total_combinations}"
+                            }
+                        )
                         need_train = False
                     except Exception as e:
                         logger.warning(f"Arrr! [FSM GRID] Model file mismatch or unusable, will retrain: {e}")
@@ -170,16 +203,39 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                             if len(numbers) == 6:
                                 break
                     return sorted(numbers)
-                for strong_name, strong_cls in STRONG_NUMBER_REGISTRY.items():
+                strong_algo_list = list(STRONG_NUMBER_REGISTRY.items())
+                for strong_idx, (strong_name, strong_cls) in enumerate(strong_algo_list, 1):
                     if len(train_draws) < params['seq_len'] + 1:
                         logger.error(f"Arrr! [FSM GRID] Not enough draws for evaluation!")
                         continue
+                    logger.info(
+                        f"Arrr! [FSM GRID] Evaluating strong algo {strong_idx}/{strong_algos_count}: {strong_name}",
+                        context={
+                            "params": params,
+                            "test_count": len(test_draws),
+                            "strong_algo": strong_name,
+                            "strong_progress": f"{strong_idx}/{strong_algos_count}",
+                            "combo_progress": f"{combo_idx}/{total_combinations}"
+                        }
+                    )
                     strong_algo = strong_cls()
                     all_prizes = 0
                     total_tickets = 0
                     NUM_TABLES_PER_DRAW = 8
                     prizes_list = []
                     for i, test_draw in enumerate(test_draws):
+                        if i % 2 == 0 or i == len(test_draws) - 1:  # Log every 2nd draw and last one (more frequent)
+                            logger.info(
+                                f"Arrr! [FSM GRID] Test draw {i+1}/{len(test_draws)} for {strong_name}",
+                                context={
+                                    "test_draw_date": test_draw.date,
+                                    "params": params,
+                                    "strong_algo": strong_name,
+                                    "draw_progress": f"{i+1}/{len(test_draws)}",
+                                    "strong_progress": f"{strong_idx}/{strong_algos_count}",
+                                    "combo_progress": f"{combo_idx}/{total_combinations}"
+                                }
+                            )
                         available_draws = train_draws + test_draws[:i]
                         combos = []
                         for j in range(NUM_TABLES_PER_DRAW):
@@ -198,6 +254,18 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                             prizes_list.append(prize)
                     total_cost = total_tickets * TICKET_COST_PER_TABLE
                     roi = calculate_roi_with_tax(prizes_list, total_cost)
+                    logger.info(
+                        f"Arrr! [FSM GRID] Completed evaluation for {strong_name}",
+                        context={
+                            "params": params,
+                            "strong_algo": strong_name,
+                            "roi": roi,
+                            "total_prize": all_prizes,
+                            "test_count": test_count,
+                            "strong_progress": f"{strong_idx}/{strong_algos_count}",
+                            "combo_progress": f"{combo_idx}/{total_combinations}"
+                        }
+                    )
                     result = {
                         'params': params,
                         'model_path': model_path,
@@ -208,11 +276,37 @@ class SequenceClassificationLSTM_GridSearch_Algorithm(Algorithm):
                         'test_count': test_count
                     }
                     results.append(result)
-                    logger.info(f"Arrr! [FSM GRID] Model result: {result}")
+                    logger.info(
+                        f"Arrr! [FSM GRID] Model result: {result}",
+                        context={
+                            "combo_progress": f"{combo_idx}/{total_combinations}",
+                            "strong_progress": f"{strong_idx}/{strong_algos_count}",
+                            "percent_complete": round((combo_idx / total_combinations) * 100, 1)
+                        }
+                    )
                     if result['roi'] > best_roi:
                         best_roi = result['roi']
                         best_result = result
+                # Log completion of this parameter combination
+                logger.info(
+                    f"Arrr! [FSM GRID] Completed all evaluations for combination {combo_idx}/{total_combinations}",
+                    context={
+                        "params": params,
+                        "combo_progress": f"{combo_idx}/{total_combinations}",
+                        "percent_complete": round((combo_idx / total_combinations) * 100, 1),
+                        "best_roi_so_far": best_roi
+                    }
+                )
             # Instead of returning only the best/top3, return all results for saving
+            logger.info(
+                f"Arrr! [FSM GRID] Grid search complete! Tested {total_combinations} combinations",
+                context={
+                    "total_combinations": total_combinations,
+                    "total_results": len(results),
+                    "best_roi": best_roi,
+                    "best_params": best_result['params'] if best_result else None
+                }
+            )
             if use_cache:
                 # Save best params to cache
                 self._best_params_cache[cache_key] = best_result

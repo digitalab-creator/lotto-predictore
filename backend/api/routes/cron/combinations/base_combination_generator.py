@@ -12,6 +12,8 @@ from utils.model_utils import normalize_model_name, denormalize_model_name
 from logger import logger
 from datetime import datetime
 import time
+import requests
+import os
 from typing import List, Dict, Any, Tuple, Optional
 
 
@@ -241,4 +243,100 @@ def store_combinations_in_db(
         )
     
     return valid_combos_processed
+
+
+def send_weekly_combinations_email(
+    db: Session,
+    prediction_id: int,
+    prediction: Prediction,
+    main_model: Model,
+    strong_model: Model,
+    version: str = "weekly_generation"
+) -> Tuple[bool, Optional[str]]:
+    """
+    Send weekly combinations email for a given prediction.
+    
+    Args:
+        db: Database session
+        prediction_id: ID of the prediction
+        prediction: Prediction object
+        main_model: Main model object
+        strong_model: Strong model object
+        version: Version string for logging (e.g., "optimized_weekly_generation", "weekly_generation")
+    
+    Returns:
+        Tuple of (email_sent: bool, email_error: Optional[str])
+    """
+    try:
+        version_label = "OPTIMIZED" if "optimized" in version.lower() else "STANDARD"
+        logger.info(f"Arrr! Sending {version_label} weekly combinations email, praisin' the FSM!")
+        
+        # Get all combinations for this prediction
+        combinations = db.query(GeneratedCombination).filter(
+            GeneratedCombination.prediction_id == prediction_id
+        ).order_by(GeneratedCombination.position).all()
+        
+        if not combinations:
+            logger.warning(
+                "Arrr! No combinations found to send in email",
+                context={"prediction_id": prediction_id}
+            )
+            return False, "No combinations found"
+        
+        # Format tables for email
+        tables = []
+        for combo in combinations:
+            tables.append({
+                "numbers": combo.numbers,
+                "strong": combo.strong_number
+            })
+        
+        # Format model info
+        model_info = {
+            "main_model": main_model.name if main_model else "Unknown",
+            "strong_model": strong_model.name if strong_model else "Unknown",
+            "roi_ratio": f"{prediction.roi:.2%}" if prediction.roi else "N/A",
+            "total_prize": f"₪{prediction.total_prize:,.2f}" if prediction.total_prize else "₪0.00",
+            "total_cost": f"₪{prediction.total_cost:,.2f}" if prediction.total_cost else "₪0.00",
+            "total_predictions": 1
+        }
+        
+        # Send to email service
+        email_service_url = os.getenv('EMAIL_SERVICE_URL', 'http://localhost:8001')
+        email_data = {
+            "date": datetime.now().date().isoformat(),
+            "tables": tables,
+            "model_info": model_info
+        }
+        
+        logger.info(f"Arrr! Sending {version_label} email to {email_service_url}/send-best-model-tables")
+        response = requests.post(
+            f"{email_service_url}/send-best-model-tables",
+            json=email_data,
+            timeout=10
+        )
+        response.raise_for_status()
+        
+        logger.info(
+            f"Arrr! {version_label} weekly combinations email sent successfully!",
+            context={
+                "prediction_id": prediction_id,
+                "num_combinations": len(tables)
+            }
+        )
+        
+        return True, None
+        
+    except Exception as e:
+        error_msg = str(e)
+        version_label = "OPTIMIZED" if "optimized" in version.lower() else "STANDARD"
+        logger.error(
+            f"Arrr! Failed to send {version_label} weekly combinations email (non-blocking error)!",
+            context={
+                "error": error_msg,
+                "prediction_id": prediction_id,
+                "email_service_url": os.getenv('EMAIL_SERVICE_URL', 'http://localhost:8001')
+            }
+        )
+        return False, error_msg
 

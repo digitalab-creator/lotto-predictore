@@ -133,7 +133,7 @@ class LoggingService:
         console_handler = logging.StreamHandler()
         console_handler.setLevel(getattr(logging, log_level))
         console_format = CallerAwareFormatter(
-            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s\n',
+            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s\n\n',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         console_format.converter = lambda *args: datetime.now(israel_tz).timetuple()
@@ -151,7 +151,7 @@ class LoggingService:
         )
         file_handler.setLevel(getattr(logging, log_level))
         file_format = CallerAwareFormatter(
-            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s\n',
+            '%(asctime)s - %(name)s - %(levelname)s - [%(caller_file)s:%(caller_func)s:%(caller_lineno)d] -\n%(message)s\n\n',
             datefmt='%Y-%m-%d %H:%M:%S %Z'
         )
         file_format.converter = lambda *args: datetime.now(israel_tz).timetuple()

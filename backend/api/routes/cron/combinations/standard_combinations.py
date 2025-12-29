@@ -10,7 +10,8 @@ from logger import logger
 from ..utils import get_balanced_algorithm_list
 from .base_combination_generator import (
     get_db_session, load_draws_with_filter, generate_combinations,
-    validate_combos_result, get_model_objects, store_combinations_in_db
+    validate_combos_result, get_model_objects, store_combinations_in_db,
+    send_weekly_combinations_email
 )
 from services.queue.job_queue import enqueue_job
 import time
@@ -385,6 +386,16 @@ async def _generate_weekly_combinations_sync():
             db.commit()
             db_time = time.time() - db_start
             
+            # Send email with the generated combinations (non-blocking - log errors but don't fail the job)
+            email_sent, email_error = send_weekly_combinations_email(
+                db=db,
+                prediction_id=new_prediction.id,
+                prediction=new_prediction,
+                main_model=main_model,
+                strong_model=strong_model,
+                version="weekly_generation"
+            )
+            
             total_time = time.time() - start_time
             
             # Mark job as completed
@@ -400,6 +411,8 @@ async def _generate_weekly_combinations_sync():
                     "num_combinations": valid_combos_processed,
                     "prediction_id": new_prediction.id,
                     "total_time": f"{total_time:.2f}s",
+                    "email_sent": email_sent,
+                    "email_error": email_error,
                     "breakdown": {
                         "draws_load": f"{draws_time:.2f}s",
                         "engine_evaluation": f"{engine_time:.2f}s",
@@ -414,7 +427,9 @@ async def _generate_weekly_combinations_sync():
                 "message": f"Weekly combinations generated successfully using {main_algo_name} + {strong_algo_name}",
                 "num_combinations": valid_combos_processed,
                 "prediction_id": new_prediction.id,
-                "total_time": f"{total_time:.2f}s"
+                "total_time": f"{total_time:.2f}s",
+                "email_sent": email_sent,
+                "email_error": email_error
             }
             
         except Exception as e:
