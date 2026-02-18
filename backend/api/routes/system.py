@@ -11,7 +11,7 @@ from pathlib import Path
 import shutil
 import re
 import asyncio
-from algorithms.dl.sequence_classifier import LottoLSTM
+from algorithms.dl import LottoLSTM
 
 router = APIRouter()
 

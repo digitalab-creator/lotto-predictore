@@ -11,7 +11,7 @@ from .draw_fetching import router as draw_fetching_router
 from .model_tables import router as model_tables_router
 from .status import router as status_router
 from .send_weekly_email import router as send_weekly_email_router
-from .schedule import router as schedule_router
+# from .schedule import router as schedule_router  # TODO: Re-enable when schedule.py is created
 
 # Export all routers for easy inclusion
 __all__ = [
@@ -23,5 +23,5 @@ __all__ = [
     'model_tables_router',
     'status_router',
     'send_weekly_email_router',
-    'schedule_router'
+    # 'schedule_router'  # TODO: Re-enable when schedule.py is created
 ] 

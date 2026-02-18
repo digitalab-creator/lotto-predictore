@@ -1,7 +1,7 @@
 import itertools
 import os
 import torch
-from algorithms.dl.sequence_classifier import draws_to_sequences, LottoLSTM, predict_next_numbers
+from algorithms.dl import draws_to_sequences, LottoLSTM, predict_next_numbers
 from models import Draw
 from logger import logger
 from db import SessionLocal

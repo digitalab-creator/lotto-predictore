@@ -47,6 +47,14 @@ NUM_COMBINATIONS_FOR_ANALYSIS = 8
 # Number of combinations to recommend to the user for the next draw
 NUM_COMBINATIONS_TO_RECOMMEND = 8
 
+# LSTM Model Constants
+LOTTO_NUMBERS_COUNT = 37  # Total numbers in the lottery (1-37)
+LSTM_DEFAULT_SEQ_LEN = 10  # Default sequence length for LSTM
+LSTM_DEFAULT_THRESHOLD = 0.5  # Default prediction threshold
+LSTM_GRID_SEARCH_THRESHOLD = 0.2  # Threshold used in grid search
+LSTM_GRID_SEARCH_TEST_COUNT = 12  # Number of test draws for grid search evaluation
+LSTM_TABLES_PER_DRAW = 8  # Number of ticket combinations per draw in evaluation
+
 # Prize table (average, adjust as needed)
 # Key: (hits, strong_hit) -> value: average prize in NIS
 PRIZE_TABLE = {

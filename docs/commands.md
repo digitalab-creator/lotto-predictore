@@ -10,6 +10,7 @@ Praisin' the FSM! 🍝⚓
 - **[Scheduling API](commands/scheduling-api.md)** - Complete API reference for the cron job scheduling service
 - **[Common Use Cases](commands/common-use-cases.md)** - Ready-to-use commands for common scenarios
 - **[Monitoring](commands/monitoring.md)** - Comprehensive monitoring commands and workflows
+- **[Stop Processes](commands/stop-processes.md)** - Commands to stop running weekly cron jobs and processes
 - **[Git Operations](commands/git-operations.md)** - Git manager script commands for version control
 - **[Reference](commands/reference.md)** - Notes, error handling, and related endpoints
 

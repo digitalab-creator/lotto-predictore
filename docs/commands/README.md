@@ -10,6 +10,7 @@ This commands documentation has been split into focused sections for easier navi
 - **[Scheduling API](scheduling-api.md)** - Complete API reference for the cron job scheduling service
 - **[Common Use Cases](common-use-cases.md)** - Ready-to-use commands for common scenarios
 - **[Monitoring](monitoring.md)** - Comprehensive monitoring commands and workflows
+- **[Stop Processes](stop-processes.md)** - Commands to stop running weekly cron jobs and processes
 - **[Git Operations](git-operations.md)** - Git manager script commands for version control
 - **[Reference](reference.md)** - Notes, error handling, and related endpoints
 

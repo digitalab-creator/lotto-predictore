@@ -409,7 +409,7 @@ class WeeklyCombinationsGridSearch:
         grid_results = self.run_grid_search(
             draws=draws,
             use_cache=use_cache,
-            max_combinations=30 if quick_mode else 100,
+            max_combinations=30 if quick_mode else 500,  # Full search: test up to 500 combinations (was 100)
             quick_mode=quick_mode
         )
         

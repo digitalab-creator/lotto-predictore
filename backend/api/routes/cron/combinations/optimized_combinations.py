@@ -60,7 +60,7 @@ async def generate_weekly_combinations_optimized():
             grid_search = WeeklyCombinationsGridSearch(db)
             optimized_params = grid_search.get_optimized_parameters(
                 draws=draws,
-                quick_mode=True,  # Use quick mode for cron jobs
+                quick_mode=False,  # Use FULL grid search for proper optimization (was True for speed)
                 use_cache=True
             )
             grid_search_time = time.time() - grid_search_start

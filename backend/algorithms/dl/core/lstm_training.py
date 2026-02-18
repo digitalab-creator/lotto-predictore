@@ -14,6 +14,7 @@ setup_backend_path()
 
 from shared.logging_service import get_backend_logger
 from .lstm_model import LottoLSTM, draws_to_sequences, save_meta, load_meta
+from config import LOTTO_NUMBERS_COUNT
 
 logger = get_backend_logger()
 
@@ -75,7 +76,7 @@ def finetune_lotto_lstm(draws: List[Draw], seq_len=10, epochs=10, lr=0.0005, bat
     if meta_path is None:
         meta_path = META_PATH
         
-    num_numbers = 37
+    num_numbers = LOTTO_NUMBERS_COUNT
     X, y = draws_to_sequences(draws, seq_len, num_numbers)
     model = LottoLSTM(num_numbers=num_numbers, seq_len=seq_len)
     if os.path.exists(model_path):
@@ -122,7 +123,7 @@ def predict_next_numbers(draws: List[Draw], seq_len=10, threshold=0.5, model_pat
     if model_path is None:
         model_path = MODEL_PATH
         
-    num_numbers = 37
+    num_numbers = LOTTO_NUMBERS_COUNT
     if len(draws) < seq_len:
         logger.error("Arrr! Not enough draws for sequence prediction!", context={"draws_len": len(draws), "seq_len": seq_len})
         raise ValueError("Not enough draws for sequence prediction")
@@ -136,27 +137,28 @@ def predict_next_numbers(draws: List[Draw], seq_len=10, threshold=0.5, model_pat
     seq = draws[-seq_len:]
     x_seq = []
     for d in seq:
-        onehot = [0]*num_numbers
-        for n in d.numbers:
-            onehot[n-1] = 1
-        x_seq.append(onehot)
+            onehot = [0]*num_numbers
+            for n in d.numbers:
+                onehot[n-1] = 1
+            x_seq.append(onehot)
     x_tensor = torch.tensor([x_seq], dtype=torch.float32)
     with torch.no_grad():
         output = model(x_tensor)[0]
     pred = (output > threshold).nonzero(as_tuple=True)[0].tolist()
     numbers = [i+1 for i in pred]
-    if len(numbers) > 6:
-        top6 = output.topk(6).indices.tolist()
+    NUMBERS_PER_COMBO = 6
+    if len(numbers) > NUMBERS_PER_COMBO:
+        top6 = output.topk(NUMBERS_PER_COMBO).indices.tolist()
         numbers = [i+1 for i in top6]
-    elif len(numbers) < 6:
+    elif len(numbers) < NUMBERS_PER_COMBO:
         all_numbers = [n for d in draws for n in d.numbers]
         from collections import Counter
         freq = Counter(all_numbers)
         for n, _ in freq.most_common():
-            if n not in numbers:
-                numbers.append(n)
-            if len(numbers) == 6:
-                break
+                    if n not in numbers:
+                        numbers.append(n)
+                    if len(numbers) == NUMBERS_PER_COMBO:
+                        break
     return sorted(numbers)
 
 # --- Database Helper ---

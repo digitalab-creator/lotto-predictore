@@ -182,7 +182,10 @@ def commit_and_push():
 
     # Get commit message from user or use argument
     if len(sys.argv) > 2 and sys.argv[1] == 'commit':
-        # Skip 'commit' argument
+        # Use the message provided as argument (skip 'commit' and '--no-verify')
+        commit_message = ' '.join([arg for arg in sys.argv[2:] if arg != '--no-verify'])
+    elif len(sys.argv) == 2 and sys.argv[1] == 'commit':
+        # 'commit' command without message - ask for it
         commit_message = ask_commit_message()
     elif len(sys.argv) > 1 and sys.argv[1] not in ['commit', '--no-verify']:
         # Use remaining args as message
