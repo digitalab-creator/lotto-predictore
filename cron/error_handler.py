@@ -141,15 +141,17 @@ class CronErrorHandler:
         try:
             response = requests.get(f"{self.backend_url}/health", timeout=5)
             return "✅ Healthy" if response.status_code == 200 else "❌ Unhealthy"
-        except:
+        except Exception as e:
+            logger.debug("Backend health check failed: %s", e)
             return "❌ Unreachable"
-    
+
     def _check_email_status(self) -> str:
         """Check if email service is responding"""
         try:
             response = requests.get(f"{self.email_url}/health", timeout=5)
             return "✅ Healthy" if response.status_code == 200 else "❌ Unhealthy"
-        except:
+        except Exception as e:
+            logger.debug("Email service health check failed: %s", e)
             return "❌ Unreachable"
 
 # Global error handler instance

@@ -95,8 +95,8 @@ def safe_remove_remote(remote_name: str) -> None:
             capture_output=True,
             text=True
         )
-    except:
-        pass  # Ignore errors if remote doesn't exist
+    except Exception as e:
+        logger.debug("Could not remove remote %s: %s", remote_name, e)
 
 def commit_and_push():
     """Commit and push changes to GitHub, always using the branch from .env.development"""
@@ -156,7 +156,7 @@ def fetch_latest_commit(config: GitConfig) -> None:
         # Initialize git if needed
         try:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
-        except:
+        except Exception:
             run_command('git init', 'Initialize git repository')
 
         # Set up remote with token
@@ -188,7 +188,7 @@ def fetch_specific_commit(config: GitConfig, commit_id: str) -> None:
         # Initialize git if needed
         try:
             run_command('git rev-parse --is-inside-work-tree', 'Check if git repo exists')
-        except:
+        except Exception:
             run_command('git init', 'Initialize git repository')
 
         # Set up remote with token

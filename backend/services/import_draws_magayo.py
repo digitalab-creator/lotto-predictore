@@ -15,15 +15,11 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Load environment variables from .env in project root
 load_dotenv()  # This loads .env from the current working directory, which is /app
 
-print("ENV FILE DEBUG:", os.path.abspath('.'), os.listdir('.'))
-print("MAGAYO_API_KEY:", os.getenv("MAGAYO_API_KEY"))
-print("MAGAYO_GAME_CODE:", os.getenv("MAGAYO_GAME_CODE"))
-
 MAGAYO_API_KEY = os.getenv("MAGAYO_API_KEY")
 MAGAYO_GAME_CODE = os.getenv("MAGAYO_GAME_CODE")
 
 if not MAGAYO_API_KEY or not MAGAYO_GAME_CODE:
-    raise RuntimeError("MAGAYO_API_KEY and MAGAYO_GAME_CODE must be set in .env, praisin' the FSM!")
+    raise RuntimeError("MAGAYO_API_KEY and MAGAYO_GAME_CODE must be set in .env")
 
 MAGAYO_URL = "https://www.magayo.com/api/results.php"
 

@@ -1,14 +1,12 @@
-import os
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base, Session
-from sqlalchemy.pool import QueuePool
-from config import DATABASE_URL
 import logging
 
-# Configure logging
-logger = logging.getLogger(__name__)
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.pool import QueuePool
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg2://lotto_user:lotto_pass@localhost:5432/lotto_db")
+from config import DATABASE_URL
+
+logger = logging.getLogger(__name__)
 
 # Create engine with connection pooling and timeout settings
 engine = create_engine(
@@ -37,7 +35,7 @@ def get_db():
     try:
         yield db
     except Exception as e:
-        logger.error(f"[FSM ERROR] Database session error: {str(e)}")
+        logger.error("Database session error: %s", e)
         db.rollback()
         raise
     finally:

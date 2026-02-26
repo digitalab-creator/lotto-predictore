@@ -1,101 +1,61 @@
-# Lotto Predictore ⚓️
+# Lotto Predictor
 
-Arrr matey! Here be how to keep yer draws fresh and yer database up to date, praisin' the FSM!
+A lottery prediction system that imports historical draws from Pais and Magayo APIs, stores them in PostgreSQL, and runs prediction algorithms. It can send weekly result emails via a separate email service.
 
-## 🏴‍☠️ Historical Draw Import Steps
+## What it does
 
-To fill yer database with all the draws, follow these three steps, as decreed by the pirate code and the FSM:
+- Imports historical lottery draws (Pais API up to Oct 2024, Magayo API from Oct 2024 onward).
+- Stores draws in PostgreSQL and runs algorithms for predictions.
+- Optional: cron job to fetch the latest draw daily; email service to send weekly summaries.
 
-### 1. Fetch All Draws Up to October 2024 (PaisAPI)
+## How to use
 
-Run this command to fetch all historical draws from the earliest possible up to October 2024:
+### 1. Import historical draws (Pais API, up to October 2024)
 
-```sh
-docker-compose exec backend python import_draws_paisapi.py
-```
-
----
-
-### 2. Fetch Draws From October 2024 Onward (Magayo API)
-
-Once ye have the old draws, fetch the newer draws (from October 2024 onward) one at a time using the Magayo API:
+From the project root:
 
 ```sh
-docker-compose run --rm backend python import_draws_magayo.py
+docker compose exec backend python services/import_draws_paisapi.py
 ```
 
----
+(Backend container has `WORKDIR /app`; scripts live under `backend/services/`.)
 
-### 3. Fetch and Store Each New Draw as It Happens (Cronjob)
-
-After ye be caught up, set up the daily cronjob to fetch and store each new draw as it happens:
+### 2. Import draws from October 2024 onward (Magayo API)
 
 ```sh
-./up_with_cron.sh
+docker compose run --rm backend python services/import_draws_magayo.py
 ```
 
-This will:
-- Start yer containers
-- Ensure a cronjob is set to fetch the latest draw every day at 3:00 AM
-- Log all output to `cron_fetch_latest.log`
+Set `MAGAYO_API_KEY` and `MAGAYO_GAME_CODE` in your environment (e.g. in `backend/.env`).
 
----
-
-May yer database be ever complete and yer draws ever fresh, praisin' the FSM and his noodly appendage!
-
-## 🏴‍☠️ Automatic Daily Draw Fetching (Cronjob)
-
-### 1. Set Up the Daily Cronjob
-
-Run this command to bring up yer containers and set the daily cronjob:
+### 3. Fetch the latest draw (one-off)
 
 ```sh
-./up_with_cron.sh
+docker compose exec backend python services/fetch_latest_draw.py
 ```
 
-This will:
-- Start yer Docker containers
-- Ensure a cronjob is set to fetch the latest draw every day at 3:00 AM
-- Log all output to `cron_fetch_latest.log`
+### 4. Run daily fetch via cron (optional)
 
----
-
-### 2. Check If the Cronjob Be Workin'
-
-To see if the cronjob be fetchin' draws as the FSM intended, run:
+Set up a cron job on your host that runs the fetch command, for example:
 
 ```sh
-tail -n 50 cron_fetch_latest.log
+docker compose exec backend python services/fetch_latest_draw.py
 ```
 
-Ye should see log entries like:
-- "Fetching latest draw from Magayo API"
-- "Added draw YYYY-MM-DD: [...] + N"
-- Or "Draw for YYYY-MM-DD already exists in DB. No action needed."
+Run `docker compose up -d` so the backend is up when cron runs. Log output to a file if needed (e.g. `>> cron_fetch_latest.log 2>&1`).
 
-To see the cron schedule:
-```sh
-crontab -l
-```
+## Environment
 
----
+- Copy `backend/.env.example` to `backend/.env` (create one if missing) and set:
+  - `DATABASE_URL` — PostgreSQL connection string (e.g. `postgresql+psycopg2://lotto_user:lotto_pass@db:5432/lotto_db`).
+  - `MAGAYO_API_KEY`, `MAGAYO_GAME_CODE` — for Magayo API.
+  - `BACKEND_URL` — used by cron service (e.g. `http://backend:8000`).
+- Email service has its own `.env.example` in `email-service/` for SMTP and recipient settings.
 
-### 3. Manually Test the Fetch Script
+## Project layout
 
-If ye want to fetch the latest draw right now (without waitin' for cron), run:
-
-```sh
-docker-compose exec backend python fetch_latest_draw.py
-```
-
-Or, to simulate the cronjob exactly:
-
-```sh
-cd /home/orshv/lotto-predictore && docker-compose exec backend python fetch_latest_draw.py >> cron_fetch_latest.log 2>&1
-```
-
-Then check the log file again to see the results, praisin' the FSM!
-
----
-
-May yer draws be ever fresh and yer logs ever clear, matey! If ye run into trouble, consult the log or call for help from the FSM's chosen ones. 
+- `backend/` — API, models, algorithms, import scripts (`services/import_draws_*.py`, `services/fetch_latest_draw.py`), Alembic migrations.
+- `cron/` — Cron job runner and error handling.
+- `email-service/` — Email sending for weekly summaries and notifications.
+- `shared/` — Shared logging and cache utilities.
+- `docker-compose.yml` — Defines backend, db, cron, and email-service.
