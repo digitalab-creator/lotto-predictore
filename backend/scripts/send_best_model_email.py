@@ -63,11 +63,12 @@ def send_best_model_email():
             }
         )
         
+        email_url = os.getenv("EMAIL_SERVICE_URL", "http://email-service:8000").rstrip("/")
         # Send request to email service
         response = requests.post(
-            "http://email-service:8000/send-best-model-tables",
+            f"{email_url}/send-best-model-tables",
             json=email_data,
-            timeout=30
+            timeout=30,
         )
         
         if response.status_code != 200:

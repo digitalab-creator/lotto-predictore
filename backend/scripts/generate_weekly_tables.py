@@ -153,10 +153,12 @@ def send_tables_email(tables, best_combo):
             }
         }
         
+        email_url = os.getenv("EMAIL_SERVICE_URL", "http://email-service:8000").rstrip("/")
         # Send request to email service
         response = requests.post(
-            "http://email-service:8000/send-weekly-tables",
-            json=email_data
+            f"{email_url}/send-weekly-tables",
+            json=email_data,
+            timeout=30,
         )
         
         if response.status_code != 200:

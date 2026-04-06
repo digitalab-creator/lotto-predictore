@@ -230,24 +230,26 @@ async def notify_model_corruption(request: Request):
         </html>
         """
         
-        # Send email
-        recipients = os.getenv("ADMIN_EMAIL_RECIPIENTS", "").split(",")
-        if not recipients or not recipients[0]:
-            raise HTTPException(
-                status_code=500,
-                detail="No email recipients configured"
-            )
-        
-        email_service.send_email(
-            subject=subject,
-            body=body,
-            recipients=recipients,
-            is_html=True
+        # Send via same pipeline as other alerts (single RECIPIENT_EMAIL from env)
+        summary_plain = (
+            f"Total checked: {total_checked}, corrupted: {total_corrupted}, time: {timestamp}"
         )
+        ok = email_service.send_email(
+            subject=subject,
+            template_name="error_notification.html",
+            template_data={
+                "error_message": summary_plain,
+                "service": "model-file-check",
+                "script": "check-model-files",
+                "traceback": body[:8000] if len(body) > 8000 else body,
+            },
+        )
+        if not ok:
+            raise HTTPException(status_code=500, detail="Failed to send corruption email")
         
         return {
             "status": "success",
-            "message": f"Corruption notification sent to {len(recipients)} recipients",
+            "message": "Corruption notification sent",
             "corrupted_files": len(corrupted_files)
         }
         

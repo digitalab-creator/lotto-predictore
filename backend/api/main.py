@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, Query, APIRouter, HTTPException, Request
+from fastapi import FastAPI, Depends, Query, APIRouter, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from logger import logger
 from algorithms import register_algorithms, get_registered_algorithms
@@ -21,7 +21,6 @@ from models.generated_combination import GeneratedCombination
 from models.weekly_winning_combination import WeeklyWinningCombination
 import sys
 from pathlib import Path
-import os
 import torch
 import torch.nn as nn
 from algorithms.dl.sequence_classifier import LottoLSTM
