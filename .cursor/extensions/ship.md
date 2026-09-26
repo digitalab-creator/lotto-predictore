@@ -2,12 +2,12 @@
 
 This file is the command list. Kit skill `ship` prints `workflows.ship.runner.command`, then follows these steps. Do not invent a second sequence. Do not dispatch during profile setup.
 
-Root: `/opt/apps/lotto-predictore`. Repo: `digitalab-creator/lotto-predictore`. Branch: `main`. Remote `dev` is unused by this workflow.
+Root: `/opt/apps/lotto-predictore`. Repo: `digitalab-creator/lotto-predictore`. Integration branch: `dev`. `/ship` updates the live containers. It does not merge `dev` into `main`.
 
 ## Before dispatch
 
 1. Dirty tracked files block the release. Commit them with `/commit-dev-until-green` first.
-2. Freeze `FROZEN_SHA` from `origin/main`.
+2. Freeze `FROZEN_SHA` from `origin/dev`.
 3. The `digitalab-prod` runner is registered on `digitalab-new-design` only. Confirm it is online for this repo before the first real dispatch. If it cannot accept this repo, the job stays queued.
 
 ## Dispatch
@@ -15,7 +15,7 @@ Root: `/opt/apps/lotto-predictore`. Repo: `digitalab-creator/lotto-predictore`. 
 Consent is the slash command. Do not ask for a second typed confirmation.
 
 ```bash
-gh workflow run Deploy --repo digitalab-creator/lotto-predictore --ref main \
+gh workflow run Deploy --repo digitalab-creator/lotto-predictore --ref dev \
   -f sha="$FROZEN_SHA" \
   -f confirm="DEPLOY $FROZEN_SHA TO PRODUCTION" \
   -f mode=deploy

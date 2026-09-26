@@ -6,7 +6,7 @@ repo:
 workflows:
   ship:
     mode: watch_ci
-    integration_branch: main
+    integration_branch: dev
     production_branch: main
     candidate_strategy: frozen_remote_branch
     local_wip_policy: block
@@ -16,7 +16,7 @@ workflows:
     required_workflow: Deploy
     live_url: http://127.0.0.1:8000/
     runner:
-      command: gh workflow run Deploy --repo digitalab-creator/lotto-predictore --ref main -f sha="$FROZEN_SHA" -f confirm="DEPLOY $FROZEN_SHA TO PRODUCTION" -f mode=deploy
+      command: gh workflow run Deploy --repo digitalab-creator/lotto-predictore --ref dev -f sha="$FROZEN_SHA" -f confirm="DEPLOY $FROZEN_SHA TO PRODUCTION" -f mode=deploy
     preflight: []
   commit_dev:
     max_attempts: 5
