@@ -8,7 +8,14 @@ yarn-debug.log*
 yarn-error.log*
 .idea/
 .vscode/
-.cursor/
+# Ignore Cursor debug logs. The kit profile stays in git.
+.cursor/*
+!.cursor/project.yaml
+!.cursor/extensions/
+!.cursor/extensions/**
+
+# Release metadata written by the Deploy workflow on the host
+tmp/
 
 # Environment files
 .env

@@ -1,0 +1,22 @@
+# Kit profile for lotto. The kit reads this file. Commands live in .cursor/extensions/.
+project:
+  root: /opt/apps/lotto-predictore
+repo:
+  github: digitalab-creator/lotto-predictore
+workflows:
+  ship:
+    mode: watch_ci
+    integration_branch: main
+    production_branch: main
+    candidate_strategy: frozen_remote_branch
+    local_wip_policy: block
+    selective_release: false
+    integrate_skill: commit-dev-until-green
+    max_attempts: 5
+    required_workflow: Deploy
+    live_url: http://127.0.0.1:8000/
+    runner:
+      command: gh workflow run Deploy --repo digitalab-creator/lotto-predictore --ref main -f sha="$FROZEN_SHA" -f confirm="DEPLOY $FROZEN_SHA TO PRODUCTION" -f mode=deploy
+    preflight: []
+  commit_dev:
+    max_attempts: 5
