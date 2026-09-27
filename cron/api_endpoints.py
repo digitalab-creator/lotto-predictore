@@ -214,10 +214,7 @@ def check_model_files_endpoint():
         )
 
 def cleanup_system_endpoint():
-    """
-    Endpoint to manually trigger comprehensive system cleanup.
-    This includes log cleanup and Docker system pruning.
-    """
+    """Endpoint to manually trigger old log file cleanup."""
     try:
         logger.info("Arrr! Manual system cleanup triggered via API!")
         cleanup_system()

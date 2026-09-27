@@ -3,7 +3,7 @@ from sqlalchemy import text
 from typing import Any
 from models import Draw, Model, ModelType, Prediction, GeneratedCombination, PredictionDetail
 from algorithms.base import ALGORITHM_REGISTRY
-from config import TICKET_COST_PER_TABLE, NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
+from config import NUM_COMBINATIONS_FOR_ANALYSIS, NUM_COMBINATIONS_TO_RECOMMEND
 import time
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -13,8 +13,9 @@ import inspect
 import copy
 from db.base import SessionLocal, get_db
 from services.simulation_helpers.simulation_utils import calculate_roi_with_tax, to_native
+from services.ticket_validator import count_hits
 from services.simulation_helpers.simulation_db import get_or_create_model
-from services.simulation_helpers.simulation_prize import calculate_prize
+from services.simulation_helpers.simulation_prize import calculate_prize, draw_has_prize_data, draw_ticket_cost
 from services.simulation_helpers.simulation_print import print_combo_index_insights, print_table_summary
 from sqlalchemy.exc import OperationalError, SQLAlchemyError
 import backoff  # Add this to requirements.txt if not present
@@ -43,6 +44,7 @@ class SimulationEngine:
         logger.info(f"[FSM DEBUG] Loaded {len(draws)} training draws in {time.time() - t_start:.2f}s")
         t_test = time.time()
         test_draws = self.db.query(Draw).filter(Draw.date > train_end, Draw.strong_number <= 7).order_by(Draw.date).limit(test_count).all()
+        test_draws = [d for d in test_draws if draw_has_prize_data(d)]
         filtered_test_count = self.db.query(Draw).filter(Draw.date > train_end, Draw.strong_number == 8).count()
         logger.info(
             "Arrr! Filtered out draws with strong_number == 8 in testing, praisin' the FSM!",
@@ -53,8 +55,8 @@ class SimulationEngine:
             logger.error(f"[FSM ERROR] No training draws loaded for range {train_start} to {train_end}")
             raise ValueError(f"No training draws loaded for range {train_start} to {train_end}")
         if not test_draws:
-            logger.error(f"[FSM ERROR] No test draws loaded after {train_end}")
-            raise ValueError(f"No test draws loaded after {train_end}")
+            logger.error(f"[FSM ERROR] No test draws with Pais prize data after {train_end}")
+            raise ValueError(f"No test draws with real prize data after {train_end}")
         for idx, draw in enumerate(draws):
             if not hasattr(draw, 'numbers') or draw.numbers is None or not isinstance(draw.numbers, (list, tuple)):
                 logger.error(f"[FSM ERROR] Training draw at index {idx} has invalid numbers: {getattr(draw, 'numbers', None)}")
@@ -102,12 +104,18 @@ class SimulationEngine:
                             session.execute(text("SET statement_timeout = '300s'"))  # 5 minutes timeout
                         
                         run_sig = inspect.signature(algo.run)
+                        cutoff_date = draws[-1].date
                         run_kwargs = dict(
                             draws=draws,
                             top_n=top_n,
                             num_for_analysis=NUM_COMBINATIONS_FOR_ANALYSIS,
                             num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND
                         )
+                        if "as_of_date" in run_sig.parameters or any(
+                            p.kind == inspect.Parameter.VAR_KEYWORD
+                            for p in run_sig.parameters.values()
+                        ):
+                            run_kwargs["as_of_date"] = cutoff_date
                         
                         if 'db' in run_sig.parameters:
                             run_kwargs['db'] = session
@@ -141,8 +149,15 @@ class SimulationEngine:
                             algo_results = [algo_results]
                         if algo_results and isinstance(algo_results[0], dict) and 'numbers' in algo_results[0]:
                             combos = algo_results
+                            predict_sig = inspect.signature(strong_algo.predict)
+                            predict_extra = {}
+                            if "as_of_date" in predict_sig.parameters or any(
+                                p.kind == inspect.Parameter.VAR_KEYWORD
+                                for p in predict_sig.parameters.values()
+                            ):
+                                predict_extra["as_of_date"] = cutoff_date
                             for combo in combos:
-                                combo['strong'] = strong_algo.predict(draws)
+                                combo["strong"] = strong_algo.predict(draws, **predict_extra)
                             logger.debug(
                                 f"[FSM DEBUG] combos after strong assignment",
                                 context={
@@ -153,15 +168,23 @@ class SimulationEngine:
                             )
                             prizes = []
                             dates = []
+                            total_cost = 0.0
                             for i, test_draw in enumerate(test_draws):
                                 combo_results = []
                                 max_hits = 0
                                 any_strong_hit = False
                                 total_prize = 0
+                                line_cost = draw_ticket_cost(test_draw)
                                 for combo in combos:
-                                    hits = sum([n in test_draw.numbers for n in combo["numbers"]])
+                                    hits = count_hits(combo["numbers"], test_draw.numbers)
                                     strong_hit = (combo.get("strong") == getattr(test_draw, "strong_number", None))
-                                    prize = calculate_prize(hits, strong_hit)
+                                    prize = calculate_prize(test_draw, hits, strong_hit)
+                                    if prize is None:
+                                        logger.warning(
+                                            "[FSM DEBUG] Skipping combo prize — draw missing Pais tiers",
+                                            context={"draw_date": str(test_draw.date)},
+                                        )
+                                        continue
                                     combo_results.append({
                                         "numbers": combo["numbers"],
                                         "strong": combo.get("strong"),
@@ -174,6 +197,7 @@ class SimulationEngine:
                                     if strong_hit:
                                         any_strong_hit = True
                                     total_prize += prize
+                                    total_cost += line_cost
                                     prizes.append(prize)
                                 dates.append({
                                     "test_draw_date": test_draw.date,
@@ -182,13 +206,12 @@ class SimulationEngine:
                                     "max_hits": max_hits,
                                     "any_strong_hit": any_strong_hit,
                                     "total_prize": total_prize,
+                                    "ticket_cost": line_cost,
                                     "combos": combo_results
                                 })
                             total_prize = sum(prizes)
-                            total_tickets = len(combos) * len(test_draws)
-                            total_cost = total_tickets * TICKET_COST_PER_TABLE
-                            roi = calculate_roi_with_tax(prizes, total_cost)
                             test_count = len(test_draws)
+                            roi = calculate_roi_with_tax(prizes, total_cost)
                             params = copy.deepcopy(algo_results[0]["params"]) if "params" in algo_results[0] else {}
                             logger.debug(
                                 f"[FSM DEBUG] params extracted",
@@ -268,6 +291,9 @@ class SimulationEngine:
                             session.add(prediction)
                             session.flush()
                             for date_entry in result.get('dates', []):
+                                line_cost = date_entry.get('ticket_cost') or draw_ticket_cost(
+                                    next(d for d in test_draws if d.date == date_entry['test_draw_date'])
+                                )
                                 for combo in date_entry['combos']:
                                     detail = PredictionDetail(
                                         prediction_id=prediction.id,
@@ -279,7 +305,7 @@ class SimulationEngine:
                                         hits=to_native(combo['hits']),
                                         strong_hit=to_native(combo['strong_hit']),
                                         prize=to_native(combo['prize']),
-                                        roi=to_native((combo['prize'] - TICKET_COST_PER_TABLE) / TICKET_COST_PER_TABLE if TICKET_COST_PER_TABLE else 0)
+                                        roi=to_native((combo['prize'] - line_cost) / line_cost if line_cost else 0)
                                     )
                                     session.add(detail)
                         session.commit()

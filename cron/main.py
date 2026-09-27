@@ -31,6 +31,7 @@ logger = get_cron_logger()
 last_successful_job = {
     "generate-weekly-combinations": None,
     "fetch-latest-draw": None,
+    "fetch-latest-draw-post-draw": None,
     "generate-weekly-tables": None,
     "update-weekly-winning-combinations": None,
     "best-model-tables-and-email": None,
@@ -54,10 +55,7 @@ async def check_model_files():
 
 @app.post("/api/cleanup-system")
 async def cleanup_system():
-    """
-    Endpoint to manually trigger comprehensive system cleanup.
-    This includes log cleanup and Docker system pruning.
-    """
+    """Endpoint to manually trigger old log file cleanup."""
     return cleanup_system_endpoint()
 
 @app.post("/api/backup-database")

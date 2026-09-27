@@ -14,6 +14,7 @@ setup_backend_path()
 
 from shared.logging_service import get_backend_logger
 from .lstm_model import LottoLSTM, draws_to_sequences, save_meta, load_meta
+from .lstm_weight_paths import require_cutoff_model_path
 
 logger = get_backend_logger()
 
@@ -121,7 +122,8 @@ def predict_next_numbers(draws: List[Draw], seq_len=10, threshold=0.5, model_pat
     from .lstm_model import MODEL_PATH
     if model_path is None:
         model_path = MODEL_PATH
-        
+    require_cutoff_model_path(model_path)
+
     num_numbers = 37
     if len(draws) < seq_len:
         logger.error("Arrr! Not enough draws for sequence prediction!", context={"draws_len": len(draws), "seq_len": seq_len})

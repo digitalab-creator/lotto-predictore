@@ -26,8 +26,10 @@ LOGS_PATH = APP_BASE_PATH / "logs"
 # Database settings
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@db:5432/lotto_predictor')
 
-# Cost of a single ticket (per table)
-TICKET_COST_PER_TABLE = 2.80  # Change as needed
+# Mifal HaPais combination line cost (single source of truth)
+TICKET_COST_ILS = 3
+LINES_PER_DRAW = 8
+MAX_STAKE_PER_DRAW_ILS = LINES_PER_DRAW * TICKET_COST_ILS  # ₪24
 
 # Path configurations
 # Model file paths
@@ -41,25 +43,23 @@ STRONG_NUMBER_CACHE_PATH = CACHE_PATH / "strong_number_cache.json"
 # Log file paths
 BACKEND_LOG_PATH = LOGS_PATH / "backend_service" / "backend_service.log"
 
-# Number of combinations to use for analysis/simulation (e.g., in ROI calculations)
-NUM_COMBINATIONS_FOR_ANALYSIS = 8
+# Legacy names — same as LINES_PER_DRAW (algorithms import these today)
+NUM_COMBINATIONS_FOR_ANALYSIS = LINES_PER_DRAW
+NUM_COMBINATIONS_TO_RECOMMEND = LINES_PER_DRAW
 
-# Number of combinations to recommend to the user for the next draw
-NUM_COMBINATIONS_TO_RECOMMEND = 8
+# Production strategy when walk-forward has no edge or empty scoreboard (never SUM(predictions))
+PRODUCTION_MAIN_ALGO = os.getenv("PRODUCTION_MAIN_ALGO", "balanced_spread_fixed_ranges")
+PRODUCTION_STRONG_ALGO = os.getenv("PRODUCTION_STRONG_ALGO", "most_common")
+PRODUCTION_FALLBACK_MAIN = os.getenv("PRODUCTION_FALLBACK_MAIN", "diversified_random")
+PRODUCTION_FALLBACK_STRONG = os.getenv("PRODUCTION_FALLBACK_STRONG", "random")
+NO_EDGE_LABEL = "NO EVIDENCE OF PREDICTIVE EDGE"
 
-# Prize table (average, adjust as needed)
-# Key: (hits, strong_hit) -> value: average prize in NIS
-PRIZE_TABLE = {
-    (6, True): 6_000_000,   # 6 correct + strong
-    (6, False): 250_000,    # 6 correct, no strong
-    (5, True): 20_000,      # 5 correct + strong
-    (5, False): 1_500,      # 5 correct, no strong
-    (4, True): 500,         # 4 correct + strong
-    (4, False): 60,         # 4 correct, no strong
-    (3, True): 30,          # 3 correct + strong
-    (3, False): 0,          # 3 correct, no strong
-    (2, True): 10,          # 2 correct + strong
-    (2, False): 0,          # 2 correct, no strong
-}
+# Walk-forward scoreboard (Phase 4)
+WALK_FORWARD_MIN_TRAINING_DRAWS = int(os.getenv("WALK_FORWARD_MIN_TRAINING_DRAWS", "200"))
+WALK_FORWARD_DEFAULT_STRONG = os.getenv("WALK_FORWARD_DEFAULT_STRONG", "most_common")
+WALK_FORWARD_RANDOM_BOOTSTRAP_SAMPLES = int(os.getenv("WALK_FORWARD_RANDOM_BOOTSTRAP_SAMPLES", "500"))
+WALK_FORWARD_MIN_DRAWS_FOR_EDGE = int(os.getenv("WALK_FORWARD_MIN_DRAWS_FOR_EDGE", "300"))
+WALK_FORWARD_RANDOM_PERCENTILE_LOW = float(os.getenv("WALK_FORWARD_RANDOM_PERCENTILE_LOW", "5"))
+WALK_FORWARD_RANDOM_PERCENTILE_HIGH = float(os.getenv("WALK_FORWARD_RANDOM_PERCENTILE_HIGH", "95"))
 
 # Add more config values as needed, matey! 

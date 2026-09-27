@@ -1,0 +1,11 @@
+[Unit]
+Description=Rebalance lotto container limits from host load every minute
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=1min
+AccuracySec=30s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

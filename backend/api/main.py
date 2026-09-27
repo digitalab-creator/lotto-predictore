@@ -159,163 +159,38 @@ def simulate_table(
 @app.get("/generate-combinations", response_class=JSONResponse)
 def generate_combinations(db: Session = Depends(get_db)):
     """
-    Generate lottery combinations using the best performing algorithm based on recent simulations.
-    This endpoint uses the same logic as the weekly combinations generation.
+    Generate the production next-draw ticket pack (single code path).
     """
-    logger.info("Arrr! Starting combination generation, praisin' the FSM!")
-    
+    from services.prediction_service import PredictionService
+
+    logger.info("Arrr! generate-combinations → generate_next_draw, praisin' the FSM!")
     try:
-        # Get all draws, filtering out strong_number == 8
-        draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
-        filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
-        
-        logger.info(
-            "Arrr! Filtered out draws with strong_number == 8 for generation, praisin' the FSM!",
-            context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
-        )
-        
-        if len(draws) < 20:
-            logger.error("Not enough draws in database for recommendation.")
-            return JSONResponse(content={"error": "Not enough draws in database for recommendation."}, status_code=400)
-        
-        # Use last 12 draws as test set, rest as training
-        train_draws = draws[:-12]
-        test_draws = draws[-12:]
-        train_start = train_draws[0].date
-        train_end = train_draws[-1].date
-        test_count = 12
-        
-        # Find best algorithm pair by ROI using SimulationEngine
-        engine = SimulationEngine(db)
-        results = {}
-        best_pair = None
-        best_roi = float('-inf')
-        
-        for algo_name, algo_cls in ALGORITHM_REGISTRY.items():
-            # Set top_n according to algorithm requirements
-            if algo_name == 'top_6_overall_frequent_v2':
-                top_n = 10
-            else:
-                top_n = 3
-                
-            logger.info(f"Running {algo_name} with top_n={top_n}")
-            
-            try:
-                res = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=[algo_name])
-                for (main_algo, strong_algo), r in res.items():
-                    results[(main_algo, strong_algo)] = r
-                    if r["roi"] > best_roi:
-                        best_pair = (main_algo, strong_algo)
-                        best_roi = r["roi"]
-            except Exception as e:
-                logger.error(
-                    f"Skipping {algo_name} due to error: {e}",
-                    context={"algo_name": algo_name, "error": str(e)}
-                )
-                continue
-        
-        if not best_pair:
-            logger.error("No algorithm produced results.")
-            return JSONResponse(content={"error": "No algorithm produced results."}, status_code=400)
-        
-        main_algo_name, strong_algo_name = best_pair
-        main_algo_cls = ALGORITHM_REGISTRY[main_algo_name]
-        strong_algo_cls = STRONG_NUMBER_REGISTRY[strong_algo_name]
-        
-        # Use correct top_n for the best algorithm
-        if main_algo_name == 'top_6_overall_frequent_v2':
-            top_n = 10
-        else:
-            top_n = 3
-        
-        # Generate combinations using all draws
-        all_draws = draws
-        combos = main_algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
-        strong_algo = strong_algo_cls()
-        strong_number = strong_algo.predict(all_draws)
-        
-        now = datetime.utcnow()
-        
-        # Create a new Prediction row for this generation event
-        new_prediction = Prediction(
-            model_id=db.query(Model).filter(Model.name == main_algo_name).first().id,
-            strong_model_id=db.query(Model).filter(Model.name == strong_algo_name).first().id,
-            run_time=now,
-            roi=best_roi,
-            total_prize=results[best_pair]["total_prize"],
-            total_cost=results[best_pair]["total_cost"],
-            test_count=test_count,
-            notes=f"Combination generation at {now.isoformat()} | Best ROI: {best_roi:.4f}",
-            train_start_date=train_start,
-            train_end_date=train_end,
-            num_test_draws=test_count,
-            main_model_params={"top_n": top_n, "num_to_recommend": NUM_COMBINATIONS_TO_RECOMMEND},
-            strong_model_params={"strong_algo": strong_algo_name}
-        )
-        db.add(new_prediction)
-        db.flush()  # Get the new prediction.id
-        
-        # Store each combo in DB
-        stored_combos = []
-        for idx, combo in enumerate(combos):
-            generated = GeneratedCombination(
-                prediction_id=new_prediction.id,
-                numbers=combo["numbers"],
-                strong_number=strong_number,
-                position=idx+1,
-                generated_at=now
+        result = PredictionService(db).generate_next_draw()
+        if not result.get("success"):
+            return JSONResponse(
+                content={"error": result.get("message", "Generation failed")},
+                status_code=400,
             )
-            db.add(generated)
-            
-            stored_combos.append({
-                "numbers": combo["numbers"],
-                "strong": strong_number,
-                "position": idx+1
-            })
-            
-            logger.info(
-                f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}",
-                context={
-                    "prediction_id": new_prediction.id,
-                    "numbers": combo["numbers"],
-                    "strong_number": strong_number,
-                    "position": idx+1
-                }
-            )
-        
-        db.commit()
-        
-        logger.info(
-            f"Arrr! Generated {len(combos)} combinations using {main_algo_name} + {strong_algo_name}",
-            context={
-                "main_algo": main_algo_name,
-                "strong_algo": strong_algo_name,
-                "best_roi": best_roi,
-                "num_combinations": len(combos),
-                "prediction_id": new_prediction.id
-            }
-        )
-        
         return {
-            "algorithm": main_algo_name,
-            "strong_algorithm": strong_algo_name,
-            "roi": best_roi,
-            "total_prize": results[best_pair]["total_prize"],
-            "total_cost": results[best_pair]["total_cost"],
-            "num_test_draws": test_count,
-            "combinations": stored_combos,
-            "prediction_id": new_prediction.id,
-            "train_start": train_start.isoformat(),
-            "train_end": train_end.isoformat()
+            "algorithm": result["algorithm"],
+            "strong_algorithm": result["strong_algorithm"],
+            "strategy_source": result["model_info"]["strategy_source"],
+            "training_cutoff": result["as_of_date"],
+            "target_draw_number": result["target_draw_number"],
+            "combinations": result["combinations"],
+            "prediction_id": result["prediction_id"],
+            "planned_cost_ils": result["model_info"]["planned_cost_ils"],
         }
-        
     except Exception as e:
         logger.error(
             "Arrr! Error in combination generation!",
-            context={"error": str(e)}
+            context={"error": str(e)},
         )
         db.rollback()
-        return JSONResponse(content={"error": f"Error generating combinations: {str(e)}"}, status_code=500)
+        return JSONResponse(
+            content={"error": f"Error generating combinations: {str(e)}"},
+            status_code=500,
+        )
 
 @app.get("/weekly-winning-combinations", response_class=JSONResponse)
 def get_weekly_winning_combinations(db: Session = Depends(get_db)):
@@ -370,254 +245,75 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
 
 @router.post("/cron/generate-weekly-combinations")
 async def generate_weekly_combinations():
-    """Generate weekly combinations - called by cron service"""
-    start_time = time.time()
-    logger.info("Arrr! Starting weekly combination generation, praisin' the FSM!", context={"start_time": start_time})
-    
+    """Generate weekly combinations — same path as /generate-combinations."""
+    from services.prediction_service import PredictionService
+
+    logger.info("Arrr! cron generate-weekly-combinations → generate_next_draw")
+    db = next(get_db())
     try:
-        # Use the same logic as the /generate-combinations endpoint
-        from services.simulation_engine import SimulationEngine
-        
-        db = next(get_db())
-        try:
-            # Get all draws, filtering out strong_number == 8
-            draws_start = time.time()
-            draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
-            filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
-            draws_time = time.time() - draws_start
-            
-            logger.info(
-                "Arrr! Filtered out draws with strong_number == 8 for weekly generation, praisin' the FSM!",
-                context={
-                    "filtered_count": filtered_count, 
-                    "total_after_filter": len(draws),
-                    "draws_load_time": f"{draws_time:.2f}s"
-                }
-            )
-            
-            if len(draws) < 20:
-                logger.error("Not enough draws in database for recommendation.")
-                return {"status": "error", "message": "Not enough draws in database for recommendation."}
-            
-            # Use last 12 draws as test set, rest as training
-            train_draws = draws[:-12]
-            test_draws = draws[-12:]
-            train_start = train_draws[0].date
-            train_end = train_draws[-1].date
-            test_count = 12
-            
-            # Find best algorithm pair by ROI using SimulationEngine
-            engine_start = time.time()
-            engine = SimulationEngine(db)
-            results = {}
-            best_pair = None
-            best_roi = float('-inf')
-            
-            # Get all algorithm names for progress tracking
-            all_algorithms = list(ALGORITHM_REGISTRY.keys())
-            total_algorithms = len(all_algorithms)
-            
-            logger.info(
-                f"Arrr! Starting algorithm evaluation for {total_algorithms} algorithms",
-                context={
-                    "total_algorithms": total_algorithms,
-                    "algorithms": all_algorithms
-                }
-            )
-            
-            for idx, (algo_name, algo_cls) in enumerate(ALGORITHM_REGISTRY.items(), 1):
-                algo_start = time.time()
-                
-                # Set top_n according to algorithm requirements
-                if algo_name == 'top_6_overall_frequent_v2':
-                    top_n = 10
-                else:
-                    top_n = 3
-                    
-                logger.info(
-                    f"Arrr! Running algorithm {idx}/{total_algorithms}: {algo_name}",
-                    context={
-                        "algorithm": algo_name,
-                        "progress": f"{idx}/{total_algorithms}",
-                        "top_n": top_n,
-                        "elapsed_time": f"{time.time() - start_time:.2f}s"
-                    }
-                )
-                
-                try:
-                    res = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=[algo_name])
-                    for (main_algo, strong_algo), r in res.items():
-                        results[(main_algo, strong_algo)] = r
-                        if r["roi"] > best_roi:
-                            best_pair = (main_algo, strong_algo)
-                            best_roi = r["roi"]
-                            
-                    algo_time = time.time() - algo_start
-                    logger.info(
-                        f"Arrr! Completed algorithm {algo_name}",
-                        context={
-                            "algorithm": algo_name,
-                            "algorithm_time": f"{algo_time:.2f}s",
-                            "best_roi_so_far": best_roi,
-                            "total_elapsed": f"{time.time() - start_time:.2f}s"
-                        }
-                    )
-                    
-                except Exception as e:
-                    algo_time = time.time() - algo_start
-                    logger.error(
-                        f"Arrr! Skipping {algo_name} due to error",
-                        context={
-                            "algorithm": algo_name,
-                            "error": str(e),
-                            "algorithm_time": f"{algo_time:.2f}s"
-                        }
-                    )
-                    continue
-            
-            engine_time = time.time() - engine_start
-            logger.info(
-                f"Arrr! Completed algorithm evaluation",
-                context={
-                    "total_engine_time": f"{engine_time:.2f}s",
-                    "best_pair": best_pair,
-                    "best_roi": best_roi,
-                    "total_elapsed": f"{time.time() - start_time:.2f}s"
-                }
-            )
-            
-            if not best_pair:
-                logger.error("No algorithm produced results.")
-                return {"status": "error", "message": "No algorithm produced results."}
-            
-            # Generate final combinations
-            generation_start = time.time()
-            main_algo_name, strong_algo_name = best_pair
-            main_algo_cls = ALGORITHM_REGISTRY[main_algo_name]
-            strong_algo_cls = STRONG_NUMBER_REGISTRY[strong_algo_name]
-            
-            # Use correct top_n for the best algorithm
-            if main_algo_name == 'top_6_overall_frequent_v2':
-                top_n = 10
-            else:
-                top_n = 3
-            
-            # Generate combinations using all draws
-            all_draws = draws
-            combos = main_algo_cls().run(all_draws, top_n=top_n, num_to_recommend=NUM_COMBINATIONS_TO_RECOMMEND)
-            strong_algo = strong_algo_cls()
-            strong_number = strong_algo.predict(all_draws)
-            
-            generation_time = time.time() - generation_start
-            logger.info(
-                f"Arrr! Generated final combinations",
-                context={
-                    "generation_time": f"{generation_time:.2f}s",
-                    "num_combinations": len(combos),
-                    "total_elapsed": f"{time.time() - start_time:.2f}s"
-                }
-            )
-            
-            now = datetime.utcnow()
-            
-            # Create a new Prediction row for this generation event
-            db_start = time.time()
-            new_prediction = Prediction(
-                model_id=db.query(Model).filter(Model.name == main_algo_name).first().id,
-                strong_model_id=db.query(Model).filter(Model.name == strong_algo_name).first().id,
-                run_time=now,
-                roi=best_roi,
-                total_prize=results[best_pair]["total_prize"],
-                total_cost=results[best_pair]["total_cost"],
-                test_count=test_count,
-                notes=f"Weekly combination generation at {now.isoformat()} | Best ROI: {best_roi:.4f}",
-                train_start_date=train_start,
-                train_end_date=train_end,
-                num_test_draws=test_count,
-                main_model_params={"top_n": top_n, "num_to_recommend": NUM_COMBINATIONS_TO_RECOMMEND},
-                strong_model_params={"strong_algo": strong_algo_name}
-            )
-            db.add(new_prediction)
-            db.flush()  # Get the new prediction.id
-            
-            # Store each combo in DB
-            for idx, combo in enumerate(combos):
-                generated = GeneratedCombination(
-                    prediction_id=new_prediction.id,
-                    numbers=combo["numbers"],
-                    strong_number=strong_number,
-                    position=idx+1,
-                    generated_at=now
-                )
-                db.add(generated)
-                
-                logger.info(
-                    f"Stored combo {idx+1}: {combo['numbers']} + {strong_number}",
-                    context={
-                        "prediction_id": new_prediction.id,
-                        "numbers": combo["numbers"],
-                        "strong_number": strong_number,
-                        "position": idx+1
-                    }
-                )
-            
-            db.commit()
-            db_time = time.time() - db_start
-            
-            total_time = time.time() - start_time
-            logger.info(
-                f"Arrr! Generated {len(combos)} weekly combinations using {main_algo_name} + {strong_algo_name}",
-                context={
-                    "main_algo": main_algo_name,
-                    "strong_algo": strong_algo_name,
-                    "best_roi": best_roi,
-                    "num_combinations": len(combos),
-                    "prediction_id": new_prediction.id,
-                    "total_time": f"{total_time:.2f}s",
-                    "breakdown": {
-                        "draws_load": f"{draws_time:.2f}s",
-                        "engine_evaluation": f"{engine_time:.2f}s",
-                        "generation": f"{generation_time:.2f}s",
-                        "database": f"{db_time:.2f}s"
-                    }
-                }
-            )
-            
-            return {
-                "status": "success", 
-                "message": f"Weekly combinations generated successfully using {main_algo_name} + {strong_algo_name}",
-                "num_combinations": len(combos),
-                "prediction_id": new_prediction.id,
-                "total_time": f"{total_time:.2f}s"
-            }
-            
-        except Exception as e:
-            logger.error(
-                "Arrr! Error in weekly combination generation!",
-                context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
-            )
-            db.rollback()
-            raise
-        finally:
-            db.close()
-            
+        result = PredictionService(db).generate_next_draw()
+        if not result.get("success"):
+            return {"status": "error", "message": result.get("message")}
+        return {
+            "status": "success",
+            "message": (
+                f"Weekly combinations generated using {result['algorithm']} + "
+                f"{result['strong_algorithm']}"
+            ),
+            "num_combinations": len(result["combinations"]),
+            "prediction_id": result["prediction_id"],
+            "target_draw_number": result.get("target_draw_number"),
+        }
     except Exception as e:
         logger.error(
-            "Arrr! Error in weekly combination generation endpoint!",
-            context={"error": str(e), "total_elapsed": f"{time.time() - start_time:.2f}s"}
+            "Arrr! Error in weekly combination generation!",
+            context={"error": str(e)},
         )
-        raise HTTPException(status_code=500, detail=str(e))
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e)) from e
+    finally:
+        db.close()
 
 @router.post("/cron/fetch-latest-draw")
 async def fetch_latest_draw():
-    """Fetch latest draw - called by cron service"""
+    """Fetch latest draws, backfill Pais prizes, fill gaps — called by cron service"""
     try:
-        # Import and run the script
-        from services.fetch_latest_draw import main as fetch_draw
-        fetch_draw()
-        return {"status": "success", "message": "Latest draw fetched successfully"}
+        from db import SessionLocal
+        from services.sync_draws import sync_draws_incremental
+
+        db = SessionLocal()
+        try:
+            outcome = sync_draws_incremental(db)
+        finally:
+            db.close()
+        status = "success" if not outcome.errors else "partial"
+        return {
+            "status": status,
+            "message": "Draw sync completed",
+            "data": outcome.to_dict(),
+        }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error("Draw sync failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e)) from e
+
+
+@router.post("/cron/post-draw-chain")
+async def post_draw_chain():
+    """Ingest draws; on new result settle, score, pack, and notify (Phase 5)."""
+    try:
+        from db import SessionLocal
+        from services.post_draw_chain import PostDrawChainService
+
+        db = SessionLocal()
+        try:
+            outcome = PostDrawChainService(db).run_full()
+        finally:
+            db.close()
+        status = "success" if not outcome.get("error") else "partial"
+        return {"status": status, "data": outcome}
+    except Exception as e:
+        logger.error("Post-draw chain failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 @router.post("/cron/generate-weekly-tables")
 async def generate_weekly_tables():
@@ -652,6 +348,49 @@ async def generate_best_model_tables():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.get("/walk-forward/summaries")
+def walk_forward_summaries(db: Session = Depends(get_db)):
+    """Walk-forward scoreboard rows (Phase 4 — not legacy predictions ROI)."""
+    from models.evaluation import StrategySummary
+
+    rows = (
+        db.query(StrategySummary)
+        .order_by(StrategySummary.random_percentile.desc())
+        .all()
+    )
+    return {
+        "count": len(rows),
+        "summaries": [
+            {
+                "strategy_id": r.strategy_id,
+                "roi": float(r.roi) if r.roi is not None else None,
+                "random_percentile": float(r.random_percentile)
+                if r.random_percentile is not None
+                else None,
+                "independent_draw_count": r.independent_draw_count,
+                "has_predictive_edge": r.has_predictive_edge,
+                "random_baseline_median_roi": float(r.random_baseline_median_roi)
+                if r.random_baseline_median_roi is not None
+                else None,
+            }
+            for r in rows
+        ],
+    }
+
+
+@router.post("/walk-forward/refresh")
+def walk_forward_refresh(
+    min_training: int | None = Query(None),
+    skip_dl: bool = Query(False),
+    db: Session = Depends(get_db),
+):
+    """Rebuild evaluation_tickets and strategy_summaries (long-running)."""
+    from services.walk_forward_evaluation import WalkForwardEvaluationService
+
+    service = WalkForwardEvaluationService(db)
+    return service.refresh_all(min_training=min_training, include_dl=not skip_dl)
+
+
 @router.post("/cron/send-best-model-email")
 async def send_best_model_email():
     """Send email with best model tables - called by cron service"""
@@ -665,6 +404,10 @@ async def send_best_model_email():
 
 # Include the router in the main app
 app.include_router(router)
+
+from api.ticket_packs_router import router as ticket_packs_router  # noqa: E402  # type: ignore[import-not-found]
+
+app.include_router(ticket_packs_router)
 
 @app.get("/health")
 async def health_check(db: Session = Depends(get_db)):

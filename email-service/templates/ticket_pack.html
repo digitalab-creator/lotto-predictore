@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.5; color: #222; }
+    .lines { background: #f5f5f5; padding: 12px; border-radius: 8px; font-family: monospace; }
+    .meta { color: #555; font-size: 14px; }
+    .edge { background: #fff3cd; padding: 8px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>{{ subject }}</h2>
+  {% if last_draw.draw_number %}
+  <p class="meta">
+    תוצאה אחרונה (הגרלה {{ last_draw.draw_number }}):
+    {% for n in last_draw.numbers %}{{ '%02d'|format(n) }} {% endfor %}
+    | חזק {{ last_draw.strong_number }}
+  </p>
+  {% endif %}
+  {% if edge_line %}<p class="edge">{{ edge_line }}</p>{% endif %}
+  {% if real_line %}<p>{{ real_line }}</p>{% endif %}
+  <p>עלות מתוכננת: ₪{{ pack.planned_cost_ils }} · אסטרטגיה: {{ pack.strategy_id }}</p>
+  <div class="lines">
+    {% for ln in pack.lines %}
+    {{ loop.index }}.
+    {% for n in ln.numbers %}{{ '%02d'|format(n) }} {% endfor %}
+    | חזק {{ ln.strong }}<br/>
+    {% endfor %}
+  </div>
+  <p><a href="{{ pack_url }}">פתח חבילה בדפדפן (הוגש / לא הוגש)</a></p>
+  <p class="meta">May the Flying Spaghetti Monster guide ye to the Pais counter — software stops before the cash register.</p>
+</body>
+</html>

@@ -1,14 +1,3 @@
-from config import PRIZE_TABLE
+from services.draw_prize import calculate_prize, draw_has_prize_data, draw_ticket_cost
 
-def calculate_prize(hits: int, strong_hit: bool) -> float:
-    """
-    Calculate prize based on number of hits and strong number hit.
-    
-    Args:
-        hits (int): Number of regular number hits
-        strong_hit (bool): Whether the strong number was hit
-        
-    Returns:
-        float: Prize amount
-    """
-    return PRIZE_TABLE.get((hits, strong_hit), 0.0) 
+__all__ = ["calculate_prize", "draw_has_prize_data", "draw_ticket_cost"]

@@ -15,6 +15,7 @@ from . import balanced_spread
 from . import pattern_learning
 from . import skip_distance
 from . import strong_number
+from . import uniform_random
 from . import dl
 
 # Try to import DL module, but don't fail if it's not available

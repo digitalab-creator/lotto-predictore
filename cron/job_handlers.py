@@ -1,5 +1,4 @@
 import os
-import subprocess
 import json
 import gzip
 from datetime import datetime
@@ -11,84 +10,22 @@ from shared.logging_service import get_cron_logger, LoggingService
 logger = get_cron_logger()
 
 def cleanup_system() -> None:
-    """
-    Comprehensive system cleanup that includes:
-    1. Cleaning up old log files using the shared LoggingService
-    2. Running docker system prune -a -f to clean up unused Docker resources
-    
-    This helps free up disk space by removing old logs and unused Docker containers,
-    networks, dangling images, and build cache.
-    """
+    """Remove old log files via the shared LoggingService (no Docker host operations)."""
     try:
-        logger.info("Arrr! Starting comprehensive system cleanup!")
-        
-        # Step 1: Clean up old log files
-        try:
-            removed_files = LoggingService.cleanup_old_logs()
-            if removed_files:
-                logger.info(
-                    "Arrr! Successfully cleaned up old logs!",
-                    context={"removed_files": removed_files}
-                )
-            else:
-                logger.info("Arrr! No old logs to clean up!")
-        except Exception as log_error:
-            logger.error(
-                "Arrr! Error during log cleanup!",
-                context={"error": str(log_error)}
+        logger.info("Arrr! Starting log cleanup!")
+        removed_files = LoggingService.cleanup_old_logs()
+        if removed_files:
+            logger.info(
+                "Arrr! Successfully cleaned up old logs!",
+                context={"removed_files": removed_files},
             )
-            # Continue with Docker cleanup even if log cleanup fails
-        
-        # Step 2: Run Docker system prune
-        try:
-            logger.info("Arrr! Starting Docker system prune to free up space!")
-            
-            # Run docker system prune -a -f
-            result = subprocess.run(
-                ["docker", "system", "prune", "-a", "-f"],
-                capture_output=True,
-                text=True,
-                timeout=300  # 5 minute timeout
-            )
-            
-            if result.returncode == 0:
-                logger.info(
-                    "Arrr! Docker system prune completed successfully!",
-                    context={
-                        "stdout": result.stdout,
-                        "stderr": result.stderr
-                    }
-                )
-            else:
-                logger.error(
-                    "Arrr! Docker system prune failed!",
-                    context={
-                        "returncode": result.returncode,
-                        "stdout": result.stdout,
-                        "stderr": result.stderr
-                    }
-                )
-                raise Exception(f"Docker prune failed with return code {result.returncode}")
-                
-        except subprocess.TimeoutExpired:
-            logger.error(
-                "Arrr! Docker system prune timed out after 5 minutes!",
-                context={"timeout": "300 seconds"}
-            )
-            raise
-        except Exception as docker_error:
-            logger.error(
-                "Arrr! Error during Docker system prune!",
-                context={"error": str(docker_error)}
-            )
-            raise
-        
-        logger.info("Arrr! Comprehensive system cleanup completed successfully!")
-            
+        else:
+            logger.info("Arrr! No old logs to clean up!")
+        logger.info("Arrr! Log cleanup completed successfully!")
     except Exception as e:
         logger.error(
-            "Arrr! Error during comprehensive system cleanup!",
-            context={"error": str(e)}
+            "Arrr! Error during log cleanup!",
+            context={"error": str(e)},
         )
         raise
 

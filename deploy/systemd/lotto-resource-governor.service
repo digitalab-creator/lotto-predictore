@@ -1,0 +1,10 @@
+[Unit]
+Description=Lotto stack dynamic Docker resource limits
+After=docker.service
+Wants=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/apps/lotto-predictore
+ExecStart=/usr/bin/python3 /opt/apps/lotto-predictore/scripts/resource_governor.py
+Nice=10

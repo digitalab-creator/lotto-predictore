@@ -1,13 +1,42 @@
+# Lotto stack resource budget (default `docker compose up -d`, no debug profile):
+#   Compose limits = busy-tier FLOOR (~1.3 CPU / ~1.5 GiB) if the host governor is off.
+#   For dynamic scaling: enable deploy/systemd/lotto-resource-governor.timer (scripts/install-resource-governor.sh).
+#   Governor raises limits on a clear host and shrinks immediately when CPU/RAM pressure is high.
+# - deploy.resources.limits: starting ceiling; `docker update` adjusts running containers every minute.
+# - cpu_shares: kept low (64–128) vs Docker default 1024 — other stacks always win CPU scheduling.
+# - memswap_limit = memory limit: no extra swap growth for this stack.
+# - oom_score_adj: high (750 via governor) so lotto is reclaimed before other apps under RAM pressure.
+# Dev API: `docker compose --profile debug up -d backend-debug` (not started by default).
 version: '3.8'
+
+x-lotto-oom: &lotto-oom
+  oom_score_adj: 750
 
 services:
   db:
     image: postgres:15
     restart: always
-    # Resource priority tier 3/4 (4/10)
-    cpu_shares: 384
-    mem_limit: 384m
+    <<: *lotto-oom
+    cpu_shares: 96
+    memswap_limit: 384m
+    deploy:
+      resources:
+        limits:
+          cpus: "0.35"
+          memory: 384M
+          pids: 120
+    command:
+      - postgres
+      - -c
+      - shared_buffers=64MB
+      - -c
+      - effective_cache_size=256MB
+      - -c
+      - max_connections=40
+      - -c
+      - maintenance_work_mem=32MB
     environment:
+      TZ: Asia/Jerusalem
       POSTGRES_USER: lotto_user
       POSTGRES_PASSWORD: lotto_pass
       POSTGRES_DB: lotto_db
@@ -22,20 +51,27 @@ services:
       retries: 5
 
   backend:
-    build: 
+    build:
       context: .
       dockerfile: backend/Dockerfile
-    cpu_shares: 512
-    mem_limit: 512m
+    <<: *lotto-oom
+    cpu_shares: 128
+    memswap_limit: 512m
+    deploy:
+      resources:
+        limits:
+          cpus: "0.60"
+          memory: 512M
+          pids: 200
     user: "1001:1002"
-    # If alembic_version points at a missing revision, upgrade may fail; continue so API still starts.
     command:
       - /bin/sh
       - -c
       - >-
         cd /app && sleep 10 && export PYTHONPATH=/app:/app/scripts &&
         (alembic upgrade head || echo "WARNING alembic upgrade skipped") &&
-        uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app
+        uvicorn api.main:app --host 0.0.0.0 --port 8000
+        --limit-concurrency 32 --timeout-keep-alive 5
     volumes:
       - ./backend:/app
       - ./shared:/app/shared
@@ -43,6 +79,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - TZ=Asia/Jerusalem
       - DATABASE_URL=postgresql://lotto_user:lotto_pass@db:5432/lotto_db
       - LOG_DIR=/app/logs
       - LOG_LEVEL=INFO
@@ -52,14 +89,21 @@ services:
       db:
         condition: service_healthy
 
-  # Same stack/network as backend so DATABASE_URL host "db" resolves; replaces ad-hoc bridge-only debug container.
-  # Dev-only: minimal CPU/RAM so prod stacks (n8n, etc.) win under load.
   backend-debug:
+    profiles:
+      - debug
     build:
       context: .
       dockerfile: backend/Dockerfile
+    <<: *lotto-oom
     cpu_shares: 64
-    mem_limit: 192m
+    memswap_limit: 192m
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15"
+          memory: 192M
+          pids: 100
     user: "1001:1002"
     command:
       - /bin/sh
@@ -75,6 +119,7 @@ services:
     ports:
       - "8877:8000"
     environment:
+      - TZ=Asia/Jerusalem
       - DATABASE_URL=postgresql://lotto_user:lotto_pass@db:5432/lotto_db
       - LOG_DIR=/app/logs
       - LOG_LEVEL=DEBUG
@@ -88,22 +133,25 @@ services:
     build:
       context: .
       dockerfile: cron/Dockerfile
-    cpu_shares: 256
-    mem_limit: 384m
+    <<: *lotto-oom
+    cpu_shares: 80
+    memswap_limit: 384m
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 384M
+          pids: 150
     user: "1001:1002"
-    # Host docker group GID so non-root user can use mounted /var/run/docker.sock (see `getent group docker` on host).
-    group_add:
-      - "${DOCKER_GID:-112}"
-    privileged: true
     ports:
       - "8002:8002"
     volumes:
       - ./cron:/app/cron
       - ./shared:/app/shared
       - ./logs:/app/logs
-      - /var/run/docker.sock:/var/run/docker.sock
       - ~/.config/gcloud:/root/.config/gcloud:ro
     environment:
+      - TZ=Asia/Jerusalem
       - BACKEND_URL=http://backend:8000
       - DATABASE_URL=postgresql://lotto_user:lotto_pass@db:5432/lotto_db
       - GCS_BUCKET_NAME=lotto-predictor-backups
@@ -117,11 +165,20 @@ services:
     build:
       context: .
       dockerfile: email-service/Dockerfile
-    cpu_shares: 128
-    mem_limit: 256m
+    <<: *lotto-oom
+    cpu_shares: 64
+    memswap_limit: 256m
+    deploy:
+      resources:
+        limits:
+          cpus: "0.10"
+          memory: 256M
+          pids: 80
     user: "1001:1002"
     env_file:
       - ./email-service/.env
+    environment:
+      - TZ=Asia/Jerusalem
     ports:
       - "8001:8000"
     volumes:
@@ -132,4 +189,4 @@ services:
       - backend
 
 volumes:
-  postgres_data: 
+  postgres_data:

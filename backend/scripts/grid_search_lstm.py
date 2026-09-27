@@ -6,7 +6,9 @@ from models import Draw
 from logger import logger
 from db import SessionLocal
 from algorithms.strong_number import STRONG_NUMBER_REGISTRY
-from config import TICKET_COST_PER_TABLE, PRIZE_TABLE, NUM_COMBINATIONS_TO_RECOMMEND, SEQUENCE_CLASSIFIER_MODEL_DIR
+from config import NUM_COMBINATIONS_TO_RECOMMEND, SEQUENCE_CLASSIFIER_MODEL_DIR
+from algorithms.dl.lstm_weight_paths import grid_search_model_path, training_cutoff_date
+from services.simulation_helpers.simulation_prize import calculate_prize, draw_has_prize_data, draw_ticket_cost
 from datetime import date
 import json
 from services.simulation_engine import calculate_roi_with_tax
@@ -29,19 +31,19 @@ def load_draws():
     finally:
         db.close()
 
-def calculate_prize(hits, strong_hit):
-    return PRIZE_TABLE.get((hits, strong_hit), 0)
-
 def evaluate_model(draws, model_path, seq_len, strong_algo_cls):
     # Use last 12 draws as test set, rest as train
     if len(draws) < seq_len + 13:
         raise ValueError("Not enough draws for evaluation!")
     test_count = 12
     train_draws = draws[:-test_count]
-    test_draws = draws[-test_count:]
+    test_draws = [d for d in draws[-test_count:] if draw_has_prize_data(d)]
+    if not test_draws:
+        raise ValueError("No test draws with Pais prize data!")
     strong_algo = strong_algo_cls()
     all_prizes = 0
     total_tickets = 0
+    total_cost = 0.0
     NUM_TABLES_PER_DRAW = 8
     prizes_list = []
 
@@ -59,28 +61,44 @@ def evaluate_model(draws, model_path, seq_len, strong_algo_cls):
         for combo in combos:
             hits = sum([n in test_draw.numbers for n in combo["numbers"]])
             strong_hit = (combo["strong"] == test_draw.strong_number)
-            prize = calculate_prize(hits, strong_hit)
+            prize = calculate_prize(test_draw, hits, strong_hit)
+            if prize is None:
+                continue
             all_prizes += prize
             total_tickets += 1
             prizes_list.append(prize)
-    total_cost = total_tickets * TICKET_COST_PER_TABLE
+            total_cost += draw_ticket_cost(test_draw)
     roi = calculate_roi_with_tax(prizes_list, total_cost)
     return {
         "roi": roi,
         "total_prize": all_prizes,
         "total_cost": total_cost,
-        "test_count": test_count
+        "test_count": len(test_draws)
     }
 
 def main():
     draws = load_draws()
+    test_count = 12
+    if len(draws) < max(hyperparams_grid['seq_len']) + test_count:
+        raise ValueError("Not enough draws for grid search!")
+    train_draws = draws[:-test_count]
+    training_cutoff = training_cutoff_date(train_draws)
     results = []
     param_names = list(hyperparams_grid.keys())
     best_result = None
     best_roi = float('-inf')
     for values in itertools.product(*hyperparams_grid.values()):
         params = dict(zip(param_names, values))
-        model_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / f"sequence_classifier_grid_h{params['hidden_size']}_l{params['num_layers']}_s{params['seq_len']}_lr{params['lr']}_b{params['batch_size']}.pt")
+        model_path = str(
+            grid_search_model_path(
+                hidden_size=params['hidden_size'],
+                num_layers=params['num_layers'],
+                seq_len=params['seq_len'],
+                lr=params['lr'],
+                batch_size=params['batch_size'],
+                training_cutoff=training_cutoff,
+            )
+        )
         logger.info(f"Arrr! [FSM GRID] Trainin' with params: {params}", context=params)
 
         # Patch predict_next_numbers to use current params
@@ -146,7 +164,7 @@ def main():
                     logger.error(f"Arrr! [FSM GRID] Model file still exists after delete attempt: {model_path}", context=f"seq_len={params['seq_len']}, model_path={model_path}")
                 need_train = True
         if need_train:
-            X, y = draws_to_sequences(draws, seq_len=params['seq_len'], num_numbers=37)
+            X, y = draws_to_sequences(train_draws, seq_len=params['seq_len'], num_numbers=37)
             criterion = torch.nn.BCELoss()
             optimizer = torch.optim.Adam(model.parameters(), lr=params['lr'])
             for epoch in range(params['epochs']):

@@ -1,271 +1,262 @@
-import torch
-import numpy as np
 import random
-import os
-from typing import List, Dict, Any
-from sqlalchemy.orm import Session
-from models import Draw
-from pathlib import Path
+from datetime import date
+from typing import Any, Dict, List
 
-# Set up backend path using utility function
+from models import Draw
+from sqlalchemy.orm import Session
+
 from utils.path_setup import setup_backend_path
+
 setup_backend_path()
 
 from shared.logging_service import get_backend_logger
 from algorithms.base import Algorithm, register_algorithm
-from collections import Counter
-from config import (
-    SEQUENCE_CLASSIFIER_MODEL_PATH,
-    SEQUENCE_CLASSIFIER_MODEL_SEQ20_PATH,
-    SEQUENCE_CLASSIFIER_MODEL_POSITION_PATH,
-    SEQUENCE_CLASSIFIER_MODEL_DIR,
-    NUM_COMBINATIONS_TO_RECOMMEND
+from .lstm_run_helpers import (
+    build_lstm_portfolio_combos,
+    default_strong_from_draws,
+    resolve_cutoff,
+    train_variant_if_missing,
 )
-from .lstm_model import load_meta
-from .lstm_training import train_lotto_lstm, finetune_lotto_lstm, predict_next_numbers, get_latest_draw_date
 
 logger = get_backend_logger()
+
+
+def _run_cutoff_variant(
+    draws: List[Draw],
+    *,
+    profile: str,
+    seq_len: int,
+    hidden_size: int,
+    num_layers: int,
+    epochs: int,
+    lr: float,
+    batch_size: int,
+    version: str,
+    top_n: int,
+    num_for_analysis: int | None,
+    num_to_recommend: int | None,
+    as_of_date: date | None,
+    rng: random.Random | None,
+    use_topk: bool = False,
+) -> List[Dict[str, Any]]:
+    training_cutoff = resolve_cutoff(draws, as_of_date)
+    model_path = train_variant_if_missing(
+        draws=draws,
+        profile=profile,
+        training_cutoff=training_cutoff,
+        seq_len=seq_len,
+        hidden_size=hidden_size,
+        num_layers=num_layers,
+        epochs=epochs,
+        lr=lr,
+        batch_size=batch_size,
+    )
+    params = {
+        "seq_len": seq_len,
+        "model_version": version,
+        "training_cutoff": str(training_cutoff),
+        "top_n": top_n,
+        "num_for_analysis": num_for_analysis,
+        "num_to_recommend": num_to_recommend,
+    }
+    return build_lstm_portfolio_combos(
+        draws,
+        model_path=model_path,
+        seq_len=seq_len,
+        hidden_size=hidden_size,
+        num_layers=num_layers,
+        num_to_recommend=num_to_recommend,
+        rng=rng,
+        params=params,
+        strong_for_line=lambda _nums: default_strong_from_draws(draws),
+        use_topk=use_topk,
+    )
+
 
 @register_algorithm
 class SequenceClassificationLSTMAlgorithm(Algorithm):
     version = "sequence_lstm_classifier"
     description = "Sequence classification LSTM model. Learns temporal patterns."
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db=None) -> List[Dict[str, Any]]:
+    def run(
+        self,
+        draws: List[Draw],
+        top_n: int = 3,
+        num_for_analysis: int = None,
+        num_to_recommend: int = None,
+        db=None,
+        as_of_date: date | None = None,
+        rng: random.Random | None = None,
+    ) -> List[Dict[str, Any]]:
         try:
             logger.info("Arrr! LSTM run method called!")
-            seq_len = 10
-            latest_db_date = None
-            if db is not None:
-                latest_db_date = get_latest_draw_date(db)
-            meta = load_meta()
-            meta_date = meta["latest_date"] if meta else None
-            logger.debug(f"Arrr! [FSM DEBUG] Latest DB date: {latest_db_date}, Meta date: {meta_date}", context={"latest_db_date": latest_db_date, "meta_date": meta_date})
-            if not os.path.exists(SEQUENCE_CLASSIFIER_MODEL_PATH) or not meta_date:
-                logger.info("Arrr! [FSM DEBUG] No model or meta found, trainin' from scratch! Praisin' the FSM!")
-                model = train_lotto_lstm(draws, seq_len=seq_len)
-                if model is None:
-                    logger.error("Arrr! LSTM training returned None!")
-                    return []
-                if not os.path.exists(SEQUENCE_CLASSIFIER_MODEL_PATH):
-                    logger.error(f"Arrr! Model file still not found after training: {SEQUENCE_CLASSIFIER_MODEL_PATH}")
-                    return []
-            elif latest_db_date and str(latest_db_date) > meta_date:
-                logger.info(f"Arrr! [FSM DEBUG] DB newer than model, fine-tunin'! Praisin' the FSM!", context={"latest_db_date": latest_db_date, "meta_date": meta_date})
-                model = finetune_lotto_lstm(draws, seq_len=seq_len)
-                if model is None:
-                    logger.error("Arrr! LSTM fine-tuning returned None!")
-                    return []
-            else:
-                logger.info(f"Arrr! [FSM DEBUG] Model up-to-date, runnin' inference! Praisin' the FSM!", context={"latest_db_date": latest_db_date, "meta_date": meta_date})
-            try:
-                numbers = predict_next_numbers(draws, seq_len=seq_len)
-            except Exception as e:
-                logger.error(f"Arrr! LSTM prediction failed: {e}")
-                return []
-            strong_counter = Counter(draw.strong_number for draw in draws)
-            top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            params = {
-                "seq_len": seq_len,
-                "model_version": self.version,
-                "top_n": top_n,
-                "num_for_analysis": num_for_analysis,
-                "num_to_recommend": num_to_recommend
-            }
-            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
-            if num_to_recommend is None:
-                num_to_recommend = 8
-            logger.debug(f"Arrr! LSTM combos generated: {combos}", context={"combos": combos})
-            return combos * num_to_recommend if combos else []
+            return _run_cutoff_variant(
+                draws,
+                profile="sequence_classifier_model",
+                seq_len=10,
+                hidden_size=64,
+                num_layers=2,
+                epochs=30,
+                lr=0.001,
+                batch_size=16,
+                version=self.version,
+                top_n=top_n,
+                num_for_analysis=num_for_analysis,
+                num_to_recommend=num_to_recommend,
+                as_of_date=as_of_date,
+                rng=rng,
+            )
         except Exception as e:
             logger.error(f"Arrr! LSTM run method failed: {e}")
             return []
+
 
 @register_algorithm
 class SequenceClassificationLSTM_H32_L1_Algorithm(Algorithm):
     version = "sequence_lstm_classifier_h32_l1"
     description = "LSTM: hidden_size=32, num_layers=1, seq_len=10, lr=0.001, batch_size=16. Praisin' the FSM!"
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None) -> List[Dict[str, Any]]:
+    def run(
+        self,
+        draws: List[Draw],
+        top_n: int = 3,
+        num_for_analysis: int = None,
+        num_to_recommend: int = None,
+        db: Session = None,
+        as_of_date: date | None = None,
+        rng: random.Random | None = None,
+    ) -> List[Dict[str, Any]]:
         try:
-            logger.info("Arrr! LSTM H32_L1 run method called!")
-            seq_len = 10
-            hidden_size = 32
-            num_layers = 1
-            lr = 0.001
-            batch_size = 16
-            model_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / 'sequence_classifier_model_h32_l1.pt')
-            meta_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / 'sequence_classifier_model_h32_l1_meta.json')
-            latest_db_date = None
-            if db is not None:
-                latest_db_date = get_latest_draw_date(db)
-            meta = load_meta(meta_path)
-            meta_date = meta["latest_date"] if meta else None
-            if not os.path.exists(model_path) or not meta_date:
-                model = train_lotto_lstm(draws, seq_len=seq_len, epochs=30, lr=lr, batch_size=batch_size, model_path=model_path, meta_path=meta_path)
-                if model is None or not os.path.exists(model_path):
-                    return []
-            elif latest_db_date and str(latest_db_date) > meta_date:
-                model = finetune_lotto_lstm(draws, seq_len=seq_len, epochs=10, lr=lr/2, batch_size=batch_size//2, model_path=model_path, meta_path=meta_path)
-                if model is None:
-                    return []
-            numbers = predict_next_numbers(draws, seq_len=seq_len, model_path=model_path)
-            strong_counter = Counter(draw.strong_number for draw in draws)
-            top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            params = {
-                "seq_len": seq_len,
-                "model_version": self.version,
-                "top_n": top_n,
-                "num_for_analysis": num_for_analysis,
-                "num_to_recommend": num_to_recommend
-            }
-            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
-            if num_to_recommend is None:
-                num_to_recommend = 8
-            return combos * num_to_recommend if combos else []
+            return _run_cutoff_variant(
+                draws,
+                profile="sequence_classifier_model_h32_l1",
+                seq_len=10,
+                hidden_size=32,
+                num_layers=1,
+                epochs=30,
+                lr=0.001,
+                batch_size=16,
+                version=self.version,
+                top_n=top_n,
+                num_for_analysis=num_for_analysis,
+                num_to_recommend=num_to_recommend,
+                as_of_date=as_of_date,
+                rng=rng,
+            )
         except Exception as e:
             logger.error(f"Arrr! LSTM H32_L1 run method failed: {e}")
             return []
+
 
 @register_algorithm
 class SequenceClassificationLSTM_H128_L2_Algorithm(Algorithm):
     version = "sequence_lstm_classifier_h128_l2"
     description = "LSTM: hidden_size=128, num_layers=2, seq_len=10, lr=0.0005, batch_size=8. Praisin' the FSM!"
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None) -> List[Dict[str, Any]]:
+    def run(
+        self,
+        draws: List[Draw],
+        top_n: int = 3,
+        num_for_analysis: int = None,
+        num_to_recommend: int = None,
+        db: Session = None,
+        as_of_date: date | None = None,
+        rng: random.Random | None = None,
+    ) -> List[Dict[str, Any]]:
         try:
-            logger.info("Arrr! LSTM H128_L2 run method called!")
-            seq_len = 10
-            hidden_size = 128
-            num_layers = 2
-            lr = 0.0005
-            batch_size = 8
-            model_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / 'sequence_classifier_model_h128_l2.pt')
-            meta_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / 'sequence_classifier_model_h128_l2_meta.json')
-            latest_db_date = None
-            if db is not None:
-                latest_db_date = get_latest_draw_date(db)
-            meta = load_meta(meta_path)
-            meta_date = meta["latest_date"] if meta else None
-            if not os.path.exists(model_path) or not meta_date:
-                model = train_lotto_lstm(draws, seq_len=seq_len, epochs=40, lr=lr, batch_size=batch_size, model_path=model_path, meta_path=meta_path)
-                if model is None or not os.path.exists(model_path):
-                    return []
-            elif latest_db_date and str(latest_db_date) > meta_date:
-                model = finetune_lotto_lstm(draws, seq_len=seq_len, epochs=15, lr=lr/2, batch_size=batch_size//2, model_path=model_path, meta_path=meta_path)
-                if model is None:
-                    return []
-            numbers = predict_next_numbers(draws, seq_len=seq_len, model_path=model_path)
-            strong_counter = Counter(draw.strong_number for draw in draws)
-            top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            params = {
-                "seq_len": seq_len,
-                "model_version": self.version,
-                "top_n": top_n,
-                "num_for_analysis": num_for_analysis,
-                "num_to_recommend": num_to_recommend
-            }
-            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
-            if num_to_recommend is None:
-                num_to_recommend = 8
-            return combos * num_to_recommend if combos else []
+            return _run_cutoff_variant(
+                draws,
+                profile="sequence_classifier_model_h128_l2",
+                seq_len=10,
+                hidden_size=128,
+                num_layers=2,
+                epochs=40,
+                lr=0.0005,
+                batch_size=8,
+                version=self.version,
+                top_n=top_n,
+                num_for_analysis=num_for_analysis,
+                num_to_recommend=num_to_recommend,
+                as_of_date=as_of_date,
+                rng=rng,
+            )
         except Exception as e:
             logger.error(f"Arrr! LSTM H128_L2 run method failed: {e}")
             return []
+
 
 @register_algorithm
 class SequenceClassificationLSTM_SEQ20_Algorithm(Algorithm):
     version = "sequence_lstm_classifier_seq20"
     description = "LSTM: hidden_size=64, num_layers=2, seq_len=20, lr=0.001, batch_size=16. Praisin' the FSM!"
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, db: Session = None) -> List[Dict[str, Any]]:
+    def run(
+        self,
+        draws: List[Draw],
+        top_n: int = 3,
+        num_for_analysis: int = None,
+        num_to_recommend: int = None,
+        db: Session = None,
+        as_of_date: date | None = None,
+        rng: random.Random | None = None,
+    ) -> List[Dict[str, Any]]:
         try:
-            logger.info("Arrr! LSTM SEQ20 run method called!")
-            seq_len = 20
-            hidden_size = 64
-            num_layers = 2
-            lr = 0.001
-            batch_size = 16
-            model_path = str(SEQUENCE_CLASSIFIER_MODEL_SEQ20_PATH)
-            meta_path = str(SEQUENCE_CLASSIFIER_MODEL_DIR / 'sequence_classifier_model_seq20_meta.json')
-            latest_db_date = None
-            if db is not None:
-                latest_db_date = get_latest_draw_date(db)
-            meta = load_meta(meta_path)
-            meta_date = meta["latest_date"] if meta else None
-            if not os.path.exists(model_path) or not meta_date:
-                model = train_lotto_lstm(draws, seq_len=seq_len, epochs=30, lr=lr, batch_size=batch_size, model_path=model_path, meta_path=meta_path)
-                if model is None or not os.path.exists(model_path):
-                    return []
-            elif latest_db_date and str(latest_db_date) > meta_date:
-                model = finetune_lotto_lstm(draws, seq_len=seq_len, epochs=10, lr=lr/2, batch_size=batch_size//2, model_path=model_path, meta_path=meta_path)
-                if model is None:
-                    return []
-            numbers = predict_next_numbers(draws, seq_len=seq_len, model_path=model_path)
-            strong_counter = Counter(draw.strong_number for draw in draws)
-            top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-            params = {
-                "seq_len": seq_len,
-                "model_version": self.version,
-                "top_n": top_n,
-                "num_for_analysis": num_for_analysis,
-                "num_to_recommend": num_to_recommend
-            }
-            combos = [{"numbers": numbers, "strong": top_strong, "params": params}]
-            if num_to_recommend is None:
-                num_to_recommend = 8
-            return combos * num_to_recommend if combos else []
+            return _run_cutoff_variant(
+                draws,
+                profile="sequence_classifier_model_seq20",
+                seq_len=20,
+                hidden_size=64,
+                num_layers=2,
+                epochs=30,
+                lr=0.001,
+                batch_size=16,
+                version=self.version,
+                top_n=top_n,
+                num_for_analysis=num_for_analysis,
+                num_to_recommend=num_to_recommend,
+                as_of_date=as_of_date,
+                rng=rng,
+            )
         except Exception as e:
             logger.error(f"Arrr! LSTM SEQ20 run method failed: {e}")
             return []
 
+
 @register_algorithm
 class SequenceClassificationLSTM_H128_L2_E20_Algorithm(Algorithm):
     version = "sequence_lstm_classifier_h128_l2_e20"
-    description = "LSTM: hidden_size=128, num_layers=2, seq_len=10, lr=0.001, batch_size=8, epochs=20. Inference-only, returns combos for a single test draw. Praisin' the FSM!"
+    description = (
+        "LSTM: hidden_size=128, num_layers=2, seq_len=10, inference with diversified thresholds. "
+        "Praisin' the FSM!"
+    )
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = 8, db: Session = None) -> List[Dict[str, Any]]:
+    def run(
+        self,
+        draws: List[Draw],
+        top_n: int = 3,
+        num_for_analysis: int = None,
+        num_to_recommend: int = 8,
+        db: Session = None,
+        as_of_date: date | None = None,
+        rng: random.Random | None = None,
+    ) -> List[Dict[str, Any]]:
         try:
-            # Set random seeds for reproducibility
-            random.seed(42)
-            np.random.seed(42)
-            torch.manual_seed(42)
-            logger.info("Arrr! LSTM H128_L2_E20 (inference-only, single test draw) run method called!")
-            seq_len = 10
-            hidden_size = 128
-            num_layers = 2
-            lr = 0.001
-            batch_size = 8
-            epochs = 20
-            threshold = 0.2
-            model_path = str(SEQUENCE_CLASSIFIER_MODEL_POSITION_PATH)
-            combos = []
-            static_params = {
-                "hidden_size": hidden_size,
-                "num_layers": num_layers,
-                "seq_len": seq_len,
-                "lr": lr,
-                "batch_size": batch_size,
-                "epochs": epochs,
-                "threshold": threshold
-            }
-            for _ in range(num_to_recommend or 8):
-                try:
-                    numbers = predict_next_numbers(
-                        draws,
-                        seq_len=seq_len,
-                        threshold=threshold,
-                        model_path=model_path,
-                        hidden_size=hidden_size,
-                        num_layers=num_layers
-                    )
-                except Exception as e:
-                    logger.error(f"Arrr! [FSM DEBUG] Prediction failed: {e}")
-                    numbers = []
-                strong_counter = Counter(draw.strong_number for draw in draws)
-                top_strong = strong_counter.most_common(1)[0][0] if strong_counter else 1
-                combos.append({"numbers": numbers, "strong": top_strong, "params": static_params.copy()})
-            return combos
+            return _run_cutoff_variant(
+                draws,
+                profile="sequence_classifier_model_position",
+                seq_len=10,
+                hidden_size=128,
+                num_layers=2,
+                epochs=20,
+                lr=0.001,
+                batch_size=8,
+                version=self.version,
+                top_n=top_n,
+                num_for_analysis=num_for_analysis,
+                num_to_recommend=num_to_recommend,
+                as_of_date=as_of_date,
+                rng=rng,
+            )
         except Exception as e:
-            logger.error(f"Arrr! LSTM H128_L2_E20 (inference-only, single test draw) run method failed: {e}")
-            return [] 
+            logger.error(f"Arrr! LSTM H128_L2_E20 run method failed: {e}")
+            return []

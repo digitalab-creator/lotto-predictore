@@ -11,16 +11,19 @@ class RecencyWeightedFrequencyAlgorithm(Algorithm):
     version = "recency_weighted_linear"
     description = "Weigh recent draws more heavily in frequency calculation (linear)."
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, **kwargs) -> List[Dict[str, Any]]:
         if num_for_analysis is None:
             num_for_analysis = NUM_COMBINATIONS_FOR_ANALYSIS
         if num_to_recommend is None:
             num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
+        as_of_date = kwargs.get("as_of_date")
+        if as_of_date is None:
+            raise ValueError("as_of_date is required for recency-weighted algorithms")
+        rng = kwargs.get("rng") or random
         # Linear recency weight: 1 / (days_ago + 1)
         counter = Counter()
-        now = datetime.now().date()
         for draw in draws:
-            days_ago = (now - draw.date).days
+            days_ago = (as_of_date - draw.date).days
             weight = 1 / (days_ago + 1)
             for n in draw.numbers:
                 counter[n] += weight
@@ -30,7 +33,7 @@ class RecencyWeightedFrequencyAlgorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
-            random.shuffle(combo_numbers)
+            rng.shuffle(combo_numbers)
             combos.append({
                 "numbers": combo_numbers,
                 "params": {
@@ -47,18 +50,21 @@ class RecencyWeightedExpAlgorithm(Algorithm):
     version = "recency_weighted_exponential"
     description = "Weigh recent draws more heavily using exponential decay."
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, **kwargs) -> List[Dict[str, Any]]:
         if num_for_analysis is None:
             num_for_analysis = NUM_COMBINATIONS_FOR_ANALYSIS
         if num_to_recommend is None:
             num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
+        as_of_date = kwargs.get("as_of_date")
+        if as_of_date is None:
+            raise ValueError("as_of_date is required for recency-weighted algorithms")
+        rng = kwargs.get("rng") or random
         # Exponential decay: weight = exp(-lambda * days_ago)
         import math
         counter = Counter()
-        now = datetime.now().date()
         decay_lambda = 0.01  # Tune as needed
         for draw in draws:
-            days_ago = (now - draw.date).days
+            days_ago = (as_of_date - draw.date).days
             weight = math.exp(-decay_lambda * days_ago)
             for n in draw.numbers:
                 counter[n] += weight
@@ -68,7 +74,7 @@ class RecencyWeightedExpAlgorithm(Algorithm):
         combos = []
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
-            random.shuffle(combo_numbers)
+            rng.shuffle(combo_numbers)
             combos.append({
                 "numbers": combo_numbers,
                 "params": {
@@ -86,13 +92,16 @@ class RecencyWeightedWindowAlgorithm(Algorithm):
     version = "recency_weighted_window"
     description = "Only use draws from the last 1 year."
 
-    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None) -> List[Dict[str, Any]]:
+    def run(self, draws: List[Draw], top_n: int = 3, num_for_analysis: int = None, num_to_recommend: int = None, **kwargs) -> List[Dict[str, Any]]:
         if num_for_analysis is None:
             num_for_analysis = NUM_COMBINATIONS_FOR_ANALYSIS
         if num_to_recommend is None:
             num_to_recommend = NUM_COMBINATIONS_TO_RECOMMEND
-        now = datetime.now().date()
-        one_year_ago = now - timedelta(days=365)
+        as_of_date = kwargs.get("as_of_date")
+        if as_of_date is None:
+            raise ValueError("as_of_date is required for recency-weighted algorithms")
+        rng = kwargs.get("rng") or random
+        one_year_ago = as_of_date - timedelta(days=365)
         recent_draws = [d for d in draws if d.date >= one_year_ago]
         counter = Counter()
         for draw in recent_draws:
@@ -105,7 +114,7 @@ class RecencyWeightedWindowAlgorithm(Algorithm):
         window_days = 365
         for _ in range(num_for_analysis):
             combo_numbers = top6[:]
-            random.shuffle(combo_numbers)
+            rng.shuffle(combo_numbers)
             combos.append({
                 "numbers": combo_numbers,
                 "params": {

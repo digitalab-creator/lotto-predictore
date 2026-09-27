@@ -1,0 +1,58 @@
+# Lotto yields CPU to every other container (cpu_shares << Docker default 1024).
+# When the host is clear, ceilings grow toward spare CPU/RAM — lotto may use leftovers, not steal.
+
+compose_project_dir: /opt/apps/lotto-predictore
+compose_project_name: lotto-predictore
+
+pressure:
+  idle_below: 0.38
+  busy_above: 0.68
+
+hysteresis:
+  idle_samples_to_scale_up: 3
+
+yield_to_others:
+  # Other apps at default 1024 shares always win CPU scheduling fights vs lotto.
+  oom_score_adj: 750
+  cpu_shares:
+    busy: 64
+    balanced: 96
+    idle: 128
+  # Non-lotto Docker containers currently using CPU → cap lotto tier (immediate).
+  other_containers_cpu_busy_pct: 10.0
+  other_containers_cpu_balanced_pct: 4.0
+
+dynamic_idle:
+  enabled: true
+  reserve_cpus: 1.25
+  reserve_memory_mb: 2400
+  spare_cpu_fraction: 0.72
+  spare_memory_fraction: 0.55
+  service_weights:
+    backend: 0.48
+    db: 0.20
+    cron: 0.22
+    email-service: 0.10
+    backend-debug: 0.05
+
+services:
+  db:
+    busy: { cpus: "0.30", memory: "320m", pids: 120 }
+    balanced: { cpus: "0.45", memory: "448m", pids: 120 }
+    idle_min: { cpus: "0.50", memory: "512m", pids: 150 }
+  backend:
+    busy: { cpus: "0.50", memory: "448m", pids: 200 }
+    balanced: { cpus: "0.75", memory: "768m", pids: 200 }
+    idle_min: { cpus: "1.00", memory: "1024m", pids: 250 }
+  cron:
+    busy: { cpus: "0.20", memory: "320m", pids: 150 }
+    balanced: { cpus: "0.35", memory: "448m", pids: 150 }
+    idle_min: { cpus: "0.40", memory: "512m", pids: 180 }
+  email-service:
+    busy: { cpus: "0.08", memory: "224m", pids: 80 }
+    balanced: { cpus: "0.15", memory: "288m", pids: 80 }
+    idle_min: { cpus: "0.20", memory: "384m", pids: 100 }
+  backend-debug:
+    busy: { cpus: "0.12", memory: "160m", pids: 100 }
+    balanced: { cpus: "0.20", memory: "224m", pids: 100 }
+    idle_min: { cpus: "0.25", memory: "288m", pids: 120 }
