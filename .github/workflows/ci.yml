@@ -39,7 +39,7 @@ jobs:
       - name: Run unit tests
         env:
           # Match docker compose: backend code + repo-root shared logger
-          PYTHONPATH: ${{ github.workspace }}/backend:${{ github.workspace }}/shared
+          PYTHONPATH: ${{ github.workspace }}/backend:${{ github.workspace }}
         run: pytest tests/ -q --tb=short
 
   email-service-smoke:
@@ -59,7 +59,7 @@ jobs:
 
       - name: Install and compile
         env:
-          PYTHONPATH: ${{ github.workspace }}/email-service:${{ github.workspace }}/shared
+          PYTHONPATH: ${{ github.workspace }}/email-service:${{ github.workspace }}
           LOG_DIR: /tmp/lotto-ci-logs
           SMTP_USERNAME: ci@example.com
           SMTP_PASSWORD: ci-secret
