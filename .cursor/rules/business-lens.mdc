@@ -1,0 +1,17 @@
+---
+description: >-
+  Business priorities for lotto-predictore — prove payworthy improvement in
+  chances first, revenue from using the product second. Read the lens file before
+  prioritizing work.
+alwaysApply: true
+---
+
+# Business lens
+
+Before planning or shipping on lotto-predictore, read **`.cursor/business-lens.md`** (also `project.business_lens` in `.cursor/project.yaml`).
+
+**Primary:** prove the app **actually improves lottery chances** enough that **investing money** (tickets, time, tooling) is rational — walk-forward, real settlement, official prizes, honest baselines.
+
+**Secondary:** **הכנסה נוספת משימוש בזה** — additional revenue from using the product, only after measurement is trustworthy.
+
+If a task does not move primary proof or secondary revenue, do not implement it — record it instead.

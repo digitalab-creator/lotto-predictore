@@ -1,0 +1,39 @@
+---
+description: >-
+  Lotto dev integration vs production release. Commit pushes to GitHub dev and
+  watches CI; ship dispatches Deploy to apply a frozen dev SHA on the server.
+alwaysApply: true
+---
+
+# Lotto — commit to dev vs ship
+
+Project root: `/opt/apps/lotto-predictore`
+
+## What runs where
+
+| Piece | Role |
+| ----- | ---- |
+| Git branch `dev` | Integration history on GitHub (CI runs here) |
+| Git branch `main` | Not used for lotto releases — do not merge dev → main for deploy |
+| Live tree `/opt/apps/lotto-predictore` | Server checkout; `docker compose` bind-mounts `./backend`, `./cron`, `./email-service` |
+| Workflow **CI** | Pytest + email smoke on push to `dev` |
+| Workflow **Deploy** | Manual dispatch only (`/ship`); checks out frozen SHA on the server |
+
+Saving code on the server is visible to containers immediately via bind mounts, but **GitHub `dev` and recorded releases** only move when you commit/push or ship.
+
+## Which command to use
+
+| Situation | Command | Runs Deploy? | Updates `origin/dev`? |
+| --------- | ------- | ------------ | --------------------- |
+| Day-to-day work; keep tests green on GitHub | `/commit-dev-until-green` | **no** | **yes** (push `HEAD:dev`) |
+| Promote a **frozen, CI-green** `origin/dev` commit to the live stack | `/ship` | **yes** | no (reads remote tip) |
+
+**Non-negotiable:** `/commit-dev-until-green` never dispatches Deploy and never merges to `main`. `/ship` never commits WIP — dirty tracked files block release; integrate first.
+
+## Ship gates (machine)
+
+1. `origin/dev` tip is `FROZEN_SHA` (no unpushed local-only commits).
+2. `scripts/gha/verify-ci-green-for-sha.sh "$FROZEN_SHA"` passes.
+3. Deploy workflow `confirm` must equal `DEPLOY <sha> TO PRODUCTION` (built by the agent, not a second human prompt).
+
+Extension details: `.cursor/extensions/commit-dev-until-green.md`, `.cursor/extensions/ship.md`.

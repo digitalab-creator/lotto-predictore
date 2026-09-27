@@ -11,8 +11,11 @@ yarn-error.log*
 # Ignore Cursor debug logs. The kit profile stays in git.
 .cursor/*
 !.cursor/project.yaml
+!.cursor/business-lens.md
 !.cursor/extensions/
 !.cursor/extensions/**
+!.cursor/rules/
+!.cursor/rules/**
 
 # Release metadata written by the Deploy workflow on the host
 tmp/
@@ -26,6 +29,7 @@ backend/.env
 email-service/.env
 
 # Secrets and local credentials
+.runners/
 gcp-credentials.json
 **/gcp-credentials.json
 *.pem

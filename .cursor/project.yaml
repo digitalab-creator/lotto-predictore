@@ -1,6 +1,7 @@
 # Kit profile for lotto. The kit reads this file. Commands live in .cursor/extensions/.
 project:
   root: /opt/apps/lotto-predictore
+  business_lens: .cursor/business-lens.md
 repo:
   github: digitalab-creator/lotto-predictore
 workflows:
