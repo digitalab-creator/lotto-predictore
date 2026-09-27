@@ -17,7 +17,8 @@ workflows:
     live_url: http://127.0.0.1:8000/
     runner:
       command: gh workflow run Deploy --repo digitalab-creator/lotto-predictore --ref dev -f sha="$FROZEN_SHA" -f confirm="DEPLOY $FROZEN_SHA TO PRODUCTION" -f mode=deploy
-    preflight: []
+    preflight:
+      - bash scripts/gha/verify-ci-green-for-sha.sh "$FROZEN_SHA"
   commit_dev:
     required_workflow: CI
     max_attempts: 5

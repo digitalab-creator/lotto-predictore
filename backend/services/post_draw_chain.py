@@ -7,7 +7,7 @@ from typing import Any
 from sqlalchemy.orm import Session
 
 from logger import logger
-from models import Draw
+from models import Draw, IngestState
 from services.pack_notifier import PackNotifier
 from services.prediction_service import PredictionService
 from services.real_ticket_settlement import RealTicketSettlementService
@@ -25,6 +25,15 @@ class PostDrawChainService:
 
     def run_after_sync(self, sync_result: SyncDrawsResult) -> dict[str, Any]:
         out: dict[str, Any] = {"sync": sync_result.to_dict(), "chain_ran": False}
+        state = self.db.get(IngestState, 1)
+        if state is not None and state.integrity_blocked:
+            logger.error(
+                "Arrr! Draw data is blocked — no new tickets until the CSV matches the database",
+                context={"reason": state.integrity_reason},
+            )
+            out["skipped"] = "integrity_blocked"
+            out["error"] = state.integrity_reason
+            return out
         if sync_result.new_draws_added < 1:
             logger.info("Arrr! No new draw — post-draw chain skipped")
             out["skipped"] = "no_new_draw"
@@ -75,6 +84,6 @@ class PostDrawChainService:
             out["notifications"] = notify
         return out
 
-    def run_full(self) -> dict[str, Any]:
-        sync_result = sync_draws_incremental(self.db)
+    def run_full(self, *, allow_magayo: bool = False) -> dict[str, Any]:
+        sync_result = sync_draws_incremental(self.db, allow_magayo=allow_magayo)
         return self.run_after_sync(sync_result)

@@ -51,7 +51,21 @@ def _count_tuple(added: int, updated: int, skipped: int) -> dict[str, int]:
     return {"added": added, "updated": updated, "skipped": skipped}
 
 
-def sync_draws_incremental(db, *, pais_backfill_days: int = DEFAULT_PAIS_BACKFILL_DAYS) -> SyncDrawsResult:
+def sync_draws_incremental(
+    db,
+    *,
+    pais_backfill_days: int = DEFAULT_PAIS_BACKFILL_DAYS,
+    allow_magayo: bool = False,
+) -> SyncDrawsResult:
+    """Official CSV when enabled. The legacy paisapi path remains for PAIS_OFFICIAL_CSV_ENABLED=0."""
+    from services.pais_official_sync import official_csv_enabled, sync_official_draws
+
+    if official_csv_enabled():
+        return sync_official_draws(db, allow_magayo=allow_magayo)
+    return _sync_legacy_draws(db, pais_backfill_days=pais_backfill_days)
+
+
+def _sync_legacy_draws(db, *, pais_backfill_days: int = DEFAULT_PAIS_BACKFILL_DAYS) -> SyncDrawsResult:
     result = SyncDrawsResult()
     _ensure_draw_id_sequence(db)
 

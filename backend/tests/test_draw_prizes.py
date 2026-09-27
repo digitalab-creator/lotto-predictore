@@ -53,7 +53,7 @@ def test_parse_win_table_reg_from_api_sample():
     assert parsed is not None
     assert parsed["prize_6"] == 125000.0
     assert parsed["prize_3"] == 10.0
-    assert parsed["jackpot"] == 10_000_000.0
+    assert parsed["jackpot_lotto"] == 10_000_000.0
 
 
 def test_calculate_prize_uses_draw_row_not_fake_table():

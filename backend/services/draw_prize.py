@@ -10,7 +10,9 @@ from typing import Any, Mapping, Optional
 from config import TICKET_COST_ILS
 
 PAIS_SOURCE = "paisapi"
+PAIS_CSV_SOURCE = "pais_csv"
 MAGAYO_SOURCE = "magayo"
+PRIZE_SOURCES = {PAIS_SOURCE, PAIS_CSV_SOURCE}
 
 
 def pais_payload_source_hash(payload: Mapping[str, Any]) -> str:
@@ -51,7 +53,7 @@ def parse_win_table_reg(payload: Mapping[str, Any]) -> Optional[dict[str, Option
         "prize_4": tier("four"),
         "prize_3_strong": tier("threePlus"),
         "prize_3": tier("three"),
-        "jackpot": float(payload["firstPrizeReg"])
+        "jackpot_lotto": float(payload["firstPrizeReg"])
         if payload.get("firstPrizeReg") is not None
         else None,
     }
@@ -62,7 +64,7 @@ def parse_win_table_reg(payload: Mapping[str, Any]) -> Optional[dict[str, Option
 
 def draw_has_prize_data(draw) -> bool:
     """Draws without Pais prize rows must not affect ROI."""
-    return getattr(draw, "source", None) == PAIS_SOURCE and getattr(draw, "prize_3", None) is not None
+    return getattr(draw, "source", None) in PRIZE_SOURCES and getattr(draw, "prize_3", None) is not None
 
 
 def draw_ticket_cost(draw) -> float:

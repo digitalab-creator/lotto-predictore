@@ -1,6 +1,15 @@
 # commit-dev-until-green extension (lotto)
 
-This file is the command list. Push `HEAD` to branch `dev`. Do not push or merge to `main`. Do not run Deploy. `/ship` updates the live site. Do not start `backend-debug`.
+**Business outcome:** land tested work on GitHub `dev` fast. CI catches breaks **before** anyone runs `/ship`.
+
+**This command is not `/ship`.** It does **not** dispatch Deploy, does **not** restart production containers for release, and does **not** merge to `main`. Live Docker may already see bind-mounted files on disk; this flow is **git history + CI on `dev`**.
+
+| | `/commit-dev-until-green` | `/ship` |
+| --- | --- | --- |
+| Push to `origin/dev` | yes | no |
+| Watch workflow **CI** | yes | no |
+| Watch workflow **Deploy** | no | yes |
+| Requires CI green on frozen SHA | after your push | before dispatch (preflight) |
 
 Root: `/opt/apps/lotto-predictore`.
 

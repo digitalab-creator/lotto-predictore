@@ -298,21 +298,39 @@ async def fetch_latest_draw():
 
 
 @router.post("/cron/post-draw-chain")
-async def post_draw_chain():
-    """Ingest draws; on new result settle, score, pack, and notify (Phase 5)."""
+async def post_draw_chain(allow_magayo: bool = Query(False)):
+    """Ingest the official CSV; on a new result settle, score, pack, and notify."""
     try:
         from db import SessionLocal
         from services.post_draw_chain import PostDrawChainService
 
         db = SessionLocal()
         try:
-            outcome = PostDrawChainService(db).run_full()
+            outcome = PostDrawChainService(db).run_full(allow_magayo=allow_magayo)
         finally:
             db.close()
         status = "success" if not outcome.get("error") else "partial"
         return {"status": status, "data": outcome}
     except Exception as e:
-        logger.error("Post-draw chain failed: %s", e)
+        logger.error("Post-draw chain failed", context={"error": str(e)})
+        raise HTTPException(status_code=500, detail=str(e)) from e
+
+
+@router.post("/cron/reconcile-draws")
+async def reconcile_draws():
+    """Sunday check: the last stored draws must match the official CSV."""
+    try:
+        from db import SessionLocal
+        from services.pais_official_sync import reconcile_last_draws
+
+        db = SessionLocal()
+        try:
+            outcome = reconcile_last_draws(db)
+        finally:
+            db.close()
+        return {"status": "success", "data": outcome}
+    except Exception as e:
+        logger.error("Draw reconcile failed", context={"error": str(e)})
         raise HTTPException(status_code=500, detail=str(e)) from e
 
 @router.post("/cron/generate-weekly-tables")

@@ -6,8 +6,15 @@ May the Flying Spaghetti Monster bless yer system operations! 🍝
 
 ### Docker Operations
 ```sh
-# Start the system
+# Start production stack (~1.3 CPU / ~1.5 GiB caps in docker-compose.yml; backend-debug is off unless profile debug)
 docker-compose up -d
+
+# Optional dev API on :8877 (extra ~0.15 CPU / 192 MiB)
+docker compose --profile debug up -d backend-debug
+
+# Dynamic limits from host load (busy host = small lotto; clear host = larger lotto)
+sudo ./scripts/install-resource-governor.sh
+python3 scripts/resource_governor.py --dry-run
 
 # Stop the system
 docker-compose down
@@ -162,10 +169,7 @@ sudo rm /home/orshv/lotto-predictore/logs/backend_service/backend_service.log.20
 
 ### System Cleanup (Automated)
 ```sh
-# The cron service automatically runs comprehensive system cleanup daily at 2:00 AM
-# This includes:
-# - Cleaning up old log files
-# - Running docker system prune -a -f to free up disk space
+# The cron service automatically runs log cleanup daily at 2:00 AM
 
 # Manually trigger system cleanup
 curl -X POST http://localhost:8002/api/cleanup-system

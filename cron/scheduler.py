@@ -9,9 +9,10 @@ from cron.error_handler import handle_cron_error
 logger = get_cron_logger()
 
 POST_DRAW_CHAIN_PATH = "/cron/post-draw-chain"
-# Israel Lotto: Tue / Sat (sometimes Thu). Post-draw chain runs after ingest when a new draw lands.
-DRAW_NIGHT_SYNC_DAYS = ("tuesday", "thursday", "saturday")
-DRAW_NIGHT_SYNC_TIME = "23:30"
+# Morning after a draw night (Tue/Thu/Sat ~23:14). 23:30 is too early for the official file.
+RETRY_DAYS = ("wednesday", "friday", "sunday")
+RETRY_PATH = "/cron/post-draw-chain?allow_magayo=true"
+RECONCILE_PATH = "/cron/reconcile-draws"
 
 
 def _schedule_post_draw_chain(last_successful_job: dict, job_name: str = "post-draw-chain") -> None:
@@ -25,19 +26,28 @@ def _schedule_post_draw_chain(last_successful_job: dict, job_name: str = "post-d
 
 def setup_jobs(last_successful_job: dict):
     """Set up all scheduled jobs"""
-    # Safety net — catch anything missed overnight (full post-draw chain if new draw exists)
-    schedule.every().day.at("03:00").do(
+    # Official CSV, then settle and email only when a new draw was stored. No Magayo here.
+    schedule.every().day.at("01:00").do(
         lambda: _schedule_post_draw_chain(last_successful_job, job_name="post-draw-chain-daily")
     )
 
-    # Post-draw chain (Asia/Jerusalem — container TZ). Faster than waiting for 03:00.
-    for day in DRAW_NIGHT_SYNC_DAYS:
-        getattr(schedule.every(), day).at(DRAW_NIGHT_SYNC_TIME).do(
-            lambda: _schedule_post_draw_chain(
+    # If the 01:00 file still lacks last night's draw, try once more, then Magayo.
+    for day in RETRY_DAYS:
+        getattr(schedule.every(), day).at("04:00").do(
+            lambda: _run_job_with_error_handling(
+                "post-draw-chain-retry",
+                lambda: call_backend_endpoint(RETRY_PATH, last_successful_job),
                 last_successful_job,
-                job_name="post-draw-chain-night",
             )
         )
+
+    schedule.every().sunday.at("05:00").do(
+        lambda: _run_job_with_error_handling(
+            "reconcile-draws",
+            lambda: call_backend_endpoint(RECONCILE_PATH, last_successful_job),
+            last_successful_job,
+        )
+    )
     
     # Daily log cleanup - runs every day at 2:00 AM
     schedule.every().day.at("02:00").do(
@@ -54,8 +64,8 @@ def setup_jobs(last_successful_job: dict):
     )
     
     logger.info(
-        "Arrr! Post-draw chain scheduled: daily 03:00 + "
-        f"{', '.join(DRAW_NIGHT_SYNC_DAYS)} at {DRAW_NIGHT_SYNC_TIME} (Asia/Jerusalem)"
+        "Arrr! Post-draw chain scheduled: daily 01:00, retry "
+        f"{', '.join(RETRY_DAYS)} 04:00, reconcile Sunday 05:00 (Asia/Jerusalem)"
     )
     logger.info("Arrr! All jobs scheduled successfully!")
 
