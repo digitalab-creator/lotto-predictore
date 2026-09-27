@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-tests:
+    name: Backend pytest
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            backend/requirements.txt
+            backend/requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Run unit tests
+        env:
+          PYTHONPATH: .
+        run: pytest tests/ -q --tb=short
+
+  email-service-smoke:
+    name: Email service import
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+          cache: pip
+          cache-dependency-path: email-service/requirements.txt
+
+      - name: Install and compile
+        env:
+          PYTHONPATH: email-service
+          LOG_DIR: /tmp/lotto-ci-logs
+          SMTP_USERNAME: ci@example.com
+          SMTP_PASSWORD: ci-secret
+          SENDER_EMAIL: ci@example.com
+          RECIPIENT_EMAIL: ci@example.com
+        run: |
+          set -euo pipefail
+          pip install -r email-service/requirements.txt
+          python3 -m compileall -q email-service/src shared
+          test -f email-service/templates/ticket_pack.html

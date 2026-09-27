@@ -130,8 +130,10 @@ class LoggingService:
         self.logger.addHandler(file_handler)
         self.logger.addHandler(time_handler)
         
-        # Log that the service is initialized
-        self.logger.info("Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily")
+        # Log that the service is initialized (use self.info so caller_* extras exist for formatters)
+        self.info(
+            "Logging service initialized - log cleanup is scheduled via cron service at 02:00 AM daily"
+        )
     
     def log(
         self,

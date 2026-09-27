@@ -1,0 +1,2 @@
+# Dev/CI only — not installed in production images by default
+pytest==8.3.5

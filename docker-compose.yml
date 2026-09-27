@@ -179,6 +179,8 @@ services:
       - ./email-service/.env
     environment:
       - TZ=Asia/Jerusalem
+      - LOG_DIR=/app/logs
+      - LOG_LEVEL=INFO
     ports:
       - "8001:8000"
     volumes:

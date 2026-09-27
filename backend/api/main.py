@@ -398,7 +398,14 @@ async def send_best_model_email():
         # Import and run the script
         from scripts.send_best_model_email import send_best_model_email
         result = send_best_model_email()
-        return {"status": "success", "message": "Best model email sent successfully", "data": result}
+        if not result.get("success"):
+            raise HTTPException(
+                status_code=502,
+                detail=result.get("message", "Best model email failed"),
+            )
+        return {"status": "success", "message": result.get("message"), "data": result}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
