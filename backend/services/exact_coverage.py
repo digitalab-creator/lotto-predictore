@@ -132,6 +132,32 @@ def portfolio_p_any(lines: Sequence[dict[str, Any]]) -> float:
     return float((hits >= 3).any(axis=1).mean())
 
 
+def portfolio_p_main_at_least(lines: Sequence[dict[str, Any]], min_hits: int) -> float:
+    """Exact P(at least one line has ``min_hits`` or more main numbers)."""
+    if not lines or min_hits < 1:
+        return 0.0
+    hits = _hit_matrix(lines)
+    return float((hits >= min_hits).any(axis=1).mean())
+
+
+def portfolio_metrics(lines: Sequence[dict[str, Any]]) -> dict[str, float]:
+    """Portfolio-level exact probabilities used by the wheel report and optimizer."""
+    return {
+        "p_any_prize": portfolio_p_any(lines),
+        "p_4_plus": portfolio_p_main_at_least(lines, 4),
+        "p_5_plus": portfolio_p_main_at_least(lines, 5),
+        "p_6_plus": portfolio_p_main_at_least(lines, 6),
+    }
+
+
+def expected_winning_lines_per_draw(lines: Sequence[dict[str, Any]]) -> float:
+    """Mean count of lines that win any prize on one random draw."""
+    if not lines:
+        return 0.0
+    hits = _hit_matrix(lines)
+    return float((hits >= 3).sum(axis=1).mean())
+
+
 def exact_portfolio_report(lines: Sequence[dict[str, Any]]) -> dict[str, Any]:
     """Exact tier probabilities for this pack, plus the independent-8 baseline."""
     hits = _hit_matrix(lines)
@@ -163,13 +189,19 @@ def exact_portfolio_report(lines: Sequence[dict[str, Any]]) -> dict[str, Any]:
             "independent_8_probability": 1.0 - (1.0 - single) ** len(lines),
         }
     p_any = float(covered.mean())
+    metrics = portfolio_metrics(lines)
     return {
         "line_count": len(lines),
         "any_prize_main_outcomes": int(covered.sum()),
         "p_any_prize": p_any,
         "p_any_one_in": one_in(p_any),
         "independent_8_p_any": independent_pack_any_prize(len(lines)),
-        "expected_winning_lines": len(lines) * ANY_PRIZE_PROBABILITY,
+        "single_ticket_p_any": ANY_PRIZE_PROBABILITY,
+        "expected_winning_lines_per_draw": expected_winning_lines_per_draw(lines),
+        "expected_winning_lines_if_independent": len(lines) * ANY_PRIZE_PROBABILITY,
+        "p_4_plus": metrics["p_4_plus"],
+        "p_5_plus": metrics["p_5_plus"],
+        "p_6_plus": metrics["p_6_plus"],
         "tiers": tiers,
     }
 

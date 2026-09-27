@@ -162,7 +162,7 @@ def simulate_table(
 @app.get("/generate-combinations", response_class=JSONResponse)
 def generate_combinations(db: Session = Depends(get_db)):
     """
-    Generate the production next-draw ticket pack (single code path).
+    Generate the production next-draw pack from the exact coverage wheel.
     """
     from services.prediction_service import PredictionService
 

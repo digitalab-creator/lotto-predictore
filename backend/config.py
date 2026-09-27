@@ -1,5 +1,5 @@
 # config.py
-# All static (but changeable) settings for the lottery predictor backend
+# All static (but changeable) settings for the Lotto coverage-wheel backend
 # Praise the FSM for single source of truth!
 
 import os
@@ -53,12 +53,13 @@ BACKEND_LOG_PATH = LOGS_PATH / "backend_service" / "backend_service.log"
 NUM_COMBINATIONS_FOR_ANALYSIS = LINES_PER_DRAW
 NUM_COMBINATIONS_TO_RECOMMEND = LINES_PER_DRAW
 
-# Production strategy when walk-forward has no edge or empty scoreboard (never SUM(predictions))
+# Live packs always use the exact coverage wheel (see strategy_selection.PRODUCTION_MODE).
+# Env names kept for research scripts only — not used to sell tickets.
 PRODUCTION_MAIN_ALGO = os.getenv("PRODUCTION_MAIN_ALGO", "balanced_spread_fixed_ranges")
 PRODUCTION_STRONG_ALGO = os.getenv("PRODUCTION_STRONG_ALGO", "most_common")
 PRODUCTION_FALLBACK_MAIN = os.getenv("PRODUCTION_FALLBACK_MAIN", "diversified_random")
 PRODUCTION_FALLBACK_STRONG = os.getenv("PRODUCTION_FALLBACK_STRONG", "random")
-NO_EDGE_LABEL = "NO EVIDENCE OF PREDICTIVE EDGE"
+NO_EDGE_LABEL = "NO EVIDENCE OF PREDICTIVE EDGE — COVERAGE WHEEL ONLY"
 
 # Walk-forward scoreboard (Phase 4)
 WALK_FORWARD_MIN_TRAINING_DRAWS = int(os.getenv("WALK_FORWARD_MIN_TRAINING_DRAWS", "200"))

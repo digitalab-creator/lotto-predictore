@@ -1,4 +1,7 @@
-"""Production next-draw generation — one path for API, cron, and email."""
+"""Production next-draw generation — coverage wheel only (API, cron, email).
+
+Legacy name: predictions are audit rows for packs, not algorithm picks.
+"""
 
 from __future__ import annotations
 
@@ -19,12 +22,10 @@ from logger import logger
 from models import Draw, Model, ModelType
 from models.generated_combination import GeneratedCombination
 from models.prediction import Prediction
-from services.algorithm_runner import run_strategy_on_draws
 from services.coverage_optimizer import load_cached_lines
 from services.game_regime import split_regime
 from services.pais_draw_rules import CURRENT_REGIME_START
 from services.strategy_selection import choose_production_strategy
-from services.portfolio_refiner import refine_portfolio
 from services.ticket_validator import TicketValidationError
 from services.simulation_helpers.simulation_db import get_or_create_model
 from services.ticket_pack_service import TicketPackService
@@ -46,10 +47,7 @@ class PredictionService:
         self.rng = rng or random.Random()
 
     def generate_next_draw(self) -> dict[str, Any]:
-        """
-        Fit on all draws through the last known result; persist one production pack.
-        Strategy comes from config until Phase 4 walk-forward summaries exist.
-        """
+        """Persist one production pack from the exact coverage wheel."""
         logger.info("Arrr! generate_next_draw — praisin' the FSM!")
         try:
             rows = (
@@ -74,24 +72,23 @@ class PredictionService:
             train_start = draws[0].date
             main_algo, strong_algo, strategy_meta = self._select_production_strategy()
 
-            top_n = _top_n_for_algo(main_algo)
-            if strategy_meta.get("use_coverage"):
-                cached = load_cached_lines(self.db)
-                if not cached:
-                    msg = "Coverage pack is not cached yet. Run scripts/run_validation_v2.py first."
-                    logger.error(msg)
-                    return {"success": False, "message": msg, "tables": []}
-                lines = cached
-            else:
-                raw_lines, _algo_params = run_strategy_on_draws(
-                    train_draws=draws,
-                    main_algo=main_algo,
-                    strong_algo=strong_algo,
-                    as_of_date=as_of_date,
-                    rng=self.rng,
-                    db=self.db if main_algo.startswith("sequence_lstm") else None,
+            if not strategy_meta.get("use_coverage"):
+                logger.error(
+                    "Arrr! Non-coverage production path blocked",
+                    context={"strategy_meta": strategy_meta},
                 )
-                lines = refine_portfolio(raw_lines, self.rng)
+                return {
+                    "success": False,
+                    "message": "Production only serves the coverage wheel.",
+                    "tables": [],
+                }
+            cached = load_cached_lines(self.db)
+            if not cached:
+                msg = "Coverage pack is not cached yet. Run scripts/run_validation_v2.py coverage."
+                logger.error(msg)
+                return {"success": False, "message": msg, "tables": []}
+            lines = cached
+            top_n = _top_n_for_algo(main_algo)
 
             target_draw_number = None
             if last_draw.draw_number is not None:
@@ -184,7 +181,6 @@ class PredictionService:
             raise
 
     def _select_production_strategy(self) -> tuple[str, str, dict[str, Any]]:
-        """Rank from walk-forward ``strategy_summaries`` — never SUM(predictions)."""
         return choose_production_strategy(self.db)
 
     def _persist_prediction(

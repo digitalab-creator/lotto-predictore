@@ -1,4 +1,8 @@
-"""Production strategy comes from the sealed validator, or from the coverage wheel."""
+"""Production tickets always come from the exact coverage wheel.
+
+Sealed holdout results are recorded for research only. They never select algorithms
+for live packs.
+"""
 
 from __future__ import annotations
 
@@ -9,39 +13,36 @@ from logger import logger
 
 COVERAGE_MAIN = "coverage_optimizer"
 COVERAGE_STRONG = "exact"
+PRODUCTION_MODE = "coverage_wheel"
 
 
 def choose_production_strategy(db: Session) -> tuple[str, str, dict[str, str | float | bool]]:
-    """
-    A holdout pass is the only way an algorithm is allowed to sell tickets.
-    Until that pass exists, the pack is the exact 8-line coverage wheel.
-    The old walk-forward scoreboard is not consulted.
-    """
-    sealed = _sealed_pass(db)
+    """Always return the cached exact wheel. Prediction models are not production paths."""
+    meta: dict[str, str | float | bool] = {
+        "source": PRODUCTION_MODE,
+        "production_mode": PRODUCTION_MODE,
+        "detail": NO_EDGE_LABEL,
+        "no_edge": True,
+        "use_coverage": True,
+        "has_predictive_edge": False,
+        "prediction_allowed": False,
+        "strategy_id": f"{COVERAGE_MAIN}+{COVERAGE_STRONG}",
+    }
+    sealed = _latest_holdout_summary(db)
     if sealed is not None:
-        return sealed
-
-    logger.info("Arrr! No sealed pass — coverage wheel, not the old scoreboard")
-    return (
-        COVERAGE_MAIN,
-        COVERAGE_STRONG,
-        {
-            "source": "coverage_optimizer",
-            "detail": NO_EDGE_LABEL,
-            "no_edge": True,
-            "use_coverage": True,
-            "strategy_id": f"{COVERAGE_MAIN}+{COVERAGE_STRONG}",
-            "has_predictive_edge": False,
-        },
-    )
+        meta["sealed_holdout_verdict"] = sealed["verdict"]
+        meta["sealed_strategy_tested"] = sealed["strategy_id"]
+        if sealed["verdict"] == "fail":
+            meta["detail"] = "Sealed holdout failed — coverage wheel only."
+    logger.info("Arrr! Production mode is coverage wheel (prediction disabled)")
+    return COVERAGE_MAIN, COVERAGE_STRONG, meta
 
 
-def _sealed_pass(db: Session) -> tuple[str, str, dict[str, str | float | bool]] | None:
+def _latest_holdout_summary(db: Session) -> dict[str, str] | None:
     from models.validation_v2 import ValidationHoldoutResult, ValidationLock
 
     holdout = (
         db.query(ValidationHoldoutResult)
-        .filter(ValidationHoldoutResult.verdict == "pass")
         .order_by(ValidationHoldoutResult.id.desc())
         .first()
     )
@@ -52,17 +53,5 @@ def _sealed_pass(db: Session) -> tuple[str, str, dict[str, str | float | bool]] 
         .filter(ValidationLock.experiment_id == holdout.experiment_id)
         .one_or_none()
     )
-    if lock is None:
-        logger.error("Arrr! Holdout pass without a lock row")
-        return None
-    return (
-        lock.main_algorithm,
-        lock.strong_algorithm,
-        {
-            "source": "validation_v2",
-            "detail": "sealed_holdout_pass",
-            "strategy_id": lock.strategy_id,
-            "no_edge": False,
-            "has_predictive_edge": True,
-        },
-    )
+    strategy_id = lock.strategy_id if lock is not None else "unknown"
+    return {"verdict": str(holdout.verdict), "strategy_id": strategy_id}

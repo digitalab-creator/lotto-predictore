@@ -296,26 +296,52 @@ class ValidationEngineV2:
 
 def load_public_report(db: Any) -> dict[str, Any]:
     from models.validation_v2 import CoveragePortfolio, ValidationExperiment, ValidationHoldoutResult
+    from services.wheel_report import build_wheel_report
 
     holdout = db.query(ValidationHoldoutResult).order_by(ValidationHoldoutResult.id.desc()).first()
-    coverage = db.query(CoveragePortfolio).order_by(CoveragePortfolio.id.desc()).first()
+    wheel = build_wheel_report(db)
+    coverage_row = db.query(CoveragePortfolio).order_by(CoveragePortfolio.id.desc()).first()
     coverage_payload = None
-    if coverage is not None:
+    if coverage_row is not None:
         coverage_payload = {
-            "p_any_prize": float(coverage.p_any),
-            "regime_start": coverage.regime_start.isoformat(),
-            "report": coverage.report,
+            "p_any_prize": float(coverage_row.p_any),
+            "regime_start": coverage_row.regime_start.isoformat(),
+            "report": coverage_row.report,
         }
+
+    product = {
+        "production_mode": "coverage_wheel",
+        "prediction_allowed": False,
+        "sealed_protocol": "validation_v2_holdout_once",
+        "future_models_must": "beat this sealed protocol, not invent a new test",
+    }
+
     if holdout is not None:
+        verdict = str(holdout.verdict)
+        product["sealed_verdict"] = verdict
+        product["headline"] = (
+            "FAIL — no detectable predictive edge. Production uses the coverage wheel only."
+            if verdict == "fail"
+            else "PASS — sealed holdout beat fair any-prize baseline (research gate only; live still wheel unless policy changes)."
+            if verdict == "pass"
+            else f"Sealed holdout status: {verdict}"
+        )
         payload = dict(holdout.report)
-        payload["coverage"] = coverage_payload
+        payload["product_decision"] = product
+        payload["coverage_summary"] = coverage_payload
+        payload["wheel"] = wheel
         return payload
+
     experiment = db.query(ValidationExperiment).order_by(ValidationExperiment.id.desc()).first()
+    product["sealed_verdict"] = "not_run"
+    product["headline"] = "Sealed holdout not finished — production still uses the coverage wheel."
     if experiment is None:
         return {
             "evidence_valid": False,
             "verdict": "not_run",
-            "coverage": coverage_payload,
+            "product_decision": product,
+            "coverage_summary": coverage_payload,
+            "wheel": wheel,
             "note": "Select has not been run.",
         }
     return {
@@ -323,5 +349,7 @@ def load_public_report(db: Any) -> dict[str, Any]:
         "verdict": "inconclusive" if experiment.status == "no_stable_candidate" else experiment.status,
         "experiment_id": experiment.id,
         "reason": experiment.refusal_reason,
-        "coverage": coverage_payload,
+        "product_decision": product,
+        "coverage_summary": coverage_payload,
+        "wheel": wheel,
     }

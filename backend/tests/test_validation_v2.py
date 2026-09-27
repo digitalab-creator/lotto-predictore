@@ -83,7 +83,7 @@ def test_one_ticket_enumeration_matches_closed_form():
     assert report["any_prize_main_outcomes"] == 97062
     assert report["p_any_prize"] == pytest.approx(ANY_PRIZE_PROBABILITY)
     assert report["tiers"]["6_strong"]["probability"] == pytest.approx(1 / TOTAL_OUTCOMES)
-    assert report["expected_winning_lines"] == pytest.approx(ANY_PRIZE_PROBABILITY)
+    assert report["expected_winning_lines_per_draw"] == pytest.approx(ANY_PRIZE_PROBABILITY)
 
 
 def test_duplicate_pack_is_rejected():
@@ -183,3 +183,21 @@ def test_uniform_portfolio_is_eight_distinct_lines():
     lines = distinct_random_portfolio(random.Random(1), 8)
     validate_portfolio(lines)
     assert MAIN_SPACE == 2_324_784
+
+
+def test_tier_guard_rejects_sacrificing_high_tiers():
+    from services.wheel_report import _tier_guard_vs_baseline
+
+    baseline = {"p_4_plus": 0.01, "p_5_plus": 0.001, "p_6_plus": 0.0001}
+    ok_wheel = {"p_4_plus": 0.0105, "p_5_plus": 0.00101, "p_6_plus": 0.0001}
+    bad_wheel = {"p_4_plus": 0.008, "p_5_plus": 0.001, "p_6_plus": 0.0001}
+    assert _tier_guard_vs_baseline(ok_wheel, baseline)["ok"] is True
+    assert _tier_guard_vs_baseline(bad_wheel, baseline)["ok"] is False
+
+
+def test_spread_wheel_has_higher_p_any_than_single_ticket():
+    from services.coverage_optimizer import spread_seed_lines
+    from services.exact_coverage import portfolio_p_any
+
+    lines = spread_seed_lines()
+    assert portfolio_p_any(lines) > ANY_PRIZE_PROBABILITY

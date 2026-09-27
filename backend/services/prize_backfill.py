@@ -1,5 +1,8 @@
 """Fill missing prize rows from the official Mifal HaPais draw page.
 
+Bookkeeping and ROI verification only — does not change production strategy
+(coverage wheel) or reopen the sealed holdout decision.
+
 Uses the shared Pais gate only. On an error page: cool down, skip that draw,
 keep going. Never invents a prize amount.
 """
