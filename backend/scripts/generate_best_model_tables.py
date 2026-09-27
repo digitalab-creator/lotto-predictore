@@ -18,12 +18,18 @@ from algorithms.strong_number import STRONG_NUMBER_REGISTRY
 from models import Draw, Model
 from config import NUM_COMBINATIONS_TO_RECOMMEND
 
-def normalize_model_name(name):
-    if name.startswith('main_'):
-        return name[len('main_'):]
-    if name.startswith('strong_'):
-        return name[len('strong_'):]
+def normalize_model_name(name: str) -> str:
+    if name.startswith("main_"):
+        return name[len("main_") :]
+    if name.startswith("strong_"):
+        return name[len("strong_") :]
     return name
+
+
+# DB may store placeholder strong models (e.g. strong_base) that are not runnable subclasses.
+_STRONG_REGISTRY_ALIASES: dict[str, str] = {
+    "base": "most_common",
+}
 
 def generate_best_model_tables():
     """
@@ -107,7 +113,10 @@ def generate_best_model_tables():
             # Normalize model names for registry and simulation engine
             main_model_key = normalize_model_name(main_model_name)
             strong_model_key = normalize_model_name(strong_model_name)
-            
+            strong_model_key = _STRONG_REGISTRY_ALIASES.get(
+                strong_model_key, strong_model_key
+            )
+
             main_model_cls = ALGORITHM_REGISTRY.get(main_model_key)
             strong_model_cls = STRONG_NUMBER_REGISTRY.get(strong_model_key)
             

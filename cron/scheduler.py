@@ -101,8 +101,10 @@ def _run_best_model_job(last_successful_job: dict):
     generate_response.raise_for_status()
     generate_data = generate_response.json()
     
-    if not generate_data.get("data", {}).get("success", False):
-        raise Exception(f"Failed to generate best model tables: {generate_data.get('message', 'Unknown error')}")
+    inner = generate_data.get("data") or {}
+    if not inner.get("success", False):
+        detail = inner.get("message") or generate_data.get("message", "Unknown error")
+        raise Exception(f"Failed to generate best model tables: {detail}")
     
     # Extract the data from the generate response
     tables_data = generate_data["data"]
@@ -119,7 +121,7 @@ def _run_best_model_job(last_successful_job: dict):
     email_response = requests.post(
         f"{email_url}/send-best-model-tables",
         json=email_data,
-        timeout=30
+        timeout=120,
     )
     email_response.raise_for_status()
     

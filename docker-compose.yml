@@ -4,6 +4,9 @@ services:
   db:
     image: postgres:15
     restart: always
+    # Resource priority tier 3/4 (4/10)
+    cpu_shares: 384
+    mem_limit: 384m
     environment:
       POSTGRES_USER: lotto_user
       POSTGRES_PASSWORD: lotto_pass
@@ -22,8 +25,17 @@ services:
     build: 
       context: .
       dockerfile: backend/Dockerfile
+    cpu_shares: 512
+    mem_limit: 512m
     user: "1001:1002"
-    command: /bin/sh -c "cd /app && sleep 10 && PYTHONPATH=/app:/app/scripts alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app"
+    # If alembic_version points at a missing revision, upgrade may fail; continue so API still starts.
+    command:
+      - /bin/sh
+      - -c
+      - >-
+        cd /app && sleep 10 && export PYTHONPATH=/app:/app/scripts &&
+        (alembic upgrade head || echo "WARNING alembic upgrade skipped") &&
+        uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app
     volumes:
       - ./backend:/app
       - ./shared:/app/shared
@@ -40,11 +52,48 @@ services:
       db:
         condition: service_healthy
 
+  # Same stack/network as backend so DATABASE_URL host "db" resolves; replaces ad-hoc bridge-only debug container.
+  # Dev-only: minimal CPU/RAM so prod stacks (n8n, etc.) win under load.
+  backend-debug:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    cpu_shares: 64
+    mem_limit: 192m
+    user: "1001:1002"
+    command:
+      - /bin/sh
+      - -c
+      - >-
+        cd /app && sleep 5 && export PYTHONPATH=/app:/app/scripts &&
+        (alembic upgrade head || echo "WARNING alembic upgrade skipped") &&
+        uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app
+    volumes:
+      - ./backend:/app
+      - ./shared:/app/shared
+      - ./logs:/app/logs
+    ports:
+      - "8877:8000"
+    environment:
+      - DATABASE_URL=postgresql://lotto_user:lotto_pass@db:5432/lotto_db
+      - LOG_DIR=/app/logs
+      - LOG_LEVEL=DEBUG
+    env_file:
+      - ./backend/.env
+    depends_on:
+      db:
+        condition: service_healthy
+
   cron:
     build:
       context: .
       dockerfile: cron/Dockerfile
+    cpu_shares: 256
+    mem_limit: 384m
     user: "1001:1002"
+    # Host docker group GID so non-root user can use mounted /var/run/docker.sock (see `getent group docker` on host).
+    group_add:
+      - "${DOCKER_GID:-112}"
     privileged: true
     ports:
       - "8002:8002"
@@ -68,6 +117,8 @@ services:
     build:
       context: .
       dockerfile: email-service/Dockerfile
+    cpu_shares: 128
+    mem_limit: 256m
     user: "1001:1002"
     env_file:
       - ./email-service/.env

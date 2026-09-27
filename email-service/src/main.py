@@ -137,7 +137,8 @@ async def health_check():
     try:
         # Check SMTP connection
         with smtplib.SMTP(email_service.smtp_host, email_service.smtp_port) as server:
-            server.starttls()
+            if email_service.smtp_starttls:
+                server.starttls()
             server.login(email_service.smtp_username, email_service.smtp_password)
         
         return {

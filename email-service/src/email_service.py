@@ -14,15 +14,37 @@ class EmailService:
         """Initialize email service"""
         self.logger = LoggingService('email_service')
         
-        # Load environment variables
-        self.smtp_host = os.getenv('SMTP_HOST', 'smtp.gmail.com')
-        self.smtp_port = int(os.getenv('SMTP_PORT', '587'))
-        self.smtp_username = os.getenv('SMTP_USERNAME')
-        self.smtp_password = os.getenv('SMTP_PASSWORD')
-        self.sender_email = os.getenv('SENDER_EMAIL')
-        self.sender_name = os.getenv('SENDER_NAME', 'Lotto Predictor')
-        self.recipient_email = os.getenv('RECIPIENT_EMAIL')
-        
+        # Load environment variables (support SMTP_USERNAME or legacy SMTP_USER / n8n-style names)
+        self.smtp_host = (
+            os.getenv("SMTP_HOST")
+            or os.getenv("N8N_SMTP_HOST")
+            or "smtp.gmail.com"
+        )
+        self.smtp_port = int(
+            os.getenv("SMTP_PORT") or os.getenv("N8N_SMTP_PORT") or "587"
+        )
+        self.smtp_username = (
+            os.getenv("SMTP_USERNAME")
+            or os.getenv("SMTP_USER")
+            or os.getenv("N8N_SMTP_USER")
+        )
+        self.smtp_password = (
+            os.getenv("SMTP_PASSWORD")
+            or os.getenv("SMTP_PASS")
+            or os.getenv("N8N_SMTP_PASS")
+        )
+        self.sender_email = os.getenv("SENDER_EMAIL") or os.getenv(
+            "N8N_SMTP_SENDER"
+        )
+        self.sender_name = (
+            os.getenv("SENDER_NAME")
+            or os.getenv("N8N_SMTP_SENDER_NAME")
+            or "Lotto Predictor"
+        )
+        self.recipient_email = os.getenv("RECIPIENT_EMAIL")
+        _tls = os.getenv("SMTP_STARTTLS") or os.getenv("N8N_SMTP_STARTTLS") or "true"
+        self.smtp_starttls = _tls.lower() in ("1", "true", "yes")
+
         # Validate configuration
         if not all([self.smtp_username, self.smtp_password, self.sender_email, self.recipient_email]):
             self.logger.error("Missing required email configuration")
@@ -76,7 +98,8 @@ class EmailService:
             
             # Connect to SMTP server and send
             with smtplib.SMTP(self.smtp_host, self.smtp_port) as server:
-                server.starttls()  # Enable TLS
+                if self.smtp_starttls:
+                    server.starttls()
                 server.login(self.smtp_username, self.smtp_password)
                 server.send_message(msg)
             
