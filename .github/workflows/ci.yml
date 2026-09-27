@@ -40,6 +40,7 @@ jobs:
         env:
           # Match docker compose: backend code + repo-root shared logger
           PYTHONPATH: ${{ github.workspace }}/backend:${{ github.workspace }}
+          LOG_DIR: /tmp/lotto-ci-logs
         run: pytest tests/ -q --tb=short
 
   email-service-smoke:
