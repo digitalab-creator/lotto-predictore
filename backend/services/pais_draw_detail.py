@@ -75,11 +75,18 @@ def parse_draw_detail_html(html: str) -> dict[str, Any]:
     return parsed
 
 
+def is_pais_error_page(html: str) -> bool:
+    """True when Pais returned the Hebrew server-error page."""
+    return "שגיאה בשרת" in html
+
+
 def fetch_draw_detail(client: httpx.Client, draw_number: int) -> dict[str, Any]:
-    """One request. A second try in the same burst makes Pais return an error page."""
+    """One request. Spacing is the shared Pais gate — not a private sleep here."""
     url = PAIS_DRAW_URL.format(draw_number=draw_number)
     response = client.get(url, headers={"Referer": PAIS_ARCHIVE_URL})
     response.raise_for_status()
+    if is_pais_error_page(response.text):
+        raise PaisSourceError("Pais returned server error page")
     if "regularLottoList" not in response.text:
         raise PaisSourceError("Draw page missing prize list regularLottoList")
     return parse_draw_detail_html(response.text)

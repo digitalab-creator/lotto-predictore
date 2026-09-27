@@ -23,6 +23,12 @@ SEQUENCE_CLASSIFIER_MODEL_DIR = MODELS_PATH
 CACHE_PATH = APP_BASE_PATH / "shared" / "cache"
 LOGS_PATH = APP_BASE_PATH / "logs"
 
+# One clock for every pais.co.il hit — cron sync, prize fill, and scripts share this.
+PAIS_MIN_INTERVAL_SECONDS = float(os.getenv("PAIS_MIN_INTERVAL_SECONDS", "12"))
+PAIS_ERROR_COOLDOWN_SECONDS = float(os.getenv("PAIS_ERROR_COOLDOWN_SECONDS", "90"))
+PAIS_MAX_FAILURES = int(os.getenv("PAIS_MAX_FAILURES", "12"))
+PAIS_GATE_DIR = Path(os.getenv("PAIS_GATE_DIR", str(CACHE_PATH / "pais_gate")))
+
 # Database settings
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@db:5432/lotto_predictor')
 
@@ -61,5 +67,15 @@ WALK_FORWARD_RANDOM_BOOTSTRAP_SAMPLES = int(os.getenv("WALK_FORWARD_RANDOM_BOOTS
 WALK_FORWARD_MIN_DRAWS_FOR_EDGE = int(os.getenv("WALK_FORWARD_MIN_DRAWS_FOR_EDGE", "300"))
 WALK_FORWARD_RANDOM_PERCENTILE_LOW = float(os.getenv("WALK_FORWARD_RANDOM_PERCENTILE_LOW", "5"))
 WALK_FORWARD_RANDOM_PERCENTILE_HIGH = float(os.getenv("WALK_FORWARD_RANDOM_PERCENTILE_HIGH", "95"))
+
+# Sealed go/no-go split. Last slice stays closed until one holdout run.
+VALIDATION_DEVELOP_FRACTION = 0.60
+VALIDATION_SELECT_FRACTION = 0.20
+VALIDATION_PRIMARY_METRIC = "per_ticket_any_prize_rate"
+VALIDATION_RANDOM_PORTFOLIOS = int(os.getenv("VALIDATION_RANDOM_PORTFOLIOS", "2000"))
+VALIDATION_BOOTSTRAP_SAMPLES = int(os.getenv("VALIDATION_BOOTSTRAP_SAMPLES", "2000"))
+VALIDATION_MIN_EXPECTED_HITS = 5
+VALIDATION_MIN_SUCCESS_FRACTION = 0.80
+VALIDATION_FDR_ALPHA = 0.05
 
 # Add more config values as needed, matey! 

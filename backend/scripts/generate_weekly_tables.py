@@ -47,7 +47,9 @@ def generate_tables():
             )
             
             # Get all draws for the model to use
-            draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date.desc()).all()
+            from services.pais_draw_rules import CURRENT_REGIME_START
+
+            draws = db.query(Draw).filter(Draw.date >= CURRENT_REGIME_START).order_by(Draw.date.desc()).all()
             
             # Parse model parameters
             main_params = json.loads(best_combo.main_model_params)

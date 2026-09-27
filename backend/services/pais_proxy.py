@@ -1,10 +1,17 @@
-"""Oxylabs dedicated-datacenter proxy. Password stays in the auth header, never in the URL."""
+"""Oxylabs dedicated-datacenter proxy. Password stays in the auth header, never in the URL.
+
+Every request through ``open_pais_client`` waits on the shared Pais gate so sync,
+prize backfill, and scripts never race each other with separate sleep timers.
+"""
 
 from __future__ import annotations
 
 import os
+from typing import Any
 
 import httpx
+
+from services.pais_rate_limit import pais_request_slot
 
 PAIS_ARCHIVE_URL = "https://www.pais.co.il/lotto/archive.aspx"
 PAIS_CSV_URL = "https://www.pais.co.il/Lotto/lotto_resultsDownload.aspx"
@@ -17,6 +24,14 @@ BROWSER_UA = (
 
 class PaisSourceError(RuntimeError):
     """The official site did not return usable data. Do not call Magayo for this."""
+
+
+class PaisClient(httpx.Client):
+    """httpx client that holds the shared Pais lock for every request."""
+
+    def request(self, method: str, url: Any, **kwargs: Any) -> httpx.Response:
+        with pais_request_slot():
+            return super().request(method, url, **kwargs)
 
 
 def _strip_env(raw: str | None) -> str:
@@ -41,10 +56,10 @@ def _proxy_auth() -> tuple[str, str, str]:
     return user, password, proxy_url
 
 
-def open_pais_client() -> httpx.Client:
-    """One client keeps the archive-page cookies for the CSV and draw pages."""
+def open_pais_client() -> PaisClient:
+    """One client keeps archive cookies. Every GET waits on the shared Pais gate."""
     user, password, proxy_url = _proxy_auth()
-    return httpx.Client(
+    return PaisClient(
         proxy=httpx.Proxy(proxy_url, auth=(user, password)),
         timeout=45.0,
         follow_redirects=True,

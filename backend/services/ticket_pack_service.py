@@ -17,6 +17,7 @@ from models.ticket_pack import (
     TicketPack,
 )
 from services.draw_schedule import estimate_next_draw_date
+from services.shadow_commitment import record_shadow_commitment
 from services.walk_forward_stats import make_strategy_id
 
 
@@ -71,6 +72,16 @@ class TicketPackService:
             strategy_meta=strategy_meta,
         )
         self.db.add(pack)
+        self.db.flush()
+        record_shadow_commitment(
+            self.db,
+            lines=lines,
+            main_algorithm=main_algo,
+            strong_algorithm=strong_algo,
+            training_cutoff=training_cutoff,
+            target_draw_number=target_draw_number,
+            ticket_pack_id=pack.id,
+        )
         self.db.commit()
         self.db.refresh(pack)
         logger.info(

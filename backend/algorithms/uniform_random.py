@@ -5,36 +5,11 @@ from __future__ import annotations
 import random
 from typing import Any, List
 
-from config import LINES_PER_DRAW, NUM_COMBINATIONS_TO_RECOMMEND
+from config import NUM_COMBINATIONS_TO_RECOMMEND
 from models import Draw
-from services.ticket_validator import line_identity
+from services.random_portfolio import distinct_random_portfolio
 
 from .base import Algorithm, register_algorithm
-
-
-def _distinct_random_portfolio(rng: random.Random, lines: int) -> list[dict[str, Any]]:
-    seen: set[tuple[tuple[int, ...], int]] = set()
-    portfolio: list[dict[str, Any]] = []
-    attempts = 0
-    max_attempts = lines * 500
-    while len(portfolio) < lines and attempts < max_attempts:
-        attempts += 1
-        numbers = sorted(rng.sample(range(1, 38), 6))
-        strong = rng.randint(1, 7)
-        ident = line_identity(numbers, strong)
-        if ident in seen:
-            continue
-        seen.add(ident)
-        portfolio.append(
-            {
-                "numbers": numbers,
-                "strong": strong,
-                "params": {"generator": "uniform_random"},
-            }
-        )
-    if len(portfolio) != lines:
-        raise RuntimeError("Could not build a distinct random portfolio")
-    return portfolio
 
 
 @register_algorithm
@@ -54,12 +29,12 @@ class UniformRandomAlgorithm(Algorithm):
         rng = kwargs.get("rng") or random
         if not isinstance(rng, random.Random):
             rng = random.Random(kwargs.get("seed", 42))
-        return _distinct_random_portfolio(rng, lines)
+        return distinct_random_portfolio(rng, lines)
 
 
 @register_algorithm
 class DiversifiedRandomAlgorithm(UniformRandomAlgorithm):
-    """Production pack when the scoreboard shows no predictive edge."""
+    """Kept registered so old scoreboards can name it. It is not a go/no-go candidate."""
 
     version = "diversified_random"
-    description = "Diversified random lines when walk-forward shows no edge vs chance."
+    description = "Same generator as uniform_random. Not used as proof of an edge."

@@ -5,7 +5,6 @@ from __future__ import annotations
 import csv
 import hashlib
 import io
-import time
 from datetime import date
 
 import httpx
@@ -13,6 +12,7 @@ import httpx
 from logger import logger
 from services.pais_draw_rules import CsvDraw
 from services.pais_proxy import PAIS_ARCHIVE_URL, PAIS_CSV_URL, PaisSourceError, open_pais_client
+from services.pais_rate_limit import mark_pais_error_cooldown
 
 HEADER_DRAW = "הגרלה"
 HEADER_DATE = "תאריך"
@@ -39,16 +39,16 @@ def download_official_csv(client: httpx.Client | None = None) -> bytes:
                 response.raise_for_status()
             except httpx.HTTPError as exc:
                 last_error = f"Pais CSV download failed: {exc}"
-                time.sleep(8)
+                mark_pais_error_cooldown()
                 continue
             body = response.content
             if body.lstrip().startswith((b"<!DOCTYPE", b"<html", b"<HTML")):
                 last_error = "Pais CSV URL returned HTML, not the results file"
-                time.sleep(8)
+                mark_pais_error_cooldown()
                 continue
             if HEADER_DRAW.encode("cp1255") not in body[:200] and HEADER_DRAW.encode("utf-8") not in body[:400]:
                 last_error = "Pais CSV header was not the official Lotto columns"
-                time.sleep(8)
+                mark_pais_error_cooldown()
                 continue
             logger.info("Pais CSV downloaded", context={"bytes": len(body), "attempt": attempt + 1})
             return body

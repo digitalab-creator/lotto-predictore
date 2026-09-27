@@ -62,6 +62,9 @@ def test_choose_production_strategy_no_edge_in_band():
         def all(self):
             return self._rows
 
+        def first(self):
+            return None
+
     class FakeDb:
         def query(self, model):
             row = SimpleNamespace(
@@ -73,7 +76,8 @@ def test_choose_production_strategy_no_edge_in_band():
             return FakeQuery([row])
 
     main, strong, meta = choose_production_strategy(FakeDb())
-    assert main == "diversified_random"
-    assert strong == "random"
+    assert main == "coverage_optimizer"
+    assert strong == "exact"
     assert meta.get("no_edge") is True
     assert meta.get("detail") == NO_EDGE_LABEL
+    assert meta.get("use_coverage") is True

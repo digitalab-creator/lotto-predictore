@@ -8,3 +8,12 @@ from .prediction import Prediction, PredictionDetail
 from .weekly_winning_combination import WeeklyWinningCombination
 from .evaluation import EvaluationTicket, StrategySummary
 from .ticket_pack import PackDelivery, RealTicketBatch, TicketPack
+from .validation_v2 import (  # noqa: F401
+    CoveragePortfolio,
+    ShadowCommitment,
+    ShadowOutcome,
+    ValidationExperiment,
+    ValidationHoldoutResult,
+    ValidationLock,
+    ValidationStep,
+)

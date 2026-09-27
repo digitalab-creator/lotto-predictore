@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import datetime
 import random
-import subprocess
 from typing import Any, Iterable
 
 from sqlalchemy.orm import Session
@@ -23,6 +22,7 @@ from config import (
 )
 from logger import logger
 from models import Draw
+from services.pais_draw_rules import CURRENT_REGIME_START
 from models.evaluation import EvaluationTicket, StrategySummary
 from services.algorithm_runner import run_strategy_on_draws
 from services.draw_prize import calculate_prize, draw_has_prize_data, draw_ticket_cost
@@ -42,17 +42,9 @@ DL_PREFIX = "sequence_lstm"
 
 
 def get_git_sha() -> str:
-    try:
-        repo_root = BACKEND_DIR.parent
-        out = subprocess.check_output(
-            ["git", "rev-parse", "--short", "HEAD"],
-            cwd=repo_root,
-            text=True,
-            stderr=subprocess.DEVNULL,
-        )
-        return out.strip()
-    except Exception:
-        return "unknown"
+    from services.git_sha import get_git_sha as _sha
+
+    return _sha()
 
 
 def iter_strategy_pairs(include_dl: bool = True) -> list[tuple[str, str]]:
@@ -81,7 +73,7 @@ class WalkForwardEvaluationService:
         git_sha = get_git_sha()
         draws = (
             self.db.query(Draw)
-            .filter(Draw.strong_number <= 7)
+            .filter(Draw.date >= CURRENT_REGIME_START)
             .order_by(Draw.date.asc())
             .all()
         )

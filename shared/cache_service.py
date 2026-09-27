@@ -203,9 +203,12 @@ class CacheService:
                 serialized_entry['value'] = self._serialize_value(entry['value'])
                 serialized_data[key] = serialized_entry
             
-            with open(self.cache_file, 'w', encoding='utf-8') as f:
+            self.cache_file.parent.mkdir(parents=True, exist_ok=True)
+            tmp_path = self.cache_file.with_suffix(self.cache_file.suffix + ".tmp")
+            with open(tmp_path, "w", encoding="utf-8") as f:
                 json.dump(serialized_data, f, indent=2)
-            
+            tmp_path.replace(self.cache_file)
+
             self.logger.debug(
                 f"Cache saved to file: {len(cache_data)} entries",
                 context={

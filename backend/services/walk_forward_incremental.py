@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 from config import WALK_FORWARD_MIN_TRAINING_DRAWS
 from logger import logger
 from models import Draw
+from services.pais_draw_rules import CURRENT_REGIME_START
 from models.evaluation import EvaluationTicket, StrategySummary
 from services.draw_prize import calculate_prize, draw_has_prize_data, draw_ticket_cost
 from services.ticket_validator import TicketValidationError, count_hits
@@ -146,7 +147,7 @@ def append_walk_forward_for_latest_draw(
 ) -> dict[str, Any]:
     draws = (
         db.query(Draw)
-        .filter(Draw.strong_number <= 7)
+        .filter(Draw.date >= CURRENT_REGIME_START)
         .order_by(Draw.date.asc())
         .all()
     )

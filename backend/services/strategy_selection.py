@@ -1,103 +1,68 @@
-"""Choose production main+strong from walk-forward strategy_summaries."""
+"""Production strategy comes from the sealed validator, or from the coverage wheel."""
 
 from __future__ import annotations
 
 from sqlalchemy.orm import Session
 
-from algorithms.base import ALGORITHM_REGISTRY
-from algorithms.strong_number import STRONG_NUMBER_REGISTRY
-from config import (
-    NO_EDGE_LABEL,
-    PRODUCTION_FALLBACK_MAIN,
-    PRODUCTION_FALLBACK_STRONG,
-    PRODUCTION_MAIN_ALGO,
-    PRODUCTION_STRONG_ALGO,
-    WALK_FORWARD_MIN_DRAWS_FOR_EDGE,
-    WALK_FORWARD_RANDOM_PERCENTILE_HIGH,
-    WALK_FORWARD_RANDOM_PERCENTILE_LOW,
-)
+from config import NO_EDGE_LABEL
 from logger import logger
-from models.evaluation import StrategySummary
-from services.walk_forward_stats import parse_strategy_id
 
-CONTROL_STRATEGY_ID = "uniform_random+random"
+COVERAGE_MAIN = "coverage_optimizer"
+COVERAGE_STRONG = "exact"
 
 
 def choose_production_strategy(db: Session) -> tuple[str, str, dict[str, str | float | bool]]:
     """
-    Rank on random percentile and independent draw count — never SUM(predictions).
-    Falls back to env config when the scoreboard is empty or sample size is small.
+    A holdout pass is the only way an algorithm is allowed to sell tickets.
+    Until that pass exists, the pack is the exact 8-line coverage wheel.
+    The old walk-forward scoreboard is not consulted.
     """
-    summaries = (
-        db.query(StrategySummary)
-        .filter(StrategySummary.strategy_id != CONTROL_STRATEGY_ID)
-        .order_by(
-            StrategySummary.random_percentile.desc(),
-            StrategySummary.independent_draw_count.desc(),
-        )
-        .all()
+    sealed = _sealed_pass(db)
+    if sealed is not None:
+        return sealed
+
+    logger.info("Arrr! No sealed pass — coverage wheel, not the old scoreboard")
+    return (
+        COVERAGE_MAIN,
+        COVERAGE_STRONG,
+        {
+            "source": "coverage_optimizer",
+            "detail": NO_EDGE_LABEL,
+            "no_edge": True,
+            "use_coverage": True,
+            "strategy_id": f"{COVERAGE_MAIN}+{COVERAGE_STRONG}",
+            "has_predictive_edge": False,
+        },
     )
-    if not summaries:
-        logger.warning("Arrr! No strategy_summaries rows — using config fallback")
-        return _config_fallback("scoreboard_empty")
-
-    best = summaries[0]
-    n = int(best.independent_draw_count or 0)
-    percentile = float(best.random_percentile or 0.0)
-
-    meta: dict[str, str | float | bool] = {
-        "source": "walk_forward",
-        "strategy_id": best.strategy_id,
-        "random_percentile": percentile,
-        "independent_draw_count": n,
-        "has_predictive_edge": bool(best.has_predictive_edge),
-    }
-
-    if n < WALK_FORWARD_MIN_DRAWS_FOR_EDGE:
-        logger.info(
-            "Arrr! Walk-forward sample too small for edge claim — config fallback",
-            context={"n": n, "required": WALK_FORWARD_MIN_DRAWS_FOR_EDGE},
-        )
-        meta["detail"] = "insufficient_independent_draws"
-        main, strong = _config_fallback_pair()
-        meta["config_main"] = main
-        meta["config_strong"] = strong
-        return main, strong, meta
-
-    if (
-        WALK_FORWARD_RANDOM_PERCENTILE_LOW <= percentile <= WALK_FORWARD_RANDOM_PERCENTILE_HIGH
-    ):
-        logger.info(
-            "Arrr! Best strategy inside random band — diversified_random for production",
-            context={"strategy_id": best.strategy_id, "percentile": percentile},
-        )
-        meta["detail"] = NO_EDGE_LABEL
-        meta["no_edge"] = True
-        return PRODUCTION_FALLBACK_MAIN, PRODUCTION_FALLBACK_STRONG, meta
-
-    if not best.has_predictive_edge:
-        meta["detail"] = NO_EDGE_LABEL
-        meta["no_edge"] = True
-        return PRODUCTION_FALLBACK_MAIN, PRODUCTION_FALLBACK_STRONG, meta
-
-    main, strong = parse_strategy_id(best.strategy_id)
-    if main not in ALGORITHM_REGISTRY or strong not in STRONG_NUMBER_REGISTRY:
-        logger.error(
-            "Arrr! Scoreboard winner not in registry — config fallback",
-            context={"strategy_id": best.strategy_id},
-        )
-        meta["detail"] = "winner_not_registered"
-        main, strong = _config_fallback_pair()
-        return main, strong, meta
-
-    meta["detail"] = "walk_forward_winner"
-    return main, strong, meta
 
 
-def _config_fallback(reason: str) -> tuple[str, str, dict[str, str]]:
-    main, strong = _config_fallback_pair()
-    return main, strong, {"source": "config", "detail": reason}
+def _sealed_pass(db: Session) -> tuple[str, str, dict[str, str | float | bool]] | None:
+    from models.validation_v2 import ValidationHoldoutResult, ValidationLock
 
-
-def _config_fallback_pair() -> tuple[str, str]:
-    return PRODUCTION_MAIN_ALGO, PRODUCTION_STRONG_ALGO
+    holdout = (
+        db.query(ValidationHoldoutResult)
+        .filter(ValidationHoldoutResult.verdict == "pass")
+        .order_by(ValidationHoldoutResult.id.desc())
+        .first()
+    )
+    if holdout is None:
+        return None
+    lock = (
+        db.query(ValidationLock)
+        .filter(ValidationLock.experiment_id == holdout.experiment_id)
+        .one_or_none()
+    )
+    if lock is None:
+        logger.error("Arrr! Holdout pass without a lock row")
+        return None
+    return (
+        lock.main_algorithm,
+        lock.strong_algorithm,
+        {
+            "source": "validation_v2",
+            "detail": "sealed_holdout_pass",
+            "strategy_id": lock.strategy_id,
+            "no_edge": False,
+            "has_predictive_edge": True,
+        },
+    )

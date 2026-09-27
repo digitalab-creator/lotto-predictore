@@ -10,7 +10,9 @@ from logger import logger
 from models import Draw, IngestState
 from services.pack_notifier import PackNotifier
 from services.prediction_service import PredictionService
+from services.pais_draw_rules import CURRENT_REGIME_START
 from services.real_ticket_settlement import RealTicketSettlementService
+from services.shadow_commitment import settle_shadow_for_draw
 from services.sync_draws import SyncDrawsResult, sync_draws_incremental
 from services.ticket_pack_service import TicketPackService
 from services.walk_forward_incremental import (
@@ -42,7 +44,7 @@ class PostDrawChainService:
         out["chain_ran"] = True
         latest = (
             self.db.query(Draw)
-            .filter(Draw.strong_number <= 7)
+            .filter(Draw.date >= CURRENT_REGIME_START)
             .order_by(Draw.date.desc())
             .first()
         )
@@ -52,6 +54,7 @@ class PostDrawChainService:
 
         settlement = RealTicketSettlementService(self.db).settle_submitted_pack_for_draw(latest)
         out["settlement"] = settlement
+        out["shadow"] = settle_shadow_for_draw(self.db, latest)
 
         bootstrap = ensure_walk_forward_bootstrapped(self.db)
         out["walk_forward_bootstrap"] = bootstrap

@@ -64,7 +64,11 @@ def simulate(
     algo_names = [a.strip() for a in algorithms.split(",")] if algorithms else None
     strong_algo_names = [a.strip() for a in strong_algorithms.split(",")] if strong_algorithms else None
     results = engine.run_comparison(train_start, train_end, test_count, top_n, algo_names=algo_names, strong_algo_names=strong_algo_names)
-    return results
+    return {
+        "evidence_valid": False,
+        "evidence_reason": "This comparison reuses one portfolio on later draws. It is not the sealed go/no-go test. Read /validation/report.",
+        "comparison": results,
+    }
 
 @app.get("/simulate/table", response_class=PlainTextResponse)
 def simulate_table(
@@ -78,12 +82,9 @@ def simulate_table(
     db: Session = Depends(get_db)
 ):
     # Arrr! If train_start or train_end be None, calculate 'em from draws and test_count, praisin' the FSM!
-    draws = db.query(Draw).filter(Draw.strong_number <= 7).order_by(Draw.date).all()
-    filtered_count = db.query(Draw).filter(Draw.strong_number == 8).count()
-    logger.info(
-        "Arrr! Filtered out draws with strong_number == 8, praisin' the FSM!",
-        context={"filtered_count": filtered_count, "total_after_filter": len(draws)}
-    )
+    from services.pais_draw_rules import CURRENT_REGIME_START
+
+    draws = db.query(Draw).filter(Draw.date >= CURRENT_REGIME_START).order_by(Draw.date).all()
     if train_start is None or train_end is None:
         if len(draws) <= test_count:
             logger.error(
@@ -117,7 +118,9 @@ def simulate_table(
         use_tabulate = True
     except ImportError:
         use_tabulate = False
-    output = []
+    output = [
+        "EVIDENCE INVALID: reused portfolio, not a sealed test. See /validation/report."
+    ]
     for (main_version, strong_version), res in results.items():
         output.append(f"\nAlgorithm: {main_version} | Strong: {strong_version}")
         headers = ["Date", "Actual Numbers", "Actual Strong", "Max Hits", "Any Strong Hit", "Total Prize", "Total"]
@@ -431,8 +434,10 @@ async def send_best_model_email():
 app.include_router(router)
 
 from api.ticket_packs_router import router as ticket_packs_router  # noqa: E402  # type: ignore[import-not-found]
+from api.validation_router import router as validation_router  # noqa: E402  # type: ignore[import-not-found]
 
 app.include_router(ticket_packs_router)
+app.include_router(validation_router)
 
 @app.get("/health")
 async def health_check(db: Session = Depends(get_db)):

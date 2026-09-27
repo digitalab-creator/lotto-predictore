@@ -20,6 +20,9 @@ from models import Draw, Model, ModelType
 from models.generated_combination import GeneratedCombination
 from models.prediction import Prediction
 from services.algorithm_runner import run_strategy_on_draws
+from services.coverage_optimizer import load_cached_lines
+from services.game_regime import split_regime
+from services.pais_draw_rules import CURRENT_REGIME_START
 from services.strategy_selection import choose_production_strategy
 from services.portfolio_refiner import refine_portfolio
 from services.ticket_validator import TicketValidationError
@@ -49,12 +52,18 @@ class PredictionService:
         """
         logger.info("Arrr! generate_next_draw — praisin' the FSM!")
         try:
-            draws = (
+            rows = (
                 self.db.query(Draw)
-                .filter(Draw.strong_number <= 7)
+                .filter(Draw.date >= CURRENT_REGIME_START)
                 .order_by(Draw.date.asc())
                 .all()
             )
+            draws, illegal = split_regime(rows)
+            if illegal:
+                logger.error(
+                    "Arrr! Current-regime rows failed the 6/37 + strong 1-7 check",
+                    context={"illegal": len(illegal)},
+                )
             if len(draws) < MIN_DRAWS_FOR_PRODUCTION:
                 msg = f"Not enough draws in database (need {MIN_DRAWS_FOR_PRODUCTION})"
                 logger.error(msg, context={"draw_count": len(draws)})
@@ -66,15 +75,23 @@ class PredictionService:
             main_algo, strong_algo, strategy_meta = self._select_production_strategy()
 
             top_n = _top_n_for_algo(main_algo)
-            raw_lines, _algo_params = run_strategy_on_draws(
-                train_draws=draws,
-                main_algo=main_algo,
-                strong_algo=strong_algo,
-                as_of_date=as_of_date,
-                rng=self.rng,
-                db=self.db if main_algo.startswith("sequence_lstm") else None,
-            )
-            lines = refine_portfolio(raw_lines, self.rng)
+            if strategy_meta.get("use_coverage"):
+                cached = load_cached_lines(self.db)
+                if not cached:
+                    msg = "Coverage pack is not cached yet. Run scripts/run_validation_v2.py first."
+                    logger.error(msg)
+                    return {"success": False, "message": msg, "tables": []}
+                lines = cached
+            else:
+                raw_lines, _algo_params = run_strategy_on_draws(
+                    train_draws=draws,
+                    main_algo=main_algo,
+                    strong_algo=strong_algo,
+                    as_of_date=as_of_date,
+                    rng=self.rng,
+                    db=self.db if main_algo.startswith("sequence_lstm") else None,
+                )
+                lines = refine_portfolio(raw_lines, self.rng)
 
             target_draw_number = None
             if last_draw.draw_number is not None:

@@ -1,8 +1,9 @@
 ---
 description: >-
-  Business priorities for lotto-predictore — prove payworthy improvement in
-  chances first, revenue from using the product second. Read the lens file before
-  prioritizing work.
+  Business priorities for lotto-predictore. The question is whether future
+  draws are non-random and whether the algorithm exploits that out of sample.
+  Use spare server resources only; never interrupt other apps. Revenue from use
+  is second. Read the lens file before prioritizing work.
 alwaysApply: true
 ---
 
@@ -10,8 +11,16 @@ alwaysApply: true
 
 Before planning or shipping on lotto-predictore, read **`.cursor/business-lens.md`** (also `project.business_lens` in `.cursor/project.yaml`).
 
-**Primary:** prove the app **actually improves lottery chances** enough that **investing money** (tickets, time, tooling) is rational — walk-forward, real settlement, official prizes, honest baselines.
+**The question:** האם תוצאות עתידיות בפועל מתנהגות באופן שאינו אקראי, והאם האלגוריתם מצליח לנצל את זה מחוץ לנתונים שעליהם הוא נבנה?
 
-**Secondary:** **הכנסה נוספת משימוש בזה** — additional revenue from using the product, only after measurement is trustworthy.
+In English: do **future real results** behave in a way that is **not random**, and does the algorithm **exploit that outside the data it was built on**?
 
-If a task does not move primary proof or secondary revenue, do not implement it — record it instead.
+A past analysis did **not** show this. In-sample fit is not an answer. Walk-forward on official draws is.
+
+**Primary:** change the logic and run enough tests until both parts are yes — or a test shows the idea is noise and should be dropped.
+
+**Secondary:** **הכנסה נוספת משימוש בזה** — extra income from using the product, only after both parts are yes.
+
+**Resources (always):** this app is heavy. Use as much CPU and RAM as the server can spare, with **zero interruption** to other apps on this host. One limiter: `config/resource_governor.yaml`. Neighbors win every scheduling fight.
+
+If a task does not help answer that question, use spare capacity safely, or that later revenue, do not implement it — record it instead.

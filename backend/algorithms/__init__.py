@@ -16,15 +16,10 @@ from . import pattern_learning
 from . import skip_distance
 from . import strong_number
 from . import uniform_random
-from . import dl
-
-# Try to import DL module, but don't fail if it's not available
-try:
-    from . import dl
-except ImportError as e:
-    logger.error(f"Failed to import DL module: {str(e)}", context={"error": str(e)})
 
 def register_algorithms():
-    """Register all algorithms with the registry"""
-    # All algorithms are registered via decorators when imported
-    pass
+    """Register neural nets too. Importing this package does not load them."""
+    try:
+        from . import dl  # noqa: F401
+    except ImportError as exc:
+        logger.error(f"Failed to import DL module: {str(exc)}", context={"error": str(exc)})

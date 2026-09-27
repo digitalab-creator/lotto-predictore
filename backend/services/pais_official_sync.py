@@ -3,14 +3,13 @@
 from __future__ import annotations
 
 import os
-import time
 from datetime import date, datetime, timedelta, timezone
 
 import httpx
 from sqlalchemy import func, or_, select
 from sqlalchemy.exc import IntegrityError
 
-from config import TICKET_COST_ILS
+from config import PAIS_MAX_FAILURES, TICKET_COST_ILS
 from logger import logger
 from models import Draw, DrawQuarantine, IngestState
 from services.draw_prize import PAIS_CSV_SOURCE, utc_now
@@ -27,10 +26,10 @@ from services.pais_draw_rules import (
     rejection_reason,
 )
 from services.pais_proxy import PaisSourceError, open_pais_client
+from services.pais_rate_limit import mark_pais_error_cooldown
 from services.sync_draws import SyncDrawsResult
 
-# The CSV plus one draw page is the burst Pais still answers. A second prize
-# page in the same minute comes back as the Hebrew server-error page.
+# One prize page per sync run. Spacing is the shared Pais gate, not a private sleep.
 PRIZE_FILL_PER_RUN = 1
 PRIZE_FILL_SINCE = date(2024, 10, 1)
 INGEST_STATE_ID = 1
@@ -164,16 +163,16 @@ def _fill_missing_prizes(db, client, rows_by_number: dict[int, CsvDraw]) -> int:
     for draw in pending:
         if draw.draw_number not in rows_by_number:
             continue
-        time.sleep(2.0)
         try:
             prizes = fetch_draw_detail(client, int(draw.draw_number))
         except (httpx.HTTPError, PaisSourceError) as exc:
             failures += 1
+            mark_pais_error_cooldown()
             logger.error(
                 "Pais draw page failed",
                 context={"draw_number": draw.draw_number, "error": str(exc)},
             )
-            if failures >= 3:
+            if failures >= PAIS_MAX_FAILURES:
                 logger.error("Pais prize fill stopped after repeated error pages")
                 break
             continue

@@ -7,6 +7,11 @@ from datetime import date, timedelta
 
 # After this date the draw numbers climb 1035 → today. Older rows use a different number series.
 MODERN_SERIES_START = date(1999, 9, 1)
+# Last stored strong number 8 is draw 2233 on 2011-03-01.
+# From the next draw (2011-03-05) every year has strong in 1–7 only.
+# The rest of 2011 has zero 8s; that is not luck under a 1–8 wheel.
+# Draws before this date are a different game, even when their strong was 1–7.
+CURRENT_REGIME_START = date(2011, 3, 5)
 REGULAR_MIN = 1
 REGULAR_MAX = 37
 STRONG_MIN = 1

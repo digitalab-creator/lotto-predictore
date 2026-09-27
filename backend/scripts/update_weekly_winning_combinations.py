@@ -6,6 +6,7 @@ from sqlalchemy import text
 from db import SessionLocal
 from models.weekly_winning_combination import WeeklyWinningCombination
 from logger import logger
+from services.draw_prize import ticket_cost_sql_literal
 import traceback
 import json
 
@@ -51,6 +52,7 @@ def update_weekly_winning_combinations():
             """)
             
             count_result = db.execute(check_query, {"week_start": week_start, "week_end": week_end}).scalar()
+            cost = ticket_cost_sql_literal()
             
             if count_result == 0:
                 logger.warning(
@@ -58,16 +60,16 @@ def update_weekly_winning_combinations():
                     context={"week_start": week_start.isoformat(), "week_end": week_end.isoformat()}
                 )
                 # Use all-time data if no data for this week
-                query = text("""
+                query = text(f"""
                     SELECT
                         p.model_id,
                         p.strong_model_id,
                         p.main_model_params::text AS main_model_params,
                         p.strong_model_params::text AS strong_model_params,
-                        ROUND(SUM(d.prize)::numeric / NULLIF(COUNT(d.id) * 3.10, 0)::numeric - 1, 4) AS total_roi,
+                        ROUND(SUM(d.prize)::numeric / NULLIF(COUNT(d.id) * {cost}, 0)::numeric - 1, 4) AS total_roi,
                         COUNT(DISTINCT p.id) AS num_prediction_runs,
                         COUNT(d.id) AS num_tickets,
-                        ROUND((COUNT(d.id) * 3.10)::numeric, 2) AS total_cost,
+                        ROUND((COUNT(d.id) * {cost})::numeric, 2) AS total_cost,
                         ROUND(SUM(d.prize)::numeric, 2) AS total_prize,
                         MIN(p.train_start_date) AS train_start_date,
                         MAX(p.train_end_date) AS train_end_date,
@@ -89,16 +91,16 @@ def update_weekly_winning_combinations():
                     context={"week_start": week_start.isoformat(), "week_end": week_end.isoformat()}
                 )
                 # Use weekly data
-                query = text("""
+                query = text(f"""
                     SELECT
                         p.model_id,
                         p.strong_model_id,
                         p.main_model_params::text AS main_model_params,
                         p.strong_model_params::text AS strong_model_params,
-                        ROUND(SUM(d.prize)::numeric / NULLIF(COUNT(d.id) * 3.10, 0)::numeric - 1, 4) AS total_roi,
+                        ROUND(SUM(d.prize)::numeric / NULLIF(COUNT(d.id) * {cost}, 0)::numeric - 1, 4) AS total_roi,
                         COUNT(DISTINCT p.id) AS num_prediction_runs,
                         COUNT(d.id) AS num_tickets,
-                        ROUND((COUNT(d.id) * 3.10)::numeric, 2) AS total_cost,
+                        ROUND((COUNT(d.id) * {cost})::numeric, 2) AS total_cost,
                         ROUND(SUM(d.prize)::numeric, 2) AS total_prize,
                         MIN(p.train_start_date) AS train_start_date,
                         MAX(p.train_end_date) AS train_end_date,

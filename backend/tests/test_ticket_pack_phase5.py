@@ -11,6 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from db import Base
+from models.validation_v2 import ShadowCommitment
 from models.ticket_pack import (
     PACK_STATUS_NOT_SUBMITTED,
     PackDelivery,
@@ -45,6 +46,7 @@ def _pack_db():
             TicketPack.__table__,
             RealTicketBatch.__table__,
             PackDelivery.__table__,
+            ShadowCommitment.__table__,
         ],
     )
     return sessionmaker(bind=engine)()

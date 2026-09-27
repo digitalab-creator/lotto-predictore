@@ -74,6 +74,11 @@ def draw_ticket_cost(draw) -> float:
     return float(TICKET_COST_ILS)
 
 
+def ticket_cost_sql_literal() -> str:
+    """SQL number for one line. Same shekel constant as TICKET_COST_ILS."""
+    return f"{float(TICKET_COST_ILS):.2f}"
+
+
 def calculate_prize(draw, hits: int, strong_hit: bool) -> Optional[float]:
     """
     Prize for one line against a real draw row.
