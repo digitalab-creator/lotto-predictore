@@ -49,7 +49,8 @@ def send_best_model_email():
                 }
                 for table in data["tables"]
             ],
-            "model_info": data["model_info"]
+            "model_info": data["model_info"],
+            "pack_url": data.get("pack_url") or data.get("model_info", {}).get("pack_url"),
         }
         
         logger.info(

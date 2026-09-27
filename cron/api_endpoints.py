@@ -281,7 +281,9 @@ def best_model_job_endpoint():
         email_data = {
             "date": tables_data["date"],
             "tables": tables_data["tables"],
-            "model_info": tables_data["model_info"]
+            "model_info": tables_data["model_info"],
+            "pack_url": tables_data.get("pack_url")
+            or (tables_data.get("model_info") or {}).get("pack_url"),
         }
         
         # Send email directly to email service

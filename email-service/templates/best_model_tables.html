@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Best Model Lottery Tables - {{ date }}</title>
+    <title>Next draw ticket pack - {{ date }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,32 +76,44 @@
             border-radius: 3px;
             font-weight: bold;
         }
+        .edge-warn {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>🏆 Best Model Lottery Tables - {{ date }}</h1>
-        <p>Generated using the highest performing model combination with ROI > 1</p>
+        <h1>🎫 Next draw ticket pack — {{ date }}</h1>
+        <p>8 copy-ready lines for the <strong>upcoming</strong> draw (not a report of past winnings).</p>
     </div>
     
     <div class="model-info">
-        <h3>📊 Model Performance Information</h3>
-        <p><strong>Main Algorithm:</strong> {{ model_info.main_model }}</p>
-        <p><strong>Strong Number Algorithm:</strong> {{ model_info.strong_model }}</p>
-        <p><strong>ROI Ratio:</strong> <span class="highlight">{{ model_info.roi_ratio }}</span></p>
-        <p><strong>Total Prize:</strong> {{ model_info.total_prize }}</p>
-        <p><strong>Total Cost:</strong> {{ model_info.total_cost }}</p>
-        <p><strong>Total Predictions:</strong> {{ model_info.total_predictions }}</p>
+        <h3>📊 How this pack was chosen</h3>
+        <p><strong>Main algorithm:</strong> {{ model_info.main_model }}</p>
+        <p><strong>Strong number:</strong> {{ model_info.strong_model }}</p>
+        <p><strong>Training cutoff (last known draw):</strong> {{ model_info.training_cutoff }}</p>
+        {% if model_info.target_draw_number %}
+        <p><strong>Target draw #:</strong> {{ model_info.target_draw_number }}</p>
+        {% endif %}
+        <p><strong>Planned stake:</strong> {{ model_info.total_cost }} ({{ model_info.lines_count }} lines)</p>
+        <p class="edge-warn"><strong>Scoreboard:</strong> <span class="highlight">{{ model_info.edge_summary or model_info.roi_ratio }}</span></p>
+        <p><em>{{ model_info.total_prize }}</em></p>
+        {% if pack_url %}
+        <p><a href="{{ pack_url }}">Open pack page (mark submitted / not submitted)</a></p>
+        {% endif %}
     </div>
     
     <div class="table-container">
-        <h2>🎯 Recommended Combinations</h2>
+        <h2>🎯 Recommended combinations</h2>
         <table>
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Numbers</th>
-                    <th>Strong Number</th>
+                    <th>Strong number</th>
                 </tr>
             </thead>
             <tbody>
@@ -117,13 +129,13 @@
     </div>
     
     <div style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
-        <h3>💡 Important Notes</h3>
+        <h3>💡 Important notes</h3>
         <ul>
-            <li>These combinations are generated using the best performing model combination with ROI > 1</li>
-            <li>The model has been tested on historical data and shows positive returns</li>
-            <li>Past performance does not guarantee future results</li>
-            <li>Please play responsibly and within your means</li>
+            <li>This email is a <strong>purchase aid</strong> — you still buy tickets at a physical Mifal HaPais counter.</li>
+            <li>Simulated performance lives on the walk-forward scoreboard; it is <strong>not</strong> “total prize ₪0” on your real ticket.</li>
+            <li>Past simulated results do not guarantee future results.</li>
+            <li>Please play responsibly and within your means.</li>
         </ul>
     </div>
 </body>
-</html> 
+</html>

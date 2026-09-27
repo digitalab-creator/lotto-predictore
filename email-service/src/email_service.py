@@ -148,18 +148,26 @@ class EmailService:
         date: str,
         tables: List[Dict[str, Any]],
         model_info: Dict[str, Any],
-        attachments: Optional[List[Dict[str, Any]]] = None
+        pack_url: Optional[str] = None,
+        attachments: Optional[List[Dict[str, Any]]] = None,
     ) -> bool:
-        """Send best model lottery tables email"""
+        """Send next-draw ticket pack email (legacy endpoint name)."""
+        draw_num = model_info.get("target_draw_number")
+        subject = (
+            f"Lotto {draw_num} — 8 tickets — {date}"
+            if draw_num
+            else f"Next draw ticket pack — {date}"
+        )
         return self.send_email(
-            subject=f"Best Model Lottery Tables - {date}",
-            template_name='best_model_tables.html',
+            subject=subject,
+            template_name="best_model_tables.html",
             template_data={
-                'date': date,
-                'tables': tables,
-                'model_info': model_info
+                "date": date,
+                "tables": tables,
+                "model_info": model_info,
+                "pack_url": pack_url or model_info.get("pack_url"),
             },
-            attachments=attachments
+            attachments=attachments,
         )
 
     def send_error_notification(

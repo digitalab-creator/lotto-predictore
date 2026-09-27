@@ -31,6 +31,7 @@ class BestModelTablesRequest(BaseModel):
     date: str
     tables: List[Dict[str, Any]]
     model_info: Dict[str, Any]
+    pack_url: Optional[str] = None
     attachments: Optional[List[Dict[str, Any]]] = None
 
 class ErrorNotificationRequest(BaseModel):
@@ -93,7 +94,8 @@ async def send_best_model_tables(request: BestModelTablesRequest):
             date=request.date,
             tables=request.tables,
             model_info=request.model_info,
-            attachments=request.attachments
+            pack_url=request.pack_url,
+            attachments=request.attachments,
         )
         if not success:
             raise HTTPException(status_code=500, detail="Failed to send best model tables")
