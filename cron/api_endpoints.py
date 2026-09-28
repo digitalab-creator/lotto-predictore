@@ -255,6 +255,14 @@ def best_model_job_endpoint():
     Endpoint to manually trigger best model table generation and email sending.
     This is the same logic used by the scheduled job.
     """
+    from shared.feature_flags import SKIPPED_WEEKLY_JOBS_MESSAGE, WEEKLY_EMAIL_AND_JOBS_ENABLED
+
+    if not WEEKLY_EMAIL_AND_JOBS_ENABLED:
+        logger.info("Arrr! Best model job skipped — WEEKLY_EMAIL_AND_JOBS_ENABLED is false")
+        return {
+            "status": "skipped",
+            "message": SKIPPED_WEEKLY_JOBS_MESSAGE,
+        }
     try:
         import requests
         import os

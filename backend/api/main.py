@@ -249,6 +249,10 @@ def get_weekly_winning_combinations(db: Session = Depends(get_db)):
 @router.post("/cron/generate-weekly-combinations")
 async def generate_weekly_combinations():
     """Generate weekly combinations — same path as /generate-combinations."""
+    from services.weekly_jobs_gate import skipped_weekly_jobs_payload, weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        return skipped_weekly_jobs_payload(job="generate-weekly-combinations")
     from services.prediction_service import PredictionService
 
     logger.info("Arrr! cron generate-weekly-combinations → generate_next_draw")
@@ -339,6 +343,10 @@ async def reconcile_draws():
 @router.post("/cron/generate-weekly-tables")
 async def generate_weekly_tables():
     """Generate weekly tables - called by cron service"""
+    from services.weekly_jobs_gate import skipped_weekly_jobs_payload, weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        return skipped_weekly_jobs_payload(job="generate-weekly-tables")
     try:
         # Import and run the script
         from scripts.generate_weekly_tables import main as generate_tables
@@ -350,6 +358,10 @@ async def generate_weekly_tables():
 @router.post("/cron/update-weekly-winning-combinations")
 async def update_weekly_winning_combinations():
     """Update weekly winning combinations - called by cron service"""
+    from services.weekly_jobs_gate import skipped_weekly_jobs_payload, weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        return skipped_weekly_jobs_payload(job="update-weekly-winning-combinations")
     try:
         # Import and run the script
         from scripts.update_weekly_winning_combinations import update_weekly_winning_combinations
@@ -361,6 +373,10 @@ async def update_weekly_winning_combinations():
 @router.post("/cron/generate-best-model-tables")
 async def generate_best_model_tables():
     """Generate tables using the best performing model (ROI > 1) - called by cron service"""
+    from services.weekly_jobs_gate import skipped_weekly_jobs_payload, weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        return skipped_weekly_jobs_payload(job="generate-best-model-tables")
     try:
         # Import and run the script
         from scripts.generate_best_model_tables import generate_best_model_tables
@@ -415,6 +431,10 @@ def walk_forward_refresh(
 @router.post("/cron/send-best-model-email")
 async def send_best_model_email():
     """Send email with best model tables - called by cron service"""
+    from services.weekly_jobs_gate import skipped_weekly_jobs_payload, weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        return skipped_weekly_jobs_payload(job="send-best-model-email")
     try:
         # Import and run the script
         from scripts.send_best_model_email import send_best_model_email

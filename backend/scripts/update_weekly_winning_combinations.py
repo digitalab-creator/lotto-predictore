@@ -15,6 +15,14 @@ def update_weekly_winning_combinations():
     Updates the top 5 winning model combinations for the current week.
     This should be run once per week.
     """
+    from services.weekly_jobs_gate import weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        logger.info(
+            "Arrr! Weekly winning combinations update skipped — "
+            "WEEKLY_EMAIL_AND_JOBS_ENABLED is false"
+        )
+        return
     start_time = datetime.datetime.utcnow()
     logger.info(
         "Arrr! Starting weekly winning combinations update! Praisin' the FSM!",

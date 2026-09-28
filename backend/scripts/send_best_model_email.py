@@ -16,6 +16,13 @@ def send_best_model_email():
     """
     Sends an email with the best model tables using the email microservice.
     """
+    from services.weekly_jobs_gate import weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        logger.info(
+            "Arrr! Best model email skipped — WEEKLY_EMAIL_AND_JOBS_ENABLED is false"
+        )
+        return {"success": True, "skipped": True, "message": "Feature flag off"}
     logger.info("Arrr! Starting best model email sending! Praisin' the FSM!")
     
     try:

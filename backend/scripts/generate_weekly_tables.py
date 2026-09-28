@@ -24,6 +24,13 @@ def generate_tables():
     Generates lottery tables using the best performing model and parameters.
     Sends them via email.
     """
+    from services.weekly_jobs_gate import weekly_email_and_jobs_enabled
+
+    if not weekly_email_and_jobs_enabled():
+        logger.info(
+            "Arrr! Weekly table generation skipped — WEEKLY_EMAIL_AND_JOBS_ENABLED is false"
+        )
+        return
     logger.info("Arrr! Starting weekly table generation! Praisin' the FSM!")
     
     try:

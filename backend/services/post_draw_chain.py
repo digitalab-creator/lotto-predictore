@@ -77,14 +77,16 @@ class PostDrawChainService:
             return out
         pack = TicketPackService(self.db).get_pack(int(pack_id))
         if pack:
-            prev_draw = (
-                self.db.query(Draw)
-                .filter(Draw.date < latest.date)
-                .order_by(Draw.date.desc())
-                .first()
+            from services.weekly_jobs_gate import (
+                skipped_weekly_jobs_payload,
+                weekly_email_and_jobs_enabled,
             )
-            notify = PackNotifier(self.db).send_pack(pack, last_draw=latest)
-            out["notifications"] = notify
+
+            if weekly_email_and_jobs_enabled():
+                notify = PackNotifier(self.db).send_pack(pack, last_draw=latest)
+                out["notifications"] = notify
+            else:
+                out["notifications"] = skipped_weekly_jobs_payload(job="post_draw_pack_notify")
         return out
 
     def run_full(self, *, allow_magayo: bool = False) -> dict[str, Any]:
