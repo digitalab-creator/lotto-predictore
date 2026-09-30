@@ -89,9 +89,8 @@ def _run_job_with_error_handling(job_name: str, job_function, last_successful_jo
             "scheduled_time": datetime.now().isoformat(),
             "job_type": "scheduled"
         })
-        
-        # Re-raise the exception so the scheduler knows the job failed
-        raise
+        # Do not re-raise: schedule marks last_run only when the job returns.
+        # Re-raising left the daily job "due" and it retried every minute → email spam.
 
 def _run_cleanup_with_tracking(last_successful_job: dict):
     """Run cleanup and track success"""

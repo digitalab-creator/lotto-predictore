@@ -1,11 +1,14 @@
 import os
 import requests
 import traceback
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, Any, Optional
 from shared.logging_service import get_cron_logger
 
 logger = get_cron_logger()
+
+_DEFAULT_ERROR_EMAIL_COOLDOWN_SECONDS = 3600
+
 
 class CronErrorHandler:
     """Centralized error handling and notification for cron jobs"""
@@ -13,6 +16,15 @@ class CronErrorHandler:
     def __init__(self):
         self.backend_url = os.getenv('BACKEND_URL', 'http://backend:8000')
         self.email_url = os.getenv('EMAIL_SERVICE_URL', 'http://email-service:8000')
+        self._error_email_cooldown = timedelta(
+            seconds=int(
+                os.getenv(
+                    "CRON_ERROR_EMAIL_COOLDOWN_SECONDS",
+                    str(_DEFAULT_ERROR_EMAIL_COOLDOWN_SECONDS),
+                )
+            )
+        )
+        self._last_error_email_at: Dict[str, datetime] = {}
     
     def handle_job_error(self, job_name: str, error: Exception, context: Optional[Dict[str, Any]] = None) -> None:
         """
@@ -50,8 +62,23 @@ class CronErrorHandler:
                 }
             )
     
+    def _should_send_error_email(self, job_name: str) -> bool:
+        last_sent = self._last_error_email_at.get(job_name)
+        if last_sent is None:
+            return True
+        return datetime.now() - last_sent >= self._error_email_cooldown
+
     def _send_error_notification(self, job_name: str, error: Exception, context: Optional[Dict[str, Any]] = None) -> None:
         """Send email notification about the failed job"""
+        if not self._should_send_error_email(job_name):
+            logger.info(
+                f"Arrr! Skipping error email for job '{job_name}' (cooldown active)",
+                context={
+                    "job_name": job_name,
+                    "cooldown_seconds": int(self._error_email_cooldown.total_seconds()),
+                },
+            )
+            return
         try:
             # Prepare error notification data in the format expected by email service
             error_data = {
@@ -68,7 +95,8 @@ class CronErrorHandler:
                 timeout=30
             )
             response.raise_for_status()
-            
+            self._last_error_email_at[job_name] = datetime.now()
+
             logger.info(
                 f"Arrr! Error notification sent for job '{job_name}'",
                 context={"job_name": job_name}
